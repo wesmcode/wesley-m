@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Wesley Melo</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+      font-size: 11pt;
+      line-height: 1.4;
+      color: #434343;
+      background: #f5f5f5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 816px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .download-btn {
+      position: absolute;
+      top: 56px;
+      right: 64px;
+      background: #2B3856;
+      color: #fff;
+      font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+      font-size: 10pt;
+      text-decoration: none;
+      padding: 6px 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    .download-btn:hover {
+      background: #000;
+    }
+
+    /* Header */
+    h1 {
+      font-size: 54px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      color: #434343;
+    }
+
+    .contact {
+      font-size: 11pt;
+      line-height: 1.4;
+      color: #434343;
+      margin-bottom: 4px;
+    }
+
+    .contact a {
+      color: #434343;
+      text-decoration: underline;
+    }
+
+    .contact a:hover {
+      color: #000;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-bottom: 0.5px solid #434343;
+      padding-bottom: 2px;
+      margin-bottom: 8px;
+      color: #434343;
+    }
+
+    /* Summary */
+    .summary li {
+      font-size: 11pt;
+      line-height: 1.4;
+      color: #434343;
+      margin-bottom: 2px;
+      padding-left: 18px;
+      position: relative;
+      list-style: none;
+      text-align: justify;
+    }
+
+    .summary li::before {
+      content: '\25A0';
+      position: absolute;
+      left: 2px;
+      font-size: 6px;
+      top: 5px;
+      color: #434343;
+    }
+
+    /* Jobs */
+    .job {
+      margin-bottom: 12px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 0;
+    }
+
+    .job-company {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #434343;
+    }
+
+    .job-location {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #434343;
+    }
+
+    .job-role-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 2px;
+    }
+
+    .job-role {
+      font-size: 11pt;
+      font-style: normal;
+      color: #434343;
+    }
+
+    .job-dates {
+      font-size: 11pt;
+      color: #434343;
+    }
+
+    .job ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .job li {
+      font-size: 11pt;
+      line-height: 1.4;
+      color: #434343;
+      margin-bottom: 2px;
+      padding-left: 18px;
+      position: relative;
+      text-align: justify;
+    }
+
+    .job li::before {
+      content: '\25A0';
+      position: absolute;
+      left: 2px;
+      font-size: 6px;
+      top: 5px;
+      color: #434343;
+    }
+
+    /* Education & Certs */
+    .edu-item, .cert-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 0;
+    }
+
+    .edu-name {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #434343;
+    }
+
+    .edu-detail {
+      font-size: 11pt;
+      color: #434343;
+      margin-bottom: 6px;
+    }
+
+    .edu-loc, .cert-org {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #434343;
+    }
+
+    .cert-name {
+      font-size: 11pt;
+      color: #434343;
+    }
+
+    /* Skills */
+    .skills-group {
+      margin-bottom: 2px;
+      text-align: justify;
+    }
+
+    .skills-label {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #434343;
+    }
+
+    .skills-list {
+      font-size: 11pt;
+      color: #434343;
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .download-btn {
+        display: none;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 520px) {
+      .page {
+        margin: 0;
+        padding: 28px 20px;
+        box-shadow: none;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <a href="wesley_melo_resume_es_remote.pdf" download class="download-btn">Download .PDF</a>
+
+    <h1>WESLEY MELO</h1>
+    <div class="contact">
+      Spain (Remote) | +34 660 28 93 78 | <a href="https://linkedin.com/in/wesmelo" target="_blank">linkedin.com/in/wesmelo</a> | <a href="mailto:sync.wesm@gmail.com">sync.wesm@gmail.com</a>
+    </div>
+
+    <!-- Summary -->
+    <div class="section">
+      <div class="section-title">Summary</div>
+      <ul class="summary">
+        <li>6+ years of experience in agile development, product management and consulting for Fitness, Health, Enterprise SaaS platforms, Media and Publishing, and AI/ML Products with experience in high growth and product innovation.</li>
+        <li>Led the development of a digital membership management platform, reducing cancellation complaints by 65% and increasing online membership transactions to 70% within six months.</li>
+        <li>Managed remote cross-functional teams across the US, Brazil, and India to deliver end-to-end product features from concept to launch, driving continuous iterations that improved customer outcomes and increased user engagement.</li>
+      </ul>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="section">
+      <div class="section-title">Work Experience</div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Code and Theory</span>
+          <span class="job-location">Remote</span>
+        </div>
+        <div class="job-role-row">
+          <span class="job-role">Senior Product Manager</span>
+          <span class="job-dates">April 2025 - Present</span>
+        </div>
+        <ul>
+          <li>Turned an internal audit tool into a B2B SaaS AI platform with 8 agents (Crawler Analysis, UX Heuristics, Brand Perception, and 5 others), securing 4 enterprise clients across financial services and manufacturing in 90 days and building a $120K+ pilot pipeline, with one buyer requested pricing unprompted during a live C-suite demo.</li>
+          <li>Made the call to migrate from V0 prototypes to Payload CMS mid-sales-cycle. This move enabled live dashboard updates without redeployment, which saved a client relationship when needed last-minute data corrections before a board presentation.</li>
+          <li>Resolved a weeks-long ML-vs-UX deadlock on AI agent quality: the ML team wanted 90%+ confidence thresholds, the design team wanted more results at lower confidence. Defined a transparency-first approach with visible confidence scores that enterprise clients confirmed met standards.</li>
+          <li>Turned ambiguous directive from client (65M+ monthly views, 16 properties) into an 86-feature product inventory with KPI traceability, acceptance criteria, and sprint assignments. Architected the phased consolidation of 5 subsites into the flagship platform with weekly SEO monitoring and rollback capability to protect a 65/100 domain authority.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Liferay</span>
+          <span class="job-location">Brazil</span>
+        </div>
+        <div class="job-role-row">
+          <span class="job-role">Senior Product Manager</span>
+          <span class="job-dates">November 2023 - March 2025</span>
+        </div>
+        <ul>
+          <li>Spearheaded product roadmap development and prioritized feature delivery and enhancements to enable workflow automation, low-code integrations, localization, ticketing, and CMS products, impacting 1200+ users and achieving over 80% of quarterly delivery targets.</li>
+          <li>Directed design and engineering to conceptualize, identify gaps, requirements definitions, create 15+ detailed process maps to guide product development, architect solutions, release management and deployment phases.</li>
+          <li>Authored and communicated detailed product plans using Jira and Confluence, managing 200+ backlog items and creating 40+ documentation artifacts, resulting in 70% fewer scope misunderstandings, 40% reduced cycle time, and 60% strengthened delivery predictability.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">ThoughtWorks</span>
+          <span class="job-location">Remote</span>
+        </div>
+        <div class="job-role-row">
+          <span class="job-role">Product Manager</span>
+          <span class="job-dates">December 2022 – November 2023</span>
+        </div>
+        <ul>
+          <li>Drove strategic initiatives alongside the Head of Product, mentoring 5 product managers and conducting 8 training workshops, resulting in 80% departmental growth.</li>
+          <li>Partnered closely with engineering and design teams using Figma and Jira, implementing bi-weekly feedback loops that increased feature relevance by 45% for a C2C marketplace platform.</li>
+        </ul>
+        <div class="job-role-row" style="margin-top: 4px;">
+          <span class="job-role">Product Manager</span>
+          <span class="job-dates">December 2020 – December 2022</span>
+        </div>
+        <ul>
+          <li>Championed the online membership management platform that reduced cancellation complaints by 65%, expanded memberships by 30% and enabled 70% of membership changes processed online, which contributed to a 164% client's revenue increase.</li>
+          <li>Managed a globally distributed, cross-functional team remotely, communicated clear product requirements, removed blockers, and accelerated delivery timelines by 25%.</li>
+          <li>Engaged on growth funnels initiatives (customer acquisition and user retention) to optimize and leverage the product experiments through A/B testing for different countries, feature changes and lifecycle management across digital channels.</li>
+          <li>Drove the transition from Kanban to Scrum, increasing sprint forecast accuracy and delivery efficiency by 20%, and reducing meetings by 70%.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-company">Accenture</span>
+          <span class="job-location">Brazil</span>
+        </div>
+        <div class="job-role-row">
+          <span class="job-role">Software Engineer</span>
+          <span class="job-dates">2014 – 2019</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-title">Education</div>
+
+      <div class="edu-item">
+        <span class="edu-name">Reforge</span>
+        <span class="edu-loc">Remote</span>
+      </div>
+      <div class="edu-detail">Product Growth Series</div>
+
+      <div class="edu-item">
+        <span class="edu-name">Tera</span>
+        <span class="edu-loc">Remote</span>
+      </div>
+      <div class="edu-detail">Digital Product Leadership Program</div>
+
+      <div class="edu-item">
+        <span class="edu-name">Estacio</span>
+        <span class="edu-loc">Brazil</span>
+      </div>
+      <div class="edu-detail">Bachelor of Technology - Information Technology Administration and Management</div>
+
+      <div class="edu-item">
+        <span class="edu-name">Unibratec</span>
+        <span class="edu-loc">Brazil</span>
+      </div>
+      <div class="edu-detail">Information Technology Bachelor's Degree</div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="section">
+      <div class="section-title">Certifications</div>
+
+      <div class="cert-item">
+        <span class="cert-name">Professional Scrum Product Owner PSPO II</span>
+        <span class="cert-org">Scrum.org</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Certified Product Leadership and Strategic Alignment Practitioner</span>
+        <span class="cert-org">Caroli.org</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Certified Lean Inception Facilitator</span>
+        <span class="cert-org">Caroli.org</span>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <div class="section-title">Skills, Languages and Interests</div>
+
+      <div class="skills-group">
+        <span class="skills-label">Languages:</span>
+        <span class="skills-list"> English (Bilingual Proficiency (C2 Level)) | Portuguese (Bilingual Proficiency (C2 Level))</span>
+      </div>
+
+      <div class="skills-group">
+        <span class="skills-label">Skills:</span>
+        <span class="skills-list"> AI Agent Orchestration | LLM-Powered Product Design | A/B Testing and Experimentation (Optimizely) | Funnel Optimization | Conversion and Retention Strategy | PLG and Subscription Economics | OKRs | Product Analytics (Pendo, Google Analytics, Tableau) | Roadmap and Prioritization | Scrum | Kanban | AI Prototyping (Cursor, v0) | API Integration | CMS Architecture (Contentful, Drupal, Payload, Liferay DXP) | API Design and Integration | Jira | Confluence | Figma | SQL | PM Mentorship</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

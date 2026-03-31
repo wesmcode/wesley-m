@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wesley Melo — Product Manager</title>
+    <meta name="description" content="Wesley Melo - Product Manager">
+    <link rel="icon" href="data:,">
+    <style>
+
+    /* Reset */
+    html, body, div, span, p, pre, a, code, em, img, strong, sub, sup,
+    ol, ul, li, button, fieldset, form, label {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    ol, ul { list-style: none; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+        --bg: #2B3856;
+        --fg: #FFFFFF;
+        --fg-hover: rgba(255, 255, 255, 0.5);
+        --copy-text: " [+]";
+    }
+
+    html, body {
+        min-height: 100vh;
+        height: 100%;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout */
+    .outer {
+        width: 100vw;
+        min-height: 100vh;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .inner {
+        position: relative;
+        padding: 40px;
+    }
+
+    .row {
+        height: 24px;
+        text-transform: uppercase;
+        user-select: none;
+    }
+
+    .row-empty {
+        height: 24px;
+    }
+
+    .row p {
+        display: inline-block;
+        padding-left: 3px;
+        cursor: default;
+    }
+
+    /* Timeline — each row is its own grid so hover is scoped */
+    .timeline-row {
+        display: grid;
+        grid-template-columns: 180px auto;
+        height: 24px;
+        text-transform: uppercase;
+        user-select: none;
+    }
+
+    .timeline-row:hover {
+        color: var(--fg-hover);
+    }
+
+    .timeline-row:hover .company {
+        color: var(--fg-hover);
+    }
+
+    .timeline-row .company {
+        line-height: 24px;
+        padding-left: 3px;
+        font-weight: 400;
+        color: var(--fg);
+        text-decoration: none;
+        cursor: default;
+    }
+
+    .timeline-row .years {
+        line-height: 24px;
+        padding-left: 3px;
+        cursor: default;
+    }
+
+    /* Buttons */
+    button {
+        border: none;
+        padding: 0;
+        margin: 0;
+        background: none;
+        font-family: inherit;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: uppercase;
+        padding-left: 3px;
+        border-radius: 2px;
+        color: var(--fg);
+        cursor: default;
+    }
+
+    button:focus-visible {
+        color: var(--bg);
+        background: var(--fg);
+        outline: none;
+    }
+
+    button:active {
+        background: var(--fg);
+        color: var(--bg);
+    }
+
+    /* Hover — light color + reveals [↗] */
+    .content-link:hover,
+    .content-link:focus-visible {
+        color: var(--fg-hover);
+    }
+
+    .content-link:hover::after,
+    .content-link:focus-visible::after {
+        display: inline;
+        content: " [↗]";
+    }
+
+    .content-copy:hover,
+    .content-copy:focus-visible {
+        color: var(--fg-hover);
+    }
+
+    .content-copy:hover::after,
+    .content-copy:focus-visible::after {
+        display: inline;
+        content: var(--copy-text);
+    }
+
+    /* Mobile */
+    .mobile-only { display: none; }
+
+    @media only screen and (max-width: 768px) {
+
+        html, body {
+            font-size: 18px;
+            line-height: 32px;
+        }
+
+        .outer {
+            display: block;
+            padding: 32px 24px;
+            padding-left: 21px;
+            min-height: auto;
+        }
+
+        .inner {
+            padding: 0;
+        }
+
+        .row {
+            height: 32px;
+        }
+
+        .row-empty {
+            height: 32px;
+        }
+
+        .timeline-row {
+            grid-template-columns: 1fr auto;
+            height: 32px;
+        }
+
+        .timeline-row .company,
+        .timeline-row .years {
+            line-height: 32px;
+            font-size: 18px;
+        }
+
+        button {
+            font-size: 18px;
+            line-height: 32px;
+            width: 100%;
+            display: flex;
+        }
+
+        .button-label {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .mobile-only {
+            display: inline;
+            flex-shrink: 0;
+        }
+
+        .content-link:hover::after,
+        .content-link:focus-visible::after,
+        .content-copy:hover::after,
+        .content-copy:focus-visible::after {
+            content: "";
+            display: none;
+        }
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="outer">
+        <div class="inner">
+
+            <div class="row"><p><span>Wesley</span> <span>Melo</span></p></div>
+            <div class="row"><p>Product Manager</p></div>
+            <div class="row-empty"></div>
+
+            <div class="timeline-row">
+                <a href="https://www.codeandtheory.com" target="_blank" rel="noopener" class="company">Code and Theory</a>
+                <span class="years">2025 &rarr; &middot;&middot;&middot;&middot;</span>
+            </div>
+            <div class="timeline-row">
+                <a href="https://www.liferay.com" target="_blank" rel="noopener" class="company">Liferay</a>
+                <span class="years">2023 &rarr; 2025</span>
+            </div>
+            <div class="timeline-row">
+                <a href="https://www.thoughtworks.com" target="_blank" rel="noopener" class="company">ThoughtWorks</a>
+                <span class="years">2019 &rarr; 2023</span>
+            </div>
+            <div class="timeline-row">
+                <a href="https://www.accenture.com/" target="_blank" rel="noopener" class="company">Accenture</a>
+                <span class="years">2014 &rarr; 2019</span>
+            </div>
+
+            <div class="row-empty"></div>
+
+            <div class="row">
+                <button class="content-link" data-href="resume.html" tabindex="1">
+                    <span class="button-label">Resume</span>
+                    <span class="mobile-only">[↗]</span>
+                </button>
+            </div>
+            <div class="row">
+                <button id="email-copy" class="content-copy" tabindex="1">
+                    <span class="button-label">Email</span>
+                    <span class="mobile-only">[+]</span>
+                </button>
+            </div>
+
+            <div class="row-empty"></div>
+
+            <div class="row">
+                <button class="content-link" data-href="https://linkedin.com/in/wesmelo" tabindex="1">
+                    <span class="button-label">LinkedIn</span>
+                    <span class="mobile-only">[↗]</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        document.querySelectorAll('.content-link').forEach(function(btn) {
+            btn.onclick = function() {
+                var href = btn.getAttribute('data-href');
+                if (href) window.open(href, '_blank');
+            };
+        });
+
+        var emailCopy = document.getElementById('email-copy');
+
+        emailCopy.onmouseenter = function() {
+            document.documentElement.style.setProperty('--copy-text', '" [+]"');
+        };
+
+        emailCopy.onclick = function() {
+            if (window.innerWidth <= 768) {
+                window.location.href = 'mailto:sync.wesm@gmail.com';
+            } else {
+                navigator.clipboard.writeText('sync.wesm@gmail.com');
+                document.documentElement.style.setProperty('--copy-text', '" [COPIED]"');
+            }
+        };
+
+    </script>
+
+</body>
+</html>
