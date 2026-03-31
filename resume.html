@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume — Wesley Melo</title>
+  <meta name="description" content="Resume of Wesley Melo — Senior Product Manager with 6+ years in agile development, product management, and consulting.">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -11,19 +12,30 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --text: #434343;
+      --bg: #f5f5f5;
+      --surface: #fff;
+      --accent: #2B3856;
+      --accent-hover: #000;
+      --font-base: 11pt;
+      --line-height: 1.4;
+      --font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    }
+
     body {
-      font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-      font-size: 11pt;
-      line-height: 1.4;
-      color: #434343;
-      background: #f5f5f5;
+      font-family: var(--font-family);
+      font-size: var(--font-base);
+      line-height: var(--line-height);
+      color: var(--text);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
 
     .page {
       max-width: 816px;
       margin: 40px auto;
-      background: #fff;
+      background: var(--surface);
       padding: 56px 64px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
       position: relative;
@@ -33,9 +45,9 @@
       position: absolute;
       top: 56px;
       right: 64px;
-      background: #2B3856;
-      color: #fff;
-      font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+      background: var(--accent);
+      color: var(--surface);
+      font-family: var(--font-family);
       font-size: 10pt;
       text-decoration: none;
       padding: 6px 14px;
@@ -45,7 +57,7 @@
     }
 
     .download-btn:hover {
-      background: #000;
+      background: var(--accent-hover);
     }
 
     /* Header */
@@ -55,23 +67,23 @@
       letter-spacing: 0.01em;
       line-height: 1.1;
       margin-bottom: 8px;
-      color: #434343;
+      color: var(--text);
     }
 
     .contact {
-      font-size: 11pt;
-      line-height: 1.4;
-      color: #434343;
+      font-size: var(--font-base);
+      line-height: var(--line-height);
+      color: var(--text);
       margin-bottom: 4px;
     }
 
     .contact a {
-      color: #434343;
+      color: var(--text);
       text-decoration: underline;
     }
 
     .contact a:hover {
-      color: #000;
+      color: var(--accent-hover);
     }
 
     /* Sections */
@@ -79,22 +91,23 @@
       margin-bottom: 14px;
     }
 
-    .section-title {
-      font-size: 11pt;
+    h2 {
+      font-size: var(--font-base);
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      border-bottom: 0.5px solid #434343;
+      border-bottom: 0.5px solid var(--text);
       padding-bottom: 2px;
       margin-bottom: 8px;
-      color: #434343;
+      color: var(--text);
     }
 
-    /* Summary */
-    .summary li {
-      font-size: 11pt;
-      line-height: 1.4;
-      color: #434343;
+    /* Bullet lists — shared between summary and jobs */
+    .summary li,
+    .job li {
+      font-size: var(--font-base);
+      line-height: var(--line-height);
+      color: var(--text);
       margin-bottom: 2px;
       padding-left: 18px;
       position: relative;
@@ -102,13 +115,14 @@
       text-align: justify;
     }
 
-    .summary li::before {
+    .summary li::before,
+    .job li::before {
       content: '\25A0';
       position: absolute;
       left: 2px;
       font-size: 6px;
       top: 5px;
-      color: #434343;
+      color: var(--text);
     }
 
     /* Jobs */
@@ -116,7 +130,10 @@
       margin-bottom: 12px;
     }
 
-    .job-header {
+    .job-header,
+    .job-role-row,
+    .edu-item,
+    .cert-item {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -125,36 +142,30 @@
       margin-bottom: 0;
     }
 
-    .job-company {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #434343;
-    }
-
-    .job-location {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #434343;
-    }
-
     .job-role-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px;
       margin-bottom: 2px;
     }
 
-    .job-role {
-      font-size: 11pt;
-      font-style: normal;
-      color: #434343;
+    .job-company,
+    .job-location,
+    .edu-name,
+    .edu-loc,
+    .cert-org {
+      font-size: var(--font-base);
+      font-weight: 700;
+      color: var(--text);
     }
 
-    .job-dates {
-      font-size: 11pt;
-      color: #434343;
+    .job-role {
+      font-size: var(--font-base);
+      font-style: normal;
+      color: var(--text);
+    }
+
+    .job-dates,
+    .cert-name {
+      font-size: var(--font-base);
+      color: var(--text);
     }
 
     .job ul {
@@ -162,56 +173,11 @@
       padding: 0;
     }
 
-    .job li {
-      font-size: 11pt;
-      line-height: 1.4;
-      color: #434343;
-      margin-bottom: 2px;
-      padding-left: 18px;
-      position: relative;
-      text-align: justify;
-    }
-
-    .job li::before {
-      content: '\25A0';
-      position: absolute;
-      left: 2px;
-      font-size: 6px;
-      top: 5px;
-      color: #434343;
-    }
-
-    /* Education & Certs */
-    .edu-item, .cert-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-bottom: 0;
-    }
-
-    .edu-name {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #434343;
-    }
-
+    /* Education */
     .edu-detail {
-      font-size: 11pt;
-      color: #434343;
+      font-size: var(--font-base);
+      color: var(--text);
       margin-bottom: 6px;
-    }
-
-    .edu-loc, .cert-org {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #434343;
-    }
-
-    .cert-name {
-      font-size: 11pt;
-      color: #434343;
     }
 
     /* Skills */
@@ -221,20 +187,20 @@
     }
 
     .skills-label {
-      font-size: 11pt;
+      font-size: var(--font-base);
       font-weight: 700;
-      color: #434343;
+      color: var(--text);
     }
 
     .skills-list {
-      font-size: 11pt;
-      color: #434343;
+      font-size: var(--font-base);
+      color: var(--text);
     }
 
     /* Print */
     @media print {
       body {
-        background: #fff;
+        background: var(--surface);
       }
 
       .page {
@@ -246,6 +212,11 @@
 
       .download-btn {
         display: none;
+      }
+
+      .job,
+      .section {
+        page-break-inside: avoid;
       }
     }
 
@@ -272,18 +243,21 @@
   </style>
 </head>
 <body>
+  <main>
   <div class="page">
 
     <a href="wesley_melo_resume_es_remote.pdf" download class="download-btn">Download .PDF</a>
 
-    <h1>WESLEY MELO</h1>
-    <div class="contact">
-      Spain (Remote) | +34 660 28 93 78 | <a href="https://linkedin.com/in/wesmelo" target="_blank">linkedin.com/in/wesmelo</a> | <a href="mailto:sync.wesm@gmail.com">sync.wesm@gmail.com</a>
-    </div>
+    <header>
+      <h1>WESLEY MELO</h1>
+      <div class="contact">
+        Spain (Remote) | <a href="tel:+34660289378">+34 660 28 93 78</a> | <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">linkedin.com/in/wesmelo</a> | <a href="mailto:sync.wesm@gmail.com">sync.wesm@gmail.com</a>
+      </div>
+    </header>
 
     <!-- Summary -->
     <div class="section">
-      <div class="section-title">Summary</div>
+      <h2>Summary</h2>
       <ul class="summary">
         <li>6+ years of experience in agile development, product management and consulting for Fitness, Health, Enterprise SaaS platforms, Media and Publishing, and AI/ML Products with experience in high growth and product innovation.</li>
         <li>Led the development of a digital membership management platform, reducing cancellation complaints by 65% and increasing online membership transactions to 70% within six months.</li>
@@ -293,7 +267,7 @@
 
     <!-- Work Experience -->
     <div class="section">
-      <div class="section-title">Work Experience</div>
+      <h2>Work Experience</h2>
 
       <div class="job">
         <div class="job-header">
@@ -367,7 +341,7 @@
 
     <!-- Education -->
     <div class="section">
-      <div class="section-title">Education</div>
+      <h2>Education</h2>
 
       <div class="edu-item">
         <span class="edu-name">Reforge</span>
@@ -396,7 +370,7 @@
 
     <!-- Certifications -->
     <div class="section">
-      <div class="section-title">Certifications</div>
+      <h2>Certifications</h2>
 
       <div class="cert-item">
         <span class="cert-name">Professional Scrum Product Owner PSPO II</span>
@@ -414,7 +388,7 @@
 
     <!-- Skills -->
     <div class="section">
-      <div class="section-title">Skills, Languages and Interests</div>
+      <h2>Skills, Languages and Interests</h2>
 
       <div class="skills-group">
         <span class="skills-label">Languages:</span>
@@ -428,5 +402,6 @@
     </div>
 
   </div>
+  </main>
 </body>
 </html>
