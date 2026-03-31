@@ -25,7 +25,7 @@
         --bg: #2B3856;
         --fg: #FFFFFF;
         --fg-hover: rgba(255, 255, 255, 0.5);
-        --copy-text: " [ + ]";
+        --copy-text: " [+]";
     }
 
     html, body {
@@ -128,7 +128,7 @@
         color: var(--bg);
     }
 
-    /* Hover — light color + reveals indicator */
+    /* Hover — light color + reveals [↗] */
     .content-link:hover,
     .content-link:focus-visible {
         color: var(--fg-hover);
@@ -137,7 +137,7 @@
     .content-link:hover::after,
     .content-link:focus-visible::after {
         display: inline;
-        content: " [ //: ]";
+        content: " [↗]";
     }
 
     .content-copy:hover,
@@ -249,24 +249,24 @@
             <div class="row-empty"></div>
 
             <div class="row">
-                <button class="content-link" data-href="resume.html" tabindex="1">
+                <button class="content-link" data-href="resume.html" tabindex="0">
                     <span class="button-label">Resume</span>
-                    <span class="mobile-only">[ //: ]</span>
+                    <span class="mobile-only">[↗]</span>
                 </button>
             </div>
             <div class="row">
-                <button id="email-copy" class="content-copy" tabindex="1">
+                <button id="email-copy" class="content-copy" tabindex="0">
                     <span class="button-label">Email</span>
-                    <span class="mobile-only">[ + ]</span>
+                    <span class="mobile-only">[+]</span>
                 </button>
             </div>
 
             <div class="row-empty"></div>
 
             <div class="row">
-                <button class="content-link" data-href="https://linkedin.com/in/wesmelo" tabindex="1">
+                <button class="content-link" data-href="https://linkedin.com/in/wesmelo" tabindex="0">
                     <span class="button-label">LinkedIn</span>
-                    <span class="mobile-only">[ //: ]</span>
+                    <span class="mobile-only">[↗]</span>
                 </button>
             </div>
 
@@ -285,7 +285,7 @@
         var emailCopy = document.getElementById('email-copy');
 
         emailCopy.onmouseenter = function() {
-            document.documentElement.style.setProperty('--copy-text', '" [ + ]"');
+            document.documentElement.style.setProperty('--copy-text', '" [+]"');
         };
 
         emailCopy.onclick = function() {
