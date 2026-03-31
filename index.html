@@ -152,7 +152,6 @@
     }
 
     /* Mobile */
-    .mobile-only { display: none; }
 
     @media only screen and (max-width: 768px) {
 
@@ -195,18 +194,6 @@
         button {
             font-size: 14px;
             line-height: 28px;
-            width: 100%;
-            display: flex;
-        }
-
-        .button-label {
-            flex-grow: 1;
-            text-align: left;
-        }
-
-        .mobile-only {
-            display: inline;
-            flex-shrink: 0;
         }
 
         .content-link:hover::after,
@@ -251,13 +238,11 @@
             <div class="row">
                 <button class="content-link" data-href="resume.html" tabindex="1">
                     <span class="button-label">Resume</span>
-                    <span class="mobile-only">[↗]</span>
                 </button>
             </div>
             <div class="row">
                 <button id="email-copy" class="content-copy" tabindex="1">
                     <span class="button-label">Email</span>
-                    <span class="mobile-only">[+]</span>
                 </button>
             </div>
 
@@ -266,7 +251,6 @@
             <div class="row">
                 <button class="content-link" data-href="https://linkedin.com/in/wesmelo" tabindex="1">
                     <span class="button-label">LinkedIn</span>
-                    <span class="mobile-only">[↗]</span>
                 </button>
             </div>
 
