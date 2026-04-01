@@ -286,8 +286,12 @@
 
     <script>
     'use strict';
-    var addr = ['sync.wesm', 'gmail.com'].join('@');
-    document.getElementById('email-link').href = 'mailto:' + addr;
+    var addr = ['contato', 'wesley-m.com'].join('@');
+    var emailLink = document.getElementById('email-link');
+    emailLink.href = 'mailto:' + addr;
+    emailLink.addEventListener('click', function() {
+        emailLink.querySelector('.button-label').textContent = addr;
+    });
     </script>
 
 </body>
