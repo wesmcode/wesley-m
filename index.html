@@ -119,68 +119,43 @@
         cursor: default;
     }
 
-    .timeline-row .company {
+    /* All clickable elements — one set of rules */
+    .link {
         font-weight: 400;
         color: var(--fg);
         text-decoration: none;
-    }
-
-    /* Buttons */
-    button {
+        text-transform: uppercase;
+        background: none;
         border: none;
+        border-radius: 0;
         padding: 0;
         margin: 0;
-        background: none;
         font-family: inherit;
-        font-size: 16px;
-        line-height: 24px;
-        text-transform: uppercase;
-        padding-left: 3px;
-        border-radius: 0;
-        color: var(--fg);
+        font-size: inherit;
+        line-height: inherit;
         cursor: default;
-        text-decoration: none;
     }
 
-    /* Shared interactive states — all clickable elements */
-    .timeline-row .company:hover,
-    .content-link:hover,
-    .content-copy:hover {
+    .link:hover {
         color: var(--fg-hover);
         text-decoration: underline;
     }
 
-    .timeline-row .company:focus-visible,
-    button:focus-visible {
+    .link:focus-visible {
         color: var(--bg);
         background: var(--fg);
         outline: none;
     }
 
-    .timeline-row .company:focus:not(:focus-visible),
-    button:focus:not(:focus-visible) {
+    .link:focus:not(:focus-visible) {
         color: var(--fg);
         background: none;
         outline: none;
     }
 
-    .timeline-row .company:active,
-    button:active {
+    .link:active {
         background: var(--fg);
         color: var(--bg);
-    }
-
-    /* Screen-reader only */
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
     }
 
     /* Mobile */
@@ -224,7 +199,7 @@
             font-size: 14px;
         }
 
-        button {
+        .nav-item {
             font-size: 14px;
             line-height: 28px;
             width: 100%;
@@ -241,9 +216,7 @@
             flex-shrink: 0;
         }
 
-        .timeline-row .company:hover,
-        .content-link:hover,
-        .content-copy:hover {
+        .link:hover {
             text-decoration: none;
         }
     }
@@ -265,19 +238,19 @@
 
             <section aria-label="Work history">
                 <div class="timeline-row">
-                    <a href="https://www.codeandtheory.com" target="_blank" rel="noopener noreferrer" class="company">Code and Theory</a>
+                    <a href="https://www.codeandtheory.com" target="_blank" rel="noopener noreferrer" class="link company">Code and Theory</a>
                     <span class="years">2025 &rarr; &middot;&middot;&middot;&middot;</span>
                 </div>
                 <div class="timeline-row">
-                    <a href="https://www.liferay.com" target="_blank" rel="noopener noreferrer" class="company">Liferay</a>
+                    <a href="https://www.liferay.com" target="_blank" rel="noopener noreferrer" class="link company">Liferay</a>
                     <span class="years">2023 &rarr; 2025</span>
                 </div>
                 <div class="timeline-row">
-                    <a href="https://www.thoughtworks.com" target="_blank" rel="noopener noreferrer" class="company">ThoughtWorks</a>
+                    <a href="https://www.thoughtworks.com" target="_blank" rel="noopener noreferrer" class="link company">ThoughtWorks</a>
                     <span class="years">2019 &rarr; 2023</span>
                 </div>
                 <div class="timeline-row">
-                    <a href="https://www.accenture.com/" target="_blank" rel="noopener noreferrer" class="company">Accenture</a>
+                    <a href="https://www.accenture.com/" target="_blank" rel="noopener noreferrer" class="link company">Accenture</a>
                     <span class="years">2014 &rarr; 2019</span>
                 </div>
             </section>
@@ -286,70 +259,35 @@
 
             <nav aria-label="Contact and links">
                 <div class="row">
-                    <button class="content-link" data-href="resume.html" tabindex="0">
+                    <a href="resume.html" target="_blank" class="link nav-item">
                         <span class="button-label">Resume</span>
                         <span class="mobile-only">[↗]</span>
-                    </button>
+                    </a>
                 </div>
                 <div class="row">
-                    <button id="email-copy" class="content-copy" tabindex="0">
+                    <a id="email-link" href="#" class="link nav-item">
                         <span class="button-label">Email</span>
                         <span class="mobile-only">[+]</span>
-                    </button>
+                    </a>
                 </div>
 
                 <div class="row-empty"></div>
 
                 <div class="row">
-                    <button class="content-link" data-href="https://linkedin.com/in/wesmelo" tabindex="0">
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link nav-item">
                         <span class="button-label">LinkedIn</span>
                         <span class="mobile-only">[↗]</span>
-                    </button>
+                    </a>
                 </div>
             </nav>
 
         </div>
     </main>
 
-    <span id="copy-status" class="sr-only" aria-live="polite"></span>
-
     <script>
     'use strict';
-
-    /* Must match the CSS media query breakpoint */
-    var MOBILE_BREAKPOINT = 768;
-
-    document.querySelectorAll('.content-link').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var href = btn.getAttribute('data-href');
-            if (href) window.open(href, '_blank', 'noopener');
-            btn.blur();
-        });
-    });
-
-    var emailBtn = document.getElementById('email-copy');
-    var copyStatus = document.getElementById('copy-status');
-    var email = ['sync.wesm', 'gmail.com'].join('@');
-
-    emailBtn.addEventListener('click', function() {
-        if (window.innerWidth <= MOBILE_BREAKPOINT) {
-            window.location.href = 'mailto:' + email;
-            return;
-        }
-        navigator.clipboard.writeText(email).then(function() {
-            var label = emailBtn.querySelector('.button-label');
-            label.textContent = 'COPIED';
-            copyStatus.textContent = 'Email copied to clipboard';
-            emailBtn.blur();
-            setTimeout(function() {
-                label.textContent = 'Email';
-                copyStatus.textContent = '';
-            }, 2000);
-        }).catch(function() {
-            window.location.href = 'mailto:' + email;
-        });
-    });
-
+    var addr = ['sync.wesm', 'gmail.com'].join('@');
+    document.getElementById('email-link').href = 'mailto:' + addr;
     </script>
 
 </body>
