@@ -161,6 +161,13 @@
         outline: none;
     }
 
+    /* Reset focus style for mouse clicks (non-keyboard) */
+    button:focus:not(:focus-visible) {
+        color: var(--fg);
+        background: none;
+        outline: none;
+    }
+
     button:active {
         background: var(--fg);
         color: var(--bg);
@@ -329,6 +336,7 @@
         btn.addEventListener('click', function() {
             var href = btn.getAttribute('data-href');
             if (href) window.open(href, '_blank', 'noopener');
+            btn.blur();
         });
     });
 
@@ -345,6 +353,7 @@
             var label = emailBtn.querySelector('.button-label');
             label.textContent = 'COPIED';
             copyStatus.textContent = 'Email copied to clipboard';
+            emailBtn.blur();
             setTimeout(function() {
                 label.textContent = 'Email';
                 copyStatus.textContent = '';
