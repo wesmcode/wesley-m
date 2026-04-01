@@ -112,14 +112,6 @@
         user-select: none;
     }
 
-    .timeline-row:hover {
-        color: var(--fg-hover);
-    }
-
-    .timeline-row:hover .company {
-        color: var(--fg-hover);
-    }
-
     .timeline-row .company,
     .timeline-row .years {
         line-height: 24px;
@@ -133,11 +125,6 @@
         text-decoration: none;
     }
 
-    .timeline-row .company:hover,
-    .timeline-row .company:focus-visible {
-        text-decoration: underline;
-    }
-
     /* Buttons */
     button {
         border: none;
@@ -149,37 +136,38 @@
         line-height: 24px;
         text-transform: uppercase;
         padding-left: 3px;
-        border-radius: 2px;
+        border-radius: 0;
         color: var(--fg);
         cursor: default;
         text-decoration: none;
     }
 
+    /* Shared interactive states — all clickable elements */
+    .timeline-row .company:hover,
+    .content-link:hover,
+    .content-copy:hover {
+        color: var(--fg-hover);
+        text-decoration: underline;
+    }
+
+    .timeline-row .company:focus-visible,
     button:focus-visible {
         color: var(--bg);
         background: var(--fg);
         outline: none;
     }
 
-    /* Reset focus style for mouse clicks (non-keyboard) */
+    .timeline-row .company:focus:not(:focus-visible),
     button:focus:not(:focus-visible) {
         color: var(--fg);
         background: none;
         outline: none;
     }
 
+    .timeline-row .company:active,
     button:active {
         background: var(--fg);
         color: var(--bg);
-    }
-
-    /* Hover — simple underline */
-    .content-link:hover,
-    .content-link:focus-visible,
-    .content-copy:hover,
-    .content-copy:focus-visible {
-        color: var(--fg-hover);
-        text-decoration: underline;
     }
 
     /* Screen-reader only */
@@ -253,10 +241,9 @@
             flex-shrink: 0;
         }
 
+        .timeline-row .company:hover,
         .content-link:hover,
-        .content-link:focus-visible,
-        .content-copy:hover,
-        .content-copy:focus-visible {
+        .content-copy:hover {
             text-decoration: none;
         }
     }
