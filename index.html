@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wesley Melo — Product Manager</title>
-    <meta name="description" content="Wesley Melo — Product Manager with 6+ years in agile development, product management and consulting.">
+    <meta name="description" content="Wesley Melo is a Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and digital strategy.">
     <meta name="author" content="Wesley Melo">
+    <link rel="canonical" href="https://wesley-m.com/">
+    <meta property="og:title" content="Wesley Melo — Product Manager">
+    <meta property="og:description" content="Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and digital strategy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wesley-m.com/">
     <link rel="icon" href="data:,">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Wesley Melo",
+            "jobTitle": "Senior Product Manager",
+            "url": "https://wesley-m.com",
+            "sameAs": ["https://linkedin.com/in/wesmelo"]
+        }
+    }
+    </script>
     <style>
 
     /* Reset */
@@ -113,6 +131,11 @@
         font-weight: 400;
         color: var(--fg);
         text-decoration: none;
+    }
+
+    .timeline-row .company:hover,
+    .timeline-row .company:focus-visible {
+        text-decoration: underline;
     }
 
     /* Buttons */
@@ -275,7 +298,7 @@
                     </button>
                 </div>
                 <div class="row">
-                    <button id="email-copy" class="content-copy" data-email="sync.wesm@gmail.com" tabindex="0">
+                    <button id="email-copy" class="content-copy" tabindex="0">
                         <span class="button-label">Email</span>
                         <span class="mobile-only">[+]</span>
                     </button>
@@ -311,7 +334,7 @@
 
     var emailBtn = document.getElementById('email-copy');
     var copyStatus = document.getElementById('copy-status');
-    var email = emailBtn.getAttribute('data-email');
+    var email = ['sync.wesm', 'gmail.com'].join('@');
 
     emailBtn.addEventListener('click', function() {
         if (window.innerWidth <= MOBILE_BREAKPOINT) {

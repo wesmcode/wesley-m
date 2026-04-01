@@ -4,7 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume — Wesley Melo</title>
-  <meta name="description" content="Resume of Wesley Melo — Senior Product Manager with 6+ years in agile development, product management, and consulting.">
+  <meta name="description" content="Resume of Wesley Melo — Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and cross-functional team leadership.">
+  <link rel="canonical" href="https://wesley-m.com/resume.html">
+  <meta property="og:title" content="Resume — Wesley Melo">
+  <meta property="og:description" content="Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and cross-functional team leadership.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://wesley-m.com/resume.html">
+  <link rel="icon" href="data:,">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Wesley Melo",
+      "jobTitle": "Senior Product Manager",
+      "url": "https://wesley-m.com",
+      "sameAs": ["https://linkedin.com/in/wesmelo"]
+    }
+  }
+  </script>
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -146,6 +165,10 @@
       margin-bottom: 2px;
     }
 
+    #tw-second-role {
+      margin-top: 4px;
+    }
+
     .job-company,
     .job-location,
     .edu-name,
@@ -251,22 +274,22 @@
     <header>
       <h1>WESLEY MELO</h1>
       <div class="contact">
-        Spain (Remote) | <a href="tel:+34660289378">+34 660 28 93 78</a> | <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">linkedin.com/in/wesmelo</a> | <a href="mailto:sync.wesm@gmail.com">sync.wesm@gmail.com</a>
+        Spain (Remote) | <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">linkedin.com/in/wesmelo</a> | <a id="resume-email" href="#">email</a>
       </div>
     </header>
 
     <!-- Summary -->
-    <div class="section">
+    <section class="section">
       <h2>Summary</h2>
       <ul class="summary">
         <li>6+ years of experience in agile development, product management and consulting for Fitness, Health, Enterprise SaaS platforms, Media and Publishing, and AI/ML Products with experience in high growth and product innovation.</li>
         <li>Led the development of a digital membership management platform, reducing cancellation complaints by 65% and increasing online membership transactions to 70% within six months.</li>
         <li>Managed remote cross-functional teams across the US, Brazil, and India to deliver end-to-end product features from concept to launch, driving continuous iterations that improved customer outcomes and increased user engagement.</li>
       </ul>
-    </div>
+    </section>
 
     <!-- Work Experience -->
-    <div class="section">
+    <section class="section">
       <h2>Work Experience</h2>
 
       <div class="job">
@@ -315,7 +338,7 @@
           <li>Drove strategic initiatives alongside the Head of Product, mentoring 5 product managers and conducting 8 training workshops, resulting in 80% departmental growth.</li>
           <li>Partnered closely with engineering and design teams using Figma and Jira, implementing bi-weekly feedback loops that increased feature relevance by 45% for a C2C marketplace platform.</li>
         </ul>
-        <div class="job-role-row" style="margin-top: 4px;">
+        <div class="job-role-row" id="tw-second-role">
           <span class="job-role">Product Manager</span>
           <span class="job-dates">December 2020 – December 2022</span>
         </div>
@@ -337,10 +360,10 @@
           <span class="job-dates">2014 – 2019</span>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Education -->
-    <div class="section">
+    <section class="section">
       <h2>Education</h2>
 
       <div class="edu-item">
@@ -366,10 +389,10 @@
         <span class="edu-loc">Brazil</span>
       </div>
       <div class="edu-detail">Information Technology Bachelor's Degree</div>
-    </div>
+    </section>
 
     <!-- Certifications -->
-    <div class="section">
+    <section class="section">
       <h2>Certifications</h2>
 
       <div class="cert-item">
@@ -384,10 +407,10 @@
         <span class="cert-name">Certified Lean Inception Facilitator</span>
         <span class="cert-org">Caroli.org</span>
       </div>
-    </div>
+    </section>
 
     <!-- Skills -->
-    <div class="section">
+    <section class="section">
       <h2>Skills, Languages and Interests</h2>
 
       <div class="skills-group">
@@ -399,9 +422,17 @@
         <span class="skills-label">Skills:</span>
         <span class="skills-list"> AI Agent Orchestration | LLM-Powered Product Design | A/B Testing and Experimentation (Optimizely) | Funnel Optimization | Conversion and Retention Strategy | PLG and Subscription Economics | OKRs | Product Analytics (Pendo, Google Analytics, Tableau) | Roadmap and Prioritization | Scrum | Kanban | AI Prototyping (Cursor, v0) | API Integration | CMS Architecture (Contentful, Drupal, Payload, Liferay DXP) | API Design and Integration | Jira | Confluence | Figma | SQL | PM Mentorship</span>
       </div>
-    </div>
+    </section>
 
   </div>
   </main>
+
+  <script>
+  'use strict';
+  var el = document.getElementById('resume-email');
+  var addr = ['sync.wesm', 'gmail.com'].join('@');
+  el.href = 'mailto:' + addr;
+  el.textContent = addr;
+  </script>
 </body>
 </html>
