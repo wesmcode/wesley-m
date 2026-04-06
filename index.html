@@ -294,8 +294,8 @@
     'use strict';
     var addr = ['contato', 'wesley-m.com'].join('@');
     var emailLink = document.getElementById('email-link');
-    emailLink.href = 'mailto:' + addr;
-    emailLink.addEventListener('click', function() {
+    emailLink.addEventListener('click', function(e) {
+        e.preventDefault();
         emailLink.querySelector('.button-label').textContent = addr;
     });
     </script>
