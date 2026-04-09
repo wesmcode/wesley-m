@@ -4,6 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume — Wesley Melo</title>
+  <meta name="description" content="Resume of Wesley Melo — Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and cross-functional team leadership.">
+  <link rel="canonical" href="https://wesley-m.com/resume.html">
+  <meta property="og:title" content="Resume — Wesley Melo">
+  <meta property="og:description" content="Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and cross-functional team leadership.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://wesley-m.com/resume.html">
+  <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
+  <link rel="icon" href="data:,">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Wesley Melo",
+      "jobTitle": "Senior Product Manager",
+      "url": "https://wesley-m.com",
+      "sameAs": ["https://linkedin.com/in/wesmelo"]
+    }
+  }
+  </script>
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -11,19 +32,30 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --text: #434343;
+      --bg: #f5f5f5;
+      --surface: #fff;
+      --accent: #2B3856;
+      --accent-hover: #000;
+      --font-base: 11pt;
+      --line-height: 1.4;
+      --font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    }
+
     body {
-      font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-      font-size: 11pt;
-      line-height: 1.4;
-      color: #434343;
-      background: #f5f5f5;
+      font-family: var(--font-family);
+      font-size: var(--font-base);
+      line-height: var(--line-height);
+      color: var(--text);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
     }
 
     .page {
       max-width: 816px;
       margin: 40px auto;
-      background: #fff;
+      background: var(--surface);
       padding: 56px 64px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.06);
       position: relative;
@@ -33,9 +65,9 @@
       position: absolute;
       top: 56px;
       right: 64px;
-      background: #2B3856;
-      color: #fff;
-      font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+      background: var(--accent);
+      color: var(--surface);
+      font-family: var(--font-family);
       font-size: 10pt;
       text-decoration: none;
       padding: 6px 14px;
@@ -45,7 +77,7 @@
     }
 
     .download-btn:hover {
-      background: #000;
+      background: var(--accent-hover);
     }
 
     /* Header */
@@ -55,23 +87,23 @@
       letter-spacing: 0.01em;
       line-height: 1.1;
       margin-bottom: 8px;
-      color: #434343;
+      color: var(--text);
     }
 
     .contact {
-      font-size: 11pt;
-      line-height: 1.4;
-      color: #434343;
+      font-size: var(--font-base);
+      line-height: var(--line-height);
+      color: var(--text);
       margin-bottom: 4px;
     }
 
     .contact a {
-      color: #434343;
+      color: var(--text);
       text-decoration: underline;
     }
 
     .contact a:hover {
-      color: #000;
+      color: var(--accent-hover);
     }
 
     /* Sections */
@@ -79,22 +111,23 @@
       margin-bottom: 14px;
     }
 
-    .section-title {
-      font-size: 11pt;
+    h2 {
+      font-size: var(--font-base);
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      border-bottom: 0.5px solid #434343;
+      border-bottom: 0.5px solid var(--text);
       padding-bottom: 2px;
       margin-bottom: 8px;
-      color: #434343;
+      color: var(--text);
     }
 
-    /* Summary */
-    .summary li {
-      font-size: 11pt;
-      line-height: 1.4;
-      color: #434343;
+    /* Bullet lists — shared between summary and jobs */
+    .summary li,
+    .job li {
+      font-size: var(--font-base);
+      line-height: var(--line-height);
+      color: var(--text);
       margin-bottom: 2px;
       padding-left: 18px;
       position: relative;
@@ -102,13 +135,14 @@
       text-align: justify;
     }
 
-    .summary li::before {
+    .summary li::before,
+    .job li::before {
       content: '\25A0';
       position: absolute;
       left: 2px;
       font-size: 6px;
       top: 5px;
-      color: #434343;
+      color: var(--text);
     }
 
     /* Jobs */
@@ -116,7 +150,10 @@
       margin-bottom: 12px;
     }
 
-    .job-header {
+    .job-header,
+    .job-role-row,
+    .edu-item,
+    .cert-item {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
@@ -125,36 +162,34 @@
       margin-bottom: 0;
     }
 
-    .job-company {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #434343;
-    }
-
-    .job-location {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #434343;
-    }
-
     .job-role-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px;
       margin-bottom: 2px;
     }
 
-    .job-role {
-      font-size: 11pt;
-      font-style: normal;
-      color: #434343;
+    #tw-second-role {
+      margin-top: 4px;
     }
 
-    .job-dates {
-      font-size: 11pt;
-      color: #434343;
+    .job-company,
+    .job-location,
+    .edu-name,
+    .edu-loc,
+    .cert-org {
+      font-size: var(--font-base);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .job-role {
+      font-size: var(--font-base);
+      font-style: normal;
+      color: var(--text);
+    }
+
+    .job-dates,
+    .cert-name {
+      font-size: var(--font-base);
+      color: var(--text);
     }
 
     .job ul {
@@ -162,56 +197,11 @@
       padding: 0;
     }
 
-    .job li {
-      font-size: 11pt;
-      line-height: 1.4;
-      color: #434343;
-      margin-bottom: 2px;
-      padding-left: 18px;
-      position: relative;
-      text-align: justify;
-    }
-
-    .job li::before {
-      content: '\25A0';
-      position: absolute;
-      left: 2px;
-      font-size: 6px;
-      top: 5px;
-      color: #434343;
-    }
-
-    /* Education & Certs */
-    .edu-item, .cert-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-bottom: 0;
-    }
-
-    .edu-name {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #434343;
-    }
-
+    /* Education */
     .edu-detail {
-      font-size: 11pt;
-      color: #434343;
+      font-size: var(--font-base);
+      color: var(--text);
       margin-bottom: 6px;
-    }
-
-    .edu-loc, .cert-org {
-      font-size: 11pt;
-      font-weight: 700;
-      color: #434343;
-    }
-
-    .cert-name {
-      font-size: 11pt;
-      color: #434343;
     }
 
     /* Skills */
@@ -221,20 +211,20 @@
     }
 
     .skills-label {
-      font-size: 11pt;
+      font-size: var(--font-base);
       font-weight: 700;
-      color: #434343;
+      color: var(--text);
     }
 
     .skills-list {
-      font-size: 11pt;
-      color: #434343;
+      font-size: var(--font-base);
+      color: var(--text);
     }
 
     /* Print */
     @media print {
       body {
-        background: #fff;
+        background: var(--surface);
       }
 
       .page {
@@ -246,6 +236,11 @@
 
       .download-btn {
         display: none;
+      }
+
+      .job,
+      .section {
+        page-break-inside: avoid;
       }
     }
 
@@ -272,28 +267,31 @@
   </style>
 </head>
 <body>
+  <main>
   <div class="page">
 
     <a href="wesley_melo_resume_es_remote.pdf" download class="download-btn">Download .PDF</a>
 
-    <h1>WESLEY MELO</h1>
-    <div class="contact">
-      Spain (Remote) | +34 660 28 93 78 | <a href="https://linkedin.com/in/wesmelo" target="_blank">linkedin.com/in/wesmelo</a> | <a href="mailto:sync.wesm@gmail.com">sync.wesm@gmail.com</a>
-    </div>
+    <header>
+      <h1>WESLEY MELO</h1>
+      <div class="contact">
+        Spain (Remote) | <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">linkedin.com/in/wesmelo</a> | <a id="resume-email" href="#">email</a>
+      </div>
+    </header>
 
     <!-- Summary -->
-    <div class="section">
-      <div class="section-title">Summary</div>
+    <section class="section">
+      <h2>Summary</h2>
       <ul class="summary">
         <li>6+ years of experience in agile development, product management and consulting for Fitness, Health, Enterprise SaaS platforms, Media and Publishing, and AI/ML Products with experience in high growth and product innovation.</li>
         <li>Led the development of a digital membership management platform, reducing cancellation complaints by 65% and increasing online membership transactions to 70% within six months.</li>
         <li>Managed remote cross-functional teams across the US, Brazil, and India to deliver end-to-end product features from concept to launch, driving continuous iterations that improved customer outcomes and increased user engagement.</li>
       </ul>
-    </div>
+    </section>
 
     <!-- Work Experience -->
-    <div class="section">
-      <div class="section-title">Work Experience</div>
+    <section class="section">
+      <h2>Work Experience</h2>
 
       <div class="job">
         <div class="job-header">
@@ -341,7 +339,7 @@
           <li>Drove strategic initiatives alongside the Head of Product, mentoring 5 product managers and conducting 8 training workshops, resulting in 80% departmental growth.</li>
           <li>Partnered closely with engineering and design teams using Figma and Jira, implementing bi-weekly feedback loops that increased feature relevance by 45% for a C2C marketplace platform.</li>
         </ul>
-        <div class="job-role-row" style="margin-top: 4px;">
+        <div class="job-role-row" id="tw-second-role">
           <span class="job-role">Product Manager</span>
           <span class="job-dates">December 2020 – December 2022</span>
         </div>
@@ -363,11 +361,11 @@
           <span class="job-dates">2014 – 2019</span>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Education -->
-    <div class="section">
-      <div class="section-title">Education</div>
+    <section class="section">
+      <h2>Education</h2>
 
       <div class="edu-item">
         <span class="edu-name">Reforge</span>
@@ -392,11 +390,11 @@
         <span class="edu-loc">Brazil</span>
       </div>
       <div class="edu-detail">Information Technology Bachelor's Degree</div>
-    </div>
+    </section>
 
     <!-- Certifications -->
-    <div class="section">
-      <div class="section-title">Certifications</div>
+    <section class="section">
+      <h2>Certifications</h2>
 
       <div class="cert-item">
         <span class="cert-name">Professional Scrum Product Owner PSPO II</span>
@@ -410,11 +408,11 @@
         <span class="cert-name">Certified Lean Inception Facilitator</span>
         <span class="cert-org">Caroli.org</span>
       </div>
-    </div>
+    </section>
 
     <!-- Skills -->
-    <div class="section">
-      <div class="section-title">Skills, Languages and Interests</div>
+    <section class="section">
+      <h2>Skills, Languages and Interests</h2>
 
       <div class="skills-group">
         <span class="skills-label">Languages:</span>
@@ -425,8 +423,17 @@
         <span class="skills-label">Skills:</span>
         <span class="skills-list"> AI Agent Orchestration | LLM-Powered Product Design | A/B Testing and Experimentation (Optimizely) | Funnel Optimization | Conversion and Retention Strategy | PLG and Subscription Economics | OKRs | Product Analytics (Pendo, Google Analytics, Tableau) | Roadmap and Prioritization | Scrum | Kanban | AI Prototyping (Cursor, v0) | API Integration | CMS Architecture (Contentful, Drupal, Payload, Liferay DXP) | API Design and Integration | Jira | Confluence | Figma | SQL | PM Mentorship</span>
       </div>
-    </div>
+    </section>
 
   </div>
+  </main>
+
+  <script>
+  'use strict';
+  var el = document.getElementById('resume-email');
+  var addr = ['contato', 'wesley-m.com'].join('@');
+  el.href = 'mailto:' + addr;
+  el.textContent = addr;
+  </script>
 </body>
 </html>
