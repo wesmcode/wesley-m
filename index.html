@@ -192,7 +192,7 @@
         justify-content: center;
     }
 
-    /* ABOUT / What I bring */
+    /* ABOUT — Halaska-style numbered highlight carousel */
     #about .section-inner {
         padding-top: 72px;
         padding-bottom: 72px;
@@ -203,9 +203,28 @@
         line-height: 1.15;
         letter-spacing: -0.01em;
         max-width: 720px;
-        margin: 0 auto 64px;
+        margin: 0 auto 48px;
         font-weight: 400;
         text-align: center;
+    }
+
+    .about-counter {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 28px;
+        font-size: 13px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--fg-hover);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .about-counter .current {
+        font-size: 18px;
+        letter-spacing: 0.1em;
+        color: var(--fg);
     }
 
     .about-cards-wrapper {
@@ -215,13 +234,13 @@
 
     .about-cards {
         display: flex;
-        gap: 20px;
+        gap: 24px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         scrollbar-width: none;
         -ms-overflow-style: none;
-        padding: 4px 40px;
+        padding: 16px 40px 24px;
     }
 
     .about-cards::-webkit-scrollbar {
@@ -229,24 +248,27 @@
     }
 
     .about-card {
-        flex: 0 0 260px;
+        flex: 0 0 280px;
         scroll-snap-align: center;
-        border: var(--border);
+        border: 2px solid var(--fg);
         padding: 28px 24px;
         display: flex;
         flex-direction: column;
         gap: 18px;
-        min-height: 280px;
+        min-height: 300px;
         background: var(--bg);
         color: var(--fg);
-        transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
         cursor: default;
+        position: relative;
     }
 
     .about-card:hover,
     .about-card.is-active {
         background: var(--fg);
         color: var(--bg);
+        transform: translate(-4px, -4px);
+        box-shadow: 8px 8px 0 0 var(--fg);
     }
 
     .about-card:hover .about-card-icon rect,
@@ -259,11 +281,19 @@
         color: var(--bg);
     }
 
+    .about-card:hover .about-card-number,
+    .about-card.is-active .about-card-number {
+        color: var(--bg);
+        opacity: 1;
+    }
+
     .about-card-number {
         font-size: 12px;
-        letter-spacing: 0.15em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
-        opacity: 0.6;
+        opacity: 0.55;
+        font-variant-numeric: tabular-nums;
+        transition: color 0.2s ease, opacity 0.2s ease;
     }
 
     .about-card-icon {
@@ -274,11 +304,11 @@
 
     .about-card-icon rect {
         fill: var(--fg);
-        transition: fill 0.18s ease;
+        transition: fill 0.2s ease;
     }
 
     .about-card h3 {
-        font-size: 18px;
+        font-size: 19px;
         text-transform: uppercase;
         letter-spacing: 0.05em;
         font-weight: 400;
@@ -290,13 +320,13 @@
         line-height: 1.55;
         color: var(--fg-hover);
         margin-top: auto;
-        transition: color 0.18s ease;
+        transition: color 0.2s ease;
     }
 
     .about-dots {
         display: flex;
         justify-content: center;
-        gap: 12px;
+        gap: 10px;
         margin-top: 40px;
     }
 
@@ -313,7 +343,7 @@
 
     .about-dot[aria-current="true"] {
         background: var(--fg);
-        width: 48px;
+        width: 56px;
     }
 
     .about-dot:hover {
@@ -325,108 +355,127 @@
         outline-offset: 4px;
     }
 
-    /* PROCESS — ustwo-inspired editorial scale */
+    /* PROCESS — ustwo-inspired editorial wordmark scale */
     #process .section-inner {
-        padding-top: 64px;
-        padding-bottom: 64px;
-        max-width: 1200px;
+        padding-top: 56px;
+        padding-bottom: 56px;
+        padding-left: 48px;
+        padding-right: 48px;
+        max-width: 1440px;
     }
 
     .process-list {
-        border-top: 1px solid var(--fg);
+        border-top: 2px solid var(--fg);
     }
 
     .process-row {
         display: grid;
-        grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
-        gap: 40px;
-        align-items: end;
-        padding: 28px 0 24px;
-        border-bottom: 1px solid var(--fg);
-        transition: background 0.25s ease;
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+        gap: 48px;
+        align-items: center;
+        padding: 22px 0 20px;
+        border-bottom: 2px solid var(--fg);
+        transition: background 0.2s ease;
     }
 
     .process-row:hover {
-        background: rgba(255, 255, 255, 0.02);
+        background: rgba(255, 255, 255, 0.04);
     }
 
     .process-row-head {
         display: flex;
         align-items: baseline;
-        gap: 20px;
+        gap: 28px;
         min-width: 0;
     }
 
     .process-index {
         font-size: 13px;
-        letter-spacing: 0.15em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
         color: var(--fg-hover);
         flex-shrink: 0;
-        padding-top: 4px;
+        transform: translateY(-0.8em);
     }
 
     .process-row h3 {
-        font-size: clamp(64px, 11vw, 128px);
-        line-height: 0.92;
+        font-size: clamp(84px, 16vw, 184px);
+        line-height: 0.86;
         text-transform: uppercase;
-        letter-spacing: -0.02em;
-        font-weight: 400;
+        letter-spacing: -0.035em;
+        font-weight: 700;
         flex: 1;
         min-width: 0;
+    }
+
+    .process-row-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-bottom: 8px;
     }
 
     .process-row p {
         font-size: 15px;
         line-height: 1.5;
         color: var(--fg-hover);
-        max-width: 320px;
-        justify-self: end;
+        max-width: 260px;
+        margin: 0;
         text-align: left;
-        padding-bottom: 12px;
     }
 
-    /* CAPABILITIES — inverted (white bg, navy text), editorial typography */
+    .process-arrow {
+        font-size: 28px;
+        line-height: 1;
+        color: var(--fg);
+        flex-shrink: 0;
+        transition: transform 0.25s ease;
+        font-weight: 400;
+    }
+
+    .process-row:hover .process-arrow {
+        transform: translateX(8px);
+    }
+
+    /* CAPABILITIES — Significa-style 3-column disclosure, clear hierarchy */
     #capabilities {
         background: #FFFFFF;
         color: var(--bg);
     }
 
     #capabilities .section-inner {
-        padding-top: 80px;
-        padding-bottom: 80px;
-        max-width: 1040px;
+        padding-top: 88px;
+        padding-bottom: 88px;
+        max-width: 1120px;
     }
 
     .cap-intro {
-        font-size: 13px;
+        font-size: 12px;
         text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: rgba(43, 56, 86, 0.55);
-        margin-bottom: 48px;
-        padding-bottom: 16px;
-        border-bottom: 1px solid rgba(43, 56, 86, 0.2);
+        letter-spacing: 0.2em;
+        color: rgba(43, 56, 86, 0.5);
+        margin-bottom: 56px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid rgba(43, 56, 86, 0.15);
     }
 
     .cap-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 56px;
+        gap: 64px;
     }
 
     .cap-col h3 {
-        font-size: 26px;
-        font-weight: 400;
+        font-size: 32px;
+        font-weight: 700;
         line-height: 1;
-        letter-spacing: -0.01em;
-        padding-bottom: 14px;
-        border-bottom: 1px solid var(--bg);
-        margin-bottom: 24px;
-        text-transform: uppercase;
+        letter-spacing: -0.015em;
+        margin-bottom: 36px;
     }
 
     .cap-group {
-        margin-top: 24px;
+        margin-top: 32px;
     }
 
     .cap-group:first-of-type {
@@ -434,12 +483,11 @@
     }
 
     .cap-group-label {
-        font-size: 11px;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: rgba(43, 56, 86, 0.55);
-        margin-bottom: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.005em;
+        margin-bottom: 10px;
     }
 
     .cap-col ul {
@@ -449,9 +497,9 @@
     }
 
     .cap-col li {
-        font-size: 15px;
-        line-height: 1.65;
-        color: var(--bg);
+        font-size: 14px;
+        line-height: 1.9;
+        color: rgba(43, 56, 86, 0.7);
         font-weight: 400;
     }
 
@@ -553,8 +601,13 @@
         /* About */
         .about-statement {
             font-size: 24px;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             text-align: left;
+        }
+
+        .about-counter {
+            justify-content: flex-start;
+            margin-bottom: 20px;
         }
 
         .about-cards-wrapper {
@@ -563,12 +616,18 @@
 
         .about-cards {
             gap: 16px;
-            padding: 4px 24px;
+            padding: 12px 24px 20px;
         }
 
         .about-card {
-            flex: 0 0 76%;
-            min-height: 240px;
+            flex: 0 0 78%;
+            min-height: 260px;
+        }
+
+        .about-card:hover,
+        .about-card.is-active {
+            transform: none;
+            box-shadow: 4px 4px 0 0 var(--fg);
         }
 
         .about-dots {
@@ -576,11 +635,21 @@
         }
 
         /* Process */
+        #process .section-inner {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .process-list {
+            border-top-width: 1px;
+        }
+
         .process-row {
             grid-template-columns: 1fr;
-            gap: 16px;
-            padding: 24px 0 20px;
+            gap: 14px;
+            padding: 20px 0 18px;
             align-items: start;
+            border-bottom-width: 1px;
         }
 
         .process-row-head {
@@ -588,18 +657,25 @@
         }
 
         .process-row h3 {
-            font-size: clamp(44px, 14vw, 72px);
+            font-size: clamp(48px, 16vw, 88px);
+            letter-spacing: -0.03em;
         }
 
         .process-index {
             font-size: 11px;
+            transform: none;
+        }
+
+        .process-row-meta {
+            padding-bottom: 0;
         }
 
         .process-row p {
             max-width: 100%;
-            justify-self: start;
-            text-align: left;
-            padding-bottom: 0;
+        }
+
+        .process-arrow {
+            font-size: 22px;
         }
 
         /* Capabilities */
@@ -618,7 +694,12 @@
         }
 
         .cap-col h3 {
-            font-size: 22px;
+            font-size: 26px;
+            margin-bottom: 24px;
+        }
+
+        .cap-group-label {
+            font-size: 16px;
         }
 
         /* Footer */
@@ -754,6 +835,12 @@
             <div class="section-inner">
                 <p class="about-statement" id="about-statement">A decade of shipping product. Agencies, platforms, and now AI &mdash; the work changes, the discipline doesn't.</p>
 
+                <div class="about-counter" aria-live="polite">
+                    <span class="current" id="about-counter-current">01</span>
+                    <span>/</span>
+                    <span id="about-counter-total">08</span>
+                </div>
+
                 <div class="about-cards-wrapper">
                     <div class="about-cards" id="about-cards" role="list" tabindex="0" aria-label="What I bring">
                         <article class="about-card" role="listitem">
@@ -835,28 +922,40 @@
                             <span class="process-index">01</span>
                             <h3>Discover</h3>
                         </div>
-                        <p>Interviews, data, hard questions. Understand the problem before touching the solution.</p>
+                        <div class="process-row-meta">
+                            <p>Interviews, data, hard questions. Understand the problem before touching the solution.</p>
+                            <span class="process-arrow" aria-hidden="true">&rarr;&#xFE0E;</span>
+                        </div>
                     </div>
                     <div class="process-row">
                         <div class="process-row-head">
                             <span class="process-index">02</span>
                             <h3>Shape</h3>
                         </div>
-                        <p>Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step is obvious.</p>
+                        <div class="process-row-meta">
+                            <p>Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step obvious.</p>
+                            <span class="process-arrow" aria-hidden="true">&rarr;&#xFE0E;</span>
+                        </div>
                     </div>
                     <div class="process-row">
                         <div class="process-row-head">
                             <span class="process-index">03</span>
                             <h3>Create</h3>
                         </div>
-                        <p>Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument.</p>
+                        <div class="process-row-meta">
+                            <p>Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument.</p>
+                            <span class="process-arrow" aria-hidden="true">&rarr;&#xFE0E;</span>
+                        </div>
                     </div>
                     <div class="process-row">
                         <div class="process-row-head">
                             <span class="process-index">04</span>
                             <h3>Scale</h3>
                         </div>
-                        <p>Metrics, systems, handover. Built to run without me. Knowledge that stays with the team.</p>
+                        <div class="process-row-meta">
+                            <p>Metrics, systems, handover. Built to run without me. Knowledge that stays with the team.</p>
+                            <span class="process-arrow" aria-hidden="true">&rarr;&#xFE0E;</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -999,12 +1098,14 @@
         });
     }
 
-    // About cards — horizontal snap scroll with dynamic pagination dots.
+    // About cards — horizontal snap scroll with dynamic pagination dots + counter.
     (function () {
         var cardsRow = document.getElementById('about-cards');
         if (!cardsRow) return;
         var cards = Array.prototype.slice.call(cardsRow.querySelectorAll('.about-card'));
         var dotsContainer = document.querySelector('.about-dots');
+        var counterCurrent = document.getElementById('about-counter-current');
+        var counterTotal = document.getElementById('about-counter-total');
         if (!cards.length || !dotsContainer) return;
 
         // Build one dot per card.
@@ -1019,6 +1120,9 @@
             return dot;
         });
 
+        // Initialise the counter total from card count.
+        if (counterTotal) counterTotal.textContent = String(cards.length).padStart(2, '0');
+
         var activeIndex = 0;
 
         function setActive(index) {
@@ -1031,6 +1135,9 @@
             cards.forEach(function (card, i) {
                 card.classList.toggle('is-active', i === index);
             });
+            if (counterCurrent) {
+                counterCurrent.textContent = String(index + 1).padStart(2, '0');
+            }
         }
 
         // Initial highlight on first card.
