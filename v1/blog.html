@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog (V1 — Realigned) — Wesley Melo</title>
+    <meta name="description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software. Design variant V1.">
+    <meta name="author" content="Wesley Melo">
+    <link rel="canonical" href="https://wesley-m.com/v1/blog.html">
+    <meta property="og:title" content="Blog (V1) — Wesley Melo">
+    <meta property="og:description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wesley-m.com/v1/blog.html">
+    <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
+    <link rel="icon" href="data:,">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Wesley Melo — Blog (V1)",
+        "url": "https://wesley-m.com/v1/blog.html",
+        "author": {
+            "@type": "Person",
+            "name": "Wesley Melo",
+            "url": "https://wesley-m.com"
+        }
+    }
+    </script>
+    <style>
+
+    /* Reset */
+    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer, figure, figcaption, article, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    header, main, nav, section, footer, figure, article { display: block; }
+    ul { list-style: none; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+        --bg: #2B3856;
+        --fg: #FFFFFF;
+        --fg-hover: rgba(255, 255, 255, 0.5);
+        --border: 2px solid #FFFFFF;
+        --border-heavy: 3px solid #FFFFFF;
+    }
+
+    html, body {
+        min-height: 100vh;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* Skip link */
+    .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        padding: 8px 16px;
+        background: var(--fg);
+        color: var(--bg);
+        text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+
+    /* Single link signature shared with the rest of the site. */
+    .link {
+        font-weight: 400;
+        color: var(--fg);
+        text-decoration: none;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        cursor: default;
+    }
+    .link:hover { color: var(--fg-hover); text-decoration: underline; }
+    .link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
+    .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
+    .link:active { background: var(--fg); color: var(--bg); }
+
+    /* Page container */
+    .page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    .top-bar { padding: 24px 0 0; }
+    .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
+    .top-bar .variant-tag {
+        float: right;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--fg-hover);
+        padding-top: 4px;
+    }
+
+    /* Site header */
+    .site-header {
+        border-bottom: var(--border-heavy);
+        padding: 24px 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .site-header h1 {
+        font-size: 48px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+    }
+    .site-header .page-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+    }
+
+    /* Right-aligned section label */
+    .section-label-row {
+        display: flex;
+        justify-content: flex-end;
+        padding: 24px 0 0;
+    }
+    .section-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+    }
+
+    /* Featured post */
+    .featured {
+        border-bottom: var(--border);
+        padding: 24px 0 72px;
+    }
+    .featured-link { display: block; text-decoration: none; color: inherit; }
+    .featured-link:hover .featured-title { color: var(--fg-hover); }
+    .featured-link:hover .featured-figure { opacity: 0.85; }
+    .featured-link:focus-visible { outline: var(--border); outline-offset: 8px; }
+
+    .featured-title {
+        font-size: 40px;
+        line-height: 1.05;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+        max-width: 18ch;
+    }
+
+    .featured-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .featured-figure {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        background: var(--fg);
+        overflow: hidden;
+        transition: opacity 0.15s ease;
+    }
+    .featured-figure img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .featured-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .featured-meta-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+        padding-bottom: 12px;
+        border-bottom: var(--border);
+    }
+    .featured-body p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    /* Posts grid — three cards. Each card is a single link. */
+    .posts { border-bottom: var(--border); }
+    .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .post-card {
+        display: flex;
+        flex-direction: column;
+        padding: 32px 24px 32px 0;
+        text-decoration: none;
+        color: inherit;
+    }
+    .post-card + .post-card {
+        padding-left: 24px;
+        border-left: var(--border);
+    }
+    .post-card:hover {
+        background: var(--fg);
+        color: var(--bg);
+    }
+    .post-card:hover .post-card-meta,
+    .post-card:hover .post-card-excerpt { color: rgba(43, 56, 86, 0.7); }
+    .post-card:focus-visible {
+        outline: none;
+        background: var(--fg);
+        color: var(--bg);
+    }
+    .post-card:focus-visible .post-card-meta,
+    .post-card:focus-visible .post-card-excerpt { color: rgba(43, 56, 86, 0.7); }
+
+    .post-card-meta {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+        margin-bottom: 12px;
+    }
+    .post-card-title {
+        font-size: 20px;
+        line-height: 1.15;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+        margin-bottom: 12px;
+    }
+    .post-card-excerpt {
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--fg-hover);
+        margin-bottom: 24px;
+    }
+    .post-card-figure {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        background: var(--fg);
+        overflow: hidden;
+        margin-top: auto;
+    }
+    .post-card-figure img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+    .post-card:hover .post-card-figure,
+    .post-card:focus-visible .post-card-figure {
+        outline: var(--border);
+        outline-color: var(--bg);
+        outline-offset: -2px;
+    }
+
+    /* Footer */
+    .site-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .site-footer span { color: var(--fg-hover); }
+
+    /* Mobile */
+    @media only screen and (max-width: 768px) {
+        .page { padding: 0 24px; }
+        .site-header h1 { font-size: 32px; }
+        .featured { padding: 24px 0 56px; }
+        .featured-title { font-size: 30px; margin-bottom: 24px; }
+        .featured-grid { grid-template-columns: 1fr; gap: 24px; }
+        .posts-grid { grid-template-columns: 1fr; }
+        .post-card { padding: 24px 0; border-bottom: var(--border); }
+        .post-card + .post-card { padding-left: 0; border-left: none; }
+        .post-card:last-child { border-bottom: none; }
+        .site-footer { flex-direction: column; gap: 8px; text-align: center; }
+        .link:hover { text-decoration: none; }
+    }
+
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="page">
+
+        <nav class="top-bar" aria-label="Breadcrumb">
+            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
+            <span class="variant-tag">Variant&nbsp;&middot;&nbsp;V1</span>
+        </nav>
+
+        <header class="site-header">
+            <h1>Wesley Melo</h1>
+            <span class="page-label">Blog</span>
+        </header>
+
+        <main id="main-content">
+
+            <div class="section-label-row">
+                <span class="section-label">Featured</span>
+            </div>
+
+            <section class="featured" aria-label="Featured post">
+                <a href="blog/the-90s-kid-guide-to-actually-learning-tech.html" class="featured-link">
+                    <h2 class="featured-title">The 90s Kid Guide to Actually Learning Tech</h2>
+                    <div class="featured-grid">
+                        <div class="featured-figure" role="img" aria-label="Beige PC on a wooden desk">
+                            <img src="https://picsum.photos/seed/wesm-90s-1/1200/750" alt="Beige PC on a wooden desk" loading="lazy">
+                        </div>
+                        <div class="featured-meta">
+                            <div class="featured-meta-row">
+                                <span>April 2, 2026</span>
+                                <span>6 min read</span>
+                            </div>
+                            <div class="featured-body">
+                                <p>How a generation learned computers by breaking them &mdash; and why that might be the best way to learn AI, too.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </section>
+
+            <div class="section-label-row">
+                <span class="section-label">More posts</span>
+            </div>
+
+            <section class="posts" aria-label="More posts">
+                <div class="posts-grid">
+
+                    <a href="#" class="post-card">
+                        <div class="post-card-meta">Essay &middot; March 18, 2026 &middot; 7 min</div>
+                        <h3 class="post-card-title">The Digital Doppelg&auml;ngers Rises</h3>
+                        <p class="post-card-excerpt">We are generating our replacements at scale. The question is whether we can tell them apart from ourselves.</p>
+                        <div class="post-card-figure" role="img" aria-label="Abstract reflection">
+                            <img src="https://picsum.photos/seed/wesm-doppel/800/600" alt="Abstract reflection" loading="lazy">
+                        </div>
+                    </a>
+
+                    <a href="#" class="post-card">
+                        <div class="post-card-meta">Essay &middot; February 28, 2026 &middot; 5 min</div>
+                        <h3 class="post-card-title">How I Learned to Stop Worrying and Love Being Human</h3>
+                        <p class="post-card-excerpt">A reluctant defense of the messy, slow, imperfect parts of being a person &mdash; in an industry that wants them optimized away.</p>
+                        <div class="post-card-figure" role="img" aria-label="Open hands">
+                            <img src="https://picsum.photos/seed/wesm-human/800/600" alt="Open hands" loading="lazy">
+                        </div>
+                    </a>
+
+                    <a href="#" class="post-card">
+                        <div class="post-card-meta">Field Notes &middot; February 5, 2026 &middot; 3 min</div>
+                        <h3 class="post-card-title">Notes from a Slow Week</h3>
+                        <p class="post-card-excerpt">On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.</p>
+                        <div class="post-card-figure" role="img" aria-label="Notebook on a desk">
+                            <img src="https://picsum.photos/seed/wesm-notes/800/600" alt="Notebook on a desk" loading="lazy">
+                        </div>
+                    </a>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <span>&copy; 2026 Wesley Melo</span>
+            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>

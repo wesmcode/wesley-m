@@ -4,32 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog — Wesley Melo</title>
-    <meta name="description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
+    <meta name="description" content="Blog by Wesley Melo — choose a design variant.">
     <meta name="author" content="Wesley Melo">
     <link rel="canonical" href="https://wesley-m.com/blog.html">
     <meta property="og:title" content="Blog — Wesley Melo">
-    <meta property="og:description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
+    <meta property="og:description" content="Blog by Wesley Melo.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wesley-m.com/blog.html">
     <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
     <link rel="icon" href="data:,">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "Wesley Melo — Blog",
-        "url": "https://wesley-m.com/blog.html",
-        "author": {
-            "@type": "Person",
-            "name": "Wesley Melo",
-            "url": "https://wesley-m.com"
-        }
-    }
-    </script>
     <style>
 
     /* Reset */
-    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer, figure, figcaption, article {
+    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer {
         margin: 0;
         padding: 0;
         border: 0;
@@ -37,7 +24,7 @@
         font: inherit;
         vertical-align: baseline;
     }
-    header, main, nav, section, footer, figure, article { display: block; }
+    header, main, nav, section, footer { display: block; }
     ul { list-style: none; }
     *, *::before, *::after { box-sizing: border-box; }
 
@@ -45,8 +32,10 @@
         --bg: #2B3856;
         --fg: #FFFFFF;
         --fg-hover: rgba(255, 255, 255, 0.5);
+        --fg-quiet: rgba(255, 255, 255, 0.7);
         --border: 2px solid #FFFFFF;
         --border-heavy: 3px solid #FFFFFF;
+        --rule: 1px solid #FFFFFF;
     }
 
     html, body {
@@ -59,7 +48,6 @@
         -webkit-font-smoothing: antialiased;
     }
 
-    /* Skip link */
     .skip-link {
         position: absolute;
         left: -9999px;
@@ -69,11 +57,9 @@
         color: var(--bg);
         text-decoration: none;
     }
-    .skip-link:focus {
-        left: 0;
-    }
+    .skip-link:focus { left: 0; }
 
-    /* The single link signature shared with the rest of the site. */
+    /* Single link signature. */
     .link {
         font-weight: 400;
         color: var(--fg);
@@ -89,42 +75,20 @@
         line-height: inherit;
         cursor: default;
     }
-    .link:hover {
-        color: var(--fg-hover);
-        text-decoration: underline;
-    }
-    .link:focus-visible {
-        color: var(--bg);
-        background: var(--fg);
-        outline: none;
-    }
-    .link:focus:not(:focus-visible) {
-        color: var(--fg);
-        background: none;
-        outline: none;
-    }
-    .link:active {
-        background: var(--fg);
-        color: var(--bg);
-    }
+    .link:hover { color: var(--fg-hover); text-decoration: underline; }
+    .link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
+    .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
+    .link:active { background: var(--fg); color: var(--bg); }
 
-    /* Page container — same constraint as the rest of the site. */
     .page {
         max-width: 960px;
         margin: 0 auto;
         padding: 0 40px;
     }
 
-    /* Top bar — back link sits on its own row, baseline-grid. */
-    .top-bar {
-        padding: 24px 0 0;
-    }
-    .top-bar .link {
-        font-size: 14px;
-        letter-spacing: 0.05em;
-    }
+    .top-bar { padding: 24px 0 0; }
+    .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
 
-    /* Site header — matches services.html / brand. */
     .site-header {
         border-bottom: var(--border-heavy);
         padding: 24px 0 24px;
@@ -146,259 +110,140 @@
         color: var(--fg-hover);
     }
 
-    /* Right-aligned section label, matching index.html .section-label-row. */
-    .section-label-row {
-        display: flex;
-        justify-content: flex-end;
-        padding: 24px 0 0;
+    /* Intro */
+    .intro {
+        padding: 64px 0 48px;
+        border-bottom: var(--rule);
     }
-    .section-label {
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
+    .intro-label {
+        font-size: 12px;
+        font-variant: small-caps;
+        letter-spacing: 0.2em;
         color: var(--fg-hover);
+        margin-bottom: 20px;
     }
-
-    /* Featured post — single block, whole thing is one link. */
-    .featured {
-        border-bottom: var(--border);
-        padding: 24px 0 72px;
-    }
-
-    .featured-link {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-    }
-    .featured-link:hover .featured-title {
-        color: var(--fg-hover);
-    }
-    .featured-link:hover .featured-figure {
-        opacity: 0.85;
-    }
-    .featured-link:focus-visible {
-        outline: var(--border);
-        outline-offset: 8px;
-    }
-
-    .featured-title {
+    .intro-statement {
         font-size: 40px;
-        line-height: 1.05;
+        line-height: 1.1;
         font-weight: 400;
         letter-spacing: -0.01em;
         text-transform: uppercase;
-        margin-bottom: 32px;
         max-width: 18ch;
+        margin-bottom: 24px;
+    }
+    .intro-dek {
+        font-size: 18px;
+        line-height: 1.5;
+        color: var(--fg-quiet);
+        max-width: 60ch;
     }
 
-    .featured-grid {
+    /* Two variant picker rows — full-width hairline rows that invert on hover. */
+    .variants { padding: 24px 0 0; }
+    .variant {
         display: grid;
-        grid-template-columns: 1.6fr 1fr;
-        gap: 40px;
-        align-items: start;
-    }
-
-    .featured-figure {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        background: var(--fg);
-        overflow: hidden;
-        transition: opacity 0.15s ease;
-    }
-
-    .featured-meta {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-    .featured-meta-row {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--fg-hover);
-        padding-bottom: 12px;
-        border-bottom: var(--border);
-    }
-    .featured-body p {
-        font-size: 16px;
-        line-height: 24px;
-    }
-
-    /* Posts grid — three cards. Each card is a single .link. */
-    .posts {
-        border-bottom: var(--border);
-    }
-    .posts-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .post-card {
-        display: flex;
-        flex-direction: column;
-        padding: 32px 24px 32px 0;
-        text-decoration: none;
+        grid-template-columns: 72px 1fr auto;
+        gap: 32px;
+        align-items: baseline;
+        padding: 40px 0 44px;
+        border-bottom: var(--rule);
         color: inherit;
+        text-decoration: none;
+        cursor: default;
+        transition: padding-left 0.15s ease;
     }
-    .post-card + .post-card {
-        padding-left: 24px;
-        border-left: var(--border);
-    }
-    .post-card:hover {
-        background: var(--fg);
-        color: var(--bg);
-    }
-    .post-card:hover .post-card-meta,
-    .post-card:hover .post-card-excerpt {
-        color: rgba(43, 56, 86, 0.7);
-    }
-    .post-card:focus-visible {
+    .variant:first-of-type { border-top: var(--rule); }
+    .variant:hover,
+    .variant:focus-visible {
         outline: none;
         background: var(--fg);
         color: var(--bg);
+        padding-left: 24px;
     }
-    .post-card:focus-visible .post-card-meta,
-    .post-card:focus-visible .post-card-excerpt {
-        color: rgba(43, 56, 86, 0.7);
-    }
-    .post-card-meta {
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--fg-hover);
-        margin-bottom: 12px;
-    }
-    .post-card-title {
-        font-size: 20px;
-        line-height: 1.15;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
+    .variant:hover .variant-dek,
+    .variant:focus-visible .variant-dek { color: rgba(43, 56, 86, 0.7); }
+    .variant:hover .variant-meta,
+    .variant:focus-visible .variant-meta { color: rgba(43, 56, 86, 0.55); }
+
+    .variant-number {
+        font-size: 52px;
+        line-height: 0.9;
         font-weight: 400;
-        margin-bottom: 12px;
+        letter-spacing: -0.02em;
     }
-    .post-card-excerpt {
+
+    .variant-body {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .variant-title {
+        font-size: 32px;
+        line-height: 1;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+    }
+    .variant-dek {
         font-size: 15px;
         line-height: 1.5;
+        color: var(--fg-quiet);
+        max-width: 56ch;
+    }
+    .variant-meta {
+        font-size: 11px;
+        font-variant: small-caps;
+        letter-spacing: 0.2em;
         color: var(--fg-hover);
-        margin-bottom: 24px;
     }
-    .post-card-figure {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 4 / 3;
-        background: var(--fg);
-        overflow: hidden;
-        margin-top: auto;
-    }
-    .post-card:hover .post-card-figure,
-    .post-card:focus-visible .post-card-figure {
-        outline: var(--border);
-        outline-color: var(--bg);
-        outline-offset: -2px;
+    .variant-arrow {
+        font-size: 24px;
+        line-height: 1;
+        align-self: center;
     }
 
-    /* Sharp-shape CSS placeholders — solid navy with hard-edged wedges. */
-    .post-card-figure::before,
-    .featured-figure::before {
-        content: "";
-        position: absolute;
-        inset: 0;
+    /* Note */
+    .note {
+        padding: 40px 0 56px;
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--fg-hover);
+        max-width: 60ch;
     }
-    .shape-featured::before {
-        background:
-            linear-gradient(118deg,
-                var(--fg) 0%,
-                var(--fg) 38%,
-                var(--bg) 38%,
-                var(--bg) 62%,
-                var(--fg) 62%,
-                var(--fg) 100%);
-    }
-    .shape-a::before {
-        background:
-            linear-gradient(135deg,
-                var(--bg) 0%,
-                var(--bg) 42%,
-                var(--fg) 42%,
-                var(--fg) 100%);
-    }
-    .shape-b::before {
-        background:
-            linear-gradient(90deg,
-                var(--fg) 0%,
-                var(--fg) 28%,
-                var(--bg) 28%,
-                var(--bg) 56%,
-                var(--fg) 56%,
-                var(--fg) 100%);
-    }
-    .shape-c::before {
-        background:
-            linear-gradient(220deg,
-                var(--bg) 0%,
-                var(--bg) 48%,
-                var(--fg) 48%,
-                var(--fg) 100%);
-    }
+    .note p + p { margin-top: 12px; }
 
-    /* Footer — same shape as services.html. */
+    /* Footer */
     .site-footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 24px 0;
+        border-top: var(--border);
         font-size: 13px;
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
-    .site-footer span {
-        color: var(--fg-hover);
-    }
+    .site-footer span { color: var(--fg-hover); }
 
     /* Mobile */
     @media only screen and (max-width: 768px) {
-
-        .page {
-            padding: 0 24px;
+        .page { padding: 0 24px; }
+        .site-header h1 { font-size: 32px; }
+        .intro { padding: 48px 0 32px; }
+        .intro-statement { font-size: 30px; }
+        .intro-dek { font-size: 16px; }
+        .variant {
+            grid-template-columns: 56px 1fr;
+            gap: 20px;
+            padding: 28px 0 32px;
         }
-        .site-header h1 {
-            font-size: 32px;
-        }
-        .featured {
-            padding: 24px 0 56px;
-        }
-        .featured-title {
-            font-size: 30px;
-            margin-bottom: 24px;
-        }
-        .featured-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-        .posts-grid {
-            grid-template-columns: 1fr;
-        }
-        .post-card {
-            padding: 24px 0;
-            border-bottom: var(--border);
-        }
-        .post-card + .post-card {
-            padding-left: 0;
-            border-left: none;
-        }
-        .post-card:last-child {
-            border-bottom: none;
-        }
-        .site-footer {
-            flex-direction: column;
-            gap: 8px;
-            text-align: center;
-        }
-        .link:hover {
-            text-decoration: none;
-        }
+        .variant-number { font-size: 36px; }
+        .variant-title { font-size: 22px; }
+        .variant-arrow { display: none; }
+        .variant:hover,
+        .variant:focus-visible { padding-left: 12px; }
+        .site-footer { flex-direction: column; gap: 8px; text-align: center; }
+        .link:hover { text-decoration: none; }
     }
 
     </style>
@@ -420,57 +265,39 @@
 
         <main id="main-content">
 
-            <div class="section-label-row">
-                <span class="section-label">Featured</span>
-            </div>
-
-            <section class="featured" aria-label="Featured post">
-                <a href="blog/bergen-assembly.html" class="featured-link">
-                    <h2 class="featured-title">Lorem Ipsum Dolor Sit Amet</h2>
-                    <div class="featured-grid">
-                        <div class="featured-figure shape-featured" role="img" aria-label="Placeholder artwork"></div>
-                        <div class="featured-meta">
-                            <div class="featured-meta-row">
-                                <span>April 9, 2026</span>
-                                <span>6 min</span>
-                            </div>
-                            <div class="featured-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+            <section class="intro" aria-label="Blog introduction">
+                <div class="intro-label">Two designs &middot; Same content</div>
+                <h2 class="intro-statement">The blog, in two variants.</h2>
+                <p class="intro-dek">Pick a design. The content is identical &mdash; same posts, same titles, same body, same images. The visual system is the difference. Feedback welcome.</p>
             </section>
 
-            <div class="section-label-row">
-                <span class="section-label">More posts</span>
-            </div>
+            <section class="variants" aria-label="Design variants">
 
-            <section class="posts" aria-label="More posts">
-                <div class="posts-grid">
+                <a href="v1/blog.html" class="variant">
+                    <div class="variant-number">V1</div>
+                    <div class="variant-body">
+                        <div class="variant-title">Realigned brutalist</div>
+                        <p class="variant-dek">Featured hero with image, three-card grid, whole-card hover invert. The version shipped in the first pass.</p>
+                        <div class="variant-meta">Brutalist &middot; Single column &middot; Card grid</div>
+                    </div>
+                    <div class="variant-arrow">&rarr;&#xFE0E;</div>
+                </a>
 
-                    <a href="#" class="post-card">
-                        <div class="post-card-meta">March 24, 2026 &middot; 4 min</div>
-                        <h3 class="post-card-title">Lorem Ipsum Primum</h3>
-                        <p class="post-card-excerpt">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <div class="post-card-figure shape-a" role="img" aria-label="Placeholder artwork"></div>
-                    </a>
+                <a href="v2/blog.html" class="variant">
+                    <div class="variant-number">V2</div>
+                    <div class="variant-body">
+                        <div class="variant-title">Editorial pass</div>
+                        <p class="variant-dek">Bloomberg-style featured title with no thumbnail, hairline-ruled archive, narrow reading column, drop cap, italic pull-quote, small-caps meta. Editorial patterns borrowed from NYT Magazine, New Yorker, Atlantic, Bloomberg.</p>
+                        <div class="variant-meta">Editorial &middot; Narrow column &middot; Hairline list</div>
+                    </div>
+                    <div class="variant-arrow">&rarr;&#xFE0E;</div>
+                </a>
 
-                    <a href="#" class="post-card">
-                        <div class="post-card-meta">March 10, 2026 &middot; 7 min</div>
-                        <h3 class="post-card-title">Lorem Ipsum Secundum</h3>
-                        <p class="post-card-excerpt">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <div class="post-card-figure shape-b" role="img" aria-label="Placeholder artwork"></div>
-                    </a>
+            </section>
 
-                    <a href="#" class="post-card">
-                        <div class="post-card-meta">February 22, 2026 &middot; 5 min</div>
-                        <h3 class="post-card-title">Lorem Ipsum Tertium</h3>
-                        <p class="post-card-excerpt">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                        <div class="post-card-figure shape-c" role="img" aria-label="Placeholder artwork"></div>
-                    </a>
-
-                </div>
+            <section class="note" aria-label="Preview note">
+                <p>Both variants share identical text, metadata, and images. Only the typographic and layout treatment differs. Posts are mocked with lorem-adjacent placeholder content for design testing only.</p>
+                <p>The featured post is navigable in both variants; archive rows are previews only.</p>
             </section>
 
         </main>
