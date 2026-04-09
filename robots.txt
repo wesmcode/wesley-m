@@ -1,0 +1,72 @@
+# robots.txt for https://wesley-m.com/
+# Block AI/LLM crawlers and user-initiated fetchers.
+# Traditional search engines (Googlebot, Bingbot, etc.) remain allowed.
+
+# Anthropic (Claude) — includes WebFetch via Claude-User
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Claude-User
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+# Google AI (Gemini / Vertex) — distinct from Googlebot
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl (feeds many LLM training sets)
+User-agent: CCBot
+Disallow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Disallow: /
+
+# Meta AI
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# ByteDance
+User-agent: Bytespider
+Disallow: /
+
+# Amazon
+User-agent: Amazonbot
+Disallow: /
+
+# Cohere, Diffbot, Omgili
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+# Default: allow everything else (search engines, link previews, etc.)
+User-agent: *
+Allow: /
+
+Sitemap: https://wesley-m.com/sitemap.xml
