@@ -962,6 +962,8 @@
 
     // About cards — pagination dots sync with horizontal snap scroll,
     // auto-advance, keyboard arrow nav, and brutalist active state.
+    // Auto-advance never touches the page scroll position — it only moves
+    // the inner horizontal scroll, and pauses when the row is off-screen.
     (function () {
         var cardsRow = document.getElementById('about-cards');
         if (!cardsRow) return;
@@ -974,6 +976,8 @@
         var timer = null;
         var current = 0;
         var paused = false;
+        var inView = true;
+        var suppressScrollSync = false;
 
         function pad(n) { return (n < 10 ? '0' : '') + n; }
 
@@ -998,17 +1002,32 @@
             }
         }
 
+        // Horizontal-only scroll inside the cards container — never touches
+        // the page's vertical scroll position. scrollIntoView would scroll
+        // the page back to the section if the user had scrolled away.
+        function scrollCardIntoView(i) {
+            var card = cards[i];
+            if (!card) return;
+            var containerRect = cardsRow.getBoundingClientRect();
+            var cardRect = card.getBoundingClientRect();
+            var delta = (cardRect.left + cardRect.width / 2) - (containerRect.left + containerRect.width / 2);
+            suppressScrollSync = true;
+            cardsRow.scrollBy({
+                left: delta,
+                behavior: prefersReduced ? 'auto' : 'smooth'
+            });
+            // Release the scroll-sync guard after the smooth scroll settles.
+            setTimeout(function () { suppressScrollSync = false; }, 600);
+        }
+
         function goTo(i) {
             if (!cards[i]) return;
-            cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            scrollCardIntoView(i);
             setActive(i);
-            // Brief pause so the IntersectionObserver doesn't flip current back mid-scroll.
-            paused = true;
-            setTimeout(function () { paused = false; }, 700);
         }
 
         function advance() {
-            if (paused) return;
+            if (paused || !inView) return;
             goTo((current + 1) % cards.length);
         }
 
@@ -1045,24 +1064,41 @@
             }
         });
 
-        if ('IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(function (entries) {
-                // Pick the most-visible card as the active one.
-                var best = null;
-                entries.forEach(function (entry) {
-                    if (!best || entry.intersectionRatio > best.intersectionRatio) {
-                        best = entry;
+        // Sync the active card from manual horizontal scrolls (touch swipe,
+        // trackpad, etc.) by finding the card closest to the row centre.
+        var rafPending = false;
+        function syncFromScroll() {
+            if (suppressScrollSync || rafPending) return;
+            rafPending = true;
+            requestAnimationFrame(function () {
+                rafPending = false;
+                var containerRect = cardsRow.getBoundingClientRect();
+                var center = containerRect.left + containerRect.width / 2;
+                var closest = 0;
+                var closestDist = Infinity;
+                cards.forEach(function (card, i) {
+                    var r = card.getBoundingClientRect();
+                    var cardCenter = r.left + r.width / 2;
+                    var d = Math.abs(cardCenter - center);
+                    if (d < closestDist) {
+                        closestDist = d;
+                        closest = i;
                     }
                 });
-                if (best && best.isIntersecting) {
-                    var idx = Array.prototype.indexOf.call(cards, best.target);
-                    if (idx !== -1) setActive(idx);
-                }
-            }, {
-                root: cardsRow,
-                threshold: [0.5, 0.75, 1]
+                if (closest !== current) setActive(closest);
             });
-            cards.forEach(function (card) { observer.observe(card); });
+        }
+        cardsRow.addEventListener('scroll', syncFromScroll, { passive: true });
+
+        // Pause auto-advance when the carousel section is off-screen so it
+        // can never pull the user back into view.
+        if ('IntersectionObserver' in window) {
+            var visObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    inView = entry.isIntersecting;
+                });
+            }, { threshold: 0.2 });
+            visObserver.observe(cardsRow);
         }
 
         setActive(0);
