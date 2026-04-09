@@ -241,7 +241,7 @@
     }
 
     .about-card:hover,
-    .about-card[data-active="true"] {
+    .about-cards:not(:hover) .about-card[data-active="true"] {
         background: #FFFFFF;
         color: var(--bg);
         box-shadow: 8px 8px 0 #FFFFFF;
@@ -249,12 +249,12 @@
     }
 
     .about-card:hover p,
-    .about-card[data-active="true"] p {
+    .about-cards:not(:hover) .about-card[data-active="true"] p {
         color: var(--bg);
     }
 
     .about-card:hover svg rect,
-    .about-card[data-active="true"] svg rect {
+    .about-cards:not(:hover) .about-card[data-active="true"] svg rect {
         fill: var(--bg);
     }
 
