@@ -339,12 +339,18 @@
         grid-template-columns: 1.2fr 1fr;
         gap: 40px;
         align-items: baseline;
-        padding: 56px 0 48px;
+        padding: 56px 24px 48px;
         border-bottom: 3px solid #FFFFFF;
+        transition: background 0.2s ease, color 0.2s ease;
     }
 
     .process-row:last-child {
         border-bottom: none;
+    }
+
+    .process-row:hover {
+        background: #FFFFFF;
+        color: var(--bg);
     }
 
     .process-row h3 {
@@ -356,26 +362,18 @@
     }
 
     .process-meta {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 24px;
-        max-width: 340px;
-        justify-self: end;
-    }
-
-    .process-meta p {
         font-size: 16px;
         line-height: 1.5;
         color: var(--fg-hover);
         text-align: right;
+        max-width: 340px;
+        justify-self: end;
         margin: 0;
+        transition: color 0.2s ease;
     }
 
-    .process-arrow {
-        font-size: 24px;
-        line-height: 1;
-        flex-shrink: 0;
+    .process-row:hover .process-meta {
+        color: rgba(43, 56, 86, 0.6);
     }
 
     /* CAPABILITIES — inverted (white bg, navy text) */
@@ -508,6 +506,13 @@
         .about-card:hover svg rect {
             fill: #FFFFFF;
         }
+        .process-row:hover {
+            background: transparent;
+            color: var(--fg);
+        }
+        .process-row:hover .process-meta {
+            color: var(--fg-hover);
+        }
     }
 
     /* Mobile */
@@ -565,7 +570,7 @@
         .process-row {
             grid-template-columns: 1fr;
             gap: 16px;
-            padding: 32px 0 28px;
+            padding: 32px 20px 28px;
         }
 
         .process-row h3 {
@@ -575,9 +580,6 @@
         .process-meta {
             max-width: 100%;
             justify-self: start;
-        }
-
-        .process-meta p {
             text-align: left;
         }
 
@@ -804,31 +806,19 @@
                 <div class="process-list">
                     <div class="process-row">
                         <h3>Discover.</h3>
-                        <div class="process-meta">
-                            <p>Interviews, data, hard questions. Understand the problem before touching the solution.</p>
-                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                        </div>
+                        <p class="process-meta">Interviews, data, hard questions. Understand the problem before touching the solution.</p>
                     </div>
                     <div class="process-row">
                         <h3>Shape.</h3>
-                        <div class="process-meta">
-                            <p>Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step is obvious.</p>
-                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                        </div>
+                        <p class="process-meta">Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step is obvious.</p>
                     </div>
                     <div class="process-row">
                         <h3>Create.</h3>
-                        <div class="process-meta">
-                            <p>Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument.</p>
-                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                        </div>
+                        <p class="process-meta">Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument.</p>
                     </div>
                     <div class="process-row">
                         <h3>Scale.</h3>
-                        <div class="process-meta">
-                            <p>Metrics, systems, handover. Built to run without me. Knowledge that stays with the team.</p>
-                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                        </div>
+                        <p class="process-meta">Metrics, systems, handover. Built to run without me. Knowledge that stays with the team.</p>
                     </div>
                 </div>
             </div>
