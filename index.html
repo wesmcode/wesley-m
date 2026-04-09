@@ -193,7 +193,7 @@
         justify-content: center;
     }
 
-    /* ABOUT / Why me */
+    /* ABOUT — Halaska-style numbered highlight carousel */
     #about .section-inner {
         padding-top: 72px;
         padding-bottom: 72px;
@@ -209,8 +209,28 @@
         text-align: center;
     }
 
+    .about-counter {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 28px;
+        font-size: 13px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--fg-hover);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .about-counter .current {
+        font-size: 18px;
+        letter-spacing: 0.1em;
+        color: var(--fg);
+    }
+
     .about-cards-wrapper {
         position: relative;
+        margin: 0 -40px;
     }
 
     .about-cards {
@@ -235,8 +255,8 @@
         padding: 28px 24px;
         display: flex;
         flex-direction: column;
-        gap: 16px;
-        min-height: 260px;
+        gap: 18px;
+        min-height: 300px;
         background: var(--bg);
         transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
     }
@@ -274,8 +294,8 @@
     }
 
     .about-card-icon {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         flex-shrink: 0;
     }
 
@@ -284,7 +304,7 @@
     }
 
     .about-card h3 {
-        font-size: 18px;
+        font-size: 19px;
         text-transform: uppercase;
         letter-spacing: 0.05em;
         font-weight: 400;
@@ -292,10 +312,11 @@
     }
 
     .about-card p {
-        font-size: 15px;
-        line-height: 1.5;
+        font-size: 14px;
+        line-height: 1.55;
         color: var(--fg-hover);
         margin-top: auto;
+        transition: color 0.2s ease;
     }
 
     .about-pagination {
@@ -347,8 +368,11 @@
 
     /* PROCESS */
     #process .section-inner {
-        padding-top: 64px;
-        padding-bottom: 64px;
+        padding-top: 56px;
+        padding-bottom: 56px;
+        padding-left: 48px;
+        padding-right: 48px;
+        max-width: 1440px;
     }
 
     .process-list {
@@ -358,8 +382,20 @@
 
     .process-row {
         display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 40px;
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+        gap: 48px;
+        align-items: center;
+        padding: 22px 0 20px;
+        border-bottom: 2px solid var(--fg);
+        transition: background 0.2s ease;
+    }
+
+    .process-row:hover {
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    .process-row-head {
+        display: flex;
         align-items: baseline;
         padding: 56px 24px 48px;
         border-bottom: 3px solid #FFFFFF;
@@ -398,15 +434,20 @@
         color: rgba(43, 56, 86, 0.6);
     }
 
-    /* CAPABILITIES — inverted (white bg, navy text) */
+    .process-row:hover .process-arrow {
+        transform: translateX(8px);
+    }
+
+    /* CAPABILITIES — Significa-style 3-column disclosure, clear hierarchy */
     #capabilities {
         background: #FFFFFF;
         color: var(--bg);
     }
 
     #capabilities .section-inner {
-        padding-top: 72px;
-        padding-bottom: 72px;
+        padding-top: 88px;
+        padding-bottom: 88px;
+        max-width: 1120px;
     }
 
     .cap-grid {
@@ -584,11 +625,30 @@
         }
 
         .about-card {
-            flex: 0 0 80%;
-            min-height: 220px;
+            flex: 0 0 78%;
+            min-height: 260px;
+        }
+
+        .about-card:hover,
+        .about-card.is-active {
+            transform: none;
+            box-shadow: 4px 4px 0 0 var(--fg);
+        }
+
+        .about-dots {
+            margin-top: 28px;
         }
 
         /* Process */
+        #process .section-inner {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .process-list {
+            border-top-width: 1px;
+        }
+
         .process-row {
             grid-template-columns: 1fr;
             gap: 16px;
@@ -606,6 +666,15 @@
         }
 
         /* Capabilities */
+        #capabilities .section-inner {
+            padding-top: 56px;
+            padding-bottom: 56px;
+        }
+
+        .cap-intro {
+            margin-bottom: 32px;
+        }
+
         .cap-grid {
             grid-template-columns: 1fr;
             gap: 40px;
@@ -755,34 +824,34 @@
                 <p class="about-statement">A decade of shipping product. Agencies, platforms, and now AI — the work changes, the discipline doesn't.</p>
 
                 <div class="about-cards-wrapper">
-                    <div class="about-cards" id="about-cards" role="list" tabindex="0" aria-label="Highlights">
+                    <div class="about-cards" id="about-cards" role="list" tabindex="0" aria-label="What I bring">
                         <article class="about-card" role="listitem">
                             <span class="about-card-number">01</span>
-                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Ship discipline</h3>
-                            <p>Deadlines beat drafts. I ship weekly, measure honestly, and cut what doesn't earn its keep.</p>
+                            <p>Deadlines beat drafts. I ship weekly, measure honestly, cut what doesn't earn its keep.</p>
                         </article>
                         <article class="about-card" role="listitem">
                             <span class="about-card-number">02</span>
-                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>AI fluency</h3>
-                            <p>LLMs, agents, RAG, evaluation. Built and shipped in production — not just read about on weekends.</p>
+                            <p>LLMs, agents, RAG, evaluation. Built and shipped in production &mdash; not read about on weekends.</p>
                         </article>
                         <article class="about-card" role="listitem">
                             <span class="about-card-number">03</span>
-                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Platform scale</h3>
-                            <p>Multi-site migrations, CMS consolidation, SEO preserved at scale. Quiet handovers, no fires.</p>
+                            <p>Multi-site migrations, CMS consolidation, SEO preserved at scale. Quiet handovers.</p>
                         </article>
                         <article class="about-card" role="listitem">
                             <span class="about-card-number">04</span>
-                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Team leverage</h3>
@@ -1013,11 +1082,11 @@
         function setActive(index) {
             current = index;
             dots.forEach(function (dot, i) {
-                if (i === index) {
-                    dot.setAttribute('aria-current', 'true');
-                } else {
-                    dot.removeAttribute('aria-current');
-                }
+                if (i === index) dot.setAttribute('aria-current', 'true');
+                else dot.removeAttribute('aria-current');
+            });
+            cards.forEach(function (card, i) {
+                card.classList.toggle('is-active', i === index);
             });
             cards.forEach(function (card, i) {
                 if (i === index) {
