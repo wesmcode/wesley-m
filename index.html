@@ -203,9 +203,10 @@
         font-size: 40px;
         line-height: 1.15;
         letter-spacing: -0.01em;
-        max-width: 700px;
-        margin-bottom: 64px;
+        max-width: 720px;
+        margin: 0 auto 56px;
         font-weight: 400;
+        text-align: center;
     }
 
     .about-cards-wrapper {
@@ -258,6 +259,20 @@
         fill: var(--bg);
     }
 
+    .about-card-number {
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--fg-hover);
+        font-variant-numeric: tabular-nums;
+        transition: color 0.15s ease;
+    }
+
+    .about-card:hover .about-card-number,
+    .about-cards:not(:hover) .about-card[data-active="true"] .about-card-number {
+        color: var(--bg);
+    }
+
     .about-card-icon {
         width: 36px;
         height: 36px;
@@ -280,6 +295,7 @@
         font-size: 15px;
         line-height: 1.5;
         color: var(--fg-hover);
+        margin-top: auto;
     }
 
     .about-pagination {
@@ -292,27 +308,33 @@
 
     .about-dots {
         display: flex;
-        gap: 12px;
+        align-items: center;
+        gap: 10px;
     }
 
     .about-dot {
-        width: 14px;
-        height: 14px;
+        width: 28px;
+        height: 2px;
         padding: 0;
-        background: transparent;
-        border: 2px solid var(--fg);
+        background: rgba(255, 255, 255, 0.25);
+        border: none;
         cursor: pointer;
-        transition: background 0.15s ease;
+        transition: background 0.2s ease, width 0.2s ease;
         font: inherit;
+    }
+
+    .about-dot:hover {
+        background: var(--fg-hover);
     }
 
     .about-dot[aria-current="true"] {
         background: var(--fg);
+        width: 56px;
     }
 
     .about-dot:focus-visible {
         outline: 2px solid var(--fg);
-        outline-offset: 3px;
+        outline-offset: 4px;
     }
 
     .about-count {
@@ -735,6 +757,7 @@
                 <div class="about-cards-wrapper">
                     <div class="about-cards" id="about-cards" role="list" tabindex="0" aria-label="Highlights">
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">01</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -742,6 +765,7 @@
                             <p>Deadlines beat drafts. I ship weekly, measure honestly, and cut what doesn't earn its keep.</p>
                         </article>
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">02</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -749,6 +773,7 @@
                             <p>LLMs, agents, RAG, evaluation. Built and shipped in production — not just read about on weekends.</p>
                         </article>
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">03</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -756,6 +781,7 @@
                             <p>Multi-site migrations, CMS consolidation, SEO preserved at scale. Quiet handovers, no fires.</p>
                         </article>
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">04</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -763,6 +789,7 @@
                             <p>Remote-first scrum and kanban. Mentorship that sticks. Teams that keep shipping after I leave.</p>
                         </article>
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">05</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -770,6 +797,7 @@
                             <p>Hypotheses, instrumentation, weekly read-outs. Decisions earn their place with data, not volume.</p>
                         </article>
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">06</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -777,6 +805,7 @@
                             <p>Customer interviews, JTBD, problem framing. The right question saves a quarter of wasted build.</p>
                         </article>
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">07</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
