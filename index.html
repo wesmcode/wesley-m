@@ -188,20 +188,6 @@
         padding: 80px 40px;
     }
 
-    .section-label {
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--fg-hover);
-        display: block;
-    }
-
-    .section-label-row {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 48px;
-    }
-
     /* Hero snap wrapper — keep existing .outer/.inner behaviour inside */
     #hero.snap-section {
         justify-content: center;
@@ -234,7 +220,7 @@
         scroll-behavior: smooth;
         scrollbar-width: none;
         -ms-overflow-style: none;
-        padding-bottom: 4px;
+        padding: 4px 16px 20px 4px;
     }
 
     .about-cards::-webkit-scrollbar {
@@ -242,21 +228,44 @@
     }
 
     .about-card {
-        flex: 0 0 calc((100% - 72px) / 4);
+        flex: 0 0 calc((100% - 96px) / 4);
         scroll-snap-align: center;
-        border: var(--border);
+        border: 4px solid #FFFFFF;
         padding: 28px 24px;
         display: flex;
         flex-direction: column;
         gap: 16px;
         min-height: 260px;
         background: var(--bg);
+        transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .about-card:hover,
+    .about-card[data-active="true"] {
+        background: #FFFFFF;
+        color: var(--bg);
+        box-shadow: 8px 8px 0 #FFFFFF;
+        transform: translate(-2px, -2px);
+    }
+
+    .about-card:hover p,
+    .about-card[data-active="true"] p {
+        color: var(--bg);
+    }
+
+    .about-card:hover svg rect,
+    .about-card[data-active="true"] svg rect {
+        fill: var(--bg);
     }
 
     .about-card-icon {
         width: 36px;
         height: 36px;
         flex-shrink: 0;
+    }
+
+    .about-card-icon rect {
+        transition: fill 0.15s ease;
     }
 
     .about-card h3 {
@@ -273,19 +282,25 @@
         color: var(--fg-hover);
     }
 
+    .about-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 40px;
+    }
+
     .about-dots {
         display: flex;
-        justify-content: center;
         gap: 12px;
-        margin-top: 32px;
     }
 
     .about-dot {
-        width: 10px;
-        height: 10px;
+        width: 14px;
+        height: 14px;
         padding: 0;
         background: transparent;
-        border: 1px solid var(--fg);
+        border: 2px solid var(--fg);
         cursor: pointer;
         transition: background 0.15s ease;
         font: inherit;
@@ -300,6 +315,14 @@
         outline-offset: 3px;
     }
 
+    .about-count {
+        font-size: 13px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--fg-hover);
+        font-variant-numeric: tabular-nums;
+    }
+
     /* PROCESS */
     #process .section-inner {
         padding-top: 64px;
@@ -307,7 +330,8 @@
     }
 
     .process-list {
-        border-top: var(--border);
+        border-top: 3px solid #FFFFFF;
+        border-bottom: 3px solid #FFFFFF;
     }
 
     .process-row {
@@ -315,25 +339,43 @@
         grid-template-columns: 1.2fr 1fr;
         gap: 40px;
         align-items: baseline;
-        padding: 32px 0 24px;
-        border-bottom: var(--border);
+        padding: 56px 0 48px;
+        border-bottom: 3px solid #FFFFFF;
+    }
+
+    .process-row:last-child {
+        border-bottom: none;
     }
 
     .process-row h3 {
-        font-size: 52px;
-        line-height: 1;
+        font-size: clamp(80px, 12vw, 180px);
+        line-height: 0.88;
         text-transform: uppercase;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.03em;
         font-weight: 400;
     }
 
-    .process-row p {
-        font-size: 15px;
-        line-height: 1.5;
-        color: var(--fg-hover);
+    .process-meta {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 24px;
         max-width: 340px;
         justify-self: end;
+    }
+
+    .process-meta p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: var(--fg-hover);
         text-align: right;
+        margin: 0;
+    }
+
+    .process-arrow {
+        font-size: 24px;
+        line-height: 1;
+        flex-shrink: 0;
     }
 
     /* CAPABILITIES — inverted (white bg, navy text) */
@@ -347,30 +389,28 @@
         padding-bottom: 72px;
     }
 
-    .cap-intro {
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: rgba(43, 56, 86, 0.6);
-        margin-bottom: 32px;
-    }
-
     .cap-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
+        gap: 48px;
+    }
+
+    .cap-col {
+        border-top: 2px solid var(--bg);
+        padding-top: 20px;
     }
 
     .cap-col h3 {
-        font-size: 20px;
+        font-size: 40px;
         font-weight: 700;
-        padding-bottom: 12px;
-        border-bottom: 2px solid var(--bg);
-        margin-bottom: 16px;
+        line-height: 1;
+        letter-spacing: -0.01em;
+        padding-bottom: 24px;
+        margin-bottom: 0;
     }
 
     .cap-group {
-        margin-top: 20px;
+        margin-top: 32px;
     }
 
     .cap-group:first-of-type {
@@ -378,9 +418,10 @@
     }
 
     .cap-group-label {
-        font-size: 13px;
+        font-size: 18px;
         font-weight: 700;
-        margin-bottom: 6px;
+        line-height: 1.3;
+        margin-bottom: 12px;
     }
 
     .cap-col ul {
@@ -392,7 +433,7 @@
     .cap-col li {
         font-size: 14px;
         line-height: 1.7;
-        color: rgba(43, 56, 86, 0.75);
+        color: rgba(43, 56, 86, 0.65);
     }
 
     /* FOOTER */
@@ -448,6 +489,25 @@
         .about-cards {
             scroll-behavior: auto;
         }
+        .about-card {
+            transition: none;
+        }
+    }
+
+    /* Touch devices — skip the transform/shadow lift to avoid stuck states */
+    @media (hover: none) {
+        .about-card:hover {
+            background: var(--bg);
+            color: var(--fg);
+            box-shadow: none;
+            transform: none;
+        }
+        .about-card:hover p {
+            color: var(--fg-hover);
+        }
+        .about-card:hover svg rect {
+            fill: #FFFFFF;
+        }
     }
 
     /* Mobile */
@@ -490,10 +550,6 @@
             max-width: 100%;
         }
 
-        .section-label-row {
-            margin-bottom: 32px;
-        }
-
         /* About */
         .about-statement {
             font-size: 26px;
@@ -508,24 +564,31 @@
         /* Process */
         .process-row {
             grid-template-columns: 1fr;
-            gap: 12px;
-            padding: 24px 0 20px;
+            gap: 16px;
+            padding: 32px 0 28px;
         }
 
         .process-row h3 {
-            font-size: 34px;
+            font-size: clamp(56px, 14vw, 80px);
         }
 
-        .process-row p {
+        .process-meta {
             max-width: 100%;
             justify-self: start;
+        }
+
+        .process-meta p {
             text-align: left;
         }
 
         /* Capabilities */
         .cap-grid {
             grid-template-columns: 1fr;
-            gap: 32px;
+            gap: 40px;
+        }
+
+        .cap-col h3 {
+            font-size: 32px;
         }
 
         /* Footer */
@@ -663,12 +726,8 @@
             </div>
         </section>
 
-        <section id="about" class="snap-section" aria-labelledby="about-label">
+        <section id="about" class="snap-section" aria-label="About">
             <div class="section-inner">
-                <div class="section-label-row">
-                    <span class="section-label" id="about-label">Why me</span>
-                </div>
-
                 <p class="about-statement">A decade of shipping product. Agencies, platforms, and now AI — the work changes, the discipline doesn't.</p>
 
                 <div class="about-cards-wrapper">
@@ -701,49 +760,82 @@
                             <h3>Team leverage</h3>
                             <p>Remote-first scrum and kanban. Mentorship that sticks. Teams that keep shipping after I leave.</p>
                         </article>
+                        <article class="about-card" role="listitem">
+                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                                <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
+                            </svg>
+                            <h3>Evidence over opinion</h3>
+                            <p>Hypotheses, instrumentation, weekly read-outs. Decisions earn their place with data, not volume.</p>
+                        </article>
+                        <article class="about-card" role="listitem">
+                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                                <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
+                            </svg>
+                            <h3>Discovery muscle</h3>
+                            <p>Customer interviews, JTBD, problem framing. The right question saves a quarter of wasted build.</p>
+                        </article>
+                        <article class="about-card" role="listitem">
+                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                                <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
+                            </svg>
+                            <h3>Written by default</h3>
+                            <p>Specs, decisions, trade-offs — all in writing. Remote-first teams run on the record, not the meeting.</p>
+                        </article>
                     </div>
 
-                    <div class="about-dots" role="tablist" aria-label="About highlights pagination">
-                        <button type="button" class="about-dot" data-index="0" aria-label="Go to highlight 1" aria-current="true"></button>
-                        <button type="button" class="about-dot" data-index="1" aria-label="Go to highlight 2"></button>
-                        <button type="button" class="about-dot" data-index="2" aria-label="Go to highlight 3"></button>
-                        <button type="button" class="about-dot" data-index="3" aria-label="Go to highlight 4"></button>
+                    <div class="about-pagination">
+                        <div class="about-dots" role="tablist" aria-label="About highlights pagination">
+                            <button type="button" class="about-dot" data-index="0" aria-label="Go to highlight 1" aria-current="true"></button>
+                            <button type="button" class="about-dot" data-index="1" aria-label="Go to highlight 2"></button>
+                            <button type="button" class="about-dot" data-index="2" aria-label="Go to highlight 3"></button>
+                            <button type="button" class="about-dot" data-index="3" aria-label="Go to highlight 4"></button>
+                            <button type="button" class="about-dot" data-index="4" aria-label="Go to highlight 5"></button>
+                            <button type="button" class="about-dot" data-index="5" aria-label="Go to highlight 6"></button>
+                            <button type="button" class="about-dot" data-index="6" aria-label="Go to highlight 7"></button>
+                        </div>
+                        <span class="about-count" id="about-count" aria-live="polite">01 / 07</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="process" class="snap-section" aria-labelledby="process-label">
+        <section id="process" class="snap-section" aria-label="Process">
             <div class="section-inner">
-                <div class="section-label-row">
-                    <span class="section-label" id="process-label">How I work</span>
-                </div>
-
                 <div class="process-list">
                     <div class="process-row">
                         <h3>Discover.</h3>
-                        <p>Interviews, data, hard questions. Understand the problem before touching the solution.</p>
+                        <div class="process-meta">
+                            <p>Interviews, data, hard questions. Understand the problem before touching the solution.</p>
+                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                        </div>
                     </div>
                     <div class="process-row">
                         <h3>Shape.</h3>
-                        <p>Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step is obvious.</p>
+                        <div class="process-meta">
+                            <p>Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step is obvious.</p>
+                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                        </div>
                     </div>
                     <div class="process-row">
                         <h3>Create.</h3>
-                        <p>Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument.</p>
+                        <div class="process-meta">
+                            <p>Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument.</p>
+                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                        </div>
                     </div>
                     <div class="process-row">
                         <h3>Scale.</h3>
-                        <p>Metrics, systems, handover. Built to run without me. Knowledge that stays with the team.</p>
+                        <div class="process-meta">
+                            <p>Metrics, systems, handover. Built to run without me. Knowledge that stays with the team.</p>
+                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="capabilities" class="snap-section" aria-labelledby="capabilities-label">
+        <section id="capabilities" class="snap-section" aria-label="Capabilities">
             <div class="section-inner">
-                <div class="cap-intro" id="capabilities-label">What I can help with</div>
-
                 <div class="cap-grid">
                     <div class="cap-col">
                         <h3>Strategy</h3>
@@ -878,15 +970,25 @@
         });
     }
 
-    // About cards — pagination dots sync with horizontal snap scroll.
+    // About cards — pagination dots sync with horizontal snap scroll,
+    // auto-advance, keyboard arrow nav, and brutalist active state.
     (function () {
         var cardsRow = document.getElementById('about-cards');
         if (!cardsRow) return;
         var cards = cardsRow.querySelectorAll('.about-card');
         var dots = document.querySelectorAll('.about-dot');
+        var countEl = document.getElementById('about-count');
         if (!cards.length || !dots.length) return;
 
+        var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var timer = null;
+        var current = 0;
+        var paused = false;
+
+        function pad(n) { return (n < 10 ? '0' : '') + n; }
+
         function setActive(index) {
+            current = index;
             dots.forEach(function (dot, i) {
                 if (i === index) {
                     dot.setAttribute('aria-current', 'true');
@@ -894,15 +996,63 @@
                     dot.removeAttribute('aria-current');
                 }
             });
+            cards.forEach(function (card, i) {
+                if (i === index) {
+                    card.setAttribute('data-active', 'true');
+                } else {
+                    card.removeAttribute('data-active');
+                }
+            });
+            if (countEl) {
+                countEl.textContent = pad(index + 1) + ' / ' + pad(cards.length);
+            }
+        }
+
+        function goTo(i) {
+            if (!cards[i]) return;
+            cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            setActive(i);
+            // Brief pause so the IntersectionObserver doesn't flip current back mid-scroll.
+            paused = true;
+            setTimeout(function () { paused = false; }, 700);
+        }
+
+        function advance() {
+            if (paused) return;
+            goTo((current + 1) % cards.length);
+        }
+
+        function start() {
+            if (prefersReduced) return;
+            stop();
+            timer = setInterval(advance, 5000);
+        }
+
+        function stop() {
+            if (timer) { clearInterval(timer); timer = null; }
         }
 
         dots.forEach(function (dot) {
             dot.addEventListener('click', function () {
                 var i = parseInt(dot.getAttribute('data-index'), 10);
-                if (isNaN(i) || !cards[i]) return;
-                cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                setActive(i);
+                if (isNaN(i)) return;
+                goTo(i);
             });
+        });
+
+        cardsRow.addEventListener('mouseenter', function () { paused = true; });
+        cardsRow.addEventListener('mouseleave', function () { paused = false; });
+        cardsRow.addEventListener('focusin',    function () { paused = true; });
+        cardsRow.addEventListener('focusout',   function () { paused = false; });
+
+        cardsRow.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                goTo((current + 1) % cards.length);
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                goTo((current - 1 + cards.length) % cards.length);
+            }
         });
 
         if ('IntersectionObserver' in window) {
@@ -924,6 +1074,9 @@
             });
             cards.forEach(function (card) { observer.observe(card); });
         }
+
+        setActive(0);
+        start();
     })();
     </script>
 
