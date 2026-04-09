@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum Dolor Sit Amet — Wesley Melo</title>
+    <meta name="description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <meta name="author" content="Wesley Melo">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://wesley-m.com/v1/blog/bergen-assembly.html">
+    <meta property="og:title" content="Lorem Ipsum Dolor Sit Amet — Wesley Melo">
+    <meta property="og:description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wesley-m.com/blog/bergen-assembly.html">
+    <link rel="icon" href="data:,">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Lorem Ipsum Dolor Sit Amet",
+        "author": {
+            "@type": "Person",
+            "name": "Wesley Melo",
+            "url": "https://wesley-m.com"
+        },
+        "datePublished": "2026-04-09",
+        "url": "https://wesley-m.com/blog/bergen-assembly.html"
+    }
+    </script>
+    <style>
+
+    /* Reset */
+    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer, figure, figcaption, article, aside, time {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    header, main, nav, section, footer, figure, article, aside { display: block; }
+    ul { list-style: none; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    /* Inverted theme — white background, navy foreground */
+    :root {
+        --bg: #FFFFFF;
+        --fg: #2B3856;
+        --fg-soft: rgba(43, 56, 86, 0.6);
+        --fg-hover: rgba(43, 56, 86, 0.55);
+        --border: 2px solid #2B3856;
+        --border-heavy: 3px solid #2B3856;
+    }
+
+    html, body {
+        min-height: 100vh;
+        height: 100%;
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* Skip link */
+    .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        padding: 8px 16px;
+        background: var(--fg);
+        color: var(--bg);
+        text-decoration: none;
+    }
+    .skip-link:focus {
+        left: 0;
+    }
+
+    /* Layout */
+    .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* Back link */
+    .back-link {
+        display: inline-block;
+        padding: 16px 0;
+        color: var(--fg);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+    }
+    .back-link:hover {
+        color: var(--fg-hover);
+    }
+
+    /* Header */
+    .site-header {
+        border-bottom: var(--border-heavy);
+        padding: 24px 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .site-header h1 {
+        font-size: 48px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+    }
+    .site-header .page-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+    }
+
+    /* Post layout — sidebar + article */
+    .post-layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        border-bottom: var(--border);
+    }
+
+    /* Sidebar */
+    .post-sidebar {
+        border-right: var(--border);
+        padding: 40px 28px 40px 0;
+    }
+    .meta-block {
+        margin-bottom: 32px;
+    }
+    .meta-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--fg-soft);
+        margin-bottom: 6px;
+    }
+    .meta-value {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+    .meta-value a {
+        color: var(--fg);
+        text-decoration: none;
+        border-bottom: 1px solid var(--fg);
+    }
+    .meta-value a:hover {
+        color: var(--fg-hover);
+        border-bottom-color: var(--fg-hover);
+    }
+    .tag-list li {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        line-height: 1.8;
+    }
+
+    /* Article */
+    .post-article {
+        padding: 40px 0 56px 32px;
+    }
+    .post-article h1 {
+        font-size: 44px;
+        line-height: 1.05;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        margin-bottom: 32px;
+        max-width: 18ch;
+    }
+    .post-lede {
+        font-size: 20px;
+        line-height: 1.45;
+        margin-bottom: 32px;
+        max-width: 60ch;
+    }
+    .post-article p {
+        font-size: 17px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        max-width: 60ch;
+    }
+    .post-article figure {
+        margin: 32px 0 12px;
+    }
+    .post-article figcaption {
+        font-size: 12px;
+        font-style: italic;
+        color: var(--fg-soft);
+        padding-top: 8px;
+        line-height: 1.4;
+        max-width: 60ch;
+    }
+    .post-article figure + p {
+        margin-top: 24px;
+    }
+
+    /* Sharp-shape image placeholders */
+    .post-figure {
+        position: relative;
+        width: 100%;
+        background: var(--fg);
+        overflow: hidden;
+    }
+    .post-figure.aspect-wide { aspect-ratio: 16 / 9; }
+    .post-figure.aspect-tall { aspect-ratio: 4 / 3; }
+
+    .post-figure::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+
+    .shape-hero::before {
+        background:
+            linear-gradient(112deg,
+                var(--fg) 0%,
+                var(--fg) 34%,
+                #F2EFE6 34%,
+                #F2EFE6 58%,
+                var(--fg) 58%,
+                var(--fg) 78%,
+                #F2EFE6 78%,
+                #F2EFE6 100%);
+    }
+
+    .shape-mid::before {
+        background:
+            linear-gradient(200deg,
+                #F2EFE6 0%,
+                #F2EFE6 30%,
+                var(--fg) 30%,
+                var(--fg) 70%,
+                #F2EFE6 70%,
+                #F2EFE6 100%);
+    }
+
+    /* Read next strip */
+    .read-next {
+        border-bottom: var(--border);
+        padding: 32px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+    }
+    .read-next-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--fg-soft);
+    }
+    .read-next-link {
+        font-size: 22px;
+        color: var(--fg);
+        text-decoration: none;
+        text-align: right;
+        max-width: 60%;
+    }
+    .read-next-link:hover {
+        color: var(--fg-hover);
+    }
+
+    /* Footer */
+    .site-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .site-footer a {
+        color: var(--fg);
+        text-decoration: none;
+    }
+    .site-footer a:hover {
+        color: var(--fg-hover);
+    }
+    .site-footer span {
+        color: var(--fg-soft);
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 768px) {
+
+        .site-header h1 {
+            font-size: 32px;
+        }
+
+        .post-layout {
+            grid-template-columns: 1fr;
+        }
+        .post-sidebar {
+            border-right: none;
+            border-bottom: var(--border);
+            padding: 28px 0;
+        }
+        .meta-block {
+            margin-bottom: 20px;
+        }
+        .post-article {
+            padding: 32px 0 40px;
+        }
+        .post-article h1 {
+            font-size: 30px;
+            margin-bottom: 24px;
+        }
+        .post-lede {
+            font-size: 18px;
+        }
+        .post-article p {
+            font-size: 16px;
+        }
+
+        .read-next {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .read-next-link {
+            text-align: left;
+            max-width: 100%;
+            font-size: 20px;
+        }
+
+        .site-footer {
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+        }
+    }
+
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div role="navigation" aria-label="Blog design versions" style="position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 20px;background:#2B3856;color:#FFFFFF;border-bottom:2px solid #FFFFFF;font-family:'Garamond','EB Garamond','Times New Roman',serif;"><span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;">Design preview</span><a href="/v1/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:#FFFFFF;color:#2B3856;">v1 — original</a><a href="/v2/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:#FFFFFF;">v2 — brutalist</a><a href="/v3/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:#FFFFFF;">v3 — editorial</a></div>
+
+    <div class="page">
+
+        <nav>
+            <a href="../" class="back-link">&larr;&#xFE0E; Blog</a>
+        </nav>
+
+        <header class="site-header">
+            <h1>Wesley Melo</h1>
+            <span class="page-label">Blog / Post</span>
+        </header>
+
+        <main id="main-content">
+
+            <div class="post-layout">
+
+                <aside class="post-sidebar" aria-label="Post information">
+                    <div class="meta-block">
+                        <div class="meta-label">Published</div>
+                        <div class="meta-value"><time datetime="2026-04-09">April 9, 2026</time></div>
+                    </div>
+                    <div class="meta-block">
+                        <div class="meta-label">Reading time</div>
+                        <div class="meta-value">6 minutes</div>
+                    </div>
+                    <div class="meta-block">
+                        <div class="meta-label">Author</div>
+                        <div class="meta-value">Wesley Melo</div>
+                    </div>
+                    <div class="meta-block">
+                        <div class="meta-label">Topics</div>
+                        <ul class="tag-list">
+                            <li>Lorem</li>
+                            <li>Ipsum</li>
+                            <li>Dolor</li>
+                            <li>Consectetur</li>
+                        </ul>
+                    </div>
+                    <div class="meta-block">
+                        <div class="meta-label">Index</div>
+                        <div class="meta-value"><a href="../">All posts</a></div>
+                    </div>
+                </aside>
+
+                <article class="post-article">
+                    <h1>Lorem Ipsum Dolor Sit Amet</h1>
+
+                    <p class="post-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+
+                    <figure>
+                        <div class="post-figure aspect-wide shape-hero" role="img" aria-label="Placeholder artwork"></div>
+                        <figcaption>Lorem ipsum dolor sit amet — placeholder caption text describing the image above.</figcaption>
+                    </figure>
+
+                    <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+
+                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+
+                    <figure>
+                        <div class="post-figure aspect-tall shape-mid" role="img" aria-label="Placeholder artwork"></div>
+                        <figcaption>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet — placeholder caption.</figcaption>
+                    </figure>
+
+                    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                </article>
+
+            </div>
+
+            <section class="read-next" aria-label="Read next">
+                <span class="read-next-label">Read next &rarr;&#xFE0E;</span>
+                <a href="../" class="read-next-link">Back to all posts</a>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <span>&copy; 2026 Wesley Melo</span>
+            <a href="/">&larr;&#xFE0E; Back to home</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>

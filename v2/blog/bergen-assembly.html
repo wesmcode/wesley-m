@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum Dolor Sit Amet — Wesley Melo</title>
+    <meta name="description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <meta name="author" content="Wesley Melo">
+    <link rel="canonical" href="https://wesley-m.com/v2/blog/bergen-assembly.html">
+    <meta property="og:title" content="Lorem Ipsum Dolor Sit Amet — Wesley Melo">
+    <meta property="og:description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wesley-m.com/blog/bergen-assembly.html">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="data:,">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Lorem Ipsum Dolor Sit Amet",
+        "author": {
+            "@type": "Person",
+            "name": "Wesley Melo",
+            "url": "https://wesley-m.com"
+        },
+        "datePublished": "2026-04-09",
+        "url": "https://wesley-m.com/blog/bergen-assembly.html"
+    }
+    </script>
+    <style>
+
+    /* Reset */
+    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer, figure, figcaption, article, time {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    header, main, nav, section, footer, figure, article { display: block; }
+    ul { list-style: none; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+        --bg: #2B3856;
+        --fg: #FFFFFF;
+        --fg-hover: rgba(255, 255, 255, 0.5);
+        --border: 2px solid #FFFFFF;
+        --border-heavy: 3px solid #FFFFFF;
+    }
+
+    html, body {
+        min-height: 100vh;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* Skip link */
+    .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        padding: 8px 16px;
+        background: var(--fg);
+        color: var(--bg);
+        text-decoration: none;
+    }
+    .skip-link:focus {
+        left: 0;
+    }
+
+    /* The single link signature, shared with the rest of the site. */
+    .link {
+        font-weight: 400;
+        color: var(--fg);
+        text-decoration: none;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        cursor: default;
+    }
+    .link:hover {
+        color: var(--fg-hover);
+        text-decoration: underline;
+    }
+    .link:focus-visible {
+        color: var(--bg);
+        background: var(--fg);
+        outline: none;
+    }
+    .link:focus:not(:focus-visible) {
+        color: var(--fg);
+        background: none;
+        outline: none;
+    }
+    .link:active {
+        background: var(--fg);
+        color: var(--bg);
+    }
+
+    /* Page container */
+    .page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    .top-bar {
+        padding: 24px 0 0;
+    }
+    .top-bar .link {
+        font-size: 14px;
+        letter-spacing: 0.05em;
+    }
+
+    /* Site header (matches blog listing and services) */
+    .site-header {
+        border-bottom: var(--border-heavy);
+        padding: 24px 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .site-header h1 {
+        font-size: 48px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+    }
+    .site-header .page-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+    }
+
+    /* Section label row — right-aligned, brand wayfinding gesture. */
+    .section-label-row {
+        display: flex;
+        justify-content: flex-end;
+        padding: 24px 0 0;
+    }
+    .section-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+    }
+
+    /* Article — single centered column, no sidebar. */
+    .post {
+        padding: 24px 0 56px;
+        border-bottom: var(--border);
+    }
+
+    .post-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+        padding-bottom: 16px;
+        border-bottom: var(--border);
+        margin-bottom: 32px;
+    }
+
+    .post-title {
+        font-size: 48px;
+        line-height: 1;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        max-width: 18ch;
+    }
+
+    .post-lede {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 32px;
+        max-width: 60ch;
+    }
+
+    .post-body p {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 24px;
+        max-width: 60ch;
+    }
+
+    .post-body figure {
+        margin: 40px 0 16px;
+    }
+    .post-body figure + p {
+        margin-top: 8px;
+    }
+    .post-body figcaption {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--fg-hover);
+        padding-top: 12px;
+        max-width: 60ch;
+    }
+
+    /* Sharp-shape image placeholders */
+    .post-figure {
+        position: relative;
+        width: 100%;
+        background: var(--fg);
+        overflow: hidden;
+    }
+    .post-figure.aspect-wide  { aspect-ratio: 16 / 9; }
+    .post-figure.aspect-tall  { aspect-ratio: 4 / 3; }
+
+    .post-figure::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+    .shape-hero::before {
+        background:
+            linear-gradient(112deg,
+                var(--fg) 0%,
+                var(--fg) 34%,
+                var(--bg) 34%,
+                var(--bg) 58%,
+                var(--fg) 58%,
+                var(--fg) 78%,
+                var(--bg) 78%,
+                var(--bg) 100%);
+    }
+    .shape-mid::before {
+        background:
+            linear-gradient(200deg,
+                var(--bg) 0%,
+                var(--bg) 30%,
+                var(--fg) 30%,
+                var(--fg) 70%,
+                var(--bg) 70%,
+                var(--bg) 100%);
+    }
+
+    /* Read-next strip — one line, link uses .link. */
+    .read-next {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 24px 0;
+        border-bottom: var(--border);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+    .read-next-label {
+        color: var(--fg-hover);
+    }
+
+    /* Footer */
+    .site-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .site-footer span {
+        color: var(--fg-hover);
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 768px) {
+
+        .page {
+            padding: 0 24px;
+        }
+        .site-header h1 {
+            font-size: 32px;
+        }
+        .post-title {
+            font-size: 32px;
+            margin-bottom: 32px;
+        }
+        .post-lede {
+            font-size: 17px;
+        }
+        .post-meta {
+            flex-direction: column;
+            gap: 4px;
+        }
+        .read-next {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .site-footer {
+            flex-direction: column;
+            gap: 8px;
+            text-align: center;
+        }
+        .link:hover {
+            text-decoration: none;
+        }
+    }
+
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div role="navigation" aria-label="Blog design versions" style="position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 20px;background:#2B3856;color:#FFFFFF;border-bottom:2px solid #FFFFFF;font-family:'Garamond','EB Garamond','Times New Roman',serif;"><span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;">Design preview</span><a href="/v1/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:#FFFFFF;">v1 — original</a><a href="/v2/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:#FFFFFF;color:#2B3856;">v2 — brutalist</a><a href="/v3/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:#FFFFFF;">v3 — editorial</a></div>
+
+    <div class="page">
+
+        <nav class="top-bar" aria-label="Breadcrumb">
+            <a href="../" class="link">&larr;&#xFE0E; Blog</a>
+        </nav>
+
+        <header class="site-header">
+            <h1>Wesley Melo</h1>
+            <span class="page-label">Blog / Post</span>
+        </header>
+
+        <main id="main-content">
+
+            <div class="section-label-row">
+                <span class="section-label">Post</span>
+            </div>
+
+            <article class="post">
+                <div class="post-meta">
+                    <time datetime="2026-04-09">April 9, 2026</time>
+                    <span>6 min read</span>
+                </div>
+
+                <h1 class="post-title">Lorem Ipsum Dolor Sit Amet</h1>
+
+                <p class="post-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+
+                <div class="post-body">
+                    <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+
+                    <figure>
+                        <div class="post-figure aspect-wide shape-hero" role="img" aria-label="Placeholder artwork"></div>
+                        <figcaption>Lorem ipsum &middot; placeholder caption</figcaption>
+                    </figure>
+
+                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+
+                    <p>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+
+                    <figure>
+                        <div class="post-figure aspect-tall shape-mid" role="img" aria-label="Placeholder artwork"></div>
+                        <figcaption>Neque porro quisquam &middot; placeholder caption</figcaption>
+                    </figure>
+
+                    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                </div>
+            </article>
+
+            <section class="read-next" aria-label="Read next">
+                <span class="read-next-label">Next</span>
+                <a href="../" class="link">All posts &rarr;&#xFE0E;</a>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <span>&copy; 2026 Wesley Melo</span>
+            <a href="/" class="link">&larr;&#xFE0E; Back to home</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>
