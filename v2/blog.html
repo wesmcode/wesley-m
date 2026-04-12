@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog (V2 — Editorial) — Wesley Melo</title>
-    <meta name="description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software. Design variant V2.">
+    <title>Might Read It Later — Wesley Melo</title>
+    <meta name="description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
     <meta name="author" content="Wesley Melo">
     <link rel="canonical" href="https://wesley-m.com/v2/blog.html">
-    <meta property="og:title" content="Blog (V2) — Wesley Melo">
+    <meta property="og:title" content="Might Read It Later — Wesley Melo">
     <meta property="og:description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wesley-m.com/v2/blog.html">
@@ -17,7 +17,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Blog",
-        "name": "Wesley Melo — Blog (V2)",
+        "name": "Might Read It Later — Wesley Melo",
         "url": "https://wesley-m.com/v2/blog.html",
         "author": {
             "@type": "Person",
@@ -29,7 +29,7 @@
     <style>
 
     /* Reset */
-    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer, article, time {
+    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer, figure, figcaption, article, time {
         margin: 0;
         padding: 0;
         border: 0;
@@ -37,7 +37,7 @@
         font: inherit;
         vertical-align: baseline;
     }
-    header, main, nav, section, footer, article { display: block; }
+    header, main, nav, section, footer, figure, figcaption, article { display: block; }
     ul { list-style: none; }
     *, *::before, *::after { box-sizing: border-box; }
 
@@ -48,7 +48,7 @@
         --fg-quiet: rgba(255, 255, 255, 0.7);
         --border: 2px solid #FFFFFF;
         --border-heavy: 3px solid #FFFFFF;
-        --rule: 1px solid #FFFFFF;
+        --rule: 1px solid rgba(255, 255, 255, 0.4);
     }
 
     html, body {
@@ -98,38 +98,33 @@
         padding: 0 40px;
     }
 
+    /* Top bar */
     .top-bar { padding: 24px 0 0; }
     .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
-    .top-bar .variant-tag {
-        float: right;
-        font-size: 12px;
-        font-variant: small-caps;
-        letter-spacing: 0.2em;
-        color: var(--fg-hover);
-        padding-top: 4px;
-    }
 
+    /* Site header — block layout, large title with thin rule, subtitle below */
     .site-header {
+        padding: 24px 0 20px;
         border-bottom: var(--border-heavy);
-        padding: 24px 0 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
     }
     .site-header h1 {
-        font-size: 48px;
+        font-size: 72px;
         line-height: 1;
         text-transform: uppercase;
         letter-spacing: -0.02em;
         font-weight: 400;
+        padding-bottom: 18px;
+        border-bottom: var(--rule);
+        margin-bottom: 14px;
     }
-    .site-header .page-label {
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
+    .site-subtitle {
+        font-size: 13px;
+        letter-spacing: 0.04em;
         color: var(--fg-hover);
+        text-align: center;
     }
 
+    /* Right-aligned section label */
     .section-label-row {
         display: flex;
         justify-content: flex-end;
@@ -142,34 +137,12 @@
         color: var(--fg-hover);
     }
 
-    /* Small-caps metadata — the third typographic role. Garamond only. */
-    .meta {
-        font-size: 13px;
-        font-variant: small-caps;
-        letter-spacing: 0.08em;
-        color: var(--fg-hover);
-    }
-    .meta-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-    }
-    .meta-row .sep { opacity: 0.45; }
-
-    /* Featured — Bloomberg "one loud move": no thumbnail, huge title,
-       hairline above and below, small-caps meta bar. */
+    /* Featured post — 2-column: content left, image right */
     .featured {
-        padding: 64px 0 72px;
+        padding: 48px 0 64px;
         border-top: var(--rule);
         border-bottom: var(--border);
         margin-top: 24px;
-    }
-    .featured-kicker {
-        font-size: 12px;
-        font-variant: small-caps;
-        letter-spacing: 0.2em;
-        color: var(--fg-hover);
-        margin-bottom: 24px;
     }
     .featured-link {
         display: block;
@@ -177,30 +150,125 @@
         color: inherit;
     }
     .featured-link:hover .featured-title { color: var(--fg-hover); }
-    .featured-link:focus-visible {
-        outline: var(--border);
-        outline-offset: 8px;
+    .featured-link:hover .featured-figure { opacity: 0.85; }
+    .featured-link:focus-visible { outline: var(--border); outline-offset: 8px; }
+
+    .featured-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 48px;
+        align-items: start;
+    }
+    .featured-kicker {
+        font-size: 12px;
+        font-variant: small-caps;
+        letter-spacing: 0.2em;
+        color: var(--fg-hover);
+        margin-bottom: 20px;
     }
     .featured-title {
-        font-size: 52px;
+        font-size: 48px;
         line-height: 1;
         font-weight: 400;
         letter-spacing: -0.02em;
         text-transform: uppercase;
-        max-width: 16ch;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
+        transition: color 0.15s ease;
     }
     .featured-dek {
-        font-size: 18px;
+        font-size: 17px;
         line-height: 1.5;
-        max-width: 52ch;
-        margin-bottom: 24px;
         color: var(--fg-quiet);
+        margin-bottom: 20px;
+        max-width: 48ch;
     }
-    .featured-meta { margin-top: 24px; }
+    .featured-meta {
+        font-size: 13px;
+        font-variant: small-caps;
+        letter-spacing: 0.08em;
+        color: var(--fg-hover);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .featured-meta .sep { opacity: 0.45; }
+    .featured-figure {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+        transition: opacity 0.15s ease;
+    }
+    .featured-figure img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-    /* Archive — hairline-ruled text rows. No cards, no thumbnails. */
-    .archive { padding: 48px 0 24px; }
+    /* More posts — 3-column card grid with images */
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: var(--rule);
+        margin-top: 16px;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 0 0;
+        padding-right: 24px;
+        text-decoration: none;
+        color: inherit;
+        border-right: var(--rule);
+        cursor: default;
+    }
+    .card:not(:first-child) { padding-left: 24px; }
+    .card:last-child { border-right: none; padding-right: 0; }
+    .card:hover .card-title { color: var(--fg-hover); }
+    .card:hover .card-figure { opacity: 0.85; }
+    .card:focus-visible { outline: var(--border); outline-offset: 4px; }
+
+    .card-meta {
+        font-size: 12px;
+        font-variant: small-caps;
+        letter-spacing: 0.12em;
+        color: var(--fg-hover);
+        margin-bottom: 12px;
+    }
+    .card-title {
+        font-size: 18px;
+        line-height: 1.15;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        font-weight: 400;
+        margin-bottom: 10px;
+        transition: color 0.15s ease;
+    }
+    .card-dek {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--fg-quiet);
+        flex: 1;
+        margin-bottom: 16px;
+    }
+    .card-figure {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.08);
+        transition: opacity 0.15s ease;
+    }
+    .card-figure img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Archive rows — text list below card grid */
+    .archive { padding: 0; }
     .archive-row {
         display: block;
         padding: 32px 0 36px;
@@ -238,7 +306,6 @@
         flex-wrap: wrap;
     }
     .archive-meta .sep { opacity: 0.45; }
-
     .archive-row-title {
         font-size: 20px;
         line-height: 1.15;
@@ -247,7 +314,6 @@
         font-weight: 400;
         margin-bottom: 8px;
     }
-
     .archive-dek {
         font-size: 15px;
         line-height: 1.5;
@@ -255,36 +321,126 @@
         max-width: 60ch;
     }
 
-    .site-footer {
+    /* What I am reading — horizontal cards: text left + image right */
+    .reading-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: var(--rule);
+        margin-top: 16px;
+        padding-bottom: 48px;
+    }
+    .reading-item {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 20px 16px 20px 0;
+        text-decoration: none;
+        color: inherit;
+        border-right: var(--rule);
+        cursor: default;
+    }
+    .reading-item:not(:first-child) { padding-left: 16px; }
+    .reading-item:last-child { border-right: none; padding-right: 0; }
+    .reading-item:hover .reading-item-title { color: var(--fg-hover); }
+    .reading-item:hover .reading-item-figure { opacity: 0.85; }
+    .reading-item:focus-visible { outline: var(--border); outline-offset: 4px; }
+
+    .reading-item-content {
+        flex: 1;
+        min-width: 0;
+    }
+    .reading-item-label {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--fg-hover);
+        margin-bottom: 6px;
+    }
+    .reading-item-title {
+        font-size: 13px;
+        line-height: 1.4;
+        font-weight: 400;
+        transition: color 0.15s ease;
+    }
+    .reading-item-figure {
+        width: 72px;
+        height: 56px;
+        flex-shrink: 0;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.08);
+        transition: opacity 0.15s ease;
+    }
+    .reading-item-figure img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Footer — full nav, uses page background (dark) with heavy border-top */
+    #site-footer {
+        border-top: var(--border-heavy);
+    }
+    .footer-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 32px 40px;
+    }
+    .footer-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 32px 0 24px;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border-top: var(--border);
-        margin-top: 48px;
+        gap: 24px;
     }
-    .site-footer span { color: var(--fg-hover); }
+    .footer-brand {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+    .footer-nav {
+        display: flex;
+        gap: 24px;
+    }
+    .footer-nav .link {
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+    }
+    .footer-meta {
+        margin-top: 24px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--fg-hover);
+    }
 
     /* Mobile */
     @media only screen and (max-width: 768px) {
         .page { padding: 0 24px; }
-        .site-header h1 { font-size: 32px; }
-        .featured { padding: 48px 0 56px; }
-        .featured-title { font-size: 36px; max-width: 14ch; }
-        .featured-dek { font-size: 16px; }
+        .site-header h1 { font-size: 40px; }
+        .featured { padding: 32px 0 48px; }
+        .featured-grid { grid-template-columns: 1fr; gap: 24px; }
+        .featured-title { font-size: 36px; }
+        .card-grid { grid-template-columns: 1fr; }
+        .card { border-right: none; border-bottom: var(--rule); padding: 24px 0; }
+        .card:not(:first-child) { padding-left: 0; }
+        .card:last-child { border-bottom: none; }
+        .reading-list { grid-template-columns: repeat(2, 1fr); }
+        .reading-item { border-right: none; }
+        .reading-item:nth-child(odd) { border-right: var(--rule); }
         .archive-row { padding: 28px 0 32px; }
-        .archive-row:hover,
-        .archive-row:focus-visible { padding-left: 12px; }
-        .archive-row-title { font-size: 18px; }
-        .site-footer {
-            flex-direction: column;
-            gap: 8px;
-            text-align: center;
-        }
+        .archive-row:hover { padding-left: 12px; }
+        .footer-inner { padding: 32px 24px; }
+        .footer-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+        .footer-nav { flex-wrap: wrap; gap: 16px 24px; }
         .link:hover { text-decoration: none; }
+        .footer-nav .link:hover { text-decoration: none; }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .reading-list { grid-template-columns: 1fr; }
+        .reading-item { border-right: none; border-bottom: var(--rule); }
+        .reading-item:last-child { border-bottom: none; }
     }
 
     </style>
@@ -297,38 +453,73 @@
 
         <nav class="top-bar" aria-label="Breadcrumb">
             <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
-            <span class="variant-tag">Variant&nbsp;&middot;&nbsp;V2</span>
         </nav>
 
         <header class="site-header">
-            <h1>Wesley Melo</h1>
-            <span class="page-label">Blog</span>
+            <h1>Might Read It Later</h1>
+            <p class="site-subtitle">free to be chronically-online-tech-savvy-satirist, doom-scrolling specialists on digital</p>
         </header>
 
         <main id="main-content">
 
-            <div class="section-label-row">
-                <span class="section-label">Featured</span>
-            </div>
-
-            <article class="featured">
+            <article class="featured" aria-label="Featured post">
                 <a href="blog/the-90s-kid-guide-to-actually-learning-tech.html" class="featured-link">
-                    <div class="featured-kicker">Essay N.001</div>
-                    <h2 class="featured-title">The 90s Kid Guide to Actually Learning Tech</h2>
-                    <p class="featured-dek">How a generation learned computers by breaking them &mdash; and why that might be the best way to learn AI, too.</p>
-                    <div class="featured-meta meta meta-row">
-                        <span>April 2, 2026</span>
-                        <span class="sep">&middot;</span>
-                        <span>Wesley Melo</span>
-                        <span class="sep">&middot;</span>
-                        <span>6 min read</span>
+                    <div class="featured-grid">
+                        <div class="featured-content">
+                            <div class="featured-kicker">Essay N.001</div>
+                            <h2 class="featured-title">The 90s Kid Guide to Actually Learning Tech</h2>
+                            <p class="featured-dek">How a generation learned computers by breaking them &mdash; and why that might be the best way to learn AI, too.</p>
+                            <div class="featured-meta">
+                                <span>April 2, 2026</span>
+                                <span class="sep">&middot;</span>
+                                <span>Wesley Melo</span>
+                                <span class="sep">&middot;</span>
+                                <span>6 min read</span>
+                            </div>
+                        </div>
+                        <div class="featured-figure" role="img" aria-label="Forest canopy looking up at tall trees">
+                            <img src="https://picsum.photos/seed/wesm-90s-1/800/600" alt="Forest canopy looking up at tall trees" loading="lazy">
+                        </div>
                     </div>
                 </a>
             </article>
 
             <div class="section-label-row">
-                <span class="section-label">Archive</span>
+                <span class="section-label">More Posts</span>
             </div>
+
+            <section aria-label="More posts">
+                <div class="card-grid">
+
+                    <a href="#" class="card">
+                        <div class="card-meta">Essay &middot; March 18, 2026 &middot; 7 Min</div>
+                        <h3 class="card-title">The Digital Doppelg&auml;ngers Rises</h3>
+                        <p class="card-dek">We are generating our replacements at scale. The question is whether we can tell them apart from ourselves.</p>
+                        <div class="card-figure">
+                            <img src="https://picsum.photos/seed/card-doppel/600/375" alt="" loading="lazy">
+                        </div>
+                    </a>
+
+                    <a href="#" class="card">
+                        <div class="card-meta">Essay &middot; February 28, 2026 &middot; 5 Min</div>
+                        <h3 class="card-title">How I Learned to Stop Worrying and Love Being Human</h3>
+                        <p class="card-dek">A reluctant defense of the messy, slow, imperfect parts of being a person &mdash; in an industry that wants them optimized away.</p>
+                        <div class="card-figure">
+                            <img src="https://picsum.photos/seed/card-human/600/375" alt="" loading="lazy">
+                        </div>
+                    </a>
+
+                    <a href="#" class="card">
+                        <div class="card-meta">Field Notes &middot; February 5, 2026 &middot; 3 Min</div>
+                        <h3 class="card-title">Notes from a Slow Week</h3>
+                        <p class="card-dek">On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.</p>
+                        <div class="card-figure">
+                            <img src="https://picsum.photos/seed/card-slow/600/375" alt="" loading="lazy">
+                        </div>
+                    </a>
+
+                </div>
+            </section>
 
             <section class="archive" aria-label="Archive">
 
@@ -370,14 +561,87 @@
 
             </section>
 
+            <div class="section-label-row">
+                <span class="section-label">What I am reading</span>
+            </div>
+
+            <section aria-label="What I am reading">
+                <div class="reading-list">
+
+                    <a href="#" class="reading-item" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-item-content">
+                            <div class="reading-item-label">AI Lab</div>
+                            <div class="reading-item-title">The US Army Is Building Its Own Chatbot for Combat</div>
+                        </div>
+                        <div class="reading-item-figure">
+                            <img src="https://picsum.photos/seed/read-army/200/150" alt="" loading="lazy">
+                        </div>
+                    </a>
+
+                    <a href="#" class="reading-item" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-item-content">
+                            <div class="reading-item-label">Backchannel</div>
+                            <div class="reading-item-title">John Perry Barlow, JFK Jr., and a Night of Grief I Can&#8217;t Forget</div>
+                        </div>
+                        <div class="reading-item-figure">
+                            <img src="https://picsum.photos/seed/read-barlow/200/150" alt="" loading="lazy">
+                        </div>
+                    </a>
+
+                    <a href="#" class="reading-item" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-item-content">
+                            <div class="reading-item-label">Model Behavior</div>
+                            <div class="reading-item-title">Cursor Launches a New AI Agent Experience to Take On Claude Code and Codex</div>
+                        </div>
+                        <div class="reading-item-figure">
+                            <img src="https://picsum.photos/seed/read-cursor/200/150" alt="" loading="lazy">
+                        </div>
+                    </a>
+
+                    <a href="#" class="reading-item" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-item-content">
+                            <div class="reading-item-label">AI Lab</div>
+                            <div class="reading-item-title">AI Models Lie, Cheat, and Steal to Protect Other Models From Being Deleted</div>
+                        </div>
+                        <div class="reading-item-figure">
+                            <img src="https://picsum.photos/seed/read-aimodels/200/150" alt="" loading="lazy">
+                        </div>
+                    </a>
+
+                </div>
+            </section>
+
         </main>
 
-        <footer class="site-footer">
-            <span>&copy; 2026 Wesley Melo</span>
-            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
-        </footer>
-
     </div>
+
+    <footer id="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+            <div class="footer-row">
+                <span class="footer-brand">Wesley Melo</span>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="../blog.html" class="link">Blog</a>
+                    <a href="../index.html#services" class="link">Services</a>
+                    <a href="../resume.html" target="_blank" class="link">Resume</a>
+                    <a id="footer-email-link" href="#" class="link js-email">Email</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+                </nav>
+            </div>
+            <div class="footer-meta">&copy; 2026 Wesley Melo</div>
+        </div>
+    </footer>
+
+    <script>
+    'use strict';
+    var addr = ['contato', 'wesley-m.com'].join('@');
+    var footerEmail = document.getElementById('footer-email-link');
+    if (footerEmail) {
+        footerEmail.addEventListener('click', function(e) {
+            e.preventDefault();
+            footerEmail.textContent = addr;
+        });
+    }
+    </script>
 
 </body>
 </html>
