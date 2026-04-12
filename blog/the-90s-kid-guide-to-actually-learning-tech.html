@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorem Ipsum Dolor Sit Amet — Wesley Melo</title>
-    <meta name="description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <title>The 90s Kid Guide to Actually Learning Tech — Wesley Melo</title>
+    <meta name="description" content="How a generation learned computers by breaking them — and why that might be the best way to learn AI, too.">
     <meta name="author" content="Wesley Melo">
-    <link rel="canonical" href="https://wesley-m.com/v3/blog/bergen-assembly.html">
-    <meta property="og:title" content="Lorem Ipsum Dolor Sit Amet — Wesley Melo">
-    <meta property="og:description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <link rel="canonical" href="https://wesley-m.com/blog/the-90s-kid-guide-to-actually-learning-tech.html">
+    <meta property="og:title" content="The 90s Kid Guide to Actually Learning Tech — Wesley Melo">
+    <meta property="og:description" content="How a generation learned computers by breaking them — and why that might be the best way to learn AI, too.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://wesley-m.com/blog/bergen-assembly.html">
-    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:url" content="https://wesley-m.com/blog/the-90s-kid-guide-to-actually-learning-tech.html">
+    <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
     <link rel="icon" href="data:,">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Lorem Ipsum Dolor Sit Amet",
+        "headline": "The 90s Kid Guide to Actually Learning Tech",
         "author": {
             "@type": "Person",
             "name": "Wesley Melo",
             "url": "https://wesley-m.com"
         },
-        "datePublished": "2026-04-09",
-        "url": "https://wesley-m.com/blog/bergen-assembly.html"
+        "datePublished": "2026-04-02",
+        "url": "https://wesley-m.com/blog/the-90s-kid-guide-to-actually-learning-tech.html"
     }
     </script>
     <style>
 
     /* Reset */
     html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer,
-    figure, figcaption, article, time, blockquote {
+    figure, figcaption, article, time, blockquote, img {
         margin: 0;
         padding: 0;
         border: 0;
@@ -63,7 +63,6 @@
         -webkit-font-smoothing: antialiased;
     }
 
-    /* Skip link */
     .skip-link {
         position: absolute;
         left: -9999px;
@@ -75,7 +74,6 @@
     }
     .skip-link:focus { left: 0; }
 
-    /* Single link signature shared with the rest of the site. */
     .link {
         font-weight: 400;
         color: var(--fg);
@@ -96,8 +94,6 @@
     .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
     .link:active { background: var(--fg); color: var(--bg); }
 
-    /* Page container — 960px like the rest of the site. Top bar + site-header
-       span this full width; the article column is narrowed inside it. */
     .page {
         max-width: 960px;
         margin: 0 auto;
@@ -106,7 +102,6 @@
 
     .top-bar { padding: 24px 0 0; }
     .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
-
     .site-header {
         border-bottom: var(--border-heavy);
         padding: 24px 0 24px;
@@ -128,14 +123,12 @@
         color: var(--fg-hover);
     }
 
-    /* Narrow reading column — New Yorker style. Whitespace rails either side
-       of the article inside the 960px page container. */
+    /* Narrow reading column — New Yorker style. */
     .article-column {
         max-width: 680px;
         margin: 0 auto;
     }
 
-    /* Top-of-article meta bar: kicker above title, byline/date/read-time below. */
     .post-header {
         padding: 72px 0 48px;
     }
@@ -172,7 +165,7 @@
     }
     .post-byline .sep { opacity: 0.45; }
 
-    /* Article body — 16/24 baseline grid, sentence-case. */
+    /* Body — 16/24 baseline grid. */
     .post-body {
         padding: 8px 0 56px;
     }
@@ -183,15 +176,12 @@
         margin-bottom: 24px;
     }
 
-    /* Lede — slightly larger opener; the drop cap attaches here. */
+    /* Lede with 2-line Garamond drop cap. */
     .post-lede {
         font-size: 18px;
         line-height: 1.45;
         margin-bottom: 32px;
     }
-
-    /* 2-line Garamond drop cap, New Yorker web style. 52px is the nearest
-       palette value that visually covers two 24px lines. No color accent. */
     .post-lede::first-letter {
         float: left;
         font-size: 52px;
@@ -202,18 +192,18 @@
         text-transform: uppercase;
     }
 
-    /* Section numbering — NYT Magazine feature-story gesture. */
-    .post-section {
+    /* Section headings — NYT Magazine feature-story small-caps. */
+    .post-body h2 {
         font-size: 20px;
         font-variant: small-caps;
         letter-spacing: 0.2em;
         text-transform: none;
+        font-weight: 400;
         color: var(--fg-quiet);
         margin: 48px 0 16px;
     }
 
-    /* Inline pull-quote — italic Garamond, larger, flush-left, top hairline.
-       No boxes, no marks, no attribution card. */
+    /* Inline pull-quote — italic, flush-left, single top hairline. */
     .post-body blockquote {
         margin: 40px 0;
         padding: 24px 0 8px;
@@ -224,7 +214,7 @@
         letter-spacing: -0.005em;
     }
 
-    /* Figures — italic caption, flush-left, no frames. */
+    /* Figures — italic caption + small-caps photo credit. */
     .post-body figure {
         margin: 48px 0 32px;
     }
@@ -243,7 +233,7 @@
     }
     .post-body figure + p { margin-top: 8px; }
 
-    /* Sharp-shape image placeholders — solid navy with hard-edged wedges. */
+    /* post-figure — supports real <img> */
     .post-figure {
         position: relative;
         width: 100%;
@@ -252,36 +242,21 @@
     }
     .post-figure.aspect-wide { aspect-ratio: 16 / 9; }
     .post-figure.aspect-tall { aspect-ratio: 4 / 3; }
-
     .post-figure::before {
         content: "";
         position: absolute;
         inset: 0;
     }
-    .shape-hero::before {
-        background:
-            linear-gradient(112deg,
-                var(--fg) 0%,
-                var(--fg) 34%,
-                var(--bg) 34%,
-                var(--bg) 58%,
-                var(--fg) 58%,
-                var(--fg) 78%,
-                var(--bg) 78%,
-                var(--bg) 100%);
-    }
-    .shape-mid::before {
-        background:
-            linear-gradient(200deg,
-                var(--bg) 0%,
-                var(--bg) 30%,
-                var(--fg) 30%,
-                var(--fg) 70%,
-                var(--bg) 70%,
-                var(--bg) 100%);
+    .post-figure img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
     }
 
-    /* Read next — minimal hairline strip, not a card grid. */
+    /* Read next */
     .read-next {
         margin-top: 48px;
         padding: 48px 0 0;
@@ -338,7 +313,6 @@
         letter-spacing: 0.05em;
     }
 
-    /* Footer */
     .site-footer {
         display: flex;
         justify-content: space-between;
@@ -360,21 +334,14 @@
         .post-header { padding: 48px 0 32px; }
         .post-title { font-size: 30px; }
         .post-lede { font-size: 17px; }
-        .post-lede::first-letter {
-            font-size: 48px;
-            padding-right: 6px;
-        }
+        .post-lede::first-letter { font-size: 48px; padding-right: 6px; }
         .post-body blockquote { font-size: 20px; }
-        .post-section { margin: 40px 0 12px; font-size: 18px; }
+        .post-body h2 { margin: 40px 0 12px; font-size: 18px; }
         .post-byline { flex-direction: column; gap: 4px; }
         .post-byline .sep { display: none; }
         .read-next-item:hover,
         .read-next-item:focus-visible { padding-left: 12px; }
-        .site-footer {
-            flex-direction: column;
-            gap: 8px;
-            text-align: center;
-        }
+        .site-footer { flex-direction: column; gap: 8px; text-align: center; }
         .link:hover { text-decoration: none; }
     }
 
@@ -384,12 +351,10 @@
 
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <div role="navigation" aria-label="Blog design versions" style="position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 20px;background:#2B3856;color:#FFFFFF;border-bottom:2px solid #FFFFFF;font-family:'Garamond','EB Garamond','Times New Roman',serif;"><span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;">Design preview</span><a href="/v1/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:#FFFFFF;">v1 — original</a><a href="/v2/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:#FFFFFF;">v2 — brutalist</a><a href="/v3/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:#FFFFFF;color:#2B3856;">v3 — editorial</a></div>
-
     <div class="page">
 
         <nav class="top-bar" aria-label="Breadcrumb">
-            <a href="../" class="link">&larr;&#xFE0E; Blog</a>
+            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
         </nav>
 
         <header class="site-header">
@@ -403,51 +368,59 @@
 
                 <header class="post-header">
                     <div class="post-kicker">Essay N.001 &middot; Notes on Product</div>
-                    <h1 class="post-title">Lorem Ipsum Dolor Sit Amet</h1>
+                    <h1 class="post-title">The 90s Kid Guide to Actually Learning Tech</h1>
                     <div class="post-byline">
                         <span>By Wesley Melo</span>
-                        <span class="sep">·</span>
-                        <time datetime="2026-04-09">April 9, 2026</time>
-                        <span class="sep">·</span>
+                        <span class="sep">&middot;</span>
+                        <time datetime="2026-04-02">April 2, 2026</time>
+                        <span class="sep">&middot;</span>
                         <span>6 min read</span>
                     </div>
                 </header>
 
                 <article class="post-body">
 
-                    <p class="post-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p class="post-lede">For a while in the nineties, if you wanted a computer to do something, you had to tell it in its own language, and nobody was there to translate. The internet existed, but not really. You had a beige box, a manual as thick as a paperback, and the unshakeable belief that if you stared at it long enough you could make it work.</p>
 
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>It sounds like nostalgia. It isn't &mdash; or not only. The thing the 90s got right by accident was that every problem ended with you understanding something new about the machine. Every fix was an education. You didn't just get the software to run; you learned why it wasn't running.</p>
 
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-
-                    <figure>
-                        <div class="post-figure aspect-wide shape-hero" role="img" aria-label="Placeholder artwork"></div>
-                        <figcaption>Lorem ipsum dolor sit amet &mdash; a placeholder caption set in italic Garamond. <span class="credit">Photo &mdash; Placeholder</span></figcaption>
-                    </figure>
-
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
-
-                    <blockquote>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</blockquote>
-
-                    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
-
-                    <div class="post-section">II. On the second movement</div>
-
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-
-                    <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+                    <p>The manuals helped. They were deliberate, boring, methodical. IRQ jumpers and autoexec.bat and himem.sys. You didn't skim them; you read them because you had no choice, and when you finished you could do something nobody else around you could do.</p>
 
                     <figure>
-                        <div class="post-figure aspect-tall shape-mid" role="img" aria-label="Placeholder artwork"></div>
-                        <figcaption>Neque porro quisquam est &mdash; another placeholder caption. <span class="credit">Drawing &mdash; Placeholder</span></figcaption>
+                        <div class="post-figure aspect-wide" role="img" aria-label="A stack of old PC manuals">
+                            <img src="https://picsum.photos/seed/wesm-90s-manuals/1200/675" alt="A stack of old PC manuals" loading="lazy">
+                        </div>
+                        <figcaption>The manual was the teacher. <span class="credit">Photo &mdash; Placeholder</span></figcaption>
                     </figure>
 
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                    <p>Every piece of a PC that broke taught you where the bodies were. Formatting the wrong partition was a rite of passage. Soldering a bent pin back onto a ribbon cable was another. When you put the thing back together, you didn't just fix a machine; you built a map of it in your head, and the map was yours forever.</p>
 
-                    <div class="post-section">III. In conclusion</div>
+                    <blockquote>If you wanted it to work, you had to understand it. Ignorance cost you hours.</blockquote>
 
-                    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.</p>
+                    <p>The tools we use today are kinder. That's good, most of the time. But they hide the map. When the deploy fails, or the test passes but the product is broken, or &mdash; now &mdash; when the model hallucinates with perfect confidence, you need the map back. And you don't have it, because you haven't been forced to build one.</p>
+
+                    <h2>II. The AI era looks like the 90s</h2>
+
+                    <p>Large language models right now are the Pentium II of intelligence: loud, overconfident, sold with a manual nobody reads. They are going to be humbled over the next few years the same way the Pentium was humbled, and the people who will still be able to build with them are the people who treat them the way we treated our first PC.</p>
+
+                    <p>That means: poke it. Break it. Read the docs. Trust nothing. Verify everything. Understand that the model will lie to you cheerfully if you don't pin it down, and then figure out the pinning.</p>
+
+                    <p>Most importantly, do the slow, tedious work of understanding what is actually happening under the hood. Not because the tool demands it today &mdash; it doesn't, and that's half the problem &mdash; but because the day it starts demanding it, you'll be ready and most people won't.</p>
+
+                    <figure>
+                        <div class="post-figure aspect-tall" role="img" aria-label="A workbench with hardware">
+                            <img src="https://picsum.photos/seed/wesm-90s-workbench/1200/900" alt="A workbench with hardware" loading="lazy">
+                        </div>
+                        <figcaption>Break it, fix it, break it again. <span class="credit">Photo &mdash; Placeholder</span></figcaption>
+                    </figure>
+
+                    <h2>III. A short defense of the slow way</h2>
+
+                    <p>The best teachers I ever had were the machines that didn't work. I learned more from a night fighting a bad driver than I did from a semester of computer science.</p>
+
+                    <p>I am, on most days, grateful for how much friction technology has removed. And I worry that, in removing the friction, we removed the teacher.</p>
+
+                    <p>The 90s kids are fine. They built maps. The kids growing up now are going to be great at prompting, and some of them will be great at building, and the difference will be whether they ever had to break a machine to make it work.</p>
 
                 </article>
 
@@ -457,23 +430,23 @@
                     <a href="#" class="read-next-item">
                         <div class="read-next-meta">
                             <span>Essay</span>
-                            <span class="sep">·</span>
-                            <span>March 24, 2026</span>
+                            <span class="sep">&middot;</span>
+                            <span>March 18, 2026</span>
                         </div>
-                        <h3 class="read-next-title">Lorem Ipsum Primum Est Volupta</h3>
+                        <h3 class="read-next-title">The Digital Doppelg&auml;ngers Rises</h3>
                     </a>
 
                     <a href="#" class="read-next-item">
                         <div class="read-next-meta">
-                            <span>Field Notes</span>
-                            <span class="sep">·</span>
-                            <span>March 10, 2026</span>
+                            <span>Essay</span>
+                            <span class="sep">&middot;</span>
+                            <span>February 28, 2026</span>
                         </div>
-                        <h3 class="read-next-title">Lorem Ipsum Secundum Ratione</h3>
+                        <h3 class="read-next-title">How I Learned to Stop Worrying and Love Being Human</h3>
                     </a>
 
                     <div class="read-next-all">
-                        <a href="../" class="link">&larr;&#xFE0E; All posts</a>
+                        <a href="../blog.html" class="link">&larr;&#xFE0E; All posts</a>
                     </div>
                 </section>
 
@@ -483,7 +456,7 @@
 
         <footer class="site-footer">
             <span>&copy; 2026 Wesley Melo</span>
-            <a href="/" class="link">&larr;&#xFE0E; Back to home</a>
+            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
         </footer>
 
     </div>

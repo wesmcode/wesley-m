@@ -12,27 +12,12 @@
   </url>
   <url>
     <loc>https://wesley-m.com/blog.html</loc>
-    <lastmod>2026-04-09</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wesley-m.com/v1/blog.html</loc>
-    <lastmod>2026-04-09</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://wesley-m.com/v1/blog/the-90s-kid-guide-to-actually-learning-tech.html</loc>
-    <lastmod>2026-04-09</lastmod>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://wesley-m.com/v2/blog.html</loc>
-    <lastmod>2026-04-09</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://wesley-m.com/v2/blog/the-90s-kid-guide-to-actually-learning-tech.html</loc>
-    <lastmod>2026-04-09</lastmod>
-    <priority>0.4</priority>
+    <loc>https://wesley-m.com/blog/the-90s-kid-guide-to-actually-learning-tech.html</loc>
+    <lastmod>2026-04-12</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -66,12 +66,8 @@ User-agent: Omgili
 Disallow: /
 
 # Default: allow everything else (search engines, link previews, etc.)
-# /v1/, /v2/, /v3/ are dev-only design preview snapshots and should not
-# be indexed.
+# Default: allow everything else (search engines, link previews, etc.)
 User-agent: *
 Allow: /
-Disallow: /v1/
-Disallow: /v2/
-Disallow: /v3/
 
 Sitemap: https://wesley-m.com/sitemap.xml
