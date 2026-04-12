@@ -74,13 +74,6 @@
     gap: 48px;
     align-items: start;
 }
-.featured-kicker {
-    font-size: 12px;
-    font-variant: small-caps;
-    letter-spacing: 0.2em;
-    color: var(--fg-hover);
-    margin-bottom: 20px;
-}
 .featured-title {
     font-size: 48px;
     line-height: 1;
@@ -257,13 +250,6 @@
 .reading-item-content {
     flex: 1;
     min-width: 0;
-}
-.reading-item-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--fg-hover);
-    margin-bottom: 6px;
 }
 .reading-item-title {
     font-size: 15px;
