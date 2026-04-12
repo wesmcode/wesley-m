@@ -209,25 +209,6 @@
         text-align: center;
     }
 
-    .about-counter {
-        display: flex;
-        justify-content: center;
-        align-items: baseline;
-        gap: 8px;
-        margin-bottom: 28px;
-        font-size: 13px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--fg-hover);
-        font-variant-numeric: tabular-nums;
-    }
-
-    .about-counter .current {
-        font-size: 18px;
-        letter-spacing: 0.1em;
-        color: var(--fg);
-    }
-
     .about-cards-wrapper {
         position: relative;
         margin: 0 -40px;
@@ -279,20 +260,6 @@
         fill: var(--bg);
     }
 
-    .about-card-number {
-        font-size: 12px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--fg-hover);
-        font-variant-numeric: tabular-nums;
-        transition: color 0.15s ease;
-    }
-
-    .about-card:hover .about-card-number,
-    .about-cards:not(:hover) .about-card[data-active="true"] .about-card-number {
-        color: var(--bg);
-    }
-
     .about-card-icon {
         width: 32px;
         height: 32px;
@@ -319,59 +286,12 @@
         transition: color 0.2s ease;
     }
 
-    .about-pagination {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 24px;
-        margin-top: 40px;
-    }
-
-    .about-dots {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .about-dot {
-        width: 28px;
-        height: 2px;
-        padding: 0;
-        background: rgba(255, 255, 255, 0.25);
-        border: none;
-        cursor: pointer;
-        transition: background 0.2s ease, width 0.2s ease;
-        font: inherit;
-    }
-
-    .about-dot:hover {
-        background: var(--fg-hover);
-    }
-
-    .about-dot[aria-current="true"] {
-        background: var(--fg);
-        width: 56px;
-    }
-
-    .about-dot:focus-visible {
-        outline: 2px solid var(--fg);
-        outline-offset: 4px;
-    }
-
-    .about-count {
-        font-size: 13px;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--fg-hover);
-        font-variant-numeric: tabular-nums;
-    }
-
     /* PROCESS */
     #process .section-inner {
         padding-top: 56px;
         padding-bottom: 56px;
-        padding-left: 48px;
-        padding-right: 48px;
+        padding-left: 72px;
+        padding-right: 72px;
         max-width: 1440px;
     }
 
@@ -382,10 +302,10 @@
 
     .process-row {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
         gap: 48px;
         align-items: center;
-        padding: 22px 0 20px;
+        padding: 32px 0 28px;
         border-bottom: 2px solid var(--fg);
         transition: background 0.2s ease;
     }
@@ -420,11 +340,11 @@
     }
 
     .process-meta {
-        font-size: 16px;
-        line-height: 1.5;
+        font-size: 22px;
+        line-height: 1.35;
         color: var(--fg-hover);
         text-align: right;
-        max-width: 340px;
+        max-width: 420px;
         justify-self: end;
         margin: 0;
         transition: color 0.2s ease;
@@ -439,12 +359,12 @@
     }
 
     /* CAPABILITIES — Significa-style 3-column disclosure, clear hierarchy */
-    #capabilities {
+    #services {
         background: #FFFFFF;
         color: var(--bg);
     }
 
-    #capabilities .section-inner {
+    #services .section-inner {
         padding-top: 88px;
         padding-bottom: 88px;
         max-width: 1120px;
@@ -635,14 +555,10 @@
             box-shadow: 4px 4px 0 0 var(--fg);
         }
 
-        .about-dots {
-            margin-top: 28px;
-        }
-
         /* Process */
         #process .section-inner {
-            padding-left: 24px;
-            padding-right: 24px;
+            padding-left: 32px;
+            padding-right: 32px;
         }
 
         .process-list {
@@ -660,13 +576,14 @@
         }
 
         .process-meta {
+            font-size: 18px;
             max-width: 100%;
             justify-self: start;
             text-align: left;
         }
 
         /* Capabilities */
-        #capabilities .section-inner {
+        #services .section-inner {
             padding-top: 56px;
             padding-bottom: 56px;
         }
@@ -788,7 +705,7 @@
                         </a>
                     </div>
                     <div class="row">
-                        <a href="services.html" class="link nav-item">
+                        <a href="#services" class="link nav-item">
                             <span class="button-label">Services</span>
                             <span class="mobile-only">[&rarr;&#xFE0E;]</span>
                         </a>
@@ -826,39 +743,34 @@
                 <div class="about-cards-wrapper">
                     <div class="about-cards" id="about-cards" role="list" tabindex="0" aria-label="What I bring">
                         <article class="about-card" role="listitem">
-                            <span class="about-card-number">01</span>
-<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Ship discipline</h3>
                             <p>Deadlines beat drafts. I ship weekly, measure honestly, cut what doesn't earn its keep.</p>
                         </article>
                         <article class="about-card" role="listitem">
-                            <span class="about-card-number">02</span>
-<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>AI fluency</h3>
                             <p>LLMs, agents, RAG, evaluation. Built and shipped in production &mdash; not read about on weekends.</p>
                         </article>
                         <article class="about-card" role="listitem">
-                            <span class="about-card-number">03</span>
-<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Platform scale</h3>
                             <p>Multi-site migrations, CMS consolidation, SEO preserved at scale. Quiet handovers.</p>
                         </article>
                         <article class="about-card" role="listitem">
-                            <span class="about-card-number">04</span>
-<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                            <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Team leverage</h3>
                             <p>Remote-first scrum and kanban. Mentorship that sticks. Teams that keep shipping after I leave.</p>
                         </article>
                         <article class="about-card" role="listitem">
-                            <span class="about-card-number">05</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -866,7 +778,6 @@
                             <p>Hypotheses, instrumentation, weekly read-outs. Decisions earn their place with data, not volume.</p>
                         </article>
                         <article class="about-card" role="listitem">
-                            <span class="about-card-number">06</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -874,26 +785,12 @@
                             <p>Customer interviews, JTBD, problem framing. The right question saves a quarter of wasted build.</p>
                         </article>
                         <article class="about-card" role="listitem">
-                            <span class="about-card-number">07</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Written by default</h3>
                             <p>Specs, decisions, trade-offs — all in writing. Remote-first teams run on the record, not the meeting.</p>
                         </article>
-                    </div>
-
-                    <div class="about-pagination">
-                        <div class="about-dots" role="tablist" aria-label="About highlights pagination">
-                            <button type="button" class="about-dot" data-index="0" aria-label="Go to highlight 1" aria-current="true"></button>
-                            <button type="button" class="about-dot" data-index="1" aria-label="Go to highlight 2"></button>
-                            <button type="button" class="about-dot" data-index="2" aria-label="Go to highlight 3"></button>
-                            <button type="button" class="about-dot" data-index="3" aria-label="Go to highlight 4"></button>
-                            <button type="button" class="about-dot" data-index="4" aria-label="Go to highlight 5"></button>
-                            <button type="button" class="about-dot" data-index="5" aria-label="Go to highlight 6"></button>
-                            <button type="button" class="about-dot" data-index="6" aria-label="Go to highlight 7"></button>
-                        </div>
-                        <span class="about-count" id="about-count" aria-live="polite">01 / 07</span>
                     </div>
                 </div>
             </div>
@@ -922,7 +819,7 @@
             </div>
         </section>
 
-        <section id="capabilities" class="snap-section" aria-label="Capabilities">
+        <section id="services" class="snap-section" aria-label="Services">
             <div class="section-inner">
                 <div class="cap-grid">
                     <div class="cap-col">
@@ -930,87 +827,96 @@
                         <div class="cap-group">
                             <div class="cap-group-label">Discovery</div>
                             <ul>
-                                <li>Product auditing</li>
-                                <li>Business &amp; data analysis</li>
-                                <li>Segmentation &amp; personas</li>
-                                <li>User research</li>
+                                <li>Product audit</li>
+                                <li>Customer interviews</li>
+                                <li>Jobs-to-be-done</li>
+                                <li>Problem framing</li>
+                                <li>Market &amp; competitive analysis</li>
                             </ul>
                         </div>
                         <div class="cap-group">
-                            <div class="cap-group-label">Product Definition</div>
+                            <div class="cap-group-label">Vision &amp; Planning</div>
                             <ul>
                                 <li>Product strategy</li>
-                                <li>Proof of concept</li>
-                                <li>Minimum viable product</li>
+                                <li>Roadmapping</li>
+                                <li>OKRs &amp; north-star metrics</li>
+                                <li>Prioritisation frameworks</li>
+                                <li>Lean Inception facilitation</li>
+                            </ul>
+                        </div>
+                        <div class="cap-group">
+                            <div class="cap-group-label">Growth</div>
+                            <ul>
                                 <li>Growth strategy</li>
+                                <li>PLG &amp; subscription economics</li>
                                 <li>Conversion rate optimisation</li>
-                            </ul>
-                        </div>
-                        <div class="cap-group">
-                            <div class="cap-group-label">Operations</div>
-                            <ul>
-                                <li>Product management</li>
-                                <li>Project management</li>
+                                <li>Retention &amp; funnel design</li>
+                                <li>Pricing experiments</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="cap-col">
-                        <h3>Design</h3>
+                        <h3>Execution</h3>
                         <div class="cap-group">
-                            <div class="cap-group-label">Interface</div>
+                            <div class="cap-group-label">AI Product</div>
                             <ul>
-                                <li>User experience strategy</li>
-                                <li>User experience design</li>
-                                <li>User interface design</li>
-                                <li>Design systems</li>
-                                <li>User testing</li>
+                                <li>LLM-powered product design</li>
+                                <li>AI agent orchestration</li>
+                                <li>RAG applications</li>
+                                <li>Evals &amp; observability</li>
+                                <li>AI prototyping (Cursor, v0)</li>
                             </ul>
                         </div>
                         <div class="cap-group">
-                            <div class="cap-group-label">Brand</div>
+                            <div class="cap-group-label">Delivery</div>
                             <ul>
-                                <li>Brand strategy</li>
-                                <li>Brand identity</li>
-                                <li>Logo design</li>
-                                <li>Brand guidelines</li>
+                                <li>Scrum &amp; Kanban</li>
+                                <li>Backlog &amp; sprint management</li>
+                                <li>PRDs &amp; specs</li>
+                                <li>Release management</li>
+                                <li>Cross-functional leadership</li>
                             </ul>
                         </div>
                         <div class="cap-group">
-                            <div class="cap-group-label">Multimedia</div>
+                            <div class="cap-group-label">Experimentation</div>
                             <ul>
-                                <li>Illustration</li>
-                                <li>Video &amp; motion design</li>
+                                <li>A/B testing</li>
+                                <li>Hypothesis-driven development</li>
+                                <li>Weekly read-outs</li>
+                                <li>Feature flagging</li>
+                                <li>Decision frameworks</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="cap-col">
-                        <h3>Development</h3>
+                        <h3>Operations</h3>
                         <div class="cap-group">
-                            <div class="cap-group-label">Front-end</div>
+                            <div class="cap-group-label">Analytics</div>
                             <ul>
-                                <li>React</li>
-                                <li>Next.js</li>
-                                <li>Svelte</li>
-                                <li>React Native</li>
-                                <li>Swift</li>
-                                <li>Kotlin</li>
+                                <li>Product analytics (Pendo, GA, Tableau)</li>
+                                <li>KPI instrumentation</li>
+                                <li>SQL &amp; dashboards</li>
+                                <li>Activation &amp; retention metrics</li>
                             </ul>
                         </div>
                         <div class="cap-group">
-                            <div class="cap-group-label">Back-end</div>
+                            <div class="cap-group-label">Platform</div>
                             <ul>
-                                <li>Elixir</li>
-                                <li>Python</li>
-                                <li>Node</li>
+                                <li>CMS architecture (Payload, Contentful, Liferay DXP)</li>
+                                <li>Multi-site migration</li>
+                                <li>SEO preservation at scale</li>
+                                <li>API design &amp; integration</li>
                             </ul>
                         </div>
                         <div class="cap-group">
-                            <div class="cap-group-label">DevOps</div>
+                            <div class="cap-group-label">Leadership</div>
                             <ul>
-                                <li>Hosting &amp; maintenance</li>
-                                <li>Infrastructure setup</li>
+                                <li>PM mentorship &amp; coaching</li>
+                                <li>Hiring &amp; org design</li>
+                                <li>Stakeholder alignment</li>
+                                <li>Remote-first operating rhythms</li>
                             </ul>
                         </div>
                     </div>
@@ -1024,7 +930,7 @@
                     <span class="footer-brand">Wesley Melo</span>
                     <nav class="footer-nav" aria-label="Footer navigation">
                         <a href="blog.html" class="link">Blog</a>
-                        <a href="services.html" class="link">Services</a>
+                        <a href="#services" class="link">Services</a>
                         <a href="resume.html" target="_blank" class="link">Resume</a>
                         <a id="footer-email-link" href="#" class="link js-email">Email</a>
                         <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
@@ -1058,17 +964,15 @@
         });
     }
 
-    // About cards — pagination dots sync with horizontal snap scroll,
-    // auto-advance, keyboard arrow nav, and brutalist active state.
-    // Auto-advance never touches the page scroll position — it only moves
-    // the inner horizontal scroll, and pauses when the row is off-screen.
+    // About cards — horizontal snap scroll with auto-advance, keyboard arrow
+    // nav, and brutalist active state. Auto-advance never touches the page
+    // scroll position — it only moves the inner horizontal scroll, and pauses
+    // when the row is off-screen.
     (function () {
         var cardsRow = document.getElementById('about-cards');
         if (!cardsRow) return;
         var cards = cardsRow.querySelectorAll('.about-card');
-        var dots = document.querySelectorAll('.about-dot');
-        var countEl = document.getElementById('about-count');
-        if (!cards.length || !dots.length) return;
+        if (!cards.length) return;
 
         var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         var timer = null;
@@ -1077,14 +981,8 @@
         var inView = true;
         var suppressScrollSync = false;
 
-        function pad(n) { return (n < 10 ? '0' : '') + n; }
-
         function setActive(index) {
             current = index;
-            dots.forEach(function (dot, i) {
-                if (i === index) dot.setAttribute('aria-current', 'true');
-                else dot.removeAttribute('aria-current');
-            });
             cards.forEach(function (card, i) {
                 card.classList.toggle('is-active', i === index);
             });
@@ -1095,9 +993,6 @@
                     card.removeAttribute('data-active');
                 }
             });
-            if (countEl) {
-                countEl.textContent = pad(index + 1) + ' / ' + pad(cards.length);
-            }
         }
 
         // Horizontal-only scroll inside the cards container — never touches
@@ -1138,14 +1033,6 @@
         function stop() {
             if (timer) { clearInterval(timer); timer = null; }
         }
-
-        dots.forEach(function (dot) {
-            dot.addEventListener('click', function () {
-                var i = parseInt(dot.getAttribute('data-index'), 10);
-                if (isNaN(i)) return;
-                goTo(i);
-            });
-        });
 
         cardsRow.addEventListener('mouseenter', function () { paused = true; });
         cardsRow.addEventListener('mouseleave', function () { paused = false; });
