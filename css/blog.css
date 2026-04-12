@@ -283,7 +283,12 @@
 .footer-row {
     border-top: 2px solid #FFFFFF;
 }
-.footer-nav .link {
+.footer-brand,
+.footer-brand:visited {
+    color: #FFFFFF;
+}
+.footer-nav .link,
+.footer-nav .link:visited {
     color: #FFFFFF;
 }
 .footer-nav .link:hover {
