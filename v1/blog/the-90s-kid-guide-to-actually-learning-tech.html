@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 90s Kid Guide to Actually Learning Tech (V1) — Wesley Melo</title>
+    <title>The 90s Kid Guide to Actually Learning Tech — Wesley Melo</title>
     <meta name="description" content="How a generation learned computers by breaking them — and why that might be the best way to learn AI, too.">
     <meta name="author" content="Wesley Melo">
     <link rel="canonical" href="https://wesley-m.com/v1/blog/the-90s-kid-guide-to-actually-learning-tech.html">
@@ -43,11 +43,12 @@
     *, *::before, *::after { box-sizing: border-box; }
 
     :root {
-        --bg: #2B3856;
-        --fg: #FFFFFF;
-        --fg-hover: rgba(255, 255, 255, 0.5);
-        --border: 2px solid #FFFFFF;
-        --border-heavy: 3px solid #FFFFFF;
+        --bg: #FFFFFF;
+        --fg: #2B3856;
+        --fg-hover: rgba(43, 56, 86, 0.5);
+        --fg-quiet: rgba(43, 56, 86, 0.7);
+        --border: 2px solid #2B3856;
+        --border-heavy: 3px solid #2B3856;
     }
 
     html, body {
@@ -71,7 +72,6 @@
     }
     .skip-link:focus { left: 0; }
 
-    /* Single link signature. */
     .link {
         font-weight: 400;
         color: var(--fg);
@@ -101,14 +101,6 @@
 
     .top-bar { padding: 24px 0 0; }
     .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
-    .top-bar .variant-tag {
-        float: right;
-        font-size: 12px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--fg-hover);
-        padding-top: 4px;
-    }
 
     /* Site header */
     .site-header {
@@ -144,7 +136,7 @@
         color: var(--fg-hover);
     }
 
-    /* Article — single centered column, full width of 960 container. */
+    /* Article */
     .post {
         padding: 24px 0 56px;
         border-bottom: var(--border);
@@ -186,7 +178,6 @@
         max-width: 60ch;
     }
 
-    /* Section headings inside the body. */
     .post-body h2 {
         font-size: 20px;
         text-transform: uppercase;
@@ -196,7 +187,6 @@
         max-width: 60ch;
     }
 
-    /* Pull-quote — simple left-border treatment in V1. */
     .post-body blockquote {
         margin: 32px 0;
         padding: 4px 0 4px 24px;
@@ -220,11 +210,10 @@
         max-width: 60ch;
     }
 
-    /* post-figure — supports both CSS gradient fallbacks and real images. */
     .post-figure {
         position: relative;
         width: 100%;
-        background: var(--fg);
+        background: #e8e8e8;
         overflow: hidden;
     }
     .post-figure.aspect-wide { aspect-ratio: 16 / 9; }
@@ -257,17 +246,59 @@
     }
     .read-next-label { color: var(--fg-hover); }
 
-    /* Footer */
-    .site-footer {
+    /* Footer — dark navy, matching homepage */
+    #site-footer {
+        background: #2B3856;
+        color: #FFFFFF;
+    }
+    .footer-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 40px;
+    }
+    .footer-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 24px 0;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+        gap: 24px;
+        padding-top: 32px;
+        border-top: 2px solid #FFFFFF;
     }
-    .site-footer span { color: var(--fg-hover); }
+    .footer-brand {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+    .footer-nav {
+        display: flex;
+        gap: 24px;
+    }
+    .footer-nav .link {
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        color: #FFFFFF;
+    }
+    .footer-nav .link:hover {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: underline;
+    }
+    .footer-nav .link:focus-visible {
+        color: #2B3856;
+        background: #FFFFFF;
+        outline: none;
+    }
+    .footer-nav .link:active {
+        background: #FFFFFF;
+        color: #2B3856;
+    }
+    .footer-meta {
+        margin-top: 24px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.5);
+    }
 
     /* Mobile */
     @media only screen and (max-width: 768px) {
@@ -277,8 +308,18 @@
         .post-lede { font-size: 17px; }
         .post-meta { flex-direction: column; gap: 4px; }
         .read-next { flex-direction: column; align-items: flex-start; gap: 8px; }
-        .site-footer { flex-direction: column; gap: 8px; text-align: center; }
+        .footer-inner { padding: 40px 24px; }
+        .footer-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .footer-nav {
+            flex-wrap: wrap;
+            gap: 16px 24px;
+        }
         .link:hover { text-decoration: none; }
+        .footer-nav .link:hover { text-decoration: none; }
     }
 
     </style>
@@ -291,12 +332,11 @@
 
         <nav class="top-bar" aria-label="Breadcrumb">
             <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
-            <span class="variant-tag">Variant&nbsp;&middot;&nbsp;V1</span>
         </nav>
 
         <header class="site-header">
-            <h1>Wesley Melo</h1>
-            <span class="page-label">Blog / Post</span>
+            <h1>Might Read It Later</h1>
+            <span class="page-label">Post</span>
         </header>
 
         <main id="main-content">
@@ -367,12 +407,35 @@
 
         </main>
 
-        <footer class="site-footer">
-            <span>&copy; 2026 Wesley Melo</span>
-            <a href="../../index.html" class="link">&larr;&#xFE0E; Back to home</a>
-        </footer>
-
     </div>
+
+    <footer id="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+            <div class="footer-row">
+                <span class="footer-brand">Wesley Melo</span>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="../../blog.html" class="link">Blog</a>
+                    <a href="../../index.html#services" class="link">Services</a>
+                    <a href="../../resume.html" target="_blank" class="link">Resume</a>
+                    <a id="footer-email-link" href="#" class="link js-email">Email</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+                </nav>
+            </div>
+            <div class="footer-meta">&copy; 2026 Wesley Melo</div>
+        </div>
+    </footer>
+
+    <script>
+    'use strict';
+    var addr = ['contato', 'wesley-m.com'].join('@');
+    var footerEmail = document.getElementById('footer-email-link');
+    if (footerEmail) {
+        footerEmail.addEventListener('click', function(e) {
+            e.preventDefault();
+            footerEmail.textContent = addr;
+        });
+    }
+    </script>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
     <meta property="og:title" content="Lorem Ipsum Dolor Sit Amet — Wesley Melo">
     <meta property="og:description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://wesley-m.com/blog/bergen-assembly.html">
+    <meta property="og:url" content="https://wesley-m.com/v1/blog/bergen-assembly.html">
     <link rel="icon" href="data:,">
     <script type="application/ld+json">
     {
@@ -24,7 +24,7 @@
             "url": "https://wesley-m.com"
         },
         "datePublished": "2026-04-09",
-        "url": "https://wesley-m.com/blog/bergen-assembly.html"
+        "url": "https://wesley-m.com/v1/blog/bergen-assembly.html"
     }
     </script>
     <style>
@@ -42,12 +42,11 @@
     ul { list-style: none; }
     *, *::before, *::after { box-sizing: border-box; }
 
-    /* Inverted theme — white background, navy foreground */
     :root {
         --bg: #FFFFFF;
         --fg: #2B3856;
         --fg-soft: rgba(43, 56, 86, 0.6);
-        --fg-hover: rgba(43, 56, 86, 0.55);
+        --fg-hover: rgba(43, 56, 86, 0.5);
         --border: 2px solid #2B3856;
         --border-heavy: 3px solid #2B3856;
     }
@@ -63,7 +62,6 @@
         -webkit-font-smoothing: antialiased;
     }
 
-    /* Skip link */
     .skip-link {
         position: absolute;
         left: -9999px;
@@ -73,9 +71,27 @@
         color: var(--bg);
         text-decoration: none;
     }
-    .skip-link:focus {
-        left: 0;
+    .skip-link:focus { left: 0; }
+
+    .link {
+        font-weight: 400;
+        color: var(--fg);
+        text-decoration: none;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        cursor: default;
     }
+    .link:hover { color: var(--fg-hover); text-decoration: underline; }
+    .link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
+    .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
+    .link:active { background: var(--fg); color: var(--bg); }
 
     /* Layout */
     .page {
@@ -94,9 +110,7 @@
         font-size: 14px;
         letter-spacing: 0.05em;
     }
-    .back-link:hover {
-        color: var(--fg-hover);
-    }
+    .back-link:hover { color: var(--fg-hover); }
 
     /* Header */
     .site-header {
@@ -117,6 +131,7 @@
         font-size: 14px;
         text-transform: uppercase;
         letter-spacing: 0.15em;
+        color: var(--fg-hover);
     }
 
     /* Post layout — sidebar + article */
@@ -131,9 +146,7 @@
         border-right: var(--border);
         padding: 40px 28px 40px 0;
     }
-    .meta-block {
-        margin-bottom: 32px;
-    }
+    .meta-block { margin-bottom: 32px; }
     .meta-label {
         font-size: 11px;
         text-transform: uppercase;
@@ -185,9 +198,7 @@
         margin-bottom: 20px;
         max-width: 60ch;
     }
-    .post-article figure {
-        margin: 32px 0 12px;
-    }
+    .post-article figure { margin: 32px 0 12px; }
     .post-article figcaption {
         font-size: 12px;
         font-style: italic;
@@ -196,20 +207,16 @@
         line-height: 1.4;
         max-width: 60ch;
     }
-    .post-article figure + p {
-        margin-top: 24px;
-    }
+    .post-article figure + p { margin-top: 24px; }
 
-    /* Sharp-shape image placeholders */
     .post-figure {
         position: relative;
         width: 100%;
-        background: var(--fg);
+        background: #e8e8e8;
         overflow: hidden;
     }
     .post-figure.aspect-wide { aspect-ratio: 16 / 9; }
     .post-figure.aspect-tall { aspect-ratio: 4 / 3; }
-
     .post-figure::before {
         content: "";
         position: absolute;
@@ -262,63 +269,78 @@
         text-align: right;
         max-width: 60%;
     }
-    .read-next-link:hover {
-        color: var(--fg-hover);
-    }
+    .read-next-link:hover { color: var(--fg-hover); }
 
-    /* Footer */
-    .site-footer {
+    /* Footer — dark navy, matching homepage */
+    #site-footer {
+        background: #2B3856;
+        color: #FFFFFF;
+    }
+    .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 24px;
+    }
+    .footer-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 0;
-        font-size: 13px;
+        gap: 24px;
+        padding-top: 32px;
+        border-top: 2px solid #FFFFFF;
+    }
+    .footer-brand {
+        font-size: 14px;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.1em;
     }
-    .site-footer a {
-        color: var(--fg);
-        text-decoration: none;
+    .footer-nav {
+        display: flex;
+        gap: 24px;
     }
-    .site-footer a:hover {
-        color: var(--fg-hover);
+    .footer-nav .link {
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        color: #FFFFFF;
     }
-    .site-footer span {
-        color: var(--fg-soft);
+    .footer-nav .link:hover {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: underline;
+    }
+    .footer-nav .link:focus-visible {
+        color: #2B3856;
+        background: #FFFFFF;
+        outline: none;
+    }
+    .footer-nav .link:active {
+        background: #FFFFFF;
+        color: #2B3856;
+    }
+    .footer-meta {
+        margin-top: 24px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.5);
     }
 
     /* Mobile */
     @media only screen and (max-width: 768px) {
-
-        .site-header h1 {
-            font-size: 32px;
-        }
-
-        .post-layout {
-            grid-template-columns: 1fr;
-        }
+        .site-header h1 { font-size: 32px; }
+        .post-layout { grid-template-columns: 1fr; }
         .post-sidebar {
             border-right: none;
             border-bottom: var(--border);
             padding: 28px 0;
         }
-        .meta-block {
-            margin-bottom: 20px;
-        }
+        .meta-block { margin-bottom: 20px; }
         .post-article {
             padding: 32px 0 40px;
         }
-        .post-article h1 {
-            font-size: 30px;
-            margin-bottom: 24px;
-        }
-        .post-lede {
-            font-size: 18px;
-        }
-        .post-article p {
-            font-size: 16px;
-        }
-
+        .post-article h1 { font-size: 30px; margin-bottom: 24px; }
+        .post-lede { font-size: 18px; }
+        .post-article p { font-size: 16px; }
         .read-next {
             flex-direction: column;
             align-items: flex-start;
@@ -329,12 +351,18 @@
             max-width: 100%;
             font-size: 20px;
         }
-
-        .site-footer {
+        .footer-inner { padding: 40px 24px; }
+        .footer-row {
             flex-direction: column;
-            gap: 8px;
-            text-align: center;
+            align-items: flex-start;
+            gap: 20px;
         }
+        .footer-nav {
+            flex-wrap: wrap;
+            gap: 16px 24px;
+        }
+        .link:hover { text-decoration: none; }
+        .footer-nav .link:hover { text-decoration: none; }
     }
 
     </style>
@@ -343,17 +371,15 @@
 
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <div role="navigation" aria-label="Blog design versions" style="position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 20px;background:#2B3856;color:#FFFFFF;border-bottom:2px solid #FFFFFF;font-family:'Garamond','EB Garamond','Times New Roman',serif;"><span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.6;">Design preview</span><a href="/v1/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:#FFFFFF;color:#2B3856;">v1 — original</a><a href="/v2/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:#FFFFFF;">v2 — brutalist</a><a href="/v3/" style="display:inline-block;padding:6px 12px;border:1px solid #FFFFFF;text-decoration:none;font-family:inherit;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:#FFFFFF;">v3 — editorial</a></div>
-
     <div class="page">
 
         <nav>
-            <a href="../" class="back-link">&larr;&#xFE0E; Blog</a>
+            <a href="../blog.html" class="back-link">&larr;&#xFE0E; Blog</a>
         </nav>
 
         <header class="site-header">
-            <h1>Wesley Melo</h1>
-            <span class="page-label">Blog / Post</span>
+            <h1>Might Read It Later</h1>
+            <span class="page-label">Post</span>
         </header>
 
         <main id="main-content">
@@ -384,7 +410,7 @@
                     </div>
                     <div class="meta-block">
                         <div class="meta-label">Index</div>
-                        <div class="meta-value"><a href="../">All posts</a></div>
+                        <div class="meta-value"><a href="../blog.html">All posts</a></div>
                     </div>
                 </aside>
 
@@ -418,17 +444,40 @@
 
             <section class="read-next" aria-label="Read next">
                 <span class="read-next-label">Read next &rarr;&#xFE0E;</span>
-                <a href="../" class="read-next-link">Back to all posts</a>
+                <a href="../blog.html" class="read-next-link">Back to all posts</a>
             </section>
 
         </main>
 
-        <footer class="site-footer">
-            <span>&copy; 2026 Wesley Melo</span>
-            <a href="/">&larr;&#xFE0E; Back to home</a>
-        </footer>
-
     </div>
+
+    <footer id="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+            <div class="footer-row">
+                <span class="footer-brand">Wesley Melo</span>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="../../blog.html" class="link">Blog</a>
+                    <a href="../../index.html#services" class="link">Services</a>
+                    <a href="../../resume.html" target="_blank" class="link">Resume</a>
+                    <a id="footer-email-link" href="#" class="link js-email">Email</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+                </nav>
+            </div>
+            <div class="footer-meta">&copy; 2026 Wesley Melo</div>
+        </div>
+    </footer>
+
+    <script>
+    'use strict';
+    var addr = ['contato', 'wesley-m.com'].join('@');
+    var footerEmail = document.getElementById('footer-email-link');
+    if (footerEmail) {
+        footerEmail.addEventListener('click', function(e) {
+            e.preventDefault();
+            footerEmail.textContent = addr;
+        });
+    }
+    </script>
 
 </body>
 </html>

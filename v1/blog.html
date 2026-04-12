@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog (V1 — Realigned) — Wesley Melo</title>
-    <meta name="description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software. Design variant V1.">
+    <title>Blog — Might Read It Later — Wesley Melo</title>
+    <meta name="description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
     <meta name="author" content="Wesley Melo">
     <link rel="canonical" href="https://wesley-m.com/v1/blog.html">
-    <meta property="og:title" content="Blog (V1) — Wesley Melo">
+    <meta property="og:title" content="Might Read It Later — Wesley Melo">
     <meta property="og:description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wesley-m.com/v1/blog.html">
@@ -17,7 +17,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Blog",
-        "name": "Wesley Melo — Blog (V1)",
+        "name": "Might Read It Later — Wesley Melo",
         "url": "https://wesley-m.com/v1/blog.html",
         "author": {
             "@type": "Person",
@@ -42,11 +42,13 @@
     *, *::before, *::after { box-sizing: border-box; }
 
     :root {
-        --bg: #2B3856;
-        --fg: #FFFFFF;
-        --fg-hover: rgba(255, 255, 255, 0.5);
-        --border: 2px solid #FFFFFF;
-        --border-heavy: 3px solid #FFFFFF;
+        --bg: #FFFFFF;
+        --fg: #2B3856;
+        --fg-hover: rgba(43, 56, 86, 0.5);
+        --fg-quiet: rgba(43, 56, 86, 0.7);
+        --border: 2px solid #2B3856;
+        --border-heavy: 3px solid #2B3856;
+        --rule: 1px solid #2B3856;
     }
 
     html, body {
@@ -71,7 +73,6 @@
     }
     .skip-link:focus { left: 0; }
 
-    /* Single link signature shared with the rest of the site. */
     .link {
         font-weight: 400;
         color: var(--fg);
@@ -101,22 +102,11 @@
 
     .top-bar { padding: 24px 0 0; }
     .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
-    .top-bar .variant-tag {
-        float: right;
-        font-size: 12px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--fg-hover);
-        padding-top: 4px;
-    }
 
     /* Site header */
     .site-header {
         border-bottom: var(--border-heavy);
         padding: 24px 0 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
     }
     .site-header h1 {
         font-size: 48px;
@@ -125,11 +115,12 @@
         letter-spacing: -0.02em;
         font-weight: 400;
     }
-    .site-header .page-label {
+    .site-subtitle {
         font-size: 14px;
         text-transform: uppercase;
         letter-spacing: 0.15em;
         color: var(--fg-hover);
+        margin-top: 12px;
     }
 
     /* Right-aligned section label */
@@ -145,7 +136,7 @@
         color: var(--fg-hover);
     }
 
-    /* Featured post */
+    /* Featured post — Last publication */
     .featured {
         border-bottom: var(--border);
         padding: 24px 0 72px;
@@ -176,7 +167,7 @@
         position: relative;
         width: 100%;
         aspect-ratio: 16 / 10;
-        background: var(--fg);
+        background: #e8e8e8;
         overflow: hidden;
         transition: opacity 0.15s ease;
     }
@@ -209,92 +200,169 @@
         line-height: 24px;
     }
 
-    /* Posts grid — three cards. Each card is a single link. */
-    .posts { border-bottom: var(--border); }
-    .posts-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .post-card {
-        display: flex;
-        flex-direction: column;
-        padding: 32px 24px 32px 0;
+    /* Archive rows — text-only list with hover invert */
+    .archive { padding: 0; }
+    .archive-row {
+        display: block;
+        padding: 32px 0 36px;
         text-decoration: none;
         color: inherit;
+        border-bottom: var(--rule);
+        cursor: default;
+        transition: padding-left 0.15s ease;
     }
-    .post-card + .post-card {
-        padding-left: 24px;
-        border-left: var(--border);
-    }
-    .post-card:hover {
+    .archive-row:first-of-type { border-top: var(--rule); }
+    .archive-row:hover {
         background: var(--fg);
         color: var(--bg);
+        padding-left: 24px;
     }
-    .post-card:hover .post-card-meta,
-    .post-card:hover .post-card-excerpt { color: rgba(43, 56, 86, 0.7); }
-    .post-card:focus-visible {
+    .archive-row:hover .archive-meta,
+    .archive-row:hover .archive-dek { color: rgba(255, 255, 255, 0.65); }
+    .archive-row:focus-visible {
         outline: none;
         background: var(--fg);
         color: var(--bg);
+        padding-left: 24px;
     }
-    .post-card:focus-visible .post-card-meta,
-    .post-card:focus-visible .post-card-excerpt { color: rgba(43, 56, 86, 0.7); }
+    .archive-row:focus-visible .archive-meta,
+    .archive-row:focus-visible .archive-dek { color: rgba(255, 255, 255, 0.65); }
 
-    .post-card-meta {
+    .archive-meta {
         font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
+        font-variant: small-caps;
+        letter-spacing: 0.12em;
         color: var(--fg-hover);
         margin-bottom: 12px;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
     }
-    .post-card-title {
+    .archive-meta .sep { opacity: 0.45; }
+
+    .archive-row-title {
         font-size: 20px;
         line-height: 1.15;
         text-transform: uppercase;
         letter-spacing: 0.02em;
         font-weight: 400;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
     }
-    .post-card-excerpt {
+
+    .archive-dek {
         font-size: 15px;
         line-height: 1.5;
-        color: var(--fg-hover);
-        margin-bottom: 24px;
+        color: var(--fg-quiet);
+        max-width: 60ch;
     }
-    .post-card-figure {
+
+    /* What I am reading — thumbnail grid */
+    .reading { padding: 48px 0 0; }
+    .reading-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 24px;
+        padding: 24px 0 48px;
+        border-top: var(--rule);
+        margin-top: 24px;
+    }
+    .reading-card {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+        cursor: default;
+    }
+    .reading-card:hover .reading-title { color: var(--fg-hover); }
+    .reading-card:hover .reading-figure { opacity: 0.85; }
+    .reading-card:focus-visible {
+        outline: var(--border);
+        outline-offset: 4px;
+    }
+    .reading-figure {
         position: relative;
         width: 100%;
         aspect-ratio: 4 / 3;
-        background: var(--fg);
+        background: #e8e8e8;
         overflow: hidden;
-        margin-top: auto;
+        margin-bottom: 12px;
+        transition: opacity 0.15s ease;
     }
-    .post-card-figure img {
-        position: relative;
+    .reading-figure img {
         display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        z-index: 1;
     }
-    .post-card:hover .post-card-figure,
-    .post-card:focus-visible .post-card-figure {
-        outline: var(--border);
-        outline-color: var(--bg);
-        outline-offset: -2px;
+    .reading-title {
+        font-size: 13px;
+        line-height: 1.3;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+        margin-bottom: 4px;
+        transition: color 0.15s ease;
+    }
+    .reading-source {
+        font-size: 11px;
+        font-variant: small-caps;
+        letter-spacing: 0.12em;
+        color: var(--fg-hover);
     }
 
-    /* Footer */
-    .site-footer {
+    /* Footer — dark navy, matching homepage */
+    #site-footer {
+        background: #2B3856;
+        color: #FFFFFF;
+    }
+    .footer-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 40px;
+    }
+    .footer-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 24px 0;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+        gap: 24px;
+        padding-top: 32px;
+        border-top: 2px solid #FFFFFF;
     }
-    .site-footer span { color: var(--fg-hover); }
+    .footer-brand {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+    .footer-nav {
+        display: flex;
+        gap: 24px;
+    }
+    .footer-nav .link {
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        color: #FFFFFF;
+    }
+    .footer-nav .link:hover {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: underline;
+    }
+    .footer-nav .link:focus-visible {
+        color: #2B3856;
+        background: #FFFFFF;
+        outline: none;
+    }
+    .footer-nav .link:active {
+        background: #FFFFFF;
+        color: #2B3856;
+    }
+    .footer-meta {
+        margin-top: 24px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.5);
+    }
 
     /* Mobile */
     @media only screen and (max-width: 768px) {
@@ -303,12 +371,32 @@
         .featured { padding: 24px 0 56px; }
         .featured-title { font-size: 30px; margin-bottom: 24px; }
         .featured-grid { grid-template-columns: 1fr; gap: 24px; }
-        .posts-grid { grid-template-columns: 1fr; }
-        .post-card { padding: 24px 0; border-bottom: var(--border); }
-        .post-card + .post-card { padding-left: 0; border-left: none; }
-        .post-card:last-child { border-bottom: none; }
-        .site-footer { flex-direction: column; gap: 8px; text-align: center; }
+        .archive-row { padding: 28px 0 32px; }
+        .archive-row:hover,
+        .archive-row:focus-visible { padding-left: 12px; }
+        .archive-row-title { font-size: 18px; }
+        .reading-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .footer-inner { padding: 40px 24px; }
+        .footer-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .footer-nav {
+            flex-wrap: wrap;
+            gap: 16px 24px;
+        }
         .link:hover { text-decoration: none; }
+        .footer-nav .link:hover { text-decoration: none; }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .reading-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     </style>
@@ -320,22 +408,21 @@
     <div class="page">
 
         <nav class="top-bar" aria-label="Breadcrumb">
-            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
-            <span class="variant-tag">Variant&nbsp;&middot;&nbsp;V1</span>
+            <a href="../index.html" class="link">&larr;&#xFE0E; Home</a>
         </nav>
 
         <header class="site-header">
-            <h1>Wesley Melo</h1>
-            <span class="page-label">Blog</span>
+            <h1>Might Read It Later</h1>
+            <p class="site-subtitle">Notes on product, tech, and the stuff worth thinking about twice</p>
         </header>
 
         <main id="main-content">
 
             <div class="section-label-row">
-                <span class="section-label">Featured</span>
+                <span class="section-label">Last publication</span>
             </div>
 
-            <section class="featured" aria-label="Featured post">
+            <section class="featured" aria-label="Last publication">
                 <a href="blog/the-90s-kid-guide-to-actually-learning-tech.html" class="featured-link">
                     <h2 class="featured-title">The 90s Kid Guide to Actually Learning Tech</h2>
                     <div class="featured-grid">
@@ -356,37 +443,122 @@
             </section>
 
             <div class="section-label-row">
-                <span class="section-label">More posts</span>
+                <span class="section-label">People loved it</span>
             </div>
 
-            <section class="posts" aria-label="More posts">
-                <div class="posts-grid">
+            <section class="archive" aria-label="Most viewed posts">
 
-                    <a href="#" class="post-card">
-                        <div class="post-card-meta">Essay &middot; March 18, 2026 &middot; 7 min</div>
-                        <h3 class="post-card-title">The Digital Doppelg&auml;ngers Rises</h3>
-                        <p class="post-card-excerpt">We are generating our replacements at scale. The question is whether we can tell them apart from ourselves.</p>
-                        <div class="post-card-figure" role="img" aria-label="Abstract reflection">
-                            <img src="https://picsum.photos/seed/wesm-doppel/800/600" alt="Abstract reflection" loading="lazy">
+                <a href="#" class="archive-row">
+                    <div class="archive-meta">
+                        <span>Essay</span>
+                        <span class="sep">&middot;</span>
+                        <span>March 18, 2026</span>
+                        <span class="sep">&middot;</span>
+                        <span>7 min read</span>
+                    </div>
+                    <h3 class="archive-row-title">The Digital Doppelg&auml;ngers Rises</h3>
+                    <p class="archive-dek">We are generating our replacements at scale. The question is whether we can tell them apart from ourselves.</p>
+                </a>
+
+                <a href="#" class="archive-row">
+                    <div class="archive-meta">
+                        <span>Essay</span>
+                        <span class="sep">&middot;</span>
+                        <span>February 28, 2026</span>
+                        <span class="sep">&middot;</span>
+                        <span>5 min read</span>
+                    </div>
+                    <h3 class="archive-row-title">How I Learned to Stop Worrying and Love Being Human</h3>
+                    <p class="archive-dek">A reluctant defense of the messy, slow, imperfect parts of being a person &mdash; in an industry that wants them optimized away.</p>
+                </a>
+
+            </section>
+
+            <div class="section-label-row">
+                <span class="section-label">Latest</span>
+            </div>
+
+            <section class="archive" aria-label="Latest publications">
+
+                <a href="#" class="archive-row">
+                    <div class="archive-meta">
+                        <span>Field Notes</span>
+                        <span class="sep">&middot;</span>
+                        <span>February 5, 2026</span>
+                        <span class="sep">&middot;</span>
+                        <span>3 min read</span>
+                    </div>
+                    <h3 class="archive-row-title">Notes from a Slow Week</h3>
+                    <p class="archive-dek">On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.</p>
+                </a>
+
+                <a href="#" class="archive-row">
+                    <div class="archive-meta">
+                        <span>Notebook</span>
+                        <span class="sep">&middot;</span>
+                        <span>January 20, 2026</span>
+                        <span class="sep">&middot;</span>
+                        <span>4 min read</span>
+                    </div>
+                    <h3 class="archive-row-title">Bergen Assembly &mdash; Field Notes</h3>
+                    <p class="archive-dek">A week of conversations at the intersection of art, technology, and public space. Reflections from the 2025 assembly.</p>
+                </a>
+
+            </section>
+
+            <div class="section-label-row">
+                <span class="section-label">What I am reading</span>
+            </div>
+
+            <section class="reading" aria-label="What I am reading">
+                <div class="reading-grid">
+
+                    <a href="https://medium.com" class="reading-card" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-figure">
+                            <img src="https://picsum.photos/seed/read-future/400/300" alt="" loading="lazy">
                         </div>
+                        <div class="reading-title">The Future of Product Management</div>
+                        <div class="reading-source">medium.com</div>
                     </a>
 
-                    <a href="#" class="post-card">
-                        <div class="post-card-meta">Essay &middot; February 28, 2026 &middot; 5 min</div>
-                        <h3 class="post-card-title">How I Learned to Stop Worrying and Love Being Human</h3>
-                        <p class="post-card-excerpt">A reluctant defense of the messy, slow, imperfect parts of being a person &mdash; in an industry that wants them optimized away.</p>
-                        <div class="post-card-figure" role="img" aria-label="Open hands">
-                            <img src="https://picsum.photos/seed/wesm-human/800/600" alt="Open hands" loading="lazy">
+                    <a href="https://hbr.org" class="reading-card" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-figure">
+                            <img src="https://picsum.photos/seed/read-ai-pm/400/300" alt="" loading="lazy">
                         </div>
+                        <div class="reading-title">AI and the Product Manager</div>
+                        <div class="reading-source">hbr.org</div>
                     </a>
 
-                    <a href="#" class="post-card">
-                        <div class="post-card-meta">Field Notes &middot; February 5, 2026 &middot; 3 min</div>
-                        <h3 class="post-card-title">Notes from a Slow Week</h3>
-                        <p class="post-card-excerpt">On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.</p>
-                        <div class="post-card-figure" role="img" aria-label="Notebook on a desk">
-                            <img src="https://picsum.photos/seed/wesm-notes/800/600" alt="Notebook on a desk" loading="lazy">
+                    <a href="https://linkedin.com" class="reading-card" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-figure">
+                            <img src="https://picsum.photos/seed/read-public/400/300" alt="" loading="lazy">
                         </div>
+                        <div class="reading-title">Building in Public</div>
+                        <div class="reading-source">linkedin.com</div>
+                    </a>
+
+                    <a href="https://smashingmagazine.com" class="reading-card" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-figure">
+                            <img src="https://picsum.photos/seed/read-design/400/300" alt="" loading="lazy">
+                        </div>
+                        <div class="reading-title">Design Systems at Scale</div>
+                        <div class="reading-source">smashingmagazine.com</div>
+                    </a>
+
+                    <a href="https://wired.com" class="reading-card" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-figure">
+                            <img src="https://picsum.photos/seed/read-agents/400/300" alt="" loading="lazy">
+                        </div>
+                        <div class="reading-title">The Age of AI Agents</div>
+                        <div class="reading-source">wired.com</div>
+                    </a>
+
+                    <a href="https://theatlantic.com" class="reading-card" target="_blank" rel="noopener noreferrer">
+                        <div class="reading-figure">
+                            <img src="https://picsum.photos/seed/read-remote/400/300" alt="" loading="lazy">
+                        </div>
+                        <div class="reading-title">Remote-First Teams</div>
+                        <div class="reading-source">theatlantic.com</div>
                     </a>
 
                 </div>
@@ -394,12 +566,35 @@
 
         </main>
 
-        <footer class="site-footer">
-            <span>&copy; 2026 Wesley Melo</span>
-            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
-        </footer>
-
     </div>
+
+    <footer id="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+            <div class="footer-row">
+                <span class="footer-brand">Wesley Melo</span>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="../blog.html" class="link">Blog</a>
+                    <a href="../index.html#services" class="link">Services</a>
+                    <a href="../resume.html" target="_blank" class="link">Resume</a>
+                    <a id="footer-email-link" href="#" class="link js-email">Email</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+                </nav>
+            </div>
+            <div class="footer-meta">&copy; 2026 Wesley Melo</div>
+        </div>
+    </footer>
+
+    <script>
+    'use strict';
+    var addr = ['contato', 'wesley-m.com'].join('@');
+    var footerEmail = document.getElementById('footer-email-link');
+    if (footerEmail) {
+        footerEmail.addEventListener('click', function(e) {
+            e.preventDefault();
+            footerEmail.textContent = addr;
+        });
+    }
+    </script>
 
 </body>
 </html>
