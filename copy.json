@@ -29,7 +29,7 @@
           ],
           "nav": [
             { "label": "Blog",     "href": "blog.html" },
-            { "label": "Services", "href": "services.html" },
+            { "label": "Services", "href": "#services" },
             { "label": "Resume",   "href": "resume.html" },
             { "label": "Email",    "href": "#" },
             { "label": "LinkedIn", "href": "https://linkedin.com/in/wesmelo" }
@@ -96,89 +96,98 @@
                 {
                   "label": "Discovery",
                   "items": [
-                    "Product auditing",
-                    "Business & data analysis",
-                    "Segmentation & personas",
-                    "User research"
+                    "Product audit",
+                    "Customer interviews",
+                    "Jobs-to-be-done",
+                    "Problem framing",
+                    "Market & competitive analysis"
                   ]
                 },
                 {
-                  "label": "Product Definition",
+                  "label": "Vision & Planning",
                   "items": [
                     "Product strategy",
-                    "Proof of concept",
-                    "Minimum viable product",
+                    "Roadmapping",
+                    "OKRs & north-star metrics",
+                    "Prioritisation frameworks",
+                    "Lean Inception facilitation"
+                  ]
+                },
+                {
+                  "label": "Growth",
+                  "items": [
                     "Growth strategy",
-                    "Conversion rate optimisation"
-                  ]
-                },
-                {
-                  "label": "Operations",
-                  "items": [
-                    "Product management",
-                    "Project management"
+                    "PLG & subscription economics",
+                    "Conversion rate optimisation",
+                    "Retention & funnel design",
+                    "Pricing experiments"
                   ]
                 }
               ]
             },
             {
-              "title": "Design",
+              "title": "Execution",
               "groups": [
                 {
-                  "label": "Interface",
+                  "label": "AI Product",
                   "items": [
-                    "User experience strategy",
-                    "User experience design",
-                    "User interface design",
-                    "Design systems",
-                    "User testing"
+                    "LLM-powered product design",
+                    "AI agent orchestration",
+                    "RAG applications",
+                    "Evals & observability",
+                    "AI prototyping (Cursor, v0)"
                   ]
                 },
                 {
-                  "label": "Brand",
+                  "label": "Delivery",
                   "items": [
-                    "Brand strategy",
-                    "Brand identity",
-                    "Logo design",
-                    "Brand guidelines"
+                    "Scrum & Kanban",
+                    "Backlog & sprint management",
+                    "PRDs & specs",
+                    "Release management",
+                    "Cross-functional leadership"
                   ]
                 },
                 {
-                  "label": "Multimedia",
+                  "label": "Experimentation",
                   "items": [
-                    "Illustration",
-                    "Video & motion design"
+                    "A/B testing",
+                    "Hypothesis-driven development",
+                    "Weekly read-outs",
+                    "Feature flagging",
+                    "Decision frameworks"
                   ]
                 }
               ]
             },
             {
-              "title": "Development",
+              "title": "Operations",
               "groups": [
                 {
-                  "label": "Front-end",
+                  "label": "Analytics",
                   "items": [
-                    "React",
-                    "Next.js",
-                    "Svelte",
-                    "React Native",
-                    "Swift",
-                    "Kotlin"
+                    "Product analytics (Pendo, GA, Tableau)",
+                    "KPI instrumentation",
+                    "SQL & dashboards",
+                    "Activation & retention metrics"
                   ]
                 },
                 {
-                  "label": "Back-end",
+                  "label": "Platform",
                   "items": [
-                    "Elixir",
-                    "Python",
-                    "Node"
+                    "CMS architecture (Payload, Contentful, Liferay DXP)",
+                    "Multi-site migration",
+                    "SEO preservation at scale",
+                    "API design & integration"
                   ]
                 },
                 {
-                  "label": "DevOps",
+                  "label": "Leadership",
                   "items": [
-                    "Hosting & maintenance",
-                    "Infrastructure setup"
+                    "PM mentorship & coaching",
+                    "Hiring & org design",
+                    "Stakeholder alignment",
+                    "Remote-first operating rhythms"
                   ]
                 }
               ]
@@ -189,7 +198,7 @@
           "brand": "Wesley Melo",
           "nav": [
             { "label": "Blog",     "href": "blog.html" },
-            { "label": "Services", "href": "services.html" },
+            { "label": "Services", "href": "#services" },
             { "label": "Resume",   "href": "resume.html" },
             { "label": "Email",    "href": "#" },
             { "label": "LinkedIn", "href": "https://linkedin.com/in/wesmelo" }
@@ -309,72 +318,6 @@
           "languages": "English (Bilingual Proficiency (C2 Level)) | Portuguese (Bilingual Proficiency (C2 Level))",
           "skills_label": "Skills:",
           "skills_list": "AI Agent Orchestration | LLM-Powered Product Design | A/B Testing and Experimentation (Optimizely) | Funnel Optimization | Conversion and Retention Strategy | PLG and Subscription Economics | OKRs | Product Analytics (Pendo, Google Analytics, Tableau) | Roadmap and Prioritization | Scrum | Kanban | AI Prototyping (Cursor, v0) | API Integration | CMS Architecture (Contentful, Drupal, Payload, Liferay DXP) | API Design and Integration | Jira | Confluence | Figma | SQL | PM Mentorship"
-        }
-      }
-    },
-    "services": {
-      "head": {
-        "title": "Services — Wesley Melo",
-        "description": "Product management services: strategy, AI/ML products, growth experimentation, platform consolidation, team leadership, and consulting.",
-        "og_title": "Services — Wesley Melo",
-        "og_description": "Product management services: strategy, AI/ML products, growth experimentation, platform consolidation, team leadership, and consulting."
-      },
-      "sections": {
-        "skip_link": "Skip to content",
-        "back_link": "← Home",
-        "header": {
-          "brand": "Wesley Melo",
-          "page_label": "Services"
-        },
-        "statement": "I build products that ship.",
-        "what_i_do": {
-          "label": "What I Do",
-          "cards": [
-            {
-              "title": "Product Strategy",
-              "body": "Roadmaps, prioritization frameworks, and OKR alignment to move from vision to execution."
-            },
-            {
-              "title": "AI/ML Products",
-              "body": "Agent orchestration, LLM-powered product design, and AI prototyping from concept to launch."
-            },
-            {
-              "title": "Growth & Experimentation",
-              "body": "A/B testing, funnel optimization, and retention strategy grounded in data."
-            },
-            {
-              "title": "Platform Consolidation",
-              "body": "CMS architecture, multi-property migration, and SEO preservation at scale."
-            },
-            {
-              "title": "Team & Process",
-              "body": "Scrum and Kanban for cross-functional remote teams. PM mentorship and coaching."
-            },
-            {
-              "title": "Consulting & Workshops",
-              "body": "Lean Inception facilitation, product discovery sessions, and hands-on training."
-            }
-          ]
-        },
-        "how_i_work": {
-          "label": "How I Work",
-          "steps": [
-            { "number": "01", "label": "Discovery" },
-            { "number": "02", "label": "Strategy" },
-            { "number": "03", "label": "Execution" },
-            { "number": "04", "label": "Iteration" }
-          ]
-        },
-        "cta": {
-          "heading": "Let's talk.",
-          "links": [
-            { "label": "Email",    "href": "#" },
-            { "label": "LinkedIn", "href": "https://linkedin.com/in/wesmelo" }
-          ]
-        },
-        "footer": {
-          "copyright": "© 2026 Wesley Melo",
-          "back_link": "← Back to home"
         }
       }
     },
