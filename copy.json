@@ -5,8 +5,7 @@
     "contact_email": "contato@wesley-m.com",
     "linkedin": "https://linkedin.com/in/wesmelo",
     "copyright": "© 2026 Wesley Melo",
-    "extracted_at": "2026-04-09",
-    "source": "https://wesley-m.com/"
+    "updated_at": "2026-04-12"
   },
   "pages": {
     "index": {
@@ -17,470 +16,168 @@
         "og_description": "Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and digital strategy."
       },
       "sections": {
-        "skip_link": "Skip to content",
         "hero": {
           "name": "Wesley Melo",
           "title": "Product Manager",
           "work_history": [
             { "company": "Code and Theory", "years": "2025 → ····", "url": "https://www.codeandtheory.com" },
-            { "company": "Liferay",         "years": "2023 → 2025", "url": "https://www.liferay.com" },
-            { "company": "ThoughtWorks",    "years": "2019 → 2023", "url": "https://www.thoughtworks.com" },
-            { "company": "Accenture",       "years": "2014 → 2019", "url": "https://www.accenture.com/" }
+            { "company": "Liferay", "years": "2023 → 2025", "url": "https://www.liferay.com" },
+            { "company": "ThoughtWorks", "years": "2019 → 2023", "url": "https://www.thoughtworks.com" },
+            { "company": "Accenture", "years": "2014 → 2019", "url": "https://www.accenture.com/" }
           ],
           "nav": [
-            { "label": "Blog",     "href": "blog.html" },
+            { "label": "Blog", "href": "blog.html" },
             { "label": "Services", "href": "#services" },
-            { "label": "Resume",   "href": "resume.html" },
-            { "label": "Email",    "href": "#" },
-            { "label": "LinkedIn", "href": "https://linkedin.com/in/wesmelo" }
+            { "label": "Resume", "href": "resume.html", "target": "_blank" },
+            { "label": "Email", "id": "email-link" },
+            { "label": "LinkedIn", "href": "https://linkedin.com/in/wesmelo", "target": "_blank" }
           ]
         },
         "about": {
           "statement": "A decade of shipping product. Agencies, platforms, and now AI — the work changes, the discipline doesn't.",
           "cards": [
-            {
-              "title": "Ship discipline",
-              "body": "Deadlines beat drafts. I ship weekly, measure honestly, and cut what doesn't earn its keep."
-            },
-            {
-              "title": "AI fluency",
-              "body": "LLMs, agents, RAG, evaluation. Built and shipped in production — not just read about on weekends."
-            },
-            {
-              "title": "Platform scale",
-              "body": "Multi-site migrations, CMS consolidation, SEO preserved at scale. Quiet handovers, no fires."
-            },
-            {
-              "title": "Team leverage",
-              "body": "Remote-first scrum and kanban. Mentorship that sticks. Teams that keep shipping after I leave."
-            },
-            {
-              "title": "Evidence over opinion",
-              "body": "Hypotheses, instrumentation, weekly read-outs. Decisions earn their place with data, not volume."
-            },
-            {
-              "title": "Discovery muscle",
-              "body": "Customer interviews, JTBD, problem framing. The right question saves a quarter of wasted build."
-            },
-            {
-              "title": "Written by default",
-              "body": "Specs, decisions, trade-offs — all in writing. Remote-first teams run on the record, not the meeting."
-            }
+            { "title": "Ship discipline", "body": "Deadlines beat drafts. I ship weekly, measure honestly, cut what doesn't earn its keep." },
+            { "title": "AI fluency", "body": "LLMs, agents, RAG, evaluation. Built and shipped in production — not read about on weekends." },
+            { "title": "Platform scale", "body": "Multi-site migrations, CMS consolidation, SEO preserved at scale. Quiet handovers." },
+            { "title": "Team leverage", "body": "Remote-first scrum and kanban. Mentorship that sticks. Teams that keep shipping after I leave." },
+            { "title": "Evidence over opinion", "body": "Hypotheses, instrumentation, weekly read-outs. Decisions earn their place with data, not volume." },
+            { "title": "Discovery muscle", "body": "Customer interviews, JTBD, problem framing. The right question saves a quarter of wasted build." },
+            { "title": "Written by default", "body": "Specs, decisions, trade-offs — all in writing. Remote-first teams run on the record, not the meeting." }
           ]
         },
-        "process": {
-          "steps": [
-            {
-              "title": "Discover.",
-              "body": "Interviews, data, hard questions. Understand the problem before touching the solution."
-            },
-            {
-              "title": "Shape.",
-              "body": "Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step is obvious."
-            },
-            {
-              "title": "Create.",
-              "body": "Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument."
-            },
-            {
-              "title": "Scale.",
-              "body": "Metrics, systems, handover. Built to run without me. Knowledge that stays with the team."
-            }
-          ]
-        },
-        "capabilities": {
-          "columns": [
-            {
-              "title": "Strategy",
-              "groups": [
-                {
-                  "label": "Discovery",
-                  "items": [
-                    "Product audit",
-                    "Customer interviews",
-                    "Jobs-to-be-done",
-                    "Problem framing",
-                    "Market & competitive analysis"
-                  ]
-                },
-                {
-                  "label": "Vision & Planning",
-                  "items": [
-                    "Product strategy",
-                    "Roadmapping",
-                    "OKRs & north-star metrics",
-                    "Prioritisation frameworks",
-                    "Lean Inception facilitation"
-                  ]
-                },
-                {
-                  "label": "Growth",
-                  "items": [
-                    "Growth strategy",
-                    "PLG & subscription economics",
-                    "Conversion rate optimisation",
-                    "Retention & funnel design",
-                    "Pricing experiments"
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Execution",
-              "groups": [
-                {
-                  "label": "AI Product",
-                  "items": [
-                    "LLM-powered product design",
-                    "AI agent orchestration",
-                    "RAG applications",
-                    "Evals & observability",
-                    "AI prototyping (Cursor, v0)"
-                  ]
-                },
-                {
-                  "label": "Delivery",
-                  "items": [
-                    "Scrum & Kanban",
-                    "Backlog & sprint management",
-                    "PRDs & specs",
-                    "Release management",
-                    "Cross-functional leadership"
-                  ]
-                },
-                {
-                  "label": "Experimentation",
-                  "items": [
-                    "A/B testing",
-                    "Hypothesis-driven development",
-                    "Weekly read-outs",
-                    "Feature flagging",
-                    "Decision frameworks"
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Operations",
-              "groups": [
-                {
-                  "label": "Analytics",
-                  "items": [
-                    "Product analytics (Pendo, GA, Tableau)",
-                    "KPI instrumentation",
-                    "SQL & dashboards",
-                    "Activation & retention metrics"
-                  ]
-                },
-                {
-                  "label": "Platform",
-                  "items": [
-                    "CMS architecture (Payload, Contentful, Liferay DXP)",
-                    "Multi-site migration",
-                    "SEO preservation at scale",
-                    "API design & integration"
-                  ]
-                },
-                {
-                  "label": "Leadership",
-                  "items": [
-                    "PM mentorship & coaching",
-                    "Hiring & org design",
-                    "Stakeholder alignment",
-                    "Remote-first operating rhythms"
-                  ]
-                }
-              ]
-            }
-          ]
-        },
+        "process": [
+          { "title": "Discover.", "body": "Interviews, data, hard questions. Understand the problem before touching the solution." },
+          { "title": "Shape.", "body": "Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step is obvious." },
+          { "title": "Create.", "body": "Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument." },
+          { "title": "Scale.", "body": "Metrics, systems, handover. Built to run without me. Knowledge that stays with the team." }
+        ],
+        "services": [
+          {
+            "title": "Strategy",
+            "groups": [
+              { "label": "Discovery", "items": ["Product audit", "Customer interviews", "Jobs-to-be-done", "Problem framing", "Market & competitive analysis"] },
+              { "label": "Vision & Planning", "items": ["Product strategy", "Roadmapping", "OKRs & north-star metrics", "Prioritisation frameworks", "Lean Inception facilitation"] },
+              { "label": "Growth", "items": ["Growth strategy", "PLG & subscription economics", "Conversion rate optimisation", "Retention & funnel design", "Pricing experiments"] }
+            ]
+          },
+          {
+            "title": "Execution",
+            "groups": [
+              { "label": "AI Product", "items": ["LLM-powered product design", "AI agent orchestration", "RAG applications", "Evals & observability", "AI prototyping (Cursor, v0)"] },
+              { "label": "Delivery", "items": ["Scrum & Kanban", "Backlog & sprint management", "PRDs & specs", "Release management", "Cross-functional leadership"] },
+              { "label": "Experimentation", "items": ["A/B testing", "Hypothesis-driven development", "Weekly read-outs", "Feature flagging", "Decision frameworks"] }
+            ]
+          },
+          {
+            "title": "Operations",
+            "groups": [
+              { "label": "Analytics", "items": ["Product analytics (Pendo, GA, Tableau)", "KPI instrumentation", "SQL & dashboards", "Activation & retention metrics"] },
+              { "label": "Platform", "items": ["CMS architecture (Payload, Contentful, Liferay DXP)", "Multi-site migration", "SEO preservation at scale", "API design & integration"] },
+              { "label": "Leadership", "items": ["PM mentorship & coaching", "Hiring & org design", "Stakeholder alignment", "Remote-first operating rhythms"] }
+            ]
+          }
+        ],
         "footer": {
           "brand": "Wesley Melo",
           "nav": [
-            { "label": "Blog",     "href": "blog.html" },
+            { "label": "Blog", "href": "blog.html" },
             { "label": "Services", "href": "#services" },
-            { "label": "Resume",   "href": "resume.html" },
-            { "label": "Email",    "href": "#" },
-            { "label": "LinkedIn", "href": "https://linkedin.com/in/wesmelo" }
+            { "label": "Resume", "href": "resume.html", "target": "_blank" },
+            { "label": "Email", "id": "footer-email-link" },
+            { "label": "LinkedIn", "href": "https://linkedin.com/in/wesmelo", "target": "_blank" }
           ],
           "copyright": "© 2026 Wesley Melo"
         }
       }
     },
-    "resume": {
-      "head": {
-        "title": "Resume — Wesley Melo",
-        "description": "Resume of Wesley Melo — Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and cross-functional team leadership.",
-        "og_title": "Resume — Wesley Melo",
-        "og_description": "Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and cross-functional team leadership."
-      },
-      "sections": {
-        "download_button": "Download .PDF",
-        "download_href": "wesley_melo_resume_es_remote.pdf",
-        "name": "WESLEY MELO",
-        "contact": {
-          "location": "Spain (Remote)",
-          "linkedin_label": "linkedin.com/in/wesmelo",
-          "linkedin_url": "https://linkedin.com/in/wesmelo",
-          "email_placeholder_label": "email"
-        },
-        "summary_heading": "Summary",
-        "summary": [
-          "6+ years of experience in agile development, product management and consulting for Fitness, Health, Enterprise SaaS platforms, Media and Publishing, and AI/ML Products with experience in high growth and product innovation.",
-          "Led the development of a digital membership management platform, reducing cancellation complaints by 65% and increasing online membership transactions to 70% within six months.",
-          "Managed remote cross-functional teams across the US, Brazil, and India to deliver end-to-end product features from concept to launch, driving continuous iterations that improved customer outcomes and increased user engagement."
-        ],
-        "work_experience_heading": "Work Experience",
-        "work_experience": [
-          {
-            "company": "Code and Theory",
-            "location": "Remote",
-            "roles": [
-              {
-                "title": "Senior Product Manager",
-                "dates": "April 2025 - Present",
-                "bullets": [
-                  "Turned an internal audit tool into a B2B SaaS AI platform with 8 agents (Crawler Analysis, UX Heuristics, Brand Perception, and 5 others), securing 4 enterprise clients across financial services and manufacturing in 90 days and building a $120K+ pilot pipeline, with one buyer requested pricing unprompted during a live C-suite demo.",
-                  "Made the call to migrate from V0 prototypes to Payload CMS mid-sales-cycle. This move enabled live dashboard updates without redeployment, which saved a client relationship when needed last-minute data corrections before a board presentation.",
-                  "Resolved a weeks-long ML-vs-UX deadlock on AI agent quality: the ML team wanted 90%+ confidence thresholds, the design team wanted more results at lower confidence. Defined a transparency-first approach with visible confidence scores that enterprise clients confirmed met standards.",
-                  "Turned ambiguous directive from client (65M+ monthly views, 16 properties) into an 86-feature product inventory with KPI traceability, acceptance criteria, and sprint assignments. Architected the phased consolidation of 5 subsites into the flagship platform with weekly SEO monitoring and rollback capability to protect a 65/100 domain authority."
-                ]
-              }
-            ]
-          },
-          {
-            "company": "Liferay",
-            "location": "Brazil",
-            "roles": [
-              {
-                "title": "Senior Product Manager",
-                "dates": "November 2023 - March 2025",
-                "bullets": [
-                  "Spearheaded product roadmap development and prioritized feature delivery and enhancements to enable workflow automation, low-code integrations, localization, ticketing, and CMS products, impacting 1200+ users and achieving over 80% of quarterly delivery targets.",
-                  "Directed design and engineering to conceptualize, identify gaps, requirements definitions, create 15+ detailed process maps to guide product development, architect solutions, release management and deployment phases.",
-                  "Authored and communicated detailed product plans using Jira and Confluence, managing 200+ backlog items and creating 40+ documentation artifacts, resulting in 70% fewer scope misunderstandings, 40% reduced cycle time, and 60% strengthened delivery predictability."
-                ]
-              }
-            ]
-          },
-          {
-            "company": "ThoughtWorks",
-            "location": "Remote",
-            "roles": [
-              {
-                "title": "Product Manager",
-                "dates": "December 2022 – November 2023",
-                "bullets": [
-                  "Drove strategic initiatives alongside the Head of Product, mentoring 5 product managers and conducting 8 training workshops, resulting in 80% departmental growth.",
-                  "Partnered closely with engineering and design teams using Figma and Jira, implementing bi-weekly feedback loops that increased feature relevance by 45% for a C2C marketplace platform."
-                ]
-              },
-              {
-                "title": "Product Manager",
-                "dates": "December 2020 – December 2022",
-                "bullets": [
-                  "Championed the online membership management platform that reduced cancellation complaints by 65%, expanded memberships by 30% and enabled 70% of membership changes processed online, which contributed to a 164% client's revenue increase.",
-                  "Managed a globally distributed, cross-functional team remotely, communicated clear product requirements, removed blockers, and accelerated delivery timelines by 25%.",
-                  "Engaged on growth funnels initiatives (customer acquisition and user retention) to optimize and leverage the product experiments through A/B testing for different countries, feature changes and lifecycle management across digital channels.",
-                  "Drove the transition from Kanban to Scrum, increasing sprint forecast accuracy and delivery efficiency by 20%, and reducing meetings by 70%."
-                ]
-              }
-            ]
-          },
-          {
-            "company": "Accenture",
-            "location": "Brazil",
-            "roles": [
-              {
-                "title": "Software Engineer",
-                "dates": "2014 – 2019",
-                "bullets": []
-              }
-            ]
-          }
-        ],
-        "education_heading": "Education",
-        "education": [
-          { "name": "Reforge",   "location": "Remote", "detail": "Product Growth Series" },
-          { "name": "Tera",      "location": "Remote", "detail": "Digital Product Leadership Program" },
-          { "name": "Estacio",   "location": "Brazil", "detail": "Bachelor of Technology - Information Technology Administration and Management" },
-          { "name": "Unibratec", "location": "Brazil", "detail": "Information Technology Bachelor's Degree" }
-        ],
-        "certifications_heading": "Certifications",
-        "certifications": [
-          { "name": "Professional Scrum Product Owner PSPO II",                      "org": "Scrum.org" },
-          { "name": "Certified Product Leadership and Strategic Alignment Practitioner", "org": "Caroli.org" },
-          { "name": "Certified Lean Inception Facilitator",                          "org": "Caroli.org" }
-        ],
-        "skills_heading": "Skills, Languages and Interests",
-        "skills": {
-          "languages_label": "Languages:",
-          "languages": "English (Bilingual Proficiency (C2 Level)) | Portuguese (Bilingual Proficiency (C2 Level))",
-          "skills_label": "Skills:",
-          "skills_list": "AI Agent Orchestration | LLM-Powered Product Design | A/B Testing and Experimentation (Optimizely) | Funnel Optimization | Conversion and Retention Strategy | PLG and Subscription Economics | OKRs | Product Analytics (Pendo, Google Analytics, Tableau) | Roadmap and Prioritization | Scrum | Kanban | AI Prototyping (Cursor, v0) | API Integration | CMS Architecture (Contentful, Drupal, Payload, Liferay DXP) | API Design and Integration | Jira | Confluence | Figma | SQL | PM Mentorship"
-        }
-      }
-    },
     "blog": {
       "head": {
-        "title": "Blog — Wesley Melo",
+        "title": "Might Read It Later — Wesley Melo",
         "description": "Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.",
-        "og_title": "Blog — Wesley Melo",
+        "og_title": "Might Read It Later — Wesley Melo",
         "og_description": "Notes and essays from Wesley Melo on product management, AI/ML, and shipping software."
       },
       "sections": {
-        "skip_link": "Skip to content",
-        "breadcrumb": "← Home",
         "header": {
-          "brand": "Wesley Melo",
-          "page_label": "Blog"
+          "title": "Might Read It Later",
+          "subtitle": "free to be chronically-online-tech-savvy-satirist, doom-scrolling specialists on digital"
         },
-        "featured_label": "Featured",
         "featured": {
           "kicker": "Essay N.001",
-          "title": "Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit",
-          "dek": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "date": "April 9, 2026",
+          "title": "The 90s Kid Guide to Actually Learning Tech",
+          "dek": "How a generation learned computers by breaking them — and why that might be the best way to learn AI, too.",
+          "date": "April 2, 2026",
           "author": "Wesley Melo",
           "read_time": "6 min read",
-          "href": "blog/bergen-assembly.html"
+          "href": "blog/the-90s-kid-guide-to-actually-learning-tech.html",
+          "image": "https://picsum.photos/seed/wesm-90s-1/800/600",
+          "image_alt": "Forest canopy looking up at tall trees"
         },
-        "archive_label": "Archive",
+        "cards": [
+          {
+            "category": "Essay",
+            "date": "March 18, 2026",
+            "read_time": "7 Min",
+            "title": "The Digital Doppelgängers Rises",
+            "dek": "We are generating our replacements at scale. The question is whether we can tell them apart from ourselves.",
+            "image": "https://picsum.photos/seed/card-doppel/600/375"
+          },
+          {
+            "category": "Essay",
+            "date": "February 28, 2026",
+            "read_time": "5 Min",
+            "title": "How I Learned to Stop Worrying and Love Being Human",
+            "dek": "A reluctant defense of the messy, slow, imperfect parts of being a person — in an industry that wants them optimized away.",
+            "image": "https://picsum.photos/seed/card-human/600/375"
+          },
+          {
+            "category": "Field Notes",
+            "date": "February 5, 2026",
+            "read_time": "3 Min",
+            "title": "Notes from a Slow Week",
+            "dek": "On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.",
+            "image": "https://picsum.photos/seed/card-slow/600/375"
+          }
+        ],
         "archive": [
           {
             "category": "Essay",
-            "date": "March 24, 2026",
-            "read_time": "4 min read",
-            "title": "Lorem Ipsum Primum Est Volupta",
-            "dek": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-          },
-          {
-            "category": "Field Notes",
-            "date": "March 10, 2026",
+            "date": "March 18, 2026",
             "read_time": "7 min read",
-            "title": "Lorem Ipsum Secundum Ratione",
-            "dek": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "title": "The Digital Doppelgängers Rises",
+            "dek": "We are generating our replacements at scale. The question is whether we can tell them apart from ourselves."
           },
           {
             "category": "Essay",
-            "date": "February 22, 2026",
+            "date": "February 28, 2026",
             "read_time": "5 min read",
-            "title": "Lorem Ipsum Tertium De Natura",
-            "dek": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+            "title": "How I Learned to Stop Worrying and Love Being Human",
+            "dek": "A reluctant defense of the messy, slow, imperfect parts of being a person — in an industry that wants them optimized away."
           },
           {
-            "category": "Notebook",
+            "category": "Field Notes",
             "date": "February 5, 2026",
             "read_time": "3 min read",
-            "title": "Lorem Ipsum Quartum Sine Fine",
-            "dek": "Totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+            "title": "Notes from a Slow Week",
+            "dek": "On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less."
           }
         ],
+        "reading": [
+          { "label": "AI Lab", "title": "The US Army Is Building Its Own Chatbot for Combat", "image": "https://picsum.photos/seed/read-army/200/150" },
+          { "label": "Backchannel", "title": "John Perry Barlow, JFK Jr., and a Night of Grief I Can't Forget", "image": "https://picsum.photos/seed/read-barlow/200/150" },
+          { "label": "Model Behavior", "title": "Cursor Launches a New AI Agent Experience to Take On Claude Code and Codex", "image": "https://picsum.photos/seed/read-cursor/200/150" },
+          { "label": "AI Lab", "title": "AI Models Lie, Cheat, and Steal to Protect Other Models From Being Deleted", "image": "https://picsum.photos/seed/read-aimodels/200/150" }
+        ],
         "footer": {
-          "copyright": "© 2026 Wesley Melo",
-          "back_link": "← Back to home"
-        }
-      }
-    },
-    "bergen-assembly": {
-      "head": {
-        "title": "Lorem Ipsum Dolor Sit Amet — Wesley Melo",
-        "description": "A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "og_title": "Lorem Ipsum Dolor Sit Amet — Wesley Melo",
-        "og_description": "A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      },
-      "sections": {
-        "skip_link": "Skip to content",
-        "breadcrumb": "← Blog",
-        "header": {
           "brand": "Wesley Melo",
-          "page_label": "Blog / Post"
-        },
-        "post": {
-          "kicker": "Essay N.001 · Notes on Product",
-          "title": "Lorem Ipsum Dolor Sit Amet",
-          "byline": {
-            "author": "By Wesley Melo",
-            "date": "April 9, 2026",
-            "datetime": "2026-04-09",
-            "read_time": "6 min read"
-          },
-          "body": [
-            {
-              "type": "lede",
-              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            },
-            {
-              "type": "paragraph",
-              "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            },
-            {
-              "type": "paragraph",
-              "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-            },
-            {
-              "type": "figure_caption",
-              "text": "Lorem ipsum dolor sit amet — a placeholder caption set in italic Garamond. Photo — Placeholder"
-            },
-            {
-              "type": "paragraph",
-              "text": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
-            },
-            {
-              "type": "blockquote",
-              "text": "Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
-            },
-            {
-              "type": "paragraph",
-              "text": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur."
-            },
-            {
-              "type": "section_heading",
-              "text": "II. On the second movement"
-            },
-            {
-              "type": "paragraph",
-              "text": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident."
-            },
-            {
-              "type": "paragraph",
-              "text": "Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio."
-            },
-            {
-              "type": "figure_caption",
-              "text": "Neque porro quisquam est — another placeholder caption. Drawing — Placeholder"
-            },
-            {
-              "type": "paragraph",
-              "text": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."
-            },
-            {
-              "type": "section_heading",
-              "text": "III. In conclusion"
-            },
-            {
-              "type": "paragraph",
-              "text": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus."
-            }
-          ]
-        },
-        "read_next_label": "Read next",
-        "read_next": [
-          {
-            "category": "Essay",
-            "date": "March 24, 2026",
-            "title": "Lorem Ipsum Primum Est Volupta"
-          },
-          {
-            "category": "Field Notes",
-            "date": "March 10, 2026",
-            "title": "Lorem Ipsum Secundum Ratione"
-          }
-        ],
-        "read_next_all": "← All posts",
-        "footer": {
-          "copyright": "© 2026 Wesley Melo",
-          "back_link": "← Back to home"
+          "nav": [
+            { "label": "Blog", "href": "blog.html" },
+            { "label": "Services", "href": "index.html#services" },
+            { "label": "Resume", "href": "resume.html", "target": "_blank" },
+            { "label": "Email", "id": "footer-email-link" },
+            { "label": "LinkedIn", "href": "https://linkedin.com/in/wesmelo", "target": "_blank" }
+          ],
+          "copyright": "© 2026 Wesley Melo"
         }
       }
     }

@@ -130,7 +130,7 @@
 .card {
     display: flex;
     flex-direction: column;
-    padding: 24px 0 0;
+    padding: 24px 0 24px;
     padding-right: 24px;
     text-decoration: none;
     color: inherit;
