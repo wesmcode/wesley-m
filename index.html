@@ -204,7 +204,7 @@
         line-height: 1.15;
         letter-spacing: -0.01em;
         max-width: 720px;
-        margin: 0 auto 48px;
+        margin: 0 auto 56px;
         font-weight: 400;
         text-align: center;
     }
@@ -262,7 +262,7 @@
     }
 
     .about-card:hover,
-    .about-card[data-active="true"] {
+    .about-cards:not(:hover) .about-card[data-active="true"] {
         background: #FFFFFF;
         color: var(--bg);
         box-shadow: 8px 8px 0 #FFFFFF;
@@ -270,13 +270,27 @@
     }
 
     .about-card:hover p,
-    .about-card[data-active="true"] p {
+    .about-cards:not(:hover) .about-card[data-active="true"] p {
         color: var(--bg);
     }
 
     .about-card:hover svg rect,
-    .about-card[data-active="true"] svg rect {
+    .about-cards:not(:hover) .about-card[data-active="true"] svg rect {
         fill: var(--bg);
+    }
+
+    .about-card-number {
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--fg-hover);
+        font-variant-numeric: tabular-nums;
+        transition: color 0.15s ease;
+    }
+
+    .about-card:hover .about-card-number,
+    .about-cards:not(:hover) .about-card[data-active="true"] .about-card-number {
+        color: var(--bg);
     }
 
     .about-card-icon {
@@ -315,27 +329,28 @@
 
     .about-dots {
         display: flex;
-        gap: 12px;
+        align-items: center;
+        gap: 10px;
     }
 
     .about-dot {
-        width: 14px;
-        height: 14px;
+        width: 28px;
+        height: 2px;
         padding: 0;
-        background: transparent;
-        border: 2px solid var(--fg);
+        background: rgba(255, 255, 255, 0.25);
+        border: none;
         cursor: pointer;
         transition: background 0.2s ease, width 0.2s ease;
         font: inherit;
     }
 
+    .about-dot:hover {
+        background: var(--fg-hover);
+    }
+
     .about-dot[aria-current="true"] {
         background: var(--fg);
         width: 56px;
-    }
-
-    .about-dot:hover {
-        background: var(--fg-hover);
     }
 
     .about-dot:focus-visible {
@@ -382,12 +397,18 @@
     .process-row-head {
         display: flex;
         align-items: baseline;
-        padding: 56px 0 48px;
+        padding: 56px 24px 48px;
         border-bottom: 3px solid #FFFFFF;
+        transition: background 0.2s ease, color 0.2s ease;
     }
 
     .process-row:last-child {
         border-bottom: none;
+    }
+
+    .process-row:hover {
+        background: #FFFFFF;
+        color: var(--bg);
     }
 
     .process-row h3 {
@@ -399,26 +420,18 @@
     }
 
     .process-meta {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 24px;
-        max-width: 340px;
-        justify-self: end;
-    }
-
-    .process-meta p {
         font-size: 16px;
         line-height: 1.5;
         color: var(--fg-hover);
         text-align: right;
+        max-width: 340px;
+        justify-self: end;
         margin: 0;
+        transition: color 0.2s ease;
     }
 
-    .process-arrow {
-        font-size: 24px;
-        line-height: 1;
-        flex-shrink: 0;
+    .process-row:hover .process-meta {
+        color: rgba(43, 56, 86, 0.6);
     }
 
     .process-row:hover .process-arrow {
@@ -556,6 +569,13 @@
         .about-card:hover svg rect {
             fill: #FFFFFF;
         }
+        .process-row:hover {
+            background: transparent;
+            color: var(--fg);
+        }
+        .process-row:hover .process-meta {
+            color: var(--fg-hover);
+        }
     }
 
     /* Mobile */
@@ -632,7 +652,7 @@
         .process-row {
             grid-template-columns: 1fr;
             gap: 16px;
-            padding: 32px 0 28px;
+            padding: 32px 20px 28px;
         }
 
         .process-row h3 {
@@ -642,9 +662,6 @@
         .process-meta {
             max-width: 100%;
             justify-self: start;
-        }
-
-        .process-meta p {
             text-align: left;
         }
 
@@ -810,37 +827,38 @@
                     <div class="about-cards" id="about-cards" role="list" tabindex="0" aria-label="What I bring">
                         <article class="about-card" role="listitem">
                             <span class="about-card-number">01</span>
-                            <svg class="about-card-icon" viewBox="0 0 32 32" aria-hidden="true">
-                                <rect x="4" y="4" width="24" height="24" transform="rotate(45 16 16)"/>
+<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                                <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Ship discipline</h3>
                             <p>Deadlines beat drafts. I ship weekly, measure honestly, cut what doesn't earn its keep.</p>
                         </article>
                         <article class="about-card" role="listitem">
                             <span class="about-card-number">02</span>
-                            <svg class="about-card-icon" viewBox="0 0 32 32" aria-hidden="true">
-                                <rect x="4" y="4" width="24" height="24" transform="rotate(45 16 16)"/>
+<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                                <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>AI fluency</h3>
                             <p>LLMs, agents, RAG, evaluation. Built and shipped in production &mdash; not read about on weekends.</p>
                         </article>
                         <article class="about-card" role="listitem">
                             <span class="about-card-number">03</span>
-                            <svg class="about-card-icon" viewBox="0 0 32 32" aria-hidden="true">
-                                <rect x="4" y="4" width="24" height="24" transform="rotate(45 16 16)"/>
+<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                                <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Platform scale</h3>
                             <p>Multi-site migrations, CMS consolidation, SEO preserved at scale. Quiet handovers.</p>
                         </article>
                         <article class="about-card" role="listitem">
                             <span class="about-card-number">04</span>
-                            <svg class="about-card-icon" viewBox="0 0 32 32" aria-hidden="true">
-                                <rect x="4" y="4" width="24" height="24" transform="rotate(45 16 16)"/>
+<svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
+                                <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
                             <h3>Team leverage</h3>
                             <p>Remote-first scrum and kanban. Mentorship that sticks. Teams that keep shipping after I leave.</p>
                         </article>
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">05</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -848,6 +866,7 @@
                             <p>Hypotheses, instrumentation, weekly read-outs. Decisions earn their place with data, not volume.</p>
                         </article>
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">06</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -855,6 +874,7 @@
                             <p>Customer interviews, JTBD, problem framing. The right question saves a quarter of wasted build.</p>
                         </article>
                         <article class="about-card" role="listitem">
+                            <span class="about-card-number">07</span>
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
                             </svg>
@@ -884,31 +904,19 @@
                 <div class="process-list">
                     <div class="process-row">
                         <h3>Discover.</h3>
-                        <div class="process-meta">
-                            <p>Interviews, data, hard questions. Understand the problem before touching the solution.</p>
-                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                        </div>
+                        <p class="process-meta">Interviews, data, hard questions. Understand the problem before touching the solution.</p>
                     </div>
                     <div class="process-row">
                         <h3>Shape.</h3>
-                        <div class="process-meta">
-                            <p>Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step is obvious.</p>
-                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                        </div>
+                        <p class="process-meta">Strategy, roadmap, OKRs. Cut scope until the bet is clear and the next step is obvious.</p>
                     </div>
                     <div class="process-row">
                         <h3>Create.</h3>
-                        <div class="process-meta">
-                            <p>Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument.</p>
-                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                        </div>
+                        <p class="process-meta">Prototypes, experiments, weekly releases. Evidence over opinion. Iteration over argument.</p>
                     </div>
                     <div class="process-row">
                         <h3>Scale.</h3>
-                        <div class="process-meta">
-                            <p>Metrics, systems, handover. Built to run without me. Knowledge that stays with the team.</p>
-                            <span class="process-arrow" aria-hidden="true">&rarr;</span>
-                        </div>
+                        <p class="process-meta">Metrics, systems, handover. Built to run without me. Knowledge that stays with the team.</p>
                     </div>
                 </div>
             </div>
@@ -1052,6 +1060,8 @@
 
     // About cards — pagination dots sync with horizontal snap scroll,
     // auto-advance, keyboard arrow nav, and brutalist active state.
+    // Auto-advance never touches the page scroll position — it only moves
+    // the inner horizontal scroll, and pauses when the row is off-screen.
     (function () {
         var cardsRow = document.getElementById('about-cards');
         if (!cardsRow) return;
@@ -1064,6 +1074,8 @@
         var timer = null;
         var current = 0;
         var paused = false;
+        var inView = true;
+        var suppressScrollSync = false;
 
         function pad(n) { return (n < 10 ? '0' : '') + n; }
 
@@ -1088,17 +1100,32 @@
             }
         }
 
+        // Horizontal-only scroll inside the cards container — never touches
+        // the page's vertical scroll position. scrollIntoView would scroll
+        // the page back to the section if the user had scrolled away.
+        function scrollCardIntoView(i) {
+            var card = cards[i];
+            if (!card) return;
+            var containerRect = cardsRow.getBoundingClientRect();
+            var cardRect = card.getBoundingClientRect();
+            var delta = (cardRect.left + cardRect.width / 2) - (containerRect.left + containerRect.width / 2);
+            suppressScrollSync = true;
+            cardsRow.scrollBy({
+                left: delta,
+                behavior: prefersReduced ? 'auto' : 'smooth'
+            });
+            // Release the scroll-sync guard after the smooth scroll settles.
+            setTimeout(function () { suppressScrollSync = false; }, 600);
+        }
+
         function goTo(i) {
             if (!cards[i]) return;
-            cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            scrollCardIntoView(i);
             setActive(i);
-            // Brief pause so the IntersectionObserver doesn't flip current back mid-scroll.
-            paused = true;
-            setTimeout(function () { paused = false; }, 700);
         }
 
         function advance() {
-            if (paused) return;
+            if (paused || !inView) return;
             goTo((current + 1) % cards.length);
         }
 
@@ -1135,17 +1162,41 @@
             }
         });
 
-        if ('IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(function (entries) {
-                // Pick the most-visible card as the active one.
-                var best = null;
-                entries.forEach(function (entry) {
-                    if (!best || entry.intersectionRatio > best.intersectionRatio) {
-                        best = entry;
+        // Sync the active card from manual horizontal scrolls (touch swipe,
+        // trackpad, etc.) by finding the card closest to the row centre.
+        var rafPending = false;
+        function syncFromScroll() {
+            if (suppressScrollSync || rafPending) return;
+            rafPending = true;
+            requestAnimationFrame(function () {
+                rafPending = false;
+                var containerRect = cardsRow.getBoundingClientRect();
+                var center = containerRect.left + containerRect.width / 2;
+                var closest = 0;
+                var closestDist = Infinity;
+                cards.forEach(function (card, i) {
+                    var r = card.getBoundingClientRect();
+                    var cardCenter = r.left + r.width / 2;
+                    var d = Math.abs(cardCenter - center);
+                    if (d < closestDist) {
+                        closestDist = d;
+                        closest = i;
                     }
                 });
-                setActive(closest);
+                if (closest !== current) setActive(closest);
             });
+        }
+        cardsRow.addEventListener('scroll', syncFromScroll, { passive: true });
+
+        // Pause auto-advance when the carousel section is off-screen so it
+        // can never pull the user back into view.
+        if ('IntersectionObserver' in window) {
+            var visObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    inView = entry.isIntersecting;
+                });
+            }, { threshold: 0.2 });
+            visObserver.observe(cardsRow);
         }
 
         setActive(0);
