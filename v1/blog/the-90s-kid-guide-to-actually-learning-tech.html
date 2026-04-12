@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 90s Kid Guide to Actually Learning Tech (V1) — Wesley Melo</title>
+    <meta name="description" content="How a generation learned computers by breaking them — and why that might be the best way to learn AI, too.">
+    <meta name="author" content="Wesley Melo">
+    <link rel="canonical" href="https://wesley-m.com/v1/blog/the-90s-kid-guide-to-actually-learning-tech.html">
+    <meta property="og:title" content="The 90s Kid Guide to Actually Learning Tech — Wesley Melo">
+    <meta property="og:description" content="How a generation learned computers by breaking them — and why that might be the best way to learn AI, too.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wesley-m.com/v1/blog/the-90s-kid-guide-to-actually-learning-tech.html">
+    <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
+    <link rel="icon" href="data:,">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The 90s Kid Guide to Actually Learning Tech",
+        "author": {
+            "@type": "Person",
+            "name": "Wesley Melo",
+            "url": "https://wesley-m.com"
+        },
+        "datePublished": "2026-04-02",
+        "url": "https://wesley-m.com/v1/blog/the-90s-kid-guide-to-actually-learning-tech.html"
+    }
+    </script>
+    <style>
+
+    /* Reset */
+    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer, figure, figcaption, article, time, blockquote, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    header, main, nav, section, footer, figure, article { display: block; }
+    ul { list-style: none; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+        --bg: #2B3856;
+        --fg: #FFFFFF;
+        --fg-hover: rgba(255, 255, 255, 0.5);
+        --border: 2px solid #FFFFFF;
+        --border-heavy: 3px solid #FFFFFF;
+    }
+
+    html, body {
+        min-height: 100vh;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        padding: 8px 16px;
+        background: var(--fg);
+        color: var(--bg);
+        text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+
+    /* Single link signature. */
+    .link {
+        font-weight: 400;
+        color: var(--fg);
+        text-decoration: none;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        cursor: default;
+    }
+    .link:hover { color: var(--fg-hover); text-decoration: underline; }
+    .link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
+    .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
+    .link:active { background: var(--fg); color: var(--bg); }
+
+    /* Page container */
+    .page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    .top-bar { padding: 24px 0 0; }
+    .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
+    .top-bar .variant-tag {
+        float: right;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--fg-hover);
+        padding-top: 4px;
+    }
+
+    /* Site header */
+    .site-header {
+        border-bottom: var(--border-heavy);
+        padding: 24px 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .site-header h1 {
+        font-size: 48px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+    }
+    .site-header .page-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+    }
+
+    .section-label-row {
+        display: flex;
+        justify-content: flex-end;
+        padding: 24px 0 0;
+    }
+    .section-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+    }
+
+    /* Article — single centered column, full width of 960 container. */
+    .post {
+        padding: 24px 0 56px;
+        border-bottom: var(--border);
+    }
+
+    .post-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+        padding-bottom: 16px;
+        border-bottom: var(--border);
+        margin-bottom: 32px;
+    }
+
+    .post-title {
+        font-size: 48px;
+        line-height: 1;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+        max-width: 18ch;
+    }
+
+    .post-lede {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 32px;
+        max-width: 60ch;
+    }
+
+    .post-body p {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 24px;
+        max-width: 60ch;
+    }
+
+    /* Section headings inside the body. */
+    .post-body h2 {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 400;
+        margin: 40px 0 20px;
+        max-width: 60ch;
+    }
+
+    /* Pull-quote — simple left-border treatment in V1. */
+    .post-body blockquote {
+        margin: 32px 0;
+        padding: 4px 0 4px 24px;
+        border-left: var(--border);
+        font-style: italic;
+        font-size: 18px;
+        line-height: 1.5;
+        max-width: 60ch;
+    }
+
+    .post-body figure {
+        margin: 40px 0 16px;
+    }
+    .post-body figure + p { margin-top: 8px; }
+    .post-body figcaption {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--fg-hover);
+        padding-top: 12px;
+        max-width: 60ch;
+    }
+
+    /* post-figure — supports both CSS gradient fallbacks and real images. */
+    .post-figure {
+        position: relative;
+        width: 100%;
+        background: var(--fg);
+        overflow: hidden;
+    }
+    .post-figure.aspect-wide { aspect-ratio: 16 / 9; }
+    .post-figure.aspect-tall { aspect-ratio: 4 / 3; }
+
+    .post-figure::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+    .post-figure img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    /* Read-next */
+    .read-next {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 24px 0;
+        border-bottom: var(--border);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+    .read-next-label { color: var(--fg-hover); }
+
+    /* Footer */
+    .site-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .site-footer span { color: var(--fg-hover); }
+
+    /* Mobile */
+    @media only screen and (max-width: 768px) {
+        .page { padding: 0 24px; }
+        .site-header h1 { font-size: 32px; }
+        .post-title { font-size: 32px; margin-bottom: 32px; }
+        .post-lede { font-size: 17px; }
+        .post-meta { flex-direction: column; gap: 4px; }
+        .read-next { flex-direction: column; align-items: flex-start; gap: 8px; }
+        .site-footer { flex-direction: column; gap: 8px; text-align: center; }
+        .link:hover { text-decoration: none; }
+    }
+
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="page">
+
+        <nav class="top-bar" aria-label="Breadcrumb">
+            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
+            <span class="variant-tag">Variant&nbsp;&middot;&nbsp;V1</span>
+        </nav>
+
+        <header class="site-header">
+            <h1>Wesley Melo</h1>
+            <span class="page-label">Blog / Post</span>
+        </header>
+
+        <main id="main-content">
+
+            <div class="section-label-row">
+                <span class="section-label">Post</span>
+            </div>
+
+            <article class="post">
+                <div class="post-meta">
+                    <time datetime="2026-04-02">April 2, 2026</time>
+                    <span>6 min read</span>
+                </div>
+
+                <h1 class="post-title">The 90s Kid Guide to Actually Learning Tech</h1>
+
+                <p class="post-lede">For a while in the nineties, if you wanted a computer to do something, you had to tell it in its own language, and nobody was there to translate. The internet existed, but not really. You had a beige box, a manual as thick as a paperback, and the unshakeable belief that if you stared at it long enough you could make it work.</p>
+
+                <div class="post-body">
+
+                    <p>It sounds like nostalgia. It isn't &mdash; or not only. The thing the 90s got right by accident was that every problem ended with you understanding something new about the machine. Every fix was an education. You didn't just get the software to run; you learned why it wasn't running.</p>
+
+                    <p>The manuals helped. They were deliberate, boring, methodical. IRQ jumpers and autoexec.bat and himem.sys. You didn't skim them; you read them because you had no choice, and when you finished you could do something nobody else around you could do.</p>
+
+                    <figure>
+                        <div class="post-figure aspect-wide" role="img" aria-label="A stack of old PC manuals">
+                            <img src="https://picsum.photos/seed/wesm-90s-manuals/1200/675" alt="A stack of old PC manuals" loading="lazy">
+                        </div>
+                        <figcaption>The manual was the teacher. Photo &mdash; placeholder.</figcaption>
+                    </figure>
+
+                    <p>Every piece of a PC that broke taught you where the bodies were. Formatting the wrong partition was a rite of passage. Soldering a bent pin back onto a ribbon cable was another. When you put the thing back together, you didn't just fix a machine; you built a map of it in your head, and the map was yours forever.</p>
+
+                    <blockquote>If you wanted it to work, you had to understand it. Ignorance cost you hours.</blockquote>
+
+                    <p>The tools we use today are kinder. That's good, most of the time. But they hide the map. When the deploy fails, or the test passes but the product is broken, or &mdash; now &mdash; when the model hallucinates with perfect confidence, you need the map back. And you don't have it, because you haven't been forced to build one.</p>
+
+                    <h2>II. The AI era looks like the 90s</h2>
+
+                    <p>Large language models right now are the Pentium II of intelligence: loud, overconfident, sold with a manual nobody reads. They are going to be humbled over the next few years the same way the Pentium was humbled, and the people who will still be able to build with them are the people who treat them the way we treated our first PC.</p>
+
+                    <p>That means: poke it. Break it. Read the docs. Trust nothing. Verify everything. Understand that the model will lie to you cheerfully if you don't pin it down, and then figure out the pinning.</p>
+
+                    <p>Most importantly, do the slow, tedious work of understanding what is actually happening under the hood. Not because the tool demands it today &mdash; it doesn't, and that's half the problem &mdash; but because the day it starts demanding it, you'll be ready and most people won't.</p>
+
+                    <figure>
+                        <div class="post-figure aspect-tall" role="img" aria-label="A workbench with hardware">
+                            <img src="https://picsum.photos/seed/wesm-90s-workbench/1200/900" alt="A workbench with hardware" loading="lazy">
+                        </div>
+                        <figcaption>Break it, fix it, break it again. Photo &mdash; placeholder.</figcaption>
+                    </figure>
+
+                    <h2>III. A short defense of the slow way</h2>
+
+                    <p>The best teachers I ever had were the machines that didn't work. I learned more from a night fighting a bad driver than I did from a semester of computer science.</p>
+
+                    <p>I am, on most days, grateful for how much friction technology has removed. And I worry that, in removing the friction, we removed the teacher.</p>
+
+                    <p>The 90s kids are fine. They built maps. The kids growing up now are going to be great at prompting, and some of them will be great at building, and the difference will be whether they ever had to break a machine to make it work.</p>
+
+                </div>
+            </article>
+
+            <section class="read-next" aria-label="Read next">
+                <span class="read-next-label">Next</span>
+                <a href="../blog.html" class="link">All posts &rarr;&#xFE0E;</a>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <span>&copy; 2026 Wesley Melo</span>
+            <a href="../../index.html" class="link">&larr;&#xFE0E; Back to home</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>

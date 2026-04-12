@@ -4,32 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog — Wesley Melo</title>
-    <meta name="description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
+    <meta name="description" content="Blog by Wesley Melo — choose a design variant.">
     <meta name="author" content="Wesley Melo">
     <link rel="canonical" href="https://wesley-m.com/blog.html">
     <meta property="og:title" content="Blog — Wesley Melo">
-    <meta property="og:description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
+    <meta property="og:description" content="Blog by Wesley Melo.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wesley-m.com/blog.html">
     <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
     <link rel="icon" href="data:,">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "Wesley Melo — Blog",
-        "url": "https://wesley-m.com/blog.html",
-        "author": {
-            "@type": "Person",
-            "name": "Wesley Melo",
-            "url": "https://wesley-m.com"
-        }
-    }
-    </script>
     <style>
 
     /* Reset */
-    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer, article, time {
+    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer {
         margin: 0;
         padding: 0;
         border: 0;
@@ -37,7 +24,7 @@
         font: inherit;
         vertical-align: baseline;
     }
-    header, main, nav, section, footer, article { display: block; }
+    header, main, nav, section, footer { display: block; }
     ul { list-style: none; }
     *, *::before, *::after { box-sizing: border-box; }
 
@@ -61,7 +48,6 @@
         -webkit-font-smoothing: antialiased;
     }
 
-    /* Skip link */
     .skip-link {
         position: absolute;
         left: -9999px;
@@ -73,7 +59,7 @@
     }
     .skip-link:focus { left: 0; }
 
-    /* Single link signature, shared with the rest of the site. */
+    /* Single link signature. */
     .link {
         font-weight: 400;
         color: var(--fg);
@@ -94,7 +80,6 @@
     .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
     .link:active { background: var(--fg); color: var(--bg); }
 
-    /* Page container — same 960 constraint as services.html and #about/#process. */
     .page {
         max-width: 960px;
         margin: 0 auto;
@@ -104,7 +89,6 @@
     .top-bar { padding: 24px 0 0; }
     .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
 
-    /* Site header — matches services.html and the brand convention. */
     .site-header {
         border-bottom: var(--border-heavy);
         padding: 24px 0 24px;
@@ -126,149 +110,118 @@
         color: var(--fg-hover);
     }
 
-    /* Right-aligned section label — matches .section-label-row in index.html. */
-    .section-label-row {
-        display: flex;
-        justify-content: flex-end;
-        padding: 24px 0 0;
+    /* Intro */
+    .intro {
+        padding: 64px 0 48px;
+        border-bottom: var(--rule);
     }
-    .section-label {
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--fg-hover);
-    }
-
-    /* Small-caps metadata — the third typographic role. Garamond only. */
-    .meta {
-        font-size: 13px;
-        font-variant: small-caps;
-        letter-spacing: 0.08em;
-        color: var(--fg-hover);
-    }
-    .meta-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-    }
-    .meta-row .sep {
-        opacity: 0.45;
-    }
-
-    /* Featured — Bloomberg "one loud move": no thumbnail, huge title,
-       hairline above and below, small-caps meta bar. */
-    .featured {
-        padding: 64px 0 72px;
-        border-top: var(--rule);
-        border-bottom: var(--border);
-        margin-top: 24px;
-    }
-    .featured-kicker {
+    .intro-label {
         font-size: 12px;
         font-variant: small-caps;
         letter-spacing: 0.2em;
         color: var(--fg-hover);
+        margin-bottom: 20px;
+    }
+    .intro-statement {
+        font-size: 40px;
+        line-height: 1.1;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        max-width: 18ch;
         margin-bottom: 24px;
     }
-    .featured-link {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-    }
-    .featured-link:hover .featured-title { color: var(--fg-hover); }
-    .featured-link:focus-visible {
-        outline: var(--border);
-        outline-offset: 8px;
-    }
-    .featured-title {
-        font-size: 52px;
-        line-height: 1;
-        font-weight: 400;
-        letter-spacing: -0.02em;
-        text-transform: uppercase;
-        max-width: 16ch;
-        margin-bottom: 32px;
-    }
-    .featured-dek {
+    .intro-dek {
         font-size: 18px;
         line-height: 1.5;
-        max-width: 52ch;
-        margin-bottom: 24px;
         color: var(--fg-quiet);
-    }
-    .featured-meta {
-        margin-top: 24px;
+        max-width: 60ch;
     }
 
-    /* Archive — hairline-ruled text rows. No cards, no thumbnails. */
-    .archive {
-        padding: 48px 0 24px;
-    }
-    .archive-row {
-        display: block;
-        padding: 32px 0 36px;
-        text-decoration: none;
-        color: inherit;
+    /* Two variant picker rows — full-width hairline rows that invert on hover. */
+    .variants { padding: 24px 0 0; }
+    .variant {
+        display: grid;
+        grid-template-columns: 72px 1fr auto;
+        gap: 32px;
+        align-items: baseline;
+        padding: 40px 0 44px;
         border-bottom: var(--rule);
+        color: inherit;
+        text-decoration: none;
         cursor: default;
         transition: padding-left 0.15s ease;
     }
-    .archive-row:first-of-type { border-top: var(--rule); }
-    .archive-row:hover {
-        background: var(--fg);
-        color: var(--bg);
-        padding-left: 24px;
-    }
-    .archive-row:hover .archive-meta,
-    .archive-row:hover .archive-dek { color: rgba(43, 56, 86, 0.65); }
-    .archive-row:focus-visible {
+    .variant:first-of-type { border-top: var(--rule); }
+    .variant:hover,
+    .variant:focus-visible {
         outline: none;
         background: var(--fg);
         color: var(--bg);
         padding-left: 24px;
     }
-    .archive-row:focus-visible .archive-meta,
-    .archive-row:focus-visible .archive-dek { color: rgba(43, 56, 86, 0.65); }
+    .variant:hover .variant-dek,
+    .variant:focus-visible .variant-dek { color: rgba(43, 56, 86, 0.7); }
+    .variant:hover .variant-meta,
+    .variant:focus-visible .variant-meta { color: rgba(43, 56, 86, 0.55); }
 
-    .archive-meta {
-        font-size: 12px;
-        font-variant: small-caps;
-        letter-spacing: 0.12em;
-        color: var(--fg-hover);
-        margin-bottom: 12px;
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-    }
-    .archive-meta .sep { opacity: 0.45; }
-
-    .archive-row-title {
-        font-size: 20px;
-        line-height: 1.15;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
+    .variant-number {
+        font-size: 52px;
+        line-height: 0.9;
         font-weight: 400;
-        margin-bottom: 8px;
+        letter-spacing: -0.02em;
     }
 
-    .archive-dek {
+    .variant-body {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .variant-title {
+        font-size: 32px;
+        line-height: 1;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+    }
+    .variant-dek {
         font-size: 15px;
         line-height: 1.5;
         color: var(--fg-quiet);
+        max-width: 56ch;
+    }
+    .variant-meta {
+        font-size: 11px;
+        font-variant: small-caps;
+        letter-spacing: 0.2em;
+        color: var(--fg-hover);
+    }
+    .variant-arrow {
+        font-size: 24px;
+        line-height: 1;
+        align-self: center;
+    }
+
+    /* Note */
+    .note {
+        padding: 40px 0 56px;
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--fg-hover);
         max-width: 60ch;
     }
+    .note p + p { margin-top: 12px; }
 
     /* Footer */
     .site-footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 32px 0 24px;
+        padding: 24px 0;
+        border-top: var(--border);
         font-size: 13px;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        border-top: var(--border);
-        margin-top: 48px;
     }
     .site-footer span { color: var(--fg-hover); }
 
@@ -276,18 +229,20 @@
     @media only screen and (max-width: 768px) {
         .page { padding: 0 24px; }
         .site-header h1 { font-size: 32px; }
-        .featured { padding: 48px 0 56px; }
-        .featured-title { font-size: 36px; max-width: 14ch; }
-        .featured-dek { font-size: 16px; }
-        .archive-row { padding: 28px 0 32px; }
-        .archive-row:hover,
-        .archive-row:focus-visible { padding-left: 12px; }
-        .archive-row-title { font-size: 18px; }
-        .site-footer {
-            flex-direction: column;
-            gap: 8px;
-            text-align: center;
+        .intro { padding: 48px 0 32px; }
+        .intro-statement { font-size: 30px; }
+        .intro-dek { font-size: 16px; }
+        .variant {
+            grid-template-columns: 56px 1fr;
+            gap: 20px;
+            padding: 28px 0 32px;
         }
+        .variant-number { font-size: 36px; }
+        .variant-title { font-size: 22px; }
+        .variant-arrow { display: none; }
+        .variant:hover,
+        .variant:focus-visible { padding-left: 12px; }
+        .site-footer { flex-direction: column; gap: 8px; text-align: center; }
         .link:hover { text-decoration: none; }
     }
 
@@ -310,79 +265,39 @@
 
         <main id="main-content">
 
-            <div class="section-label-row">
-                <span class="section-label">Featured</span>
-            </div>
+            <section class="intro" aria-label="Blog introduction">
+                <div class="intro-label">Two designs &middot; Same content</div>
+                <h2 class="intro-statement">The blog, in two variants.</h2>
+                <p class="intro-dek">Pick a design. The content is identical &mdash; same posts, same titles, same body, same images. The visual system is the difference. Feedback welcome.</p>
+            </section>
 
-            <article class="featured">
-                <a href="blog/bergen-assembly.html" class="featured-link">
-                    <div class="featured-kicker">Essay N.001</div>
-                    <h2 class="featured-title">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit</h2>
-                    <p class="featured-dek">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <div class="featured-meta meta meta-row">
-                        <span>April 9, 2026</span>
-                        <span class="sep">·</span>
-                        <span>Wesley Melo</span>
-                        <span class="sep">·</span>
-                        <span>6 min read</span>
+            <section class="variants" aria-label="Design variants">
+
+                <a href="v1/blog.html" class="variant">
+                    <div class="variant-number">V1</div>
+                    <div class="variant-body">
+                        <div class="variant-title">Realigned brutalist</div>
+                        <p class="variant-dek">Featured hero with image, three-card grid, whole-card hover invert. The version shipped in the first pass.</p>
+                        <div class="variant-meta">Brutalist &middot; Single column &middot; Card grid</div>
                     </div>
-                </a>
-            </article>
-
-            <div class="section-label-row">
-                <span class="section-label">Archive</span>
-            </div>
-
-            <section class="archive" aria-label="Archive">
-
-                <a href="#" class="archive-row">
-                    <div class="archive-meta">
-                        <span>Essay</span>
-                        <span class="sep">·</span>
-                        <span>March 24, 2026</span>
-                        <span class="sep">·</span>
-                        <span>4 min read</span>
-                    </div>
-                    <h3 class="archive-row-title">Lorem Ipsum Primum Est Volupta</h3>
-                    <p class="archive-dek">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <div class="variant-arrow">&rarr;&#xFE0E;</div>
                 </a>
 
-                <a href="#" class="archive-row">
-                    <div class="archive-meta">
-                        <span>Field Notes</span>
-                        <span class="sep">·</span>
-                        <span>March 10, 2026</span>
-                        <span class="sep">·</span>
-                        <span>7 min read</span>
+                <a href="v2/blog.html" class="variant">
+                    <div class="variant-number">V2</div>
+                    <div class="variant-body">
+                        <div class="variant-title">Editorial pass</div>
+                        <p class="variant-dek">Bloomberg-style featured title with no thumbnail, hairline-ruled archive, narrow reading column, drop cap, italic pull-quote, small-caps meta. Editorial patterns borrowed from NYT Magazine, New Yorker, Atlantic, Bloomberg.</p>
+                        <div class="variant-meta">Editorial &middot; Narrow column &middot; Hairline list</div>
                     </div>
-                    <h3 class="archive-row-title">Lorem Ipsum Secundum Ratione</h3>
-                    <p class="archive-dek">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="variant-arrow">&rarr;&#xFE0E;</div>
                 </a>
 
-                <a href="#" class="archive-row">
-                    <div class="archive-meta">
-                        <span>Essay</span>
-                        <span class="sep">·</span>
-                        <span>February 22, 2026</span>
-                        <span class="sep">·</span>
-                        <span>5 min read</span>
-                    </div>
-                    <h3 class="archive-row-title">Lorem Ipsum Tertium De Natura</h3>
-                    <p class="archive-dek">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                </a>
+            </section>
 
-                <a href="#" class="archive-row">
-                    <div class="archive-meta">
-                        <span>Notebook</span>
-                        <span class="sep">·</span>
-                        <span>February 5, 2026</span>
-                        <span class="sep">·</span>
-                        <span>3 min read</span>
-                    </div>
-                    <h3 class="archive-row-title">Lorem Ipsum Quartum Sine Fine</h3>
-                    <p class="archive-dek">Totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                </a>
-
+            <section class="note" aria-label="Preview note">
+                <p>Both variants share identical text, metadata, and images. Only the typographic and layout treatment differs. Posts are mocked with lorem-adjacent placeholder content for design testing only.</p>
+                <p>The featured post is navigable in both variants; archive rows are previews only.</p>
             </section>
 
         </main>
