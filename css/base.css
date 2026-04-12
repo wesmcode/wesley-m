@@ -1,0 +1,99 @@
+/* Reset */
+html, body, div, span, h1, h2, h3, p, a, img,
+ol, ul, li, header, main, nav, section, footer, figure, article {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+header, main, nav, section, footer, figure, article { display: block; }
+ol, ul { list-style: none; }
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Skip link — visible only on keyboard focus */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    padding: 8px 16px;
+    background: var(--fg);
+    color: var(--bg);
+    text-decoration: none;
+}
+.skip-link:focus { left: 0; }
+
+/* All clickable elements */
+.link {
+    font-weight: 400;
+    color: var(--fg);
+    text-decoration: none;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    cursor: default;
+}
+.link:hover { color: var(--fg-hover); text-decoration: underline; }
+.link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
+.link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
+.link:active { background: var(--fg); color: var(--bg); }
+
+/* Footer */
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding-top: 32px;
+}
+.footer-brand {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.footer-nav {
+    display: flex;
+    gap: 24px;
+}
+.footer-nav .link {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+.footer-meta {
+    margin-top: 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Mobile — shared */
+@media only screen and (max-width: 768px) {
+    .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .footer-nav {
+        flex-wrap: wrap;
+        gap: 16px 24px;
+    }
+    .link:hover { text-decoration: none; }
+}
