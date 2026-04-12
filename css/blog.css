@@ -135,12 +135,12 @@
 .card:hover .card-title { text-decoration: underline; }
 .card:focus-visible { outline: var(--border); outline-offset: 4px; }
 
-.card-meta {
-    font-size: 12px;
-    font-variant: small-caps;
-    letter-spacing: 0.1em;
-    color: var(--fg-hover);
-    margin-bottom: 12px;
+.card-figure {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: #e8e8e8;
+    margin-bottom: 16px;
 }
 .card-title {
     font-size: 20px;
@@ -155,13 +155,13 @@
     line-height: 1.5;
     color: var(--fg-quiet);
     flex: 1;
-    margin-bottom: 16px;
 }
-.card-figure {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: #e8e8e8;
+.card-meta {
+    font-size: 12px;
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+    color: var(--fg-hover);
+    margin-top: 12px;
 }
 .card-figure img {
     display: block;
