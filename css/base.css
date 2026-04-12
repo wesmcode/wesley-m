@@ -50,6 +50,7 @@ html, body {
     line-height: inherit;
     cursor: default;
 }
+.link:visited { color: var(--fg); }
 .link:hover { color: var(--fg-hover); text-decoration: underline; }
 .link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
 .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
