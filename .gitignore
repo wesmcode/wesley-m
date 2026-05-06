@@ -13,3 +13,6 @@
 .idea/
 .vscode/
 *.swp
+
+# Local-only project tracking, scratch notes, drafts. Never pushed.
+.local/
