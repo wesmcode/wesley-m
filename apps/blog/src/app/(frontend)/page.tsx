@@ -7,6 +7,12 @@ import { mediaUrl } from '@/lib/media'
 
 export const dynamic = 'force-dynamic'
 
+const sectionName = (section: unknown): string => {
+  if (!section || typeof section !== 'object') return ''
+  const s = section as { name?: string }
+  return typeof s.name === 'string' ? s.name : ''
+}
+
 export default async function BlogIndex() {
   const payload = await getPayload({ config })
 
@@ -41,6 +47,9 @@ export default async function BlogIndex() {
             <Link href={`/blog/${featured.slug}`} className="featured-link">
               <div className="featured-grid">
                 <div className="featured-content">
+                  {sectionName(featured.primarySection) ? (
+                    <p className="card-section">{sectionName(featured.primarySection)}</p>
+                  ) : null}
                   <h2 className="featured-title">{featured.title}</h2>
                   {featured.dek ? <p className="featured-dek">{featured.dek}</p> : null}
                   <div className="featured-meta">
@@ -72,6 +81,12 @@ export default async function BlogIndex() {
             {rest.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`} className="archive-row">
                 <div className="archive-meta">
+                  {sectionName(post.primarySection) ? (
+                    <>
+                      <span className="card-section">{sectionName(post.primarySection)}</span>
+                      <span className="sep">·</span>
+                    </>
+                  ) : null}
                   <span>{formatDate(post.publishDate)}</span>
                   <span className="sep">·</span>
                   <span>{readingTimeLabel(post.readingTime)}</span>

@@ -65,7 +65,14 @@ export default async function BlogPostPage({ params }: RouteParams) {
 
       <article>
         <header className="post-header">
-          {post.kicker ? <div className="post-kicker">{post.kicker}</div> : null}
+          {(() => {
+            const section =
+              post.primarySection && typeof post.primarySection === 'object'
+                ? (post.primarySection as { name?: string }).name
+                : null
+            const kicker = post.kicker || section
+            return kicker ? <div className="post-kicker">{kicker}</div> : null
+          })()}
           <h1 className="post-title">{post.title}</h1>
           {post.dek ? <p className="post-dek">{post.dek}</p> : null}
           <div className="post-meta">
