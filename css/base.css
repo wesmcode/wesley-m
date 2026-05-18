@@ -1,3 +1,8 @@
+/* Shared tokens — page :root declarations may add or override */
+:root {
+    --placeholder-bg: #e8e8e8;
+}
+
 /* Reset */
 html, body, div, span, h1, h2, h3, p, a, img,
 ol, ul, li, header, main, nav, section, footer, figure, article {
@@ -55,6 +60,35 @@ html, body {
 .link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
 .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
 .link:active { background: var(--fg); color: var(--bg); }
+
+/* Brand photo treatment — desaturate + tint to site navy.
+   Apply to a figure/div wrapping a single <img>.
+   Override strength per-use:  style="--brand-tint: 0.6;"
+   Override color per-use:     style="--brand-tone: #1f2a44;" */
+.brand-photo {
+    --brand-tint: 0.45;
+    --brand-tone: #2B3856;
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-tone);
+    isolation: isolate;
+}
+.brand-photo > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.7) contrast(1.05) brightness(1.02);
+}
+.brand-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--brand-tone);
+    mix-blend-mode: color;
+    opacity: var(--brand-tint);
+    pointer-events: none;
+}
 
 /* Footer */
 .footer-row {
