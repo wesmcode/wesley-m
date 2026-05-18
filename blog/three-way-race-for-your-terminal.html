@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Three-Way Race for Your Terminal — Wesley Melo</title>
+    <meta name="description" content="Claude Code, Codex CLI, and Grok Build are all asking to live in your shell. A field report from a month of switching.">
+    <meta name="author" content="Wesley Melo">
+    <link rel="canonical" href="https://wesley-m.com/blog/three-way-race-for-your-terminal.html">
+    <meta property="og:title" content="The Three-Way Race for Your Terminal — Wesley Melo">
+    <meta property="og:description" content="Claude Code, Codex CLI, and Grok Build are all asking to live in your shell. A field report from a month of switching.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wesley-m.com/blog/three-way-race-for-your-terminal.html">
+    <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../css/post.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Three-Way Race for Your Terminal",
+        "author": { "@type": "Person", "name": "Wesley Melo", "url": "https://wesley-m.com" },
+        "datePublished": "2026-04-09",
+        "url": "https://wesley-m.com/blog/three-way-race-for-your-terminal.html"
+    }
+    </script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="page">
+
+        <nav class="top-bar" aria-label="Breadcrumb">
+            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
+        </nav>
+
+        <header class="site-header">
+            <h1>Wesley Melo</h1>
+            <span class="page-label">Blog / Post</span>
+        </header>
+
+        <main id="main-content">
+
+            <div class="article-column">
+
+                <header class="post-header">
+                    <div class="post-kicker">Essay N.004 &middot; Tools</div>
+                    <h1 class="post-title">The Three-Way Race for Your Terminal</h1>
+                    <div class="post-byline">
+                        <span>By Wesley Melo</span>
+                        <span class="sep">&middot;</span>
+                        <time datetime="2026-04-09">April 9, 2026</time>
+                        <span class="sep">&middot;</span>
+                        <span>7 min read</span>
+                    </div>
+                </header>
+
+                <article class="post-body">
+
+                    <p class="post-lede">For the last thirty days I have been rotating between Claude Code, Codex CLI, and xAI&rsquo;s newly-announced Grok Build on the same codebase. Same tickets. Same constraints. Same long-suffering Postgres test database. This is the field report nobody asked me for, and which I am writing anyway.</p>
+
+                    <p>A short disclaimer up top: I am not a benchmark. I am one developer doing real work, and my impressions are shaped by my taste and my history with each company. Take what you like.</p>
+
+                    <h2>I. Claude Code</h2>
+
+                    <p>The one I keep coming back to. The plan-first habit suits the way my brain works &mdash; I want a model that pauses before it sprints. Claude Code asks more questions than the others, sometimes annoyingly so, and the questions are usually the right ones.</p>
+
+                    <p>Where it shines: long refactors across many files, anything with a real test suite, anything where the cost of a wrong edit is high.</p>
+
+                    <p>Where it stumbles: short, vibe-y tasks. I sometimes want a tool that will just <em>do the thing.</em> Claude Code wants to discuss it first. That can feel like booking a meeting to ask a question.</p>
+
+                    <h2>II. Codex CLI</h2>
+
+                    <p>OpenAI&rsquo;s entry feels like the second draft of a product they already shipped, in a good way. It is fast. It is opinionated. It is willing to run a command without explaining why, which I respect.</p>
+
+                    <p>The May 14 mobile supervision update changed the calculus a bit &mdash; if you want the agent to keep moving while you&rsquo;re away from the desk, Codex now has the best story for that. I covered the experience separately, but the short version: handy for the right person, terrifying for the wrong one.</p>
+
+                    <p>Where it shines: speed runs, anything CI-adjacent, anything where the loop is &ldquo;try, fail, try again.&rdquo;</p>
+
+                    <p>Where it stumbles: judgment calls. When the task is ambiguous, Codex picks an interpretation, commits to it, and you find out later. Sometimes you wanted that. Sometimes you didn&rsquo;t.</p>
+
+                    <h2>III. Grok Build</h2>
+
+                    <p>The new one. Earnest, scrappy, slightly raw. The DevOps.com piece introducing it called it a &ldquo;coding agent for engineers who think marketing is a lie,&rdquo; which is exactly the tone the product carries.</p>
+
+                    <p>It is fast in a way that suggests less safety net than the other two. It will, on occasion, do something that makes me reach for the undo with feeling. I have also seen it solve problems the other two danced around, in part because it doesn&rsquo;t pause to think about whether it should.</p>
+
+                    <p>Where it shines: greenfield work, experimentation, anything where the cost of being wrong is small.</p>
+
+                    <p>Where it stumbles: production. I would not give this thing prod credentials in its current form, but I&rsquo;d say the same of a junior engineer on day one. It will mature.</p>
+
+                    <blockquote>Three tools in your terminal. Three different theories of what an engineer is for. You pick the one whose theory you can live with.</blockquote>
+
+                    <h2>IV. The pattern under the differences</h2>
+
+                    <p>The interesting thing isn&rsquo;t which tool wins. The interesting thing is that each company has a slightly different theory of <em>what the engineer is for</em>, and the tool reflects it.</p>
+
+                    <ul>
+                        <li>Anthropic&rsquo;s theory: the engineer is a reviewer and a chooser. The model is a tireless drafting partner that wants your sign-off.</li>
+                        <li>OpenAI&rsquo;s theory: the engineer is an operator. The model is a fleet of agents you point at problems and check on later.</li>
+                        <li>xAI&rsquo;s theory: the engineer is a hacker. The model is a wrench you swing without permission.</li>
+                    </ul>
+
+                    <p>None of these is wrong. They&rsquo;re different stances on the same future, and the team you work on will lean naturally toward one of them whether or not you discuss it out loud.</p>
+
+                    <h2>V. What I&rsquo;ll keep on my machine</h2>
+
+                    <p>Claude Code for the work I care about. Codex CLI for the work I want done while I&rsquo;m getting coffee. Grok Build for the experiments I&rsquo;d be embarrassed for anyone to see.</p>
+
+                    <p>Three tools is one too many. I will drop one of them by August. Don&rsquo;t ask me which.</p>
+
+                </article>
+
+                <section class="read-next" aria-label="Read next">
+                    <a href="my-phone-approves-code-now.html" class="read-next-item">
+                        <div class="read-next-meta"><span>Field Notes</span><span class="sep">&middot;</span><span>April 24, 2026</span></div>
+                        <h3 class="read-next-title">My Phone Approves Code Now</h3>
+                    </a>
+                    <a href="you-are-paying-for-the-subsidy.html" class="read-next-item">
+                        <div class="read-next-meta"><span>Opinion</span><span class="sep">&middot;</span><span>April 18, 2026</span></div>
+                        <h3 class="read-next-title">You Are Not Paying for AI. You Are Paying for the Subsidy.</h3>
+                    </a>
+                    <div class="read-next-all">
+                        <a href="../blog.html" class="link">&larr;&#xFE0E; All posts</a>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <footer class="site-footer">
+            <span>&copy; 2026 Wesley Melo</span>
+            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>

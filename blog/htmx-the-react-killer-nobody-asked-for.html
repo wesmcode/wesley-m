@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMX, the React Killer Nobody Asked For — Wesley Melo</title>
+    <meta name="description" content="Every framework war eventually finds its anti-framework. This one&rsquo;s ours.">
+    <meta name="author" content="Wesley Melo">
+    <link rel="canonical" href="https://wesley-m.com/blog/htmx-the-react-killer-nobody-asked-for.html">
+    <meta property="og:title" content="HTMX, the React Killer Nobody Asked For — Wesley Melo">
+    <meta property="og:description" content="Every framework war eventually finds its anti-framework. This one&rsquo;s ours.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wesley-m.com/blog/htmx-the-react-killer-nobody-asked-for.html">
+    <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../css/post.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "HTMX, the React Killer Nobody Asked For",
+        "author": { "@type": "Person", "name": "Wesley Melo", "url": "https://wesley-m.com" },
+        "datePublished": "2026-03-12",
+        "url": "https://wesley-m.com/blog/htmx-the-react-killer-nobody-asked-for.html"
+    }
+    </script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="page">
+
+        <nav class="top-bar" aria-label="Breadcrumb">
+            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
+        </nav>
+
+        <header class="site-header">
+            <h1>Wesley Melo</h1>
+            <span class="page-label">Blog / Post</span>
+        </header>
+
+        <main id="main-content">
+
+            <div class="article-column">
+
+                <header class="post-header">
+                    <div class="post-kicker">Analysis &middot; Web</div>
+                    <h1 class="post-title">HTMX, the React Killer Nobody Asked For</h1>
+                    <div class="post-byline">
+                        <span>By Wesley Melo</span>
+                        <span class="sep">&middot;</span>
+                        <time datetime="2026-03-12">March 12, 2026</time>
+                        <span class="sep">&middot;</span>
+                        <span>5 min read</span>
+                    </div>
+                </header>
+
+                <article class="post-body">
+
+                    <p class="post-lede">A post titled <em>React is Overkill: Why Python + HTMX Is Dominating in 2026</em> ate the dev internet last week. The headline is too strong. The argument underneath it isn&rsquo;t.</p>
+
+                    <p>I have been writing some flavor of JavaScript framework code since the year Backbone was new, and I am here to tell you that every framework wave breaks the same way: explosion, consolidation, fatigue, anti-framework backlash. Then we do it again. HTMX is the current backlash. Whether it&rsquo;s also the next consolidation is a different question.</p>
+
+                    <h2>I. The argument, steelmanned</h2>
+
+                    <p>The case for HTMX is not <em>&ldquo;React is bad.&rdquo;</em> The case is <em>&ldquo;most React apps are not the kind of app that needs React.&rdquo;</em> That&rsquo;s harder to argue against, because it&rsquo;s clearly true. Most internal tools. Most marketing sites. Most CRUD admin panels. The reasons we reached for React in 2017 (interactivity, component reuse, ecosystem) are mostly available now in much smaller packages.</p>
+
+                    <p>HTMX&rsquo;s pitch &mdash; that you can return HTML from the server and let the browser do the rest of the work &mdash; is the boring, correct pitch. It is what the web was for. It feels obvious because it is.</p>
+
+                    <h2>II. Why it is winning on Reddit</h2>
+
+                    <p>Three reasons, in the order they showed up in the comments:</p>
+
+                    <ul>
+                        <li>The bundle. React, even trimmed, ships kilobytes of runtime for things that didn&rsquo;t need a runtime. HTMX ships fourteen. The difference is noticeable on the kind of underpowered device that most of the world actually uses.</li>
+                        <li>The cognitive load. Server-side rendering is one model. SPA-with-hydration is two. HTMX collapses the two back down to one. People who have to teach juniors are noticing.</li>
+                        <li>The vibes. There is a backlash brewing against the entire <em>your framework is your personality</em> era of frontend, and HTMX&rsquo;s deliberately uncool branding is part of why people love it.</li>
+                    </ul>
+
+                    <blockquote>Most React apps are not the kind of app that needs React. Saying that out loud is the entire HTMX bull case.</blockquote>
+
+                    <h2>III. Why it isn&rsquo;t winning anywhere else</h2>
+
+                    <p>HTMX is winning the internet argument and losing the hiring argument, which is the only argument that ultimately matters. Try to staff an HTMX team in a tier-two city. Try to convince an enterprise architecture review board. Try to find a senior engineer who has shipped a multi-region app on it. The pool is small, and a small pool is a real risk &mdash; especially in 2026, when the pool of people willing to learn anything new is, frankly, smaller than it&rsquo;s ever been.</p>
+
+                    <p>React won the war it actually fought, which was the war over what to hire for. HTMX is fighting a different war. They could both be right.</p>
+
+                    <h2>IV. My take, for whatever it&rsquo;s worth</h2>
+
+                    <p>If you are starting something today, and you have full discretion, and the app is in the <em>most apps</em> bucket I described above &mdash; just try it. The whole thing fits in a long afternoon. You will know in two days whether the model suits the work.</p>
+
+                    <p>If you are running a team of fifty React engineers, no. Don&rsquo;t. The migration cost dwarfs the win. Pay down the React debt you have. Get the bundle under control. Make the framework less of a personality and more of a tool. You can have the HTMX feeling without the HTMX rewrite.</p>
+
+                    <p>And if you are a junior reading this: learn both. Mostly because the people who can move between them are about to be very rare, and rare is paid well.</p>
+
+                </article>
+
+                <section class="read-next" aria-label="Read next">
+                    <a href="r-programming-banned-the-robots.html" class="read-next-item">
+                        <div class="read-next-meta"><span>Dispatch</span><span class="sep">&middot;</span><span>May 5, 2026</span></div>
+                        <h3 class="read-next-title">r/Programming Banned the Robots</h3>
+                    </a>
+                    <a href="the-bug-bounty-that-quit.html" class="read-next-item">
+                        <div class="read-next-meta"><span>Notes on Product</span><span class="sep">&middot;</span><span>March 4, 2026</span></div>
+                        <h3 class="read-next-title">The Bug Bounty That Quit</h3>
+                    </a>
+                    <div class="read-next-all">
+                        <a href="../blog.html" class="link">&larr;&#xFE0E; All posts</a>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <footer class="site-footer">
+            <span>&copy; 2026 Wesley Melo</span>
+            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>

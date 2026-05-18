@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bug Bounty That Quit — Wesley Melo</title>
+    <meta name="description" content="A company retired its bug bounty program this month. The reason is the new shape of the work, and it&rsquo;s worth a look.">
+    <meta name="author" content="Wesley Melo">
+    <link rel="canonical" href="https://wesley-m.com/blog/the-bug-bounty-that-quit.html">
+    <meta property="og:title" content="The Bug Bounty That Quit — Wesley Melo">
+    <meta property="og:description" content="A company retired its bug bounty program this month. The reason is the new shape of the work, and it&rsquo;s worth a look.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wesley-m.com/blog/the-bug-bounty-that-quit.html">
+    <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../css/post.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Bug Bounty That Quit",
+        "author": { "@type": "Person", "name": "Wesley Melo", "url": "https://wesley-m.com" },
+        "datePublished": "2026-03-04",
+        "url": "https://wesley-m.com/blog/the-bug-bounty-that-quit.html"
+    }
+    </script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="page">
+
+        <nav class="top-bar" aria-label="Breadcrumb">
+            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
+        </nav>
+
+        <header class="site-header">
+            <h1>Wesley Melo</h1>
+            <span class="page-label">Blog / Post</span>
+        </header>
+
+        <main id="main-content">
+
+            <div class="article-column">
+
+                <header class="post-header">
+                    <div class="post-kicker">Notes on Product &middot; Security</div>
+                    <h1 class="post-title">The Bug Bounty That Quit</h1>
+                    <div class="post-byline">
+                        <span>By Wesley Melo</span>
+                        <span class="sep">&middot;</span>
+                        <time datetime="2026-03-04">March 4, 2026</time>
+                        <span class="sep">&middot;</span>
+                        <span>4 min read</span>
+                    </div>
+                </header>
+
+                <article class="post-body">
+
+                    <p class="post-lede">A widely-watched bug bounty program ran a quiet update post this month under the headline <em>We are retiring our bug bounty program.</em> Hacker News spent a day on it, half the commenters celebrating and half mourning. Both halves were correct.</p>
+
+                    <p>The pitch when bounties showed up in the 2010s was clean. Pay the friendly hackers. Outsource the long tail of vulnerability discovery to a global community. Get a discount on a kind of work that no internal team could ever do at the same coverage.</p>
+
+                    <p>It worked. For a decade and change, it worked. The reasons it&rsquo;s stopping working are worth writing down.</p>
+
+                    <h2>I. The signal is buried</h2>
+
+                    <p>The first reason is volume. AI-assisted fuzzing has lowered the cost of <em>generating</em> a vulnerability report to almost zero. The same tools have not lowered the cost of <em>triaging</em> one. So inboxes that used to see ten thoughtful reports a week now see two hundred plausible-looking ones, of which maybe three are real.</p>
+
+                    <p>The bounty team becomes a content-moderation team. The economics flip. The hackers who did the real work get crowded out by the ones running scripts.</p>
+
+                    <h2>II. The shape of the bug changed</h2>
+
+                    <p>The second reason is harder to talk about. The most interesting modern vulnerabilities are not in the code anymore. They are in the agent. Prompt injection, tool-use abuse, model jailbreaks, supply-chain poisoning of training data. A traditional bounty program has no shape for these. Nobody knows what to pay for a working data-exfiltration prompt against a chatbot, because nobody knows yet whether that&rsquo;s a bug, a feature, or both.</p>
+
+                    <blockquote>The most interesting modern vulnerabilities are not in the code anymore. They are in the agent.</blockquote>
+
+                    <h2>III. The legal layer caught up</h2>
+
+                    <p>The third reason is regulatory. Several jurisdictions now require formal vulnerability-disclosure processes that are <em>not</em> bounty programs in the old sense. The thing the bounty used to do informally now has to happen with paperwork. Companies are quietly noticing that running the formal process and the informal one in parallel is twice the work for one set of bugs.</p>
+
+                    <h2>IV. What replaces it</h2>
+
+                    <p>Two things, I think:</p>
+
+                    <ul>
+                        <li>Smaller, invitation-only researcher programs. Curated talent. Higher payouts per report. Fewer reports overall. The teams I&rsquo;ve talked to about this all sound a bit sheepish &mdash; it feels like a regression to the old enterprise-pentest model &mdash; but the math is the math.</li>
+                        <li>Internal AI security agents. OpenAI&rsquo;s Daybreak is the loudest example, with similar tools coming out of Anthropic and Google. These tools sit inside the codebase and patch CVEs continuously. They will not replace humans, but they will absorb the broad middle of the bounty inbox.</li>
+                    </ul>
+
+                    <p>The losers here are the part-time bounty hunters &mdash; smart, curious people who supplemented their income with thoughtful reports. That economy is shrinking. The winners are the platforms, who get to spend less on triage, and the very top tier of researchers, who get paid more for fewer engagements.</p>
+
+                    <p>It&rsquo;s the same story as every other gig market in the AI era. The middle is hollowing out. The top is fine. The bottom is being replaced by software that doesn&rsquo;t sleep.</p>
+
+                </article>
+
+                <section class="read-next" aria-label="Read next">
+                    <a href="notes-from-a-daybreak-demo.html" class="read-next-item">
+                        <div class="read-next-meta"><span>Field Notes</span><span class="sep">&middot;</span><span>February 20, 2026</span></div>
+                        <h3 class="read-next-title">Notes from a Daybreak Demo</h3>
+                    </a>
+                    <a href="three-way-race-for-your-terminal.html" class="read-next-item">
+                        <div class="read-next-meta"><span>Essay</span><span class="sep">&middot;</span><span>April 9, 2026</span></div>
+                        <h3 class="read-next-title">The Three-Way Race for Your Terminal</h3>
+                    </a>
+                    <div class="read-next-all">
+                        <a href="../blog.html" class="link">&larr;&#xFE0E; All posts</a>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <footer class="site-footer">
+            <span>&copy; 2026 Wesley Melo</span>
+            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes from a Daybreak Demo — Wesley Melo</title>
+    <meta name="description" content="A short field note from a walkthrough of OpenAI&rsquo;s Daybreak, the AI-powered vulnerability patcher.">
+    <meta name="author" content="Wesley Melo">
+    <link rel="canonical" href="https://wesley-m.com/blog/notes-from-a-daybreak-demo.html">
+    <meta property="og:title" content="Notes from a Daybreak Demo — Wesley Melo">
+    <meta property="og:description" content="A short field note from a walkthrough of OpenAI&rsquo;s Daybreak, the AI-powered vulnerability patcher.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wesley-m.com/blog/notes-from-a-daybreak-demo.html">
+    <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../css/post.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Notes from a Daybreak Demo",
+        "author": { "@type": "Person", "name": "Wesley Melo", "url": "https://wesley-m.com" },
+        "datePublished": "2026-02-20",
+        "url": "https://wesley-m.com/blog/notes-from-a-daybreak-demo.html"
+    }
+    </script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="page">
+
+        <nav class="top-bar" aria-label="Breadcrumb">
+            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
+        </nav>
+
+        <header class="site-header">
+            <h1>Wesley Melo</h1>
+            <span class="page-label">Blog / Post</span>
+        </header>
+
+        <main id="main-content">
+
+            <div class="article-column">
+
+                <header class="post-header">
+                    <div class="post-kicker">Field Notes &middot; Security</div>
+                    <h1 class="post-title">Notes from a Daybreak Demo</h1>
+                    <div class="post-byline">
+                        <span>By Wesley Melo</span>
+                        <span class="sep">&middot;</span>
+                        <time datetime="2026-02-20">February 20, 2026</time>
+                        <span class="sep">&middot;</span>
+                        <span>3 min read</span>
+                    </div>
+                </header>
+
+                <article class="post-body">
+
+                    <p class="post-lede">A friend who runs platform security at a fintech walked me through an early sandbox of OpenAI&rsquo;s Daybreak last week. It is a real product. It is faster than I expected. It is going to put a specific kind of person out of work.</p>
+
+                    <p>The pitch, briefly: Daybreak watches your repo. It reads new CVEs as they&rsquo;re published. When it finds a match, it writes a patch, runs your test suite, and opens a pull request. Under the hood it uses what OpenAI is calling GPT-5.5-Cyber, which I have to imagine is a fine-tune on a lot of CVE corpora and patch diffs.</p>
+
+                    <h2>I. What worked</h2>
+
+                    <p>The first patch we watched land was for a transitive dependency in a Node service. CVE published 11 PM. PR open at 11:09. Tests green. Reviewer assigned. The actual reviewer happened to be drinking coffee with us; he hit approve and merged.</p>
+
+                    <p>Total wall time from disclosure to deploy: nineteen minutes. The old number at this company, on a good week, was about twenty hours.</p>
+
+                    <blockquote>Disclosure to deploy in nineteen minutes. The old number, on a good week, was twenty hours.</blockquote>
+
+                    <h2>II. What didn&rsquo;t</h2>
+
+                    <p>The second patch &mdash; for a deeper, framework-level vulnerability &mdash; the tool punted on. It opened a PR with a comment that read, more or less, <em>I am not confident I can fix this without changing your public API. Routing this to a human.</em></p>
+
+                    <p>That, to me, is the better demo. I have seen plenty of tools that try too hard and produce confident garbage. Watching one ask for help is the new bar.</p>
+
+                    <h2>III. What it means</h2>
+
+                    <p>The job of vulnerability remediation, at most companies, is two jobs:</p>
+
+                    <ul>
+                        <li>The boring 80%: bump a version, run the tests, ship. Daybreak eats this.</li>
+                        <li>The hard 20%: read the vuln, understand the surface area, design the right fix without breaking your API. Daybreak punts on this.</li>
+                    </ul>
+
+                    <p>If your security org spends most of its time on the boring 80%, you have a quarter or two to get ahead of this, because the budget conversation is coming. If your security org is mostly the hard 20%, you have nothing to worry about, except for the part where you&rsquo;ll need to staff up because the tool is going to find more bugs than you currently field.</p>
+
+                    <p>I will not pretend this is a clean win. It isn&rsquo;t. But the wall clock numbers are real, and the wall clock numbers are how this gets sold.</p>
+
+                </article>
+
+                <section class="read-next" aria-label="Read next">
+                    <a href="the-bug-bounty-that-quit.html" class="read-next-item">
+                        <div class="read-next-meta"><span>Notes on Product</span><span class="sep">&middot;</span><span>March 4, 2026</span></div>
+                        <h3 class="read-next-title">The Bug Bounty That Quit</h3>
+                    </a>
+                    <a href="my-phone-approves-code-now.html" class="read-next-item">
+                        <div class="read-next-meta"><span>Field Notes</span><span class="sep">&middot;</span><span>April 24, 2026</span></div>
+                        <h3 class="read-next-title">My Phone Approves Code Now</h3>
+                    </a>
+                    <div class="read-next-all">
+                        <a href="../blog.html" class="link">&larr;&#xFE0E; All posts</a>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <footer class="site-footer">
+            <span>&copy; 2026 Wesley Melo</span>
+            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>
