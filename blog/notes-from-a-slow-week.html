@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes from a Slow Week — Wesley Melo</title>
+    <meta name="description" content="On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.">
+    <meta name="author" content="Wesley Melo">
+    <link rel="canonical" href="https://wesley-m.com/blog/notes-from-a-slow-week.html">
+    <meta property="og:title" content="Notes from a Slow Week — Wesley Melo">
+    <meta property="og:description" content="On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wesley-m.com/blog/notes-from-a-slow-week.html">
+    <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
+    <link rel="icon" href="data:,">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Notes from a Slow Week",
+        "author": {
+            "@type": "Person",
+            "name": "Wesley Melo",
+            "url": "https://wesley-m.com"
+        },
+        "datePublished": "2026-02-05",
+        "url": "https://wesley-m.com/blog/notes-from-a-slow-week.html"
+    }
+    </script>
+    <style>
+
+    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer,
+    figure, figcaption, article, time, blockquote, img {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    header, main, nav, section, footer, figure, article { display: block; }
+    ul { list-style: none; }
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+        --bg: #2B3856;
+        --fg: #FFFFFF;
+        --fg-hover: rgba(255, 255, 255, 0.5);
+        --fg-quiet: rgba(255, 255, 255, 0.78);
+        --border: 2px solid #FFFFFF;
+        --border-heavy: 3px solid #FFFFFF;
+        --rule: 1px solid #FFFFFF;
+    }
+
+    html, body {
+        min-height: 100vh;
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+        background: var(--bg);
+        color: var(--fg);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        padding: 8px 16px;
+        background: var(--fg);
+        color: var(--bg);
+        text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+
+    .link {
+        font-weight: 400;
+        color: var(--fg);
+        text-decoration: none;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        cursor: default;
+    }
+    .link:hover { color: var(--fg-hover); text-decoration: underline; }
+    .link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
+    .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
+    .link:active { background: var(--fg); color: var(--bg); }
+
+    .page { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+
+    .top-bar { padding: 24px 0 0; }
+    .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
+    .site-header {
+        border-bottom: var(--border-heavy);
+        padding: 24px 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .site-header h1 {
+        font-size: 48px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+    }
+    .site-header .page-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fg-hover);
+    }
+
+    .article-column { max-width: 680px; margin: 0 auto; }
+    .post-header { padding: 72px 0 48px; }
+
+    .post-kicker {
+        font-size: 12px;
+        font-variant: small-caps;
+        letter-spacing: 0.22em;
+        color: var(--fg-hover);
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: var(--rule);
+    }
+
+    .post-title {
+        font-size: 48px;
+        line-height: 1.02;
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+    }
+
+    .post-byline {
+        font-size: 13px;
+        font-variant: small-caps;
+        letter-spacing: 0.12em;
+        color: var(--fg-hover);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        padding-top: 16px;
+        border-top: var(--rule);
+    }
+    .post-byline .sep { opacity: 0.45; }
+
+    .post-body { padding: 8px 0 56px; }
+    .post-body p { font-size: 16px; line-height: 24px; margin-bottom: 24px; }
+
+    .post-lede { font-size: 18px; line-height: 1.45; margin-bottom: 32px; }
+    .post-lede::first-letter {
+        float: left;
+        font-size: 52px;
+        line-height: 0.85;
+        padding-right: 8px;
+        padding-top: 6px;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    .post-body h2 {
+        font-size: 20px;
+        font-variant: small-caps;
+        letter-spacing: 0.2em;
+        text-transform: none;
+        font-weight: 400;
+        color: var(--fg-quiet);
+        margin: 48px 0 16px;
+    }
+
+    .post-body blockquote {
+        margin: 40px 0;
+        padding: 24px 0 8px;
+        border-top: var(--rule);
+        font-style: italic;
+        font-size: 24px;
+        line-height: 1.3;
+        letter-spacing: -0.005em;
+    }
+
+    .post-body figure { margin: 48px 0 32px; }
+    .post-body figcaption {
+        font-size: 13px;
+        font-style: italic;
+        color: var(--fg-hover);
+        padding-top: 12px;
+        line-height: 1.4;
+    }
+    .post-body figcaption .credit {
+        font-variant: small-caps;
+        font-style: normal;
+        letter-spacing: 0.08em;
+        margin-left: 8px;
+    }
+    .post-body figure + p { margin-top: 8px; }
+
+    .post-figure {
+        position: relative;
+        width: 100%;
+        background: var(--fg);
+        overflow: hidden;
+    }
+    .post-figure.aspect-wide { aspect-ratio: 16 / 9; }
+    .post-figure.aspect-tall { aspect-ratio: 4 / 3; }
+    .post-figure::before { content: ""; position: absolute; inset: 0; }
+    .post-figure img {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .read-next {
+        margin-top: 48px;
+        padding: 48px 0 0;
+        border-top: var(--border);
+    }
+    .read-next-label {
+        font-size: 12px;
+        font-variant: small-caps;
+        letter-spacing: 0.22em;
+        color: var(--fg-hover);
+        margin-bottom: 24px;
+    }
+    .read-next-item {
+        display: block;
+        padding: 24px 0 28px;
+        border-top: var(--rule);
+        color: inherit;
+        text-decoration: none;
+        cursor: default;
+        transition: padding-left 0.15s ease;
+    }
+    .read-next-item:last-child { border-bottom: var(--rule); }
+    .read-next-item:hover,
+    .read-next-item:focus-visible {
+        outline: none;
+        background: var(--fg);
+        color: var(--bg);
+        padding-left: 24px;
+    }
+    .read-next-item:hover .read-next-meta,
+    .read-next-item:focus-visible .read-next-meta {
+        color: rgba(43, 56, 86, 0.65);
+    }
+    .read-next-meta {
+        font-size: 12px;
+        font-variant: small-caps;
+        letter-spacing: 0.12em;
+        color: var(--fg-hover);
+        margin-bottom: 8px;
+        display: flex;
+        gap: 12px;
+    }
+    .read-next-meta .sep { opacity: 0.45; }
+    .read-next-title {
+        font-size: 20px;
+        line-height: 1.15;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+    }
+    .read-next-all { margin-top: 32px; font-size: 14px; letter-spacing: 0.05em; }
+
+    .site-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 32px 0 24px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-top: var(--border);
+        margin-top: 56px;
+    }
+    .site-footer span { color: var(--fg-hover); }
+
+    @media only screen and (max-width: 768px) {
+        .page { padding: 0 24px; }
+        .site-header h1 { font-size: 32px; }
+        .article-column { max-width: 100%; }
+        .post-header { padding: 48px 0 32px; }
+        .post-title { font-size: 30px; }
+        .post-lede { font-size: 17px; }
+        .post-lede::first-letter { font-size: 48px; padding-right: 6px; }
+        .post-body blockquote { font-size: 20px; }
+        .post-body h2 { margin: 40px 0 12px; font-size: 18px; }
+        .post-byline { flex-direction: column; gap: 4px; }
+        .post-byline .sep { display: none; }
+        .read-next-item:hover,
+        .read-next-item:focus-visible { padding-left: 12px; }
+        .site-footer { flex-direction: column; gap: 8px; text-align: center; }
+        .link:hover { text-decoration: none; }
+    }
+
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="page">
+
+        <nav class="top-bar" aria-label="Breadcrumb">
+            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
+        </nav>
+
+        <header class="site-header">
+            <h1>Wesley Melo</h1>
+            <span class="page-label">Blog / Post</span>
+        </header>
+
+        <main id="main-content">
+
+            <div class="article-column">
+
+                <header class="post-header">
+                    <div class="post-kicker">Field notes N.004 &middot; Notes on Pace</div>
+                    <h1 class="post-title">Notes from a Slow Week</h1>
+                    <div class="post-byline">
+                        <span>By Wesley Melo</span>
+                        <span class="sep">&middot;</span>
+                        <time datetime="2026-02-05">February 5, 2026</time>
+                        <span class="sep">&middot;</span>
+                        <span>3 min read</span>
+                    </div>
+                </header>
+
+                <article class="post-body">
+
+                    <p class="post-lede">Last week I did an experiment that, in retrospect, sounds like the opening line of a TED talk I would never give: I closed every productivity tool on my laptop and tried to work like it was 2014. No agents. No autocomplete on the autocomplete. No little side panel suggesting I &ldquo;summarize&rdquo; the email I just wrote. Just me, a text editor, and the gathering suspicion that I have been a productivity tool for the productivity tools.</p>
+
+                    <p>It went both better and worse than I expected, which is the only honest review of any experiment.</p>
+
+                    <h2>I. The spreadsheet felt my absence (it did not)</h2>
+
+                    <p>The numbers on the AI-at-work side of things have started to wobble in a way that I find clarifying. There&rsquo;s a story going around right now about Amazon employees gaming their internal &ldquo;AI usage&rdquo; metrics &mdash; basically inventing little tasks to feed the assistant so the dashboard goes green. There&rsquo;s a separate, broader thesis &mdash; call it AI psychosis at the org level &mdash; that says many companies have collectively convinced themselves the tools are working much better than they actually are, because the alternative is to admit they spent the year on a vibe.</p>
+
+                    <p>I am not anti-tool. (I write this on a laptop that costs more than my first car, with a model running in the background that I will absolutely use to spell-check this piece. Please don&rsquo;t @ me.) But the gap between &ldquo;the tool is great&rdquo; and &ldquo;I am great <em>using</em> the tool&rdquo; has gotten very wide, and a slow week was the only way I could see the edge of it.</p>
+
+                    <figure>
+                        <div class="post-figure aspect-wide" role="img" aria-label="An empty desk with a single notebook and a closed laptop">
+                            <img src="https://picsum.photos/seed/wesm-slow-desk/1200/675" alt="An empty desk with a single notebook and a closed laptop" loading="lazy">
+                        </div>
+                        <figcaption>Day three. The cursor stopped blinking suggestions at me. I cried a little. <span class="credit">Photo &mdash; Placeholder</span></figcaption>
+                    </figure>
+
+                    <h2>II. Productivity theater has an intermission</h2>
+
+                    <p>The first two days were unhinged. I kept reaching for the shortcut, the autocomplete, the &ldquo;rewrite this in a friendlier tone&rdquo; button. I have type-six-em-dashes-per-sentence Disease and my brain wanted help editing it down. I had to physically sit on my hands at one point. (Reader, this is humiliating to admit. Reader, I&rsquo;m not lying.)</p>
+
+                    <p>By day three the thing I&rsquo;d been hiding from showed up. The thing was: a lot of my &ldquo;output&rdquo; over the last year had been the residue of having a co-pilot, not the residue of having thought about anything. The Slack messages that pinged out polished. The doc that arrived 40% drafted by Tuesday morning. The pull request comment that was diplomatic in a way I&rsquo;m not, in person, ever. None of it was bad. Almost none of it was <em>mine</em>.</p>
+
+                    <p>Then by day five something quieter happened. I started writing slower, but the sentences started landing harder. The doc had fewer headers but the headers meant something. I sent a message to a teammate that was twelve words long and got back &ldquo;thank you, that&rsquo;s exactly what I needed,&rdquo; which is the rarest reply in software.</p>
+
+                    <blockquote>The output got worse on paper and better in the room. That is a metric we do not have a dashboard for.</blockquote>
+
+                    <h2>III. Throwing some ice at the fever</h2>
+
+                    <p>A few numbers, since we&rsquo;re here:</p>
+
+                    <p>The average knowledge worker now touches around <strong>seven distinct AI-assisted tools</strong> in a normal week. A separate survey says about <strong>one in three</strong> of those workers admits to fabricating activity to satisfy a tool&rsquo;s tracking. Meanwhile, the average length of a focused work block has fallen below twenty minutes for the first time since the metric was invented. Reader, twenty minutes is not a work block. Twenty minutes is a microwave timer.</p>
+
+                    <p>&ldquo;If you&rsquo;re not 10x-ing with agents, you&rsquo;re obsolete by Q3.&rdquo;</p>
+
+                    <p style="text-align:right; color: var(--fg-hover); font-size: 14px; letter-spacing: 0.05em; margin-top: -16px;">&mdash; A Tech Guru on X</p>
+
+                    <p>Sure. Q3 will be here in a minute. I&rsquo;ll be the obsolete person writing a sentence on a Tuesday and meaning it.</p>
+
+                    <figure>
+                        <div class="post-figure aspect-tall" role="img" aria-label="A handwritten notebook open mid-sentence">
+                            <img src="https://picsum.photos/seed/wesm-slow-notebook/1200/900" alt="A handwritten notebook open mid-sentence" loading="lazy">
+                        </div>
+                        <figcaption>Bad handwriting, good ideas. We will not be optimizing this. <span class="credit">Photo &mdash; Placeholder</span></figcaption>
+                    </figure>
+
+                    <h2>IV. So&hellip; is slow a flex?</h2>
+
+                    <p>I&rsquo;m not going to tell you to delete your tools. (I&rsquo;m not going to tell you to keep them either &mdash; that&rsquo;s a sponsorship I have not been offered.) What I will say is that a slow week worked on me like a tuning fork. It reminded me what the &ldquo;before&rdquo; state of a sentence feels like, before three rounds of suggestion polish it into being maximally readable and minimally surprising.</p>
+
+                    <p>The next economy is going to reward the people who can still notice the difference. Not because slowness is virtuous &mdash; it&rsquo;s not, it&rsquo;s mostly inconvenient &mdash; but because the ability to feel the difference between &ldquo;the tool wrote this&rdquo; and &ldquo;I meant this&rdquo; is going to be the new literacy. You can&rsquo;t learn it without the receipts that a slow week gives you.</p>
+
+                    <p>Some things even AI can&rsquo;t help with. The list includes: realizing your last six Slack messages didn&rsquo;t sound like you, deciding the meeting actually should be a walk, telling your teammate the thing you&rsquo;ve been afraid to say. We are going to need more practice at all of those, soon, very fast.</p>
+
+                    <p>Now if you&rsquo;ll excuse me, I have to go close the seventeen tabs I opened during this draft. By hand. Like an animal.</p>
+
+                </article>
+
+                <section class="read-next" aria-label="Read next">
+                    <div class="read-next-label">Read next</div>
+
+                    <a href="how-i-learned-to-stop-worrying-and-love-being-human.html" class="read-next-item">
+                        <div class="read-next-meta">
+                            <span>Essay</span>
+                            <span class="sep">&middot;</span>
+                            <span>February 28, 2026</span>
+                        </div>
+                        <h3 class="read-next-title">How I Learned to Stop Worrying and Love Being Human</h3>
+                    </a>
+
+                    <a href="the-digital-doppelgangers-rises.html" class="read-next-item">
+                        <div class="read-next-meta">
+                            <span>Essay</span>
+                            <span class="sep">&middot;</span>
+                            <span>March 18, 2026</span>
+                        </div>
+                        <h3 class="read-next-title">The Digital Doppelg&auml;ngers Rises</h3>
+                    </a>
+
+                    <div class="read-next-all">
+                        <a href="../blog.html" class="link">&larr;&#xFE0E; All posts</a>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+        <footer class="site-footer">
+            <span>&copy; 2026 Wesley Melo</span>
+            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>
