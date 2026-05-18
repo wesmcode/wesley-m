@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, noai, noimageai, noml" />
+  <title>wesley-m — Presentations</title>
+  <link rel="stylesheet" href="../../css/base.css" />
+  <style>
+    :root {
+      --bg: #2B3856;
+      --fg: #FFFFFF;
+      --fg-hover: rgba(255,255,255,0.5);
+      --border: 2px solid #FFFFFF;
+    }
+    html, body { background: var(--bg); color: var(--fg); }
+    body { min-height: 100vh; display: grid; align-items: center; justify-content: center; padding: 40px; }
+    .wrap { max-width: 720px; display: grid; gap: 28px; }
+    .eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-hover); }
+    h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.015em; font-weight: 400; }
+    .lede { font-size: 18px; line-height: 1.55; color: rgba(255,255,255,0.7); max-width: 56ch; }
+    ul.list { display: grid; gap: 12px; margin-top: 4px; border-top: var(--border); padding-top: 24px; }
+    li.item a {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 20px;
+      align-items: baseline;
+      padding: 18px 20px;
+      border: var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    li.item a:hover {
+      background: var(--fg); color: var(--bg);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--fg);
+    }
+    .num { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 14px; letter-spacing: 0; }
+    .title { font-size: 18px; }
+    .arrow { font-size: 18px; }
+    .meta { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    li.item a:hover .meta { color: rgba(43,56,86,0.6); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">wesley-m · docs</p>
+    <h1>Presentations</h1>
+    <p class="lede">Slide decks that explain how this project is built and run. Each lives in its own folder under <code>docs/presentations/</code>. Vanilla HTML/CSS/JS — no build, no dependencies.</p>
+    <ul class="list">
+      <li class="item">
+        <a href="agent-teams/index.html">
+          <span class="num">01</span>
+          <span>
+            <span class="title">Multi-Agent System — PM View</span><br/>
+            <span class="meta">14 slides · 21 workers · 4 squads · 4 lifecycle phases</span>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
