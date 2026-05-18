@@ -1,0 +1,227 @@
+:root {
+    --bg: #2B3856;
+    --fg: #FFFFFF;
+    --fg-hover: rgba(255, 255, 255, 0.5);
+    --fg-quiet: rgba(255, 255, 255, 0.7);
+    --rule: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+html, body {
+    background: var(--bg);
+    color: var(--fg);
+}
+
+.page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+}
+
+/* Top bar */
+.top-bar {
+    padding: 40px 0 0;
+}
+.top-bar .link {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+
+/* HERO ------------------------------------------------------ */
+.hero {
+    padding: 72px 0 88px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hero-title {
+    font-size: clamp(48px, 6.4vw, 80px);
+    line-height: 1.02;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+}
+
+.hero-lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--fg-quiet);
+    max-width: 38ch;
+    margin: 0;
+}
+
+.hero-flourish {
+    width: 240px;
+    height: 70px;
+    margin-top: 24px;
+    color: var(--fg);
+    display: block;
+}
+
+.hero-figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 4 / 5;
+    background: var(--bg);
+    isolation: isolate;
+}
+.hero-figure > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    /* Lift shadows so the face reads on the dark page. */
+    filter: brightness(1.15) contrast(0.95);
+}
+.hero-figure::after {
+    /* Gentle navy color harmony — soft-light shifts the photo's color cast
+       toward page navy without flattening luminance or removing skin tone. */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    mix-blend-mode: soft-light;
+    opacity: 0.55;
+    pointer-events: none;
+}
+.hero-figure::before {
+    /* Soft bottom fade so the rectangle dissolves into the page. */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 70%, var(--bg) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* BIO ------------------------------------------------------- */
+.bio {
+    padding: 56px 0 64px;
+    border-top: var(--rule);
+}
+
+.section-label-row {
+    padding-bottom: 36px;
+}
+.section-label {
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+}
+
+.bio-body {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.bio-body p {
+    font-size: 19px;
+    line-height: 1.65;
+    color: var(--fg);
+    margin: 0;
+}
+
+/* STATS ----------------------------------------------------- */
+.stats {
+    padding: 56px 0 72px;
+    border-top: var(--rule);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.stat-value {
+    font-size: clamp(48px, 5.8vw, 72px);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+}
+
+/* FOOTER ---------------------------------------------------- */
+#site-footer {
+    padding-top: 24px;
+    border-top: var(--rule);
+}
+#site-footer .footer-row {
+    border-top: 0;
+    padding-top: 24px;
+}
+#site-footer .footer-meta {
+    color: var(--fg-hover);
+}
+
+/* MOBILE ---------------------------------------------------- */
+@media only screen and (max-width: 768px) {
+    .page {
+        padding: 0 24px 56px;
+    }
+
+    .top-bar {
+        padding-top: 28px;
+    }
+
+    .hero {
+        padding: 48px 0 56px;
+    }
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+    .hero-figure {
+        order: -1;
+        max-width: 320px;
+        align-self: flex-start;
+        aspect-ratio: 4 / 5;
+    }
+    .hero-flourish {
+        width: 180px;
+    }
+
+    .bio {
+        padding: 40px 0 48px;
+    }
+    .bio-body p {
+        font-size: 17px;
+    }
+
+    .stats {
+        padding: 40px 0 56px;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
