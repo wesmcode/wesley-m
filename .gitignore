@@ -16,3 +16,6 @@
 
 # Local-only project tracking, scratch notes, drafts. Never pushed.
 .local/
+
+# Ideation decks — presentations for ideas / test cases. Never pushed.
+ideation/
