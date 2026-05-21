@@ -35,160 +35,266 @@
 
     <div class="page">
 
-        <nav class="top-bar" aria-label="Breadcrumb and variant toggle">
+        <nav class="top-bar" aria-label="Breadcrumb">
             <a href="index.html" class="link">&larr;&#xFE0E; Home</a>
-            <div class="variant-toggle" role="group" aria-label="Layout variant">
-                <a href="blog.html" class="is-active" aria-current="page">Variant A</a>
-                <a href="blog-b.html">Variant B</a>
-            </div>
         </nav>
 
         <header class="site-header">
-            <h1>Direction Challenge</h1>
-            <p class="site-subtitle">free to be chronically-online-tech-savvy-satirist, doom-scrolling specialists on digital</p>
+            <div class="masthead-left">
+                <p class="site-subtitle">Free to be chronically-online tech-savvy satirists &mdash; doom-scrolling specialists on digital.</p>
+                <h1>Direction Challenge</h1>
+            </div>
+            <aside class="masthead-ad" role="complementary" aria-label="Sponsored content">
+                <div class="ad-slot-label">Advertisement</div>
+                <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard slot</div>
+            </aside>
         </header>
 
         <main id="main-content">
 
-            <article class="featured" aria-label="Featured post">
-                <a href="blog/the-90s-kid-guide-to-actually-learning-tech.html" class="featured-link">
-                    <div class="featured-grid">
-                        <div class="featured-content">
-                            <h2 class="featured-title">The 90s Kid Guide to Actually Learning Tech</h2>
-                            <p class="featured-dek">How a generation learned computers by breaking them &mdash; and why that might be the best way to learn AI, too.</p>
-                            <div class="featured-meta">
-                                <span>April 2, 2026</span>
-                                <span class="sep">&middot;</span>
-                                <span>6 min read</span>
+            <section aria-label="Top stories">
+                <div class="zone-head">
+                    <h2>Top story</h2>
+                    <span class="zone-sub">Featured this week</span>
+                    <span class="zone-spacer"></span>
+                    <a href="#archive" class="zone-link">All posts &rarr;&#xFE0E;</a>
+                </div>
+
+                <div class="hero-grid">
+                    <a href="blog/the-90s-kid-guide-to-actually-learning-tech.html" class="splash" aria-label="Featured post">
+                        <div class="splash-figure">
+                            <img src="https://picsum.photos/seed/wesm-90s-1/1200/675" alt="Forest canopy looking up at tall trees" loading="lazy">
+                        </div>
+                        <span class="kicker">Essay</span>
+                        <h3 class="splash-title">The 90s Kid Guide to Actually Learning Tech</h3>
+                        <p class="splash-dek">How a generation learned computers by breaking them &mdash; and why that might be the best way to learn AI, too.</p>
+                        <div class="byline">
+                            <span class="author">Wesley Melo</span>
+                            <span class="sep">&middot;</span>
+                            <span>April 2, 2026</span>
+                            <span class="sep">&middot;</span>
+                            <span>6 min read</span>
+                        </div>
+                    </a>
+
+                    <div class="hero-divider" aria-hidden="true"></div>
+
+                    <div class="side-stack" aria-label="Secondary stories">
+                        <a href="blog/the-digital-doppelgangers-rises.html" class="side-item with-thumb">
+                            <div>
+                                <span class="kicker">Analysis</span>
+                                <h3 class="side-title">The Digital Doppelg&auml;ngers Rises</h3>
+                                <p class="side-dek">We are generating our replacements at scale.</p>
+                                <div class="side-meta">March 18 &middot; 7 min</div>
                             </div>
-                        </div>
-                        <div class="featured-figure" role="img" aria-label="Forest canopy looking up at tall trees">
-                            <img src="https://picsum.photos/seed/wesm-90s-1/800/600" alt="Forest canopy looking up at tall trees" loading="lazy">
-                        </div>
+                            <div class="side-thumb">
+                                <img src="https://picsum.photos/seed/card-doppel/200/200" alt="" loading="lazy">
+                            </div>
+                        </a>
+
+                        <a href="blog/how-i-learned-to-stop-worrying-and-love-being-human.html" class="side-item with-thumb">
+                            <div>
+                                <span class="kicker">Opinion</span>
+                                <h3 class="side-title">How I Learned to Stop Worrying and Love Being Human</h3>
+                                <p class="side-dek">A reluctant defense of the messy, slow, imperfect parts of being a person.</p>
+                                <div class="side-meta">Feb 28 &middot; 5 min</div>
+                            </div>
+                            <div class="side-thumb">
+                                <img src="https://picsum.photos/seed/card-human/200/200" alt="" loading="lazy">
+                            </div>
+                        </a>
+
+                        <a href="blog/notes-from-a-slow-week.html" class="side-item with-thumb">
+                            <div>
+                                <span class="kicker">Field Notes</span>
+                                <h3 class="side-title">Notes from a Slow Week</h3>
+                                <p class="side-dek">On friction, boredom, and the quiet engineering of patience.</p>
+                                <div class="side-meta">Feb 5 &middot; 3 min</div>
+                            </div>
+                            <div class="side-thumb">
+                                <img src="https://picsum.photos/seed/card-slow/200/200" alt="" loading="lazy">
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </article>
-
-            <div class="section-label-row">
-                <span class="section-label">More Posts</span>
-            </div>
-
-            <section aria-label="More posts">
-                <div class="card-grid">
-
-                    <a href="blog/the-digital-doppelgangers-rises.html" class="card">
-                        <div class="card-figure">
-                            <img src="https://picsum.photos/seed/card-doppel/600/375" alt="" loading="lazy">
-                        </div>
-                        <h3 class="card-title">The Digital Doppelg&auml;ngers Rises</h3>
-                        <p class="card-dek">We are generating our replacements at scale. The question is whether we can tell them apart from ourselves.</p>
-                        <div class="card-meta">March 18, 2026 &middot; 7 Min</div>
-                    </a>
-
-                    <a href="blog/how-i-learned-to-stop-worrying-and-love-being-human.html" class="card">
-                        <div class="card-figure">
-                            <img src="https://picsum.photos/seed/card-human/600/375" alt="" loading="lazy">
-                        </div>
-                        <h3 class="card-title">How I Learned to Stop Worrying and Love Being Human</h3>
-                        <p class="card-dek">A reluctant defense of the messy, slow, imperfect parts of being a person &mdash; in an industry that wants them optimized away.</p>
-                        <div class="card-meta">February 28, 2026 &middot; 5 Min</div>
-                    </a>
-
-                    <a href="blog/notes-from-a-slow-week.html" class="card">
-                        <div class="card-figure">
-                            <img src="https://picsum.photos/seed/card-slow/600/375" alt="" loading="lazy">
-                        </div>
-                        <h3 class="card-title">Notes from a Slow Week</h3>
-                        <p class="card-dek">On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.</p>
-                        <div class="card-meta">February 5, 2026 &middot; 3 Min</div>
-                    </a>
-
                 </div>
             </section>
 
-            <section class="archive" aria-label="Archive">
+            <div class="body-grid">
 
-                <a href="blog/the-digital-doppelgangers-rises.html" class="archive-row">
-                    <div class="archive-meta">
-                        <span>March 18, 2026</span>
-                        <span class="sep">&middot;</span>
-                        <span>7 min read</span>
-                    </div>
-                    <h3 class="archive-row-title">The Digital Doppelg&auml;ngers Rises</h3>
-                    <p class="archive-dek">We are generating our replacements at scale. The question is whether we can tell them apart from ourselves.</p>
-                </a>
-
-                <a href="blog/how-i-learned-to-stop-worrying-and-love-being-human.html" class="archive-row">
-                    <div class="archive-meta">
-                        <span>February 28, 2026</span>
-                        <span class="sep">&middot;</span>
-                        <span>5 min read</span>
-                    </div>
-                    <h3 class="archive-row-title">How I Learned to Stop Worrying and Love Being Human</h3>
-                    <p class="archive-dek">A reluctant defense of the messy, slow, imperfect parts of being a person &mdash; in an industry that wants them optimized away.</p>
-                </a>
-
-                <a href="blog/notes-from-a-slow-week.html" class="archive-row">
-                    <div class="archive-meta">
-                        <span>February 5, 2026</span>
-                        <span class="sep">&middot;</span>
-                        <span>3 min read</span>
-                    </div>
-                    <h3 class="archive-row-title">Notes from a Slow Week</h3>
-                    <p class="archive-dek">On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.</p>
-                </a>
-
-            </section>
-
-            <div class="section-label-row">
-                <span class="section-label">What I am reading</span>
-            </div>
-
-            <section aria-label="What I am reading">
-                <div class="reading-list">
-
-                    <a href="#" class="reading-item" target="_blank" rel="noopener noreferrer">
-                        <div class="reading-item-content">
-
-                            <div class="reading-item-title">The US Army Is Building Its Own Chatbot for Combat</div>
+                <div>
+                    <section class="opinion-band" aria-label="Opinion">
+                        <div class="zone-head">
+                            <h2>Opinion</h2>
+                            <span class="zone-sub">Columns &amp; commentary</span>
+                            <span class="zone-spacer"></span>
+                            <a href="#" class="zone-link">More &rarr;&#xFE0E;</a>
                         </div>
-                        <div class="reading-item-figure">
-                            <img src="https://picsum.photos/seed/read-army/200/150" alt="" loading="lazy">
-                        </div>
-                    </a>
 
-                    <a href="#" class="reading-item" target="_blank" rel="noopener noreferrer">
-                        <div class="reading-item-content">
-
-                            <div class="reading-item-title">John Perry Barlow, JFK Jr., and a Night of Grief I Can&#8217;t Forget</div>
+                        <div class="opinion-grid">
+                            <a href="#" class="opinion-item">
+                                <div class="opinion-author">
+                                    <span class="opinion-avatar" aria-hidden="true">WM</span>
+                                    <span class="opinion-author-name">Wesley Melo</span>
+                                </div>
+                                <h3 class="opinion-title">The roadmap nobody reads is the one that keeps you safe.</h3>
+                                <div class="opinion-meta">April 28, 2026</div>
+                            </a>
+                            <a href="#" class="opinion-item">
+                                <div class="opinion-author">
+                                    <span class="opinion-avatar" aria-hidden="true">WM</span>
+                                    <span class="opinion-author-name">Wesley Melo</span>
+                                </div>
+                                <h3 class="opinion-title">If your demo only works on the demo machine, you don&rsquo;t have a product.</h3>
+                                <div class="opinion-meta">April 12, 2026</div>
+                            </a>
+                            <a href="#" class="opinion-item">
+                                <div class="opinion-author">
+                                    <span class="opinion-avatar" aria-hidden="true">WM</span>
+                                    <span class="opinion-author-name">Wesley Melo</span>
+                                </div>
+                                <h3 class="opinion-title">The PM&rsquo;s job in 2026: stop the team from shipping the wrong thing faster.</h3>
+                                <div class="opinion-meta">March 29, 2026</div>
+                            </a>
                         </div>
-                        <div class="reading-item-figure">
-                            <img src="https://picsum.photos/seed/read-barlow/200/150" alt="" loading="lazy">
-                        </div>
-                    </a>
+                    </section>
 
-                    <a href="#" class="reading-item" target="_blank" rel="noopener noreferrer">
-                        <div class="reading-item-content">
-
-                            <div class="reading-item-title">Cursor Launches a New AI Agent Experience to Take On Claude Code and Codex</div>
+                    <section aria-label="More posts">
+                        <div class="zone-head" id="archive">
+                            <h2>More posts</h2>
+                            <span class="zone-sub">Recent writing</span>
+                            <span class="zone-spacer"></span>
+                            <a href="#" class="zone-link">Archive &rarr;&#xFE0E;</a>
                         </div>
-                        <div class="reading-item-figure">
-                            <img src="https://picsum.photos/seed/read-cursor/200/150" alt="" loading="lazy">
-                        </div>
-                    </a>
 
-                    <a href="#" class="reading-item" target="_blank" rel="noopener noreferrer">
-                        <div class="reading-item-content">
-
-                            <div class="reading-item-title">AI Models Lie, Cheat, and Steal to Protect Other Models From Being Deleted</div>
+                        <div class="card-row">
+                            <a href="blog/the-vibe-coder-confessional.html" class="card-b">
+                                <div class="card-b-figure">
+                                    <img src="https://picsum.photos/seed/card-vibe/600/450" alt="" loading="lazy">
+                                </div>
+                                <span class="kicker">Essay</span>
+                                <h3 class="card-b-title">The Vibe Coder Confessional</h3>
+                                <p class="card-b-dek">Notes on the new craft of programming with an LLM in the room.</p>
+                                <div class="card-b-meta">May 12 &middot; 5 min</div>
+                            </a>
+                            <a href="blog/r-programming-banned-the-robots.html" class="card-b">
+                                <div class="card-b-figure">
+                                    <img src="https://picsum.photos/seed/card-rprog/600/450" alt="" loading="lazy">
+                                </div>
+                                <span class="kicker">Analysis</span>
+                                <h3 class="card-b-title">r/Programming Banned the Robots</h3>
+                                <p class="card-b-dek">A moderator policy becomes a referendum on community forums.</p>
+                                <div class="card-b-meta">May 5 &middot; 6 min</div>
+                            </a>
+                            <a href="blog/my-phone-approves-code-now.html" class="card-b">
+                                <div class="card-b-figure">
+                                    <img src="https://picsum.photos/seed/card-phone/600/450" alt="" loading="lazy">
+                                </div>
+                                <span class="kicker">Field Notes</span>
+                                <h3 class="card-b-title">My Phone Approves Code Now</h3>
+                                <p class="card-b-dek">A two-week diary of running CI reviews from a thumb.</p>
+                                <div class="card-b-meta">April 24 &middot; 4 min</div>
+                            </a>
+                            <a href="blog/three-way-race-for-your-terminal.html" class="card-b">
+                                <div class="card-b-figure">
+                                    <img src="https://picsum.photos/seed/card-terminal/600/450" alt="" loading="lazy">
+                                </div>
+                                <span class="kicker">Analysis</span>
+                                <h3 class="card-b-title">The Three-Way Race for Your Terminal</h3>
+                                <p class="card-b-dek">Claude Code, Codex, Cursor &mdash; three theories of the work.</p>
+                                <div class="card-b-meta">April 9 &middot; 8 min</div>
+                            </a>
                         </div>
-                        <div class="reading-item-figure">
-                            <img src="https://picsum.photos/seed/read-aimodels/200/150" alt="" loading="lazy">
-                        </div>
-                    </a>
+                    </section>
 
+                    <section class="reading-strip" aria-label="What I am reading">
+                        <div class="zone-head">
+                            <h2>What I am reading</h2>
+                            <span class="zone-sub">From the open web</span>
+                        </div>
+                        <div class="reading-grid">
+                            <a href="#" class="reading-link" target="_blank" rel="noopener noreferrer">
+                                <div class="reading-link-thumb">
+                                    <img src="https://picsum.photos/seed/read-army/200/150" alt="" loading="lazy">
+                                </div>
+                                <div class="reading-link-body">
+                                    <div class="reading-link-source">Wired</div>
+                                    <div class="reading-link-title">The US Army Is Building Its Own Chatbot for Combat</div>
+                                </div>
+                            </a>
+                            <a href="#" class="reading-link" target="_blank" rel="noopener noreferrer">
+                                <div class="reading-link-thumb">
+                                    <img src="https://picsum.photos/seed/read-barlow/200/150" alt="" loading="lazy">
+                                </div>
+                                <div class="reading-link-body">
+                                    <div class="reading-link-source">The Atlantic</div>
+                                    <div class="reading-link-title">John Perry Barlow, JFK Jr., and a Night of Grief I Can&rsquo;t Forget</div>
+                                </div>
+                            </a>
+                            <a href="#" class="reading-link" target="_blank" rel="noopener noreferrer">
+                                <div class="reading-link-thumb">
+                                    <img src="https://picsum.photos/seed/read-cursor/200/150" alt="" loading="lazy">
+                                </div>
+                                <div class="reading-link-body">
+                                    <div class="reading-link-source">TechCrunch</div>
+                                    <div class="reading-link-title">Cursor Launches a New AI Agent Experience to Take On Claude Code and Codex</div>
+                                </div>
+                            </a>
+                            <a href="#" class="reading-link" target="_blank" rel="noopener noreferrer">
+                                <div class="reading-link-thumb">
+                                    <img src="https://picsum.photos/seed/read-aimodels/200/150" alt="" loading="lazy">
+                                </div>
+                                <div class="reading-link-body">
+                                    <div class="reading-link-source">Ars Technica</div>
+                                    <div class="reading-link-title">AI Models Lie, Cheat, and Steal to Protect Other Models From Being Deleted</div>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
                 </div>
-            </section>
+
+                <aside class="sidebar" aria-label="Most read">
+                    <div class="zone-head">
+                        <h2>Most read</h2>
+                    </div>
+                    <div class="most-read">
+                        <a href="blog/the-90s-kid-guide-to-actually-learning-tech.html" class="most-read-item">
+                            <span class="most-read-number">1</span>
+                            <div>
+                                <div class="most-read-title">The 90s Kid Guide to Actually Learning Tech</div>
+                                <div class="most-read-meta">6 min read</div>
+                            </div>
+                        </a>
+                        <a href="blog/the-digital-doppelgangers-rises.html" class="most-read-item">
+                            <span class="most-read-number">2</span>
+                            <div>
+                                <div class="most-read-title">The Digital Doppelg&auml;ngers Rises</div>
+                                <div class="most-read-meta">7 min read</div>
+                            </div>
+                        </a>
+                        <a href="blog/how-i-learned-to-stop-worrying-and-love-being-human.html" class="most-read-item">
+                            <span class="most-read-number">3</span>
+                            <div>
+                                <div class="most-read-title">How I Learned to Stop Worrying and Love Being Human</div>
+                                <div class="most-read-meta">5 min read</div>
+                            </div>
+                        </a>
+                        <a href="blog/notes-from-a-slow-week.html" class="most-read-item">
+                            <span class="most-read-number">4</span>
+                            <div>
+                                <div class="most-read-title">Notes from a Slow Week</div>
+                                <div class="most-read-meta">3 min read</div>
+                            </div>
+                        </a>
+                        <a href="blog/the-vibe-coder-confessional.html" class="most-read-item">
+                            <span class="most-read-number">5</span>
+                            <div>
+                                <div class="most-read-title">The Vibe Coder Confessional</div>
+                                <div class="most-read-meta">5 min read</div>
+                            </div>
+                        </a>
+                    </div>
+                </aside>
+            </div>
 
         </main>
 
