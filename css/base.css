@@ -39,6 +39,19 @@ html, body {
 }
 .skip-link:focus { left: 0; }
 
+/* Visually hidden — keep accessible to screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* All clickable elements */
 .link {
     font-weight: 400;
@@ -131,7 +144,17 @@ html, body {
     }
     .footer-nav {
         flex-wrap: wrap;
-        gap: 16px 24px;
+        gap: 8px 24px;
+    }
+    /* WCAG 2.5.8 — 44px tap target on touch devices. */
+    .footer-nav .link {
+        padding-block: 10px;
+        line-height: 24px;
     }
     .link:hover { text-decoration: none; }
+}
+
+.footer-brand:focus-visible {
+    outline: 3px solid var(--fg, currentColor);
+    outline-offset: 3px;
 }
