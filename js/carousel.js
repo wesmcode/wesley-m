@@ -5,15 +5,10 @@
     var cards = cardsRow.querySelectorAll('.about-card');
     if (!cards.length) return;
 
-    var pauseBtn = document.getElementById('about-cards-pause');
     var liveRegion = document.getElementById('about-cards-live');
 
     var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var timer = null;
     var current = 0;
-    var paused = false;
-    var userPaused = false;
-    var inView = true;
     var suppressScrollSync = false;
 
     function cardTitle(i) {
@@ -25,8 +20,6 @@
         current = index;
         cards.forEach(function (card, i) {
             card.classList.toggle('is-active', i === index);
-        });
-        cards.forEach(function (card, i) {
             if (i === index) {
                 card.setAttribute('data-active', 'true');
             } else {
@@ -56,40 +49,6 @@
         if (!cards[i]) return;
         scrollCardIntoView(i);
         setActive(i);
-    }
-
-    function advance() {
-        if (paused || userPaused || !inView) return;
-        goTo((current + 1) % cards.length);
-    }
-
-    function start() {
-        if (prefersReduced || userPaused) return;
-        stop();
-        timer = setInterval(advance, 5000);
-    }
-
-    function stop() {
-        if (timer) { clearInterval(timer); timer = null; }
-    }
-
-    cardsRow.addEventListener('mouseenter', function () { paused = true; });
-    cardsRow.addEventListener('mouseleave', function () { paused = false; });
-    cardsRow.addEventListener('focusin',    function () { paused = true; });
-    cardsRow.addEventListener('focusout',   function () { paused = false; });
-
-    if (pauseBtn) {
-        pauseBtn.addEventListener('click', function () {
-            userPaused = !userPaused;
-            pauseBtn.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
-            pauseBtn.textContent = userPaused ? 'Play' : 'Pause';
-            if (userPaused) stop(); else start();
-        });
-        if (prefersReduced) {
-            userPaused = true;
-            pauseBtn.setAttribute('aria-pressed', 'true');
-            pauseBtn.textContent = 'Play';
-        }
     }
 
     cardsRow.addEventListener('keydown', function (e) {
@@ -126,15 +85,5 @@
     }
     cardsRow.addEventListener('scroll', syncFromScroll, { passive: true });
 
-    if ('IntersectionObserver' in window) {
-        var visObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                inView = entry.isIntersecting;
-            });
-        }, { threshold: 0.2 });
-        visObserver.observe(cardsRow);
-    }
-
     setActive(0);
-    start();
 })();
