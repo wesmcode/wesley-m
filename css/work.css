@@ -1,6 +1,15 @@
 /* WORK HUB — extends css/services.css */
 /* services.css supplies: tokens, top-bar, section-*, hero-*, etc. */
 
+/* Page background matches the index navy (--brand-tone). */
+:root {
+    --bg: #2B3856;
+}
+
+.top-bar {
+    background: rgba(43, 56, 86, 0.92);
+}
+
 /* Disable scroll-snap on this page — single hero, no need for it. */
 html {
     scroll-snap-type: none;
