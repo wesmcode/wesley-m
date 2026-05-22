@@ -115,7 +115,7 @@
     cursor: pointer;
 }
 .zone-head .zone-link:hover { color: var(--fg); text-decoration: underline; }
-.zone-head .zone-link:focus-visible { outline: var(--rule); outline-offset: 4px; color: var(--fg); }
+.zone-head .zone-link:focus-visible { outline: var(--rule-medium); outline-offset: 4px; color: var(--fg); }
 
 /* Kicker — layered tag, offset rectangle drawn via box-shadow.
    Static (rest):  filled navy + WHITE text · outlined back offset UP-RIGHT
@@ -314,7 +314,7 @@ a:focus-visible .kicker {
 .opinion-item:first-child { padding-left: 0; }
 .opinion-item:last-child { border-right: none; padding-right: 0; }
 .opinion-item:hover .opinion-title { text-decoration: underline; }
-.opinion-item:focus-visible { outline: var(--rule); outline-offset: 4px; }
+.opinion-item:focus-visible { outline: var(--rule-medium); outline-offset: 4px; }
 
 .opinion-author {
     display: flex;
@@ -432,7 +432,7 @@ a:focus-visible .kicker {
 }
 .most-read-item:last-child { border-bottom: none; }
 .most-read-item:hover .most-read-title { text-decoration: underline; }
-.most-read-item:focus-visible { outline: var(--rule); outline-offset: 2px; }
+.most-read-item:focus-visible { outline: var(--rule-medium); outline-offset: 2px; }
 .most-read-number {
     font-size: 44px;
     line-height: 0.9;
