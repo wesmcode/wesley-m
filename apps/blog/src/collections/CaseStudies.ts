@@ -40,35 +40,12 @@ const enforcePublishGate: CollectionBeforeChangeHook = async ({ data, originalDo
   if (!isFilled(next.title)) missing.push('title')
   if (!isFilled(next.client)) missing.push('client')
   if (!isFilled(next.summary)) missing.push('summary')
-  if (!isFilled(next.heroImage)) missing.push('hero image')
   if (!isFilled(next.seoTitle)) missing.push('SEO title')
   if (!isFilled(next.seoDescription)) missing.push('SEO description')
   if (!isFilled(next.publishDate)) missing.push('publish date')
 
-  if (isFilled(next.heroImage)) {
-    try {
-      const heroId =
-        typeof next.heroImage === 'object' && next.heroImage !== null && 'id' in (next.heroImage as Record<string, unknown>)
-          ? ((next.heroImage as { id: string | number }).id)
-          : (next.heroImage as string | number)
-      const media = await req.payload.findByID({ collection: 'media', id: heroId, depth: 0 })
-      const decorative = (media as { decorative?: boolean }).decorative
-      const altOk =
-        decorative ||
-        (typeof (media as { alt?: string }).alt === 'string' &&
-          (media as { alt?: string }).alt!.trim().length > 0)
-      const creditOk =
-        typeof (media as { credit?: string }).credit === 'string' &&
-        (media as { credit?: string }).credit!.trim().length > 0
-      if (!altOk) missing.push('hero image alt text')
-      if (!creditOk) missing.push('hero image credit')
-    } catch {
-      missing.push('hero image (could not load)')
-    }
-  }
-
   if (missing.length > 0) {
-    throw new Error(`Cannot publish — missing or invalid: ${missing.join(', ')}.`)
+    throw new Error(`Cannot publish. Missing or invalid: ${missing.join(', ')}.`)
   }
 
   return data
@@ -81,7 +58,7 @@ export const CaseStudies: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'client', 'status', 'publishDate', 'updatedAt'],
     description:
-      'Portfolio case studies. Save as draft any time; publish when title, client, summary, hero image, SEO fields, and publish date are filled.',
+      'Portfolio case studies. Save as draft any time; publish when title, client, summary, SEO fields, and publish date are filled.',
   },
   access: {
     read: ({ req }) => {
@@ -119,7 +96,7 @@ export const CaseStudies: CollectionConfig = {
               type: 'upload',
               relationTo: 'media',
               admin: {
-                description: 'Hero illustration / image. Required to publish.',
+                description: 'Optional hero illustration / image.',
               },
             },
             {
