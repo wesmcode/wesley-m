@@ -5,38 +5,45 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 
 import { RichText } from '@/components/RichText'
-import { mediaAlt, mediaCredit, mediaUrl } from '@/lib/media'
+import { mediaAlt, mediaUrl } from '@/lib/media'
 
 interface RouteParams {
   params: Promise<{ slug: string }>
+  searchParams?: Promise<{ preview?: string }>
 }
 
-const fetchCase = async (slug: string) => {
+const CARD_TONES = ['', 'case-card-figure--alt']
+
+const fetchCase = async (slug: string, includeDrafts = false) => {
   const payload = await getPayload({ config })
+  const where = includeDrafts
+    ? { slug: { equals: slug } }
+    : { and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }] }
   const { docs } = await payload.find({
     collection: 'case-studies',
-    where: {
-      and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }],
-    },
+    where,
     depth: 2,
     limit: 1,
   })
   return docs[0] ?? null
 }
 
-const fetchSiblings = async (excludeSlug: string) => {
+const fetchSiblings = async (excludeSlug: string, includeDrafts = false) => {
   const payload = await getPayload({ config })
+  const where = includeDrafts
+    ? { slug: { not_equals: excludeSlug } }
+    : {
+        and: [
+          { slug: { not_equals: excludeSlug } },
+          { status: { equals: 'published' } },
+        ],
+      }
   const { docs } = await payload.find({
     collection: 'case-studies',
-    where: {
-      and: [
-        { slug: { not_equals: excludeSlug } },
-        { status: { equals: 'published' } },
-      ],
-    },
-    sort: '-publishDate',
+    where,
+    sort: includeDrafts ? '-updatedAt' : '-publishDate',
     depth: 1,
-    limit: 4,
+    limit: 2,
   })
   return docs
 }
@@ -60,11 +67,13 @@ export const generateMetadata = async ({ params }: RouteParams): Promise<Metadat
   }
 }
 
-export default async function CaseStudyPage({ params }: RouteParams) {
+export default async function CaseStudyPage({ params, searchParams }: RouteParams) {
   const { slug } = await params
-  const cs = await fetchCase(slug)
+  const sp = (await searchParams) ?? {}
+  const isPreview = sp.preview === '1' || sp.preview === 'true'
+  const cs = await fetchCase(slug, isPreview)
   if (!cs) notFound()
-  const siblings = await fetchSiblings(slug)
+  const siblings = await fetchSiblings(slug, isPreview)
 
   const industries = Array.isArray(cs.industries)
     ? cs.industries.map((i: { name: string }) => i.name).filter(Boolean)
@@ -75,122 +84,195 @@ export default async function CaseStudyPage({ params }: RouteParams) {
   const outcomes = Array.isArray(cs.outcomes)
     ? cs.outcomes.filter((o: { value?: string; label?: string }) => o.value && o.label)
     : []
+  const hero = cs.heroImage && typeof cs.heroImage === 'object' ? cs.heroImage : null
 
   return (
-    <div className="page page--wide">
-      <nav className="top-bar" aria-label="Breadcrumb">
-        <Link href="/work" className="link">
-          ← Case studies
-        </Link>
-      </nav>
+    <>
+      <section className="case-hero-band case-hero-band--detail" aria-label={`${cs.title} header`}>
+        <div className="case-hero-band-inner">
+          <nav className="top-bar" aria-label="Breadcrumb">
+            <Link href="/work" className="link">
+              ← Case studies
+            </Link>
+          </nav>
 
-      <article>
-        <header className="case-header">
-          <p className="vertical-eyebrow">Case study</p>
-          <h1 className="case-title">{cs.title}</h1>
-          {cs.summary ? <p className="case-summary">{cs.summary}</p> : null}
+          <p className="case-hero-eyebrow">Case study{cs.client ? ` · ${cs.client}` : ''}</p>
+          <h1 className="case-hero-title">{cs.title}</h1>
 
-          {(cs.client || cs.role || cs.year) && (
-            <dl className="case-facts">
-              {cs.client ? (
-                <div>
-                  <dt>Client</dt>
-                  <dd>{cs.client}</dd>
-                </div>
-              ) : null}
-              {cs.role ? (
-                <div>
-                  <dt>Role</dt>
-                  <dd>{cs.role}</dd>
-                </div>
-              ) : null}
-              {cs.year ? (
-                <div>
-                  <dt>Year</dt>
-                  <dd>{cs.year}</dd>
-                </div>
-              ) : null}
-              {industries.length > 0 ? (
-                <div>
-                  <dt>Industry</dt>
-                  <dd>{industries.join(', ')}</dd>
-                </div>
-              ) : null}
-              {services.length > 0 ? (
-                <div>
-                  <dt>Services</dt>
-                  <dd>{services.join(', ')}</dd>
-                </div>
-              ) : null}
-            </dl>
-          )}
-        </header>
-
-        {cs.heroImage && typeof cs.heroImage === 'object' ? (
-          <div className="case-hero">
-            <div className="case-hero-figure">
-              <img
-                src={mediaUrl(cs.heroImage, 'hero')}
-                alt={mediaAlt(cs.heroImage)}
-                loading="eager"
-              />
-            </div>
-            {mediaCredit(cs.heroImage) ? (
-              <div className="case-hero-credit">{mediaCredit(cs.heroImage)}</div>
+          <div className="case-hero-figure">
+            {hero && mediaUrl(hero, 'hero') ? (
+              <img src={mediaUrl(hero, 'hero')} alt={mediaAlt(hero)} loading="eager" />
+            ) : (
+              <div className="case-hero-figure case-hero-figure--empty" aria-hidden="true" />
+            )}
+            {outcomes.length > 0 ? (
+              <div className="case-hero-stats" role="group" aria-label="Headline outcomes">
+                {outcomes.slice(0, 3).map((o: { value: string; label: string }, idx: number) => (
+                  <div key={idx} className="case-hero-stat">
+                    <div className="case-hero-stat-value">{o.value}</div>
+                    <div className="case-hero-stat-label">{o.label}</div>
+                  </div>
+                ))}
+              </div>
             ) : null}
           </div>
-        ) : null}
-
-        {outcomes.length > 0 ? (
-          <section aria-label="Outcomes" className="case-outcomes">
-            {outcomes.map((o: { value: string; label: string }, idx: number) => (
-              <div key={idx} className="case-outcome">
-                <div className="case-outcome-value">{o.value}</div>
-                <div className="case-outcome-label">{o.label}</div>
-              </div>
-            ))}
-          </section>
-        ) : null}
-
-        <div className="prose" id="main-content">
-          <RichText data={cs.body as never} />
         </div>
+      </section>
 
-        {cs.externalUrl ? (
-          <p className="case-external">
-            <a href={cs.externalUrl} target="_blank" rel="noopener noreferrer">
-              Visit {cs.client || 'the project'} →
-            </a>
-          </p>
-        ) : null}
+      <main id="main-content">
+      <article className="case-article">
+        <div className="case-article-inner">
+          <aside className="case-rail" aria-label="Engagement facts">
+            {industries.length > 0 ? (
+              <dl className="case-rail-block">
+                <dt>Industry</dt>
+                <dd>{industries.join(' · ')}</dd>
+              </dl>
+            ) : null}
+            {services.length > 0 ? (
+              <dl className="case-rail-block">
+                <dt>Service</dt>
+                <dd>{services.slice(0, 4).join(' · ')}</dd>
+              </dl>
+            ) : null}
+            {cs.role ? (
+              <dl className="case-rail-block">
+                <dt>Role</dt>
+                <dd>{cs.role}</dd>
+              </dl>
+            ) : null}
+            {cs.year ? (
+              <dl className="case-rail-block">
+                <dt>Year</dt>
+                <dd>{cs.year}</dd>
+              </dl>
+            ) : null}
+          </aside>
+
+          <div className="case-body">
+            {cs.summary ? <p className="case-summary">{cs.summary}</p> : null}
+            <div className="prose">
+              <RichText data={cs.body as never} />
+            </div>
+            {cs.externalUrl ? (
+              <p className="case-external">
+                <a href={cs.externalUrl} target="_blank" rel="noopener noreferrer">
+                  Visit {cs.client || 'the project'} →
+                </a>
+              </p>
+            ) : null}
+          </div>
+        </div>
       </article>
 
       {siblings.length > 0 ? (
         <section className="case-related" aria-label="More case studies">
-          <h2 className="case-related-title">All case studies</h2>
-          <div className="case-grid">
-            {siblings.map((s) => {
-              const hero = s.heroImage && typeof s.heroImage === 'object' ? s.heroImage : null
-              return (
-                <Link key={s.id} href={`/work/${s.slug}`} className="case-card">
-                  {hero ? (
-                    <div className="case-card-figure">
-                      <img src={mediaUrl(hero, 'card')} alt={mediaAlt(hero)} loading="lazy" />
+          <div className="case-related-inner">
+            <p className="case-related-eyebrow">More</p>
+            <h2 className="case-related-title">All case studies</h2>
+            <div className="case-grid">
+              {siblings.map((s, idx) => {
+                const sHero = s.heroImage && typeof s.heroImage === 'object' ? s.heroImage : null
+                const tone = CARD_TONES[idx % CARD_TONES.length]
+                return (
+                  <Link key={s.id} href={`/work/${s.slug}`} className="case-card">
+                    {sHero && mediaUrl(sHero, 'card') ? (
+                      <div className="case-card-figure">
+                        <img src={mediaUrl(sHero, 'card')} alt={mediaAlt(sHero)} loading="lazy" />
+                      </div>
+                    ) : (
+                      <div
+                        className={`case-card-figure case-card-figure--empty ${tone}`}
+                        aria-hidden="true"
+                      />
+                    )}
+                    <div className="case-card-body">
+                      {s.client ? <p className="case-card-client">{s.client}</p> : null}
+                      <h3 className="case-card-title">{s.summary || s.title}</h3>
                     </div>
-                  ) : (
-                    <div className="case-card-figure case-card-figure--empty" aria-hidden="true" />
-                  )}
-                  <div className="case-card-body">
-                    {s.client ? <p className="case-card-client">{s.client}</p> : null}
-                    <h3 className="case-card-title">{s.title}</h3>
-                    {s.summary ? <p className="case-card-summary">{s.summary}</p> : null}
-                  </div>
-                </Link>
-              )
-            })}
+                  </Link>
+                )
+              })}
+            </div>
           </div>
         </section>
       ) : null}
-    </div>
+
+      <section className="case-cta-wrap" aria-label="Get in touch">
+        <div className="case-cta">
+          <div className="case-cta-copy">
+            <h2>
+              Got a product that needs a <span className="accent">clearer next quarter?</span>
+            </h2>
+            <p>
+              Get a free consultation to learn how I can help your business ship. Discovery first,
+              evidence second, opinion last.
+            </p>
+            <div className="case-cta-actions">
+              <a href="/services.html" className="case-cta-btn">
+                See services →
+              </a>
+              <Link href="/work" className="case-cta-btn case-cta-btn--ghost">
+                More case studies
+              </Link>
+            </div>
+          </div>
+          <div className="case-cta-mark" aria-hidden="true">
+            <svg width="160" height="160" viewBox="0 0 100 100" fill="none">
+              <g fill="#E8C9A6">
+                <rect x="44" y="10" width="12" height="80" rx="2" />
+                <rect
+                  x="44"
+                  y="10"
+                  width="12"
+                  height="80"
+                  rx="2"
+                  transform="rotate(45 50 50)"
+                />
+                <rect
+                  x="44"
+                  y="10"
+                  width="12"
+                  height="80"
+                  rx="2"
+                  transform="rotate(90 50 50)"
+                />
+                <rect
+                  x="44"
+                  y="10"
+                  width="12"
+                  height="80"
+                  rx="2"
+                  transform="rotate(135 50 50)"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+      </main>
+
+      <footer id="site-footer" aria-label="Site footer">
+        <div className="footer-inner">
+          <div className="footer-row">
+            <Link href="/" className="footer-brand">
+              Wesley Melo
+            </Link>
+            <nav className="footer-nav" aria-label="Footer navigation">
+              <Link href="/" className="link">
+                Home
+              </Link>
+              <Link href="/work" className="link">
+                Case studies
+              </Link>
+              <Link href="/blog" className="link">
+                Blog
+              </Link>
+            </nav>
+          </div>
+          <div className="footer-meta">© 2026 Wesley Melo</div>
+        </div>
+      </footer>
+    </>
   )
 }
