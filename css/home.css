@@ -343,6 +343,11 @@ body {
 #site-footer {
     min-height: 50vh;
 }
+#site-footer.snap-section {
+    scroll-snap-stop: normal;
+    min-height: 50vh;
+    justify-content: flex-start;
+}
 
 #site-footer .section-inner {
     padding-top: 40px;
