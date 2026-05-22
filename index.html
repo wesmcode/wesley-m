@@ -115,7 +115,7 @@
                 <p class="about-statement">Six years building product. Five before that writing the code. Same job every quarter: figure out what to build, prove it worked, and stay out of the team&rsquo;s way while they ship.</p>
 
                 <div class="about-cards-wrapper">
-                    <div class="about-cards" id="about-cards" role="list" tabindex="0" aria-label="What I bring">
+                    <div class="about-cards" id="about-cards" role="list" tabindex="0" aria-label="What I bring" aria-roledescription="carousel">
                         <article class="about-card" role="listitem">
                             <svg class="about-card-icon" viewBox="0 0 36 36" aria-hidden="true">
                                 <rect x="5" y="5" width="26" height="26" transform="rotate(45 18 18)" fill="#FFFFFF"/>
@@ -165,6 +165,10 @@
                             <h3>Consulting lineage</h3>
                             <p>Three years at ThoughtWorks on the PM side of platform programs. Five before that engineering inside Accenture. Product-led modernization is the work I cut my PM teeth on.</p>
                         </article>
+                    </div>
+                    <div class="about-cards-controls">
+                        <button type="button" id="about-cards-pause" class="carousel-pause" aria-pressed="false" aria-controls="about-cards">Pause</button>
+                        <span class="sr-only" role="status" aria-live="polite" id="about-cards-live"></span>
                     </div>
                 </div>
             </div>

@@ -5,12 +5,21 @@
     var cards = cardsRow.querySelectorAll('.about-card');
     if (!cards.length) return;
 
+    var pauseBtn = document.getElementById('about-cards-pause');
+    var liveRegion = document.getElementById('about-cards-live');
+
     var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var timer = null;
     var current = 0;
     var paused = false;
+    var userPaused = false;
     var inView = true;
     var suppressScrollSync = false;
+
+    function cardTitle(i) {
+        var h = cards[i] && cards[i].querySelector('h3');
+        return h ? h.textContent.trim() : '';
+    }
 
     function setActive(index) {
         current = index;
@@ -24,6 +33,9 @@
                 card.removeAttribute('data-active');
             }
         });
+        if (liveRegion) {
+            liveRegion.textContent = 'Card ' + (index + 1) + ' of ' + cards.length + ': ' + cardTitle(index);
+        }
     }
 
     function scrollCardIntoView(i) {
@@ -47,12 +59,12 @@
     }
 
     function advance() {
-        if (paused || !inView) return;
+        if (paused || userPaused || !inView) return;
         goTo((current + 1) % cards.length);
     }
 
     function start() {
-        if (prefersReduced) return;
+        if (prefersReduced || userPaused) return;
         stop();
         timer = setInterval(advance, 5000);
     }
@@ -65,6 +77,20 @@
     cardsRow.addEventListener('mouseleave', function () { paused = false; });
     cardsRow.addEventListener('focusin',    function () { paused = true; });
     cardsRow.addEventListener('focusout',   function () { paused = false; });
+
+    if (pauseBtn) {
+        pauseBtn.addEventListener('click', function () {
+            userPaused = !userPaused;
+            pauseBtn.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+            pauseBtn.textContent = userPaused ? 'Play' : 'Pause';
+            if (userPaused) stop(); else start();
+        });
+        if (prefersReduced) {
+            userPaused = true;
+            pauseBtn.setAttribute('aria-pressed', 'true');
+            pauseBtn.textContent = 'Play';
+        }
+    }
 
     cardsRow.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowRight') {
