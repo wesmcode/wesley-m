@@ -1,23 +1,20 @@
 'use strict';
 var addr = ['contato', 'wesley-m.com'].join('@');
 
-var heroEmail = document.getElementById('email-link');
-if (heroEmail) {
-    heroEmail.addEventListener('click', function(e) {
+var emailLinks = document.querySelectorAll('.js-email');
+emailLinks.forEach(function (link) {
+    link.addEventListener('click', function (e) {
         e.preventDefault();
-        var label = heroEmail.querySelector('.button-label');
+        var label = link.querySelector('.button-label');
         if (label) {
             label.textContent = addr;
-        } else {
-            heroEmail.textContent = addr;
+            return;
         }
+        var spans = link.querySelectorAll('span');
+        if (spans.length) {
+            spans[0].textContent = addr;
+            return;
+        }
+        link.textContent = addr;
     });
-}
-
-var footerEmail = document.getElementById('footer-email-link');
-if (footerEmail) {
-    footerEmail.addEventListener('click', function(e) {
-        e.preventDefault();
-        footerEmail.textContent = addr;
-    });
-}
+});
