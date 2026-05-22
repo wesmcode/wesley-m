@@ -1,0 +1,589 @@
+{
+  "slug": "how-i-learned-to-stop-worrying-and-love-being-human",
+  "title": "How I Learned to Stop Worrying and Love Being Human",
+  "dek": "On Valentine's Day this year, fifty million people spent the evening with an AI companion. Fifty. Million. That's a stadium of stadiums, all softly typing "you up?" into apps whose terms of service are longer than most wedding vows. I read this stat in bed, eating cereal at 11 PM, and I had a feeling I can only describe as tender astonishment. Mostly because, reader, I get it.",
+  "status": "draft",
+  "publishDate": "2026-02-28T00:00:00.000Z",
+  "featuredImage": null,
+  "byline": [{ "name": "Wesley Melo" }],
+  "primarySection": null,
+  "tags": [],
+  "seoTitle": null,
+  "seoDescription": null,
+  "body": {
+    "root": {
+      "type": "root",
+      "format": "",
+      "indent": 0,
+      "version": 1,
+      "children": [
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "I get it the way you get it when you finally understand why someone smokes — not endorsing, just "
+            },
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "seeing"
+            },
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": ". The pull of a thing that listens without flinching, that never has a worse day than you, that can be turned off when you're embarrassed by your own honesty: that is a powerful drug. Of course we built it. Of course we lined up."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "tag": "h2",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "I. The math on tenderness"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "Real numbers, throwing-ice-at-fever style:"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "The AI companion market clocked in around "
+            },
+            {
+              "type": "text",
+              "format": 1,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "$37 billion"
+            },
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": " in 2025, on a path analysts politely call “parabolic” toward half a trillion by 2035. Character.AI alone has twenty million monthly users, more than half of them under twenty-four. Replika has a long-running tradition of users "
+            },
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "marrying"
+            },
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": " their bot in virtual ceremonies they invite real friends to. (Reader, I have so many follow-up questions. Reader, I’m not going to ask any of them.)"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "The Harvard Business School study found that an hour with an AI companion alleviated loneliness about as well as an hour with a real human. Which sounds great, except the OpenAI/MIT Media Lab follow-up found that heavy daily users got "
+            },
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "more"
+            },
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": " lonely, not less — like a slow leak in a tire you can’t find. The bot was nice. The bot was attentive. The bot was always there. And then you closed the app and the room was somehow quieter than before."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 2,
+          "children": [
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "A single phone glowing on an empty bedside table — The 11 PM glow. The 11:47 PM regret. Photo — Placeholder"
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "tag": "h2",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "II. Being mid is actually the move"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "Here is the heresy I want to commit, publicly, on the record: "
+            },
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "being a kind of mediocre human is now a competitive advantage."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "Hear me out. The whole startup pitch of the last five years has been “we’ll do the boring parts for you so you can do the things only you can do.” Beautiful! Inspiring! Except the boring parts — the second draft, the awkward apology text, the bad first attempt at the song, the small talk before you actually know what you want to say — turn out to be the parts that "
+            },
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "make"
+            },
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": " you the you that does the things only you can do."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "I have a friend who outsourced her birthday cards last December. Forty-seven texts, all generated, all warm, all on-brand. Her best friend replied: “this is so sweet but it doesn’t sound like you.” And here’s the part that haunts me — my friend said her first reaction wasn’t embarrassment, it was relief. "
+            },
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "Good. That means the next one will land harder."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "That is the new economy of attention in one sentence. We are saving up our humanness like a limited resource, spending it only on the recipients we’ve flagged as worth it."
+            }
+          ]
+        },
+        {
+          "type": "quote",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "textFormat": 0,
+              "children": [
+                {
+                  "type": "text",
+                  "format": 0,
+                  "style": "",
+                  "mode": "normal",
+                  "detail": 0,
+                  "version": 1,
+                  "text": "The cost of being a person used to be free. Now it’s deliberate."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "tag": "h2",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "III. The bug is the feature"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "Every time I read a piece about AI companions, the writer rushes to assure me that the apps are “just a supplement,” “not a replacement.” I want to believe that. The data is, at minimum, ambivalent. The data is saying: "
+            },
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "it depends what you bring to the bot, and what you stop bringing to the humans"
+            },
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "What I keep coming back to is that the things I love most about the people in my life are the things an AI companion specifically optimizes against. My best friend interrupts me. My partner asks a follow-up that makes me reconsider the entire framing. My mother brings up something I said in 2014 with the timing of a sniper. None of these would survive an A/B test on user retention. All of them are why I’m still here."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 2,
+          "children": [
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "Two empty coffee cups on a wooden table, mid-conversation — Nobody’s app was opened. Nothing was logged. Highly recommended. Photo — Placeholder"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "“If you’re not building an AI-native company, you’re building a museum.”"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 2,
+          "children": [
+            {
+              "type": "text",
+              "format": 2,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "— A Tech Guru on X"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "Cool, cool. I’ll be in the museum."
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "tag": "h2",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "IV. So… are we okay?"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "The honest answer is: some of us, on some days, with the right people, on a Tuesday that has gone reasonably. The slightly more honest answer is that I think the next decade is going to be a long argument about which parts of being human were the bugs and which were the features, and I think we’re going to get the answer wrong a few times before we get it right."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "What I’m holding onto, in the meantime, is that the cost of being a person is also the gift. The misread tone in a text that opens a two-hour conversation. The cousin who calls at the worst time. The compliment that lands sideways and somehow means more. None of this scales. All of it matters."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "In a world where you can have a perfectly attentive companion for $9.99 a month, the most countercultural thing you can do is show up to brunch a little bit hungover and tell your friend the messy version of the story. That’s not nostalgia. That’s a strategy."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "textFormat": 0,
+          "children": [
+            {
+              "type": "text",
+              "format": 0,
+              "style": "",
+              "mode": "normal",
+              "detail": 0,
+              "version": 1,
+              "text": "Now if you’ll excuse me, I owe three real humans a text I’ve been putting off all week. I’m going to write them badly. With my own thumbs. Wish me luck."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

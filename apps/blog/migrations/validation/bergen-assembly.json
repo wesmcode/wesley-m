@@ -1,0 +1,97 @@
+{
+  "slug": "bergen-assembly",
+  "postId": "1",
+  "verdict": "partial",
+  "scores": {
+    "fidelity": 9,
+    "render": 8,
+    "integrity": 10
+  },
+  "axisScoresDetailed": {
+    "content": 95,
+    "media": 100,
+    "structure": 90
+  },
+  "passConditions": "content >= 95 AND media >= 90 AND structure == 100",
+  "checks": {
+    "title": {
+      "expected": "Lorem Ipsum Dolor Sit Amet",
+      "actual": "Lorem Ipsum Dolor Sit Amet",
+      "match": true
+    },
+    "publishDate": {
+      "expected": "2026-04-09",
+      "actual": "2026-04-09T00:00:00.000Z",
+      "match": true
+    },
+    "dek": {
+      "expected_meta_description": "A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "expected_onpage_lede": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.",
+      "actual_dek": "A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "note": "Dek field was populated from <meta name=description>, not the on-page <p class=post-lede>. The on-page lede instead became body paragraph #1, so no prose was lost — but the canonical 'dek' role moved."
+    },
+    "bodyParagraphCount": {
+      "expected": 9,
+      "actual": 9,
+      "match": true,
+      "breakdown": "7 body paragraphs + 2 figcaptions-as-italic = 9"
+    },
+    "paragraphProseDiff": "All seven body paragraphs match verbatim. Both figcaptions survive as italic paragraphs (format:2, textFormat:2).",
+    "media": {
+      "legacyImages": 0,
+      "legacyFigures": 2,
+      "legacyFiguresType": "CSS-painted shape placeholders (role=img, aria-label), no <img>",
+      "importedImages": 0,
+      "importedCaptionsAsItalic": 2,
+      "match": "Documented intentional fidelity loss; both captions preserved."
+    },
+    "scriptCarryover": {
+      "legacyHadScript": true,
+      "legacyScriptType": "application/ld+json (BlogPosting schema)",
+      "importedBodyHasScript": false,
+      "verdict": "safe — ld+json correctly stripped, no inline script in Lexical body"
+    },
+    "frontendRender": {
+      "url": "http://localhost:3000/blog/bergen-assembly",
+      "httpStatus": 404,
+      "behavior": "graceful — Next.js notFound() because [slug]/page.tsx filters status:'published' and post is 'draft'",
+      "crashed": false,
+      "is500": false
+    },
+    "alternateRoute": {
+      "url": "http://localhost:3000/posts/bergen-assembly",
+      "httpStatus": 404,
+      "note": "Route does not exist; canonical route is /blog/[slug]."
+    },
+    "payloadApi": {
+      "url": "http://localhost:3000/api/posts/1",
+      "httpStatus": 200,
+      "bodyIntact": true,
+      "wordCount": 0,
+      "wordCountNote": "beforeChange hook counts from DB-resolved body; cosmetic only per importer notes"
+    }
+  },
+  "regressions": [
+    {
+      "kind": "dek-source-shift",
+      "severity": "minor",
+      "evidence": "Mapped dek = legacy <meta name=description>, not legacy <p class=post-lede>. The on-page lede was relocated to body paragraph #1 — readable but a structural demotion."
+    },
+    {
+      "kind": "draft-not-publicly-renderable",
+      "severity": "expected",
+      "evidence": "/blog/bergen-assembly returns 404 because the post is in draft status. This is by design (the route filters status:'published'). To preview, use the admin or publish the post. No crash, no 500."
+    },
+    {
+      "kind": "css-placeholder-media-collapsed",
+      "severity": "known-and-accepted",
+      "evidence": "Two CSS-painted figures (shape-hero, shape-mid) had no <img>; mapper collapsed each to its italic caption. Both captions preserved verbatim."
+    }
+  ],
+  "punchList": [
+    "If we want the on-page lede to drive the dek, re-map: prefer <p class=post-lede> over <meta name=description> when both exist.",
+    "Publish the post (status: published) to make /blog/bergen-assembly render publicly; current 404 is correct but hides the import from non-admin viewers.",
+    "wordCount=0 in DB is cosmetic; if listing pages display read-time from wordCount, trigger a re-save or backfill."
+  ],
+  "summary": "Content and integrity are clean: all 7 body paragraphs verbatim, both figure captions preserved as italic, no <script> carried forward, ld+json correctly stripped, no 500s. The frontend route returns 404 only because the post is a draft and the public route filters on published — graceful, not a crash. Only real regression is the dek/lede source-of-truth shift, which loses no prose but changes which line plays the 'dek' role."
+}
