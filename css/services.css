@@ -13,6 +13,22 @@ html, body {
     color: var(--fg);
 }
 
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-y: auto;
+}
+
+.snap-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+}
+
 .page {
     max-width: 1180px;
     margin: 0 auto;
@@ -156,6 +172,25 @@ html, body {
     height: 100%;
     object-fit: cover;
     object-position: center center;
+}
+.hero-figure__img--hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 320ms ease;
+}
+.hero-figure:hover .hero-figure__img--hover,
+.hero-figure:focus-within .hero-figure__img--hover {
+    opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-snap-type: none;
+        scroll-behavior: auto;
+    }
+    .hero-figure__img--hover {
+        transition: none;
+    }
 }
 
 /* STATS ----------------------------------------------------- */
@@ -706,6 +741,15 @@ html, body {
 
 /* MOBILE ---------------------------------------------------- */
 @media only screen and (max-width: 768px) {
+    html {
+        scroll-snap-type: none;
+    }
+
+    .snap-section {
+        min-height: auto;
+        scroll-snap-align: none;
+    }
+
     .page {
         padding: 0 24px 56px;
     }
