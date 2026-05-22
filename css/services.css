@@ -13,10 +13,23 @@ html, body {
     color: var(--fg);
 }
 
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-top: 64px;
+}
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.snap-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
 }
 
 .page {
@@ -219,41 +232,6 @@ body {
     opacity: 1;
 }
 
-/* STATS ----------------------------------------------------- */
-.stats {
-    padding: 56px 0 64px;
-    border-bottom: var(--rule-heavy);
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    padding-top: 4px;
-}
-
-.stat-value {
-    font-size: clamp(72px, 8vw, 120px);
-    line-height: 1;
-    font-weight: 400;
-    letter-spacing: -0.03em;
-}
-
-.stat-label {
-    font-size: 14px;
-    line-height: 1.55;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    max-width: none;
-}
-
 /* OFFERINGS ------------------------------------------------- */
 .offerings {
     padding: 64px 0 72px;
@@ -267,7 +245,7 @@ body {
 }
 
 .offer-grid-single {
-    grid-template-columns: minmax(0, 560px);
+    grid-template-columns: 1fr;
 }
 
 .offer {
@@ -356,10 +334,6 @@ body {
     transition: background 0.15s ease, color 0.15s ease;
 }
 
-.expect-card h3 {
-    overflow-wrap: break-word;
-}
-
 .expect-card:last-child {
     border-bottom: 0;
 }
@@ -376,6 +350,7 @@ body {
     letter-spacing: -0.025em;
     font-weight: 400;
     margin: 0;
+    overflow-wrap: break-word;
 }
 
 .expect-card p {
@@ -393,24 +368,28 @@ body {
 
 /* BUYERS ---------------------------------------------------- */
 .buyers {
-    padding: 64px 0 72px;
+    padding: 40px 0 48px;
     border-bottom: var(--rule-heavy);
+}
+
+.buyers .section-head {
+    margin-bottom: 28px;
 }
 
 .buyers-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 18px;
 }
 
 .buyer-card {
-    padding: 28px 26px 32px;
+    padding: 22px 24px 24px;
     border: var(--rule-medium);
     background: var(--bg);
     color: var(--fg);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
@@ -702,22 +681,12 @@ body {
     outline-color: var(--bg);
 }
 
-/* FOOTER ---------------------------------------------------- */
-#site-footer {
-    margin-top: 56px;
-    padding-bottom: 32px;
-}
-#site-footer .footer-row {
-    border-top: var(--rule-medium);
-    padding-top: 32px;
-}
-#site-footer .footer-meta {
-    color: var(--fg-hover);
-    margin-top: 12px;
-}
-
 /* REDUCED MOTION ------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-snap-type: none;
+        scroll-behavior: auto;
+    }
     .offer,
     .buyer-card,
     .expect-card,
@@ -775,6 +744,15 @@ body {
 
 /* MOBILE ---------------------------------------------------- */
 @media only screen and (max-width: 768px) {
+    html {
+        scroll-snap-type: none;
+    }
+
+    .snap-section {
+        min-height: auto;
+        scroll-snap-align: none;
+    }
+
     .page {
         padding: 0 24px;
     }
@@ -814,19 +792,6 @@ body {
 
     .hero-lede {
         font-size: 17px;
-    }
-
-    .stats {
-        padding: 40px 0 48px;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .stat-label {
-        max-width: 100%;
     }
 
     .section-head {
