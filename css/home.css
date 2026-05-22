@@ -401,7 +401,9 @@ body {
     .about-cards {
         scroll-behavior: auto;
     }
-    .about-card {
+    .about-card,
+    .process-row,
+    .carousel-pause {
         transition: none;
     }
 }

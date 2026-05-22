@@ -843,3 +843,12 @@ a:hover { color: var(--fg-hover); }
     .case-outcome:first-child { border-top: 0; padding-top: 0; }
     .case-facts { grid-template-columns: 1fr 1fr; gap: 16px; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .case-card,
+    .case-card:hover,
+    .case-cta-btn {
+        transition: none;
+        transform: none;
+    }
+}
