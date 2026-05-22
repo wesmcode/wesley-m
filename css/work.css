@@ -1,0 +1,592 @@
+/* WORK HUB — extends css/services.css */
+/* services.css supplies: tokens, top-bar, section-*, offer, expect, cta-card, big-cta */
+
+/* HERO — text + quick index (no portrait) ------------------- */
+.hero-index-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-areas:
+        "text  index"
+        "lede  index";
+    gap: 40px 64px;
+    align-items: end;
+}
+
+.hero-index-grid .hero-text {
+    grid-area: text;
+}
+
+.hero-index-grid .hero-lede {
+    grid-area: lede;
+    max-width: 52ch;
+}
+
+.hero-index {
+    grid-area: index;
+    border-top: var(--rule-medium);
+    border-bottom: var(--rule-medium);
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-index-label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    padding: 14px 4px 12px;
+    border-bottom: var(--rule-soft);
+}
+
+.hero-index-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-index-list li + li {
+    border-top: var(--rule-soft);
+}
+
+.hero-index-item {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    align-items: baseline;
+    gap: 16px;
+    padding: 14px 6px;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    transition: background 0.15s ease, color 0.15s ease, padding 0.15s ease;
+}
+
+.hero-index-item:hover,
+.hero-index-item:focus-visible {
+    background: var(--fg);
+    color: var(--bg);
+    padding-left: 12px;
+    outline: none;
+}
+
+.hero-index-num {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+
+.hero-index-item:hover .hero-index-num,
+.hero-index-item:focus-visible .hero-index-num {
+    color: rgba(19, 19, 19, 0.6);
+}
+
+.hero-index-arrow {
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.hero-index-item:hover .hero-index-arrow,
+.hero-index-item:focus-visible .hero-index-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* COMPANIES STRIP — typographic credits row ----------------- */
+.companies {
+    padding: 32px 0 40px;
+    border-bottom: var(--rule-heavy);
+}
+
+.companies-strip {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px 40px;
+    border-top: var(--rule-soft);
+    border-bottom: var(--rule-soft);
+    padding: 22px 0;
+}
+
+.companies-label {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin-right: 8px;
+}
+
+.companies-strip ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+}
+
+.companies-strip li {
+    font-size: 17px;
+    letter-spacing: -0.005em;
+    color: var(--fg);
+}
+
+.companies-strip li + li::before {
+    content: "·";
+    color: var(--fg-hover);
+    margin-right: 32px;
+    margin-left: -28px;
+}
+
+/* CASE GRID SECTION ----------------------------------------- */
+.cases {
+    padding: 64px 0 72px;
+    border-bottom: var(--rule-heavy);
+}
+
+/* MARQUEE — 2-up tall cards for headline engagements -------- */
+.marquee-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.marquee-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 36px 32px 32px;
+    border: var(--rule-medium);
+    background: var(--bg);
+    color: var(--fg);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.marquee-card:hover,
+.marquee-card:focus-visible {
+    background: var(--fg);
+    color: var(--bg);
+    box-shadow: 10px 10px 0 var(--fg);
+    transform: translate(-3px, -3px);
+    outline: none;
+}
+
+.marquee-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    border-bottom: var(--rule-soft);
+    padding-bottom: 14px;
+}
+
+.marquee-card:hover .marquee-head,
+.marquee-card:focus-visible .marquee-head {
+    border-bottom-color: rgba(19, 19, 19, 0.2);
+}
+
+.marquee-num {
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+
+.marquee-card:hover .marquee-num,
+.marquee-card:focus-visible .marquee-num {
+    color: rgba(19, 19, 19, 0.55);
+}
+
+.marquee-tag {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    text-align: right;
+    transition: color 0.15s ease;
+}
+
+.marquee-card:hover .marquee-tag,
+.marquee-card:focus-visible .marquee-tag {
+    color: rgba(19, 19, 19, 0.55);
+}
+
+.marquee-title {
+    font-size: clamp(24px, 2.6vw, 32px);
+    line-height: 1.08;
+    letter-spacing: -0.018em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+    max-width: 22ch;
+}
+
+.marquee-tagline {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--fg-quiet);
+    margin: 0;
+    max-width: 44ch;
+    transition: color 0.15s ease;
+}
+
+.marquee-card:hover .marquee-tagline,
+.marquee-card:focus-visible .marquee-tagline {
+    color: rgba(19, 19, 19, 0.78);
+}
+
+.marquee-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    padding-top: 18px;
+    border-top: var(--rule-soft);
+    margin-top: auto;
+}
+
+.marquee-card:hover .marquee-stats,
+.marquee-card:focus-visible .marquee-stats {
+    border-top-color: rgba(19, 19, 19, 0.2);
+}
+
+.marquee-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.marquee-stat-value {
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    transition: color 0.15s ease;
+}
+
+.marquee-card:hover .marquee-stat-value,
+.marquee-card:focus-visible .marquee-stat-value {
+    color: var(--bg);
+}
+
+.marquee-stat-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+
+.marquee-card:hover .marquee-stat-label,
+.marquee-card:focus-visible .marquee-stat-label {
+    color: rgba(19, 19, 19, 0.55);
+}
+
+.marquee-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.marquee-meta {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+
+.marquee-card:hover .marquee-meta,
+.marquee-card:focus-visible .marquee-meta {
+    color: rgba(19, 19, 19, 0.55);
+}
+
+.marquee-cta {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--fg);
+    transition: color 0.15s ease;
+}
+
+.marquee-card:hover .marquee-cta,
+.marquee-card:focus-visible .marquee-cta {
+    color: var(--bg);
+}
+
+/* SMALL CASE CARDS — 3-up grid, extends .offer pattern ------ */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.case-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 28px 24px 28px;
+    border: var(--rule-medium);
+    background: var(--bg);
+    color: var(--fg);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.case-card:hover,
+.case-card:focus-visible {
+    background: var(--fg);
+    color: var(--bg);
+    box-shadow: 8px 8px 0 var(--fg);
+    transform: translate(-2px, -2px);
+    outline: none;
+}
+
+.case-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.case-num {
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+
+.case-card:hover .case-num,
+.case-card:focus-visible .case-num {
+    color: rgba(19, 19, 19, 0.55);
+}
+
+.case-tag {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: right;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+
+.case-card:hover .case-tag,
+.case-card:focus-visible .case-tag {
+    color: rgba(19, 19, 19, 0.55);
+}
+
+.case-card h3 {
+    font-size: 21px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+}
+
+.case-tagline {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--fg-quiet);
+    margin: 0;
+    transition: color 0.15s ease;
+}
+
+.case-card:hover .case-tagline,
+.case-card:focus-visible .case-tagline {
+    color: rgba(19, 19, 19, 0.78);
+}
+
+.case-card-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: var(--rule-soft);
+}
+
+.case-card:hover .case-card-foot,
+.case-card:focus-visible .case-card-foot {
+    border-top-color: rgba(19, 19, 19, 0.2);
+}
+
+.case-meta {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+
+.case-card:hover .case-meta,
+.case-card:focus-visible .case-meta {
+    color: rgba(19, 19, 19, 0.55);
+}
+
+.case-cta {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: inline-flex;
+    gap: 6px;
+    color: var(--fg);
+    transition: color 0.15s ease;
+}
+
+.case-card:hover .case-cta,
+.case-card:focus-visible .case-cta {
+    color: var(--bg);
+}
+
+/* TABLET ---------------------------------------------------- */
+@media only screen and (max-width: 1024px) {
+    .hero-index-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "text"
+            "lede"
+            "index";
+        gap: 28px;
+    }
+
+    .hero-index {
+        align-self: stretch;
+    }
+
+    .marquee-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MOBILE ---------------------------------------------------- */
+@media only screen and (max-width: 768px) {
+    .hero-index-grid {
+        gap: 20px;
+    }
+
+    .companies {
+        padding: 24px 0 32px;
+    }
+
+    .companies-strip {
+        gap: 8px 20px;
+        padding: 16px 0;
+    }
+
+    .companies-strip ul {
+        gap: 6px 22px;
+    }
+
+    .companies-strip li {
+        font-size: 15px;
+    }
+
+    .companies-strip li + li::before {
+        margin-right: 22px;
+        margin-left: -20px;
+    }
+
+    .cases {
+        padding: 40px 0 48px;
+    }
+
+    .marquee-card {
+        padding: 28px 22px 26px;
+    }
+
+    .marquee-title {
+        font-size: 22px;
+    }
+
+    .marquee-tagline {
+        font-size: 16px;
+    }
+
+    .marquee-stats {
+        gap: 14px 24px;
+        padding-top: 14px;
+    }
+
+    .marquee-stat-value {
+        font-size: 20px;
+    }
+
+    .case-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .case-card {
+        padding: 22px 20px;
+    }
+
+    .case-card h3 {
+        font-size: 19px;
+    }
+
+    .hero-index-item {
+        padding: 12px 4px;
+        font-size: 14px;
+    }
+}
+
+/* TOUCH — match services.css hover suppression -------------- */
+@media (hover: none) {
+    .marquee-card:hover,
+    .case-card:hover {
+        background: var(--bg);
+        color: var(--fg);
+        box-shadow: none;
+        transform: none;
+    }
+    .marquee-card:hover .marquee-tagline,
+    .case-card:hover .case-tagline { color: var(--fg-quiet); }
+    .marquee-card:hover .marquee-num,
+    .marquee-card:hover .marquee-tag,
+    .marquee-card:hover .marquee-meta,
+    .marquee-card:hover .marquee-stat-label,
+    .case-card:hover .case-num,
+    .case-card:hover .case-tag,
+    .case-card:hover .case-meta { color: var(--fg-hover); }
+    .marquee-card:hover .marquee-stat-value,
+    .marquee-card:hover .marquee-cta,
+    .case-card:hover .case-cta { color: var(--fg); }
+    .hero-index-item:hover {
+        background: transparent;
+        color: var(--fg);
+        padding-left: 6px;
+    }
+    .hero-index-item:hover .hero-index-num { color: var(--fg-hover); }
+    .hero-index-item:hover .hero-index-arrow { opacity: 0; }
+}
+
+/* REDUCED MOTION ------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .marquee-card,
+    .case-card,
+    .hero-index-item,
+    .hero-index-arrow {
+        transition: none;
+    }
+    .marquee-card:hover,
+    .case-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
