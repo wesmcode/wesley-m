@@ -161,7 +161,7 @@ const renderNode = (node: LexicalNode, key: string): ReactNode => {
               ) : (
                 <iframe
                   src={info.src}
-                  title="Embedded content"
+                  title={f.caption || `${info.kind} embed`}
                   loading="lazy"
                   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
