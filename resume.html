@@ -61,6 +61,18 @@
       position: relative;
     }
 
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      padding: 8px 16px;
+      background: var(--accent);
+      color: var(--surface);
+      text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus { left: 0; }
+
     .download-btn {
       position: absolute;
       top: 56px;
@@ -267,7 +279,8 @@
   </style>
 </head>
 <body>
-  <main>
+  <a href="#main-content" class="skip-link">Skip to resume</a>
+  <main id="main-content">
   <div class="page">
 
     <a href="resume/wesley_melo_resume_es_remote.pdf" download type="application/pdf" class="download-btn">Download .PDF</a>
