@@ -109,6 +109,7 @@ const renderNode = (node: LexicalNode, key: string): ReactNode => {
       if (!value) return null
       const fields = (node.fields as { caption?: string; size?: string } | undefined) || {}
       const sizeClass = fields.size === 'wide' ? 'size-wide' : fields.size === 'fullBleed' ? 'size-fullBleed' : 'size-inline'
+      const credit = mediaCredit(value)
       return (
         <figure key={key} className={sizeClass}>
           <img
@@ -117,10 +118,12 @@ const renderNode = (node: LexicalNode, key: string): ReactNode => {
             style={focalPointStyle(value)}
             loading="lazy"
           />
-          <figcaption>
-            {fields.caption || ''}
-            <span className="credit">{mediaCredit(value)}</span>
-          </figcaption>
+          {(fields.caption || credit) ? (
+            <figcaption>
+              {fields.caption || ''}
+              {credit ? <span className="credit">{credit}</span> : null}
+            </figcaption>
+          ) : null}
         </figure>
       )
     }
