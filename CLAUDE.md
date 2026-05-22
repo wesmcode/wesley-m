@@ -115,3 +115,11 @@ The blog app currently runs as a standalone subapp; it is not yet wired into the
 - No frameworks unless explicitly needed — vanilla HTML/CSS/JS preferred
 - Mobile-first responsive design
 - Consistent spacing, naming, and structure across files
+
+### UI Components
+
+Before adding UI to any static page, consult `docs/components.md` — it lists every canonical block (`.cta`, `.value-card`, `.track-card`, `.result-card`, `.bg-row`, `.section-label`, hero, stats, timeline, CTA strip) with copy-paste markup. The rendered version is at `/styleguide.html`. Do not re-invent existing patterns; if you need something new, add it to `docs/components.md` and `styleguide.html` first, then use it.
+
+### Copy / Typography
+
+**Never use em-dashes (`—`, `&mdash;`, U+2014) or en-dashes (`–`, `&ndash;`, U+2013) in any website copy.** This applies to HTML files, blog markdown, Payload content, page titles, meta descriptions, OG tags, and any user-facing text. Use a period, comma, colon, parentheses, or a hyphen (`-`) instead. Same rule for number ranges: write `2023 to 2025`, not `2023–2025`. Existing copy that already contains them is grandfathered — remove on next edit, not in bulk.
