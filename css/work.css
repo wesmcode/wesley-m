@@ -11,29 +11,40 @@ html {
 /* HERO — text + quick index (no portrait) ------------------- */
 .hero-index-grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "text  index"
         "lede  index";
-    gap: 48px 64px;
+    gap: 64px 64px;
     align-items: start;
 }
 
 .hero-index-grid .hero-text {
     grid-area: text;
+    gap: 28px;
+}
+
+/* Stacked display title — each word on its own line. */
+.hero-index-grid .hero-title {
+    font-size: clamp(56px, 9vw, 132px);
+    line-height: 0.92;
+    margin: 4px 0 4px;
+}
+
+.hero-index-grid .hero-tags {
+    margin-top: 4px;
 }
 
 .hero-index-grid .hero-lede {
     grid-area: lede;
     max-width: 52ch;
     align-self: start;
-    margin-top: 24px;
+    margin-top: 16px;
 }
 
 .hero-index {
     grid-area: index;
     border-top: var(--rule-medium);
-    border-bottom: var(--rule-medium);
     align-self: start;
     display: flex;
     flex-direction: column;
@@ -161,7 +172,11 @@ html {
             "text"
             "lede"
             "index";
-        gap: 28px;
+        gap: 32px;
+    }
+
+    .hero-index-grid .hero-title {
+        font-size: clamp(56px, 10vw, 104px);
     }
 
     .hero-index-grid .hero-lede {
@@ -172,7 +187,16 @@ html {
 /* MOBILE ---------------------------------------------------- */
 @media only screen and (max-width: 768px) {
     .hero-index-grid {
+        gap: 24px;
+    }
+
+    .hero-index-grid .hero-text {
         gap: 20px;
+    }
+
+    .hero-index-grid .hero-title {
+        font-size: clamp(48px, 13vw, 80px);
+        line-height: 0.94;
     }
 
     .companies {
@@ -199,6 +223,19 @@ html {
     .hero-index-item {
         padding: 14px 4px;
         font-size: 14px;
+    }
+}
+
+/* SMALL MOBILE --------------------------------------------- */
+@media only screen and (max-width: 420px) {
+    .hero-index-grid .hero-title {
+        font-size: clamp(44px, 14vw, 64px);
+    }
+
+    .hero-index-item {
+        grid-template-columns: 28px 1fr auto;
+        gap: 10px;
+        font-size: 13px;
     }
 }
 
