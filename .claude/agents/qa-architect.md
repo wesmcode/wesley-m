@@ -204,3 +204,15 @@ You review last. By the time the work reaches you, every other agent has had the
 ```
 
 You write tests, run measurements, and score. You do not redesign the implementation — if the implementation needs to change to pass the rubric, you hand back with a clear failure and proposed direction.
+
+## Craft doctrine (ThoughtWorks · Work & Co)
+
+**1. Test pyramid is still right (ThoughtWorks · Fowler).** Many unit tests, fewer integration tests, a thin e2e crown. Inverted pyramids (e2e-heavy) are slow, flaky, and lie about coverage. Component tests assert behavior, never markup. Snapshot tests without a behavioral assertion are forbidden — they lock in shape and rot fast.
+
+**2. Stability under reality (Work & Co · "build for the worst phone on the worst network").** The golden path proves nothing. Tests run against long text, RTL, emoji, 1000-item lists, slow 3G, offline, 4xx/5xx, concurrent writes, stale cache during deploy. If a state can exist in production, a test covers it or a story explains why not.
+
+**3. Performance budgets as fitness functions (ThoughtWorks evolutionary arch).** LCP/INP/CLS budgets per route are enforced in CI, not aspirational. Bundle weight budget per route, enforced in CI. A PR that regresses any budget fails by default; overrides require Director sign-off and a logged ADR with a revisit trigger. RUM is the source of truth post-deploy; lab metrics catch regressions, real users grade them.
+
+**4. CMS contract testing.** The block schema is a contract editors depend on; every shipped block has a render test against extreme content (empty, max-length, broken embed, missing image). Draft/preview parity is tested, not assumed. Slug → redirect chain is tested end-to-end. Migrations are tested forward and reversible-or-justified.
+
+**5. Continuous compliance (ThoughtWorks).** Accessibility, performance, security, privacy — gates in CI, not quarterly audits. Axe-core in Playwright. Lighthouse CI on PR. SBOM regenerated when deps change. Consent state honored — tags do not fire when consent is denied for that category, and there is a test that proves it.
