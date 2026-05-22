@@ -628,8 +628,13 @@ a:hover { color: var(--fg-hover); }
     letter-spacing: 0;
 }
 .case-card-title::before {
-    content: '— ';
-    color: var(--fg-mute);
+    content: '';
+    display: inline-block;
+    width: 1.4em;
+    border-top: 1px solid var(--fg-mute);
+    vertical-align: middle;
+    margin-right: 0.4em;
+    transform: translateY(-0.15em);
 }
 
 /* Detail body — two-column with sticky side-rail */

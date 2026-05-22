@@ -8,12 +8,12 @@ import { mediaAlt, mediaUrl } from '@/lib/media'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Case studies — Wesley Melo',
+  title: 'Case studies: Wesley Melo',
   description:
     'Selected work from agency, platform, and AI engagements. The proof is in the shipping.',
   alternates: { canonical: '/work' },
   openGraph: {
-    title: 'Case studies — Wesley Melo',
+    title: 'Case studies: Wesley Melo',
     description:
       'Selected work from agency, platform, and AI engagements. The proof is in the shipping.',
     type: 'website',
@@ -65,7 +65,7 @@ export default async function WorkIndex({ searchParams }: PageProps) {
               </span>
             </div>
             <p className="case-hero-lede">
-              The proof is in the shipping. A decade of product work — read how the engagements
+              The proof is in the shipping. A decade of product work. Read how the engagements
               actually went, the calls that mattered, and the numbers that moved.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default async function WorkIndex({ searchParams }: PageProps) {
               Got a product that needs a <span className="accent">clearer next quarter?</span>
             </h2>
             <p>
-              Two ways in — a fractional engagement or a focused product audit. Discovery first,
+              Two ways in: a fractional engagement or a focused product audit. Discovery first,
               evidence second, opinion last.
             </p>
             <div className="case-cta-actions">

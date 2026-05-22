@@ -133,7 +133,7 @@ const renderNode = (node: LexicalNode, key: string): ReactNode => {
         return (
           <figure key={key} className="pull-quote">
             <div className="pull-quote-text">{f.quote}</div>
-            {cite ? <figcaption className="pull-quote-attribution">— {cite}</figcaption> : null}
+            {cite ? <figcaption className="pull-quote-attribution">{cite}</figcaption> : null}
           </figure>
         )
       }
