@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style guide — Wesley Melo</title>
+    <meta name="description" content="Internal component library for wesley-m.com. Not for public consumption.">
+    <meta name="robots" content="noindex, nofollow, noai, noimageai, noarchive, nosnippet">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/styleguide.css">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <header class="sg-header">
+        <div class="sg-header-inner">
+            <a href="index.html" class="link">&larr;&#xFE0E; Home</a>
+            <p class="sg-meta">Style guide &middot; internal &middot; <a href="docs/components.md" class="link">components.md</a></p>
+        </div>
+    </header>
+
+    <main id="main-content" class="sg-main">
+
+        <section class="sg-intro">
+            <h1 class="sg-h1">Component library</h1>
+            <p class="sg-lede">Every reusable block on the static site. Copy from here; do not re-invent. The written contract lives in <a href="docs/components.md" class="sg-inline-link">docs/components.md</a>.</p>
+        </section>
+
+        <!-- TOKENS ------------------------------------------------ -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">01</p>
+                <h2 class="sg-h2">Tokens</h2>
+            </header>
+            <div class="sg-tokens">
+                <div class="sg-swatch" style="background:#2B3856;color:#FFF">
+                    <strong>--bg</strong>
+                    <code>#2B3856</code>
+                </div>
+                <div class="sg-swatch" style="background:#F5F2EC;color:#1B2238">
+                    <strong>--bg-alt</strong>
+                    <code>#F5F2EC</code>
+                </div>
+                <div class="sg-swatch" style="background:#1B2238;color:#F5F2EC">
+                    <strong>--ink</strong>
+                    <code>#1B2238</code>
+                </div>
+                <div class="sg-swatch" style="background:#FFFFFF;color:#1B2238;border:1px solid rgba(27,34,56,0.16)">
+                    <strong>--fg</strong>
+                    <code>#FFFFFF</code>
+                </div>
+                <div class="sg-swatch" style="background:#E5B07A;color:#1B2238">
+                    <strong>accent (ochre)</strong>
+                    <code>#E5B07A</code>
+                </div>
+            </div>
+            <div class="sg-type">
+                <p style="font-size:80px;line-height:1.02;letter-spacing:-0.02em;margin:0;">Hero title</p>
+                <p style="font-size:48px;line-height:1.08;letter-spacing:-0.02em;margin:24px 0 0;">Section title (h2)</p>
+                <p style="font-size:22px;line-height:1.2;margin:24px 0 0;">Card title (h3)</p>
+                <p style="font-size:17px;line-height:1.6;color:rgba(27,34,56,0.75);margin:16px 0 0;">Lede / body copy &mdash; 17px, line-height 1.6, quiet color.</p>
+                <p style="font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(27,34,56,0.75);margin:24px 0 0;">Section label &mdash;</p>
+            </div>
+        </section>
+
+        <!-- BUTTONS ----------------------------------------------- -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">02</p>
+                <h2 class="sg-h2">Buttons</h2>
+            </header>
+
+            <div class="sg-row sg-row-dark">
+                <div class="sg-row-label">On navy</div>
+                <div class="sg-row-demo">
+                    <a href="#" class="cta cta-primary" onclick="return false">Primary</a>
+                    <a href="#" class="cta cta-secondary" onclick="return false">Secondary</a>
+                </div>
+            </div>
+
+            <div class="sg-row sg-row-light">
+                <div class="sg-row-label">On cream (auto-inverts)</div>
+                <div class="sg-row-demo values">
+                    <a href="#" class="cta cta-primary" onclick="return false">Primary</a>
+                    <a href="#" class="cta cta-secondary" onclick="return false">Secondary</a>
+                </div>
+            </div>
+
+            <div class="sg-row sg-row-dark">
+                <div class="sg-row-label">.link</div>
+                <div class="sg-row-demo">
+                    <a href="#" class="link" onclick="return false">Inline link</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION LABELS ---------------------------------------- -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">03</p>
+                <h2 class="sg-h2">Section labels</h2>
+            </header>
+            <div class="sg-row sg-row-dark">
+                <div class="sg-row-label">On navy</div>
+                <div class="sg-row-demo">
+                    <div class="section-label-row" style="padding-bottom:0">
+                        <span class="section-label">Background &mdash;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sg-row sg-row-light">
+                <div class="sg-row-label">On cream</div>
+                <div class="sg-row-demo">
+                    <div class="section-label-row" style="padding-bottom:0">
+                        <span class="section-label section-label-dark">Principles &mdash;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HERO -------------------------------------------------- -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">04</p>
+                <h2 class="sg-h2">Hero</h2>
+            </header>
+            <div class="sg-frame sg-frame-dark">
+                <section class="hero" aria-label="Introduction" style="padding:48px 0">
+                    <div class="hero-grid">
+                        <div class="hero-text">
+                            <p class="hero-eyebrow">Fractional Product Manager &middot; Remote</p>
+                            <h1 class="hero-title">Hello, I&rsquo;m<br>Wesley Melo</h1>
+                            <p class="hero-lede">Senior PM with ten years across agencies, platforms, and AI.</p>
+                            <div class="hero-actions">
+                                <a href="#" class="cta cta-primary" onclick="return false">Primary</a>
+                                <a href="#" class="cta cta-secondary" onclick="return false">Secondary</a>
+                            </div>
+                        </div>
+                        <figure class="hero-figure">
+                            <img src="images/wesley-portrait.jpg" alt="Sample portrait">
+                        </figure>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- STATS ------------------------------------------------- -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">05</p>
+                <h2 class="sg-h2">Stats strip</h2>
+            </header>
+            <div class="sg-frame sg-frame-dark">
+                <section class="stats" style="border-top:0;padding:0">
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-value">10+</div>
+                            <div class="stat-label">years shipping product</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">4</div>
+                            <div class="stat-label">agencies &amp; platforms</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">working languages</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- VALUE CARDS ------------------------------------------ -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">06</p>
+                <h2 class="sg-h2">Value cards (3-up, hover inverts)</h2>
+            </header>
+            <div class="sg-frame">
+                <section class="values" style="margin:0;padding:48px">
+                    <div class="values-inner">
+                        <div class="values-grid">
+                            <article class="value-card">
+                                <div class="value-num">01</div>
+                                <h3>Discovery first</h3>
+                                <p>Interviews, data, jobs-to-be-done.</p>
+                            </article>
+                            <article class="value-card">
+                                <div class="value-num">02</div>
+                                <h3>Evidence over opinion</h3>
+                                <p>Hypotheses, instrumentation, weekly read-outs.</p>
+                            </article>
+                            <article class="value-card">
+                                <div class="value-num">03</div>
+                                <h3>Built to outlive me</h3>
+                                <p>Weekly releases, written specs, quiet handovers.</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- TIMELINE --------------------------------------------- -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">07</p>
+                <h2 class="sg-h2">Background timeline</h2>
+            </header>
+            <div class="sg-frame sg-frame-dark">
+                <section class="background" style="border-top:0;padding:0">
+                    <div class="bg-timeline">
+                        <div class="bg-row">
+                            <div class="bg-period">2025 &rarr;&#xFE0E;</div>
+                            <div class="bg-company">Code and Theory</div>
+                            <div class="bg-detail">Senior PM on digital strategy work.</div>
+                        </div>
+                        <div class="bg-row">
+                            <div class="bg-period">2023 &mdash; 2025</div>
+                            <div class="bg-company">Liferay</div>
+                            <div class="bg-detail">Product manager on DXP platform work.</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- TRACK CARDS ------------------------------------------ -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">08</p>
+                <h2 class="sg-h2">Track cards (2-up)</h2>
+            </header>
+            <div class="sg-frame sg-frame-dark">
+                <section class="tracks" style="border-top:0;padding:0">
+                    <div class="tracks-inner">
+                        <div class="tracks-grid">
+                            <article class="track-card">
+                                <div class="track-tag">Ongoing</div>
+                                <h3>Fractional engagement</h3>
+                                <p class="track-lede">Embedded 2&ndash;3 days a week.</p>
+                                <ul class="track-list">
+                                    <li>Weekly cadence with eng &amp; design</li>
+                                    <li>Roadmap, OKRs, written specs</li>
+                                </ul>
+                                <div class="track-footer">Best for: founder-led teams.</div>
+                            </article>
+                            <article class="track-card">
+                                <div class="track-tag track-tag-alt">One-off</div>
+                                <h3>Product audit</h3>
+                                <p class="track-lede">Two- to four-week engagement.</p>
+                                <ul class="track-list">
+                                    <li>Customer interviews</li>
+                                    <li>Written report + read-out</li>
+                                </ul>
+                                <div class="track-footer">Best for: building the wrong thing.</div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- RESULT CARDS ----------------------------------------- -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">09</p>
+                <h2 class="sg-h2">Result cards (mixed grid)</h2>
+            </header>
+            <div class="sg-frame">
+                <section class="results" style="margin:0;padding:48px">
+                    <div class="results-inner">
+                        <div class="results-grid">
+                            <article class="result-card result-card-stat">
+                                <div class="result-value">12&times;</div>
+                                <p>LLM-powered features shipped to production.</p>
+                            </article>
+                            <article class="result-card">
+                                <div class="result-context">Liferay &middot; 2024</div>
+                                <p>Multi-site CMS migration across 14 properties.</p>
+                            </article>
+                            <article class="result-card result-card-stat result-card-alt">
+                                <div class="result-value">0&rarr;1</div>
+                                <p>Accent variant &mdash; use sparingly (one per grid).</p>
+                            </article>
+                            <article class="result-card">
+                                <div class="result-context">Code and Theory &middot; 2025</div>
+                                <p>AI agent orchestration prototype in 11 weeks.</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- CTA STRIP -------------------------------------------- -->
+        <section class="sg-section">
+            <header class="sg-section-head">
+                <p class="sg-eyebrow">10</p>
+                <h2 class="sg-h2">CTA strip</h2>
+            </header>
+            <div class="sg-frame sg-frame-dark">
+                <section class="cta-strip" style="border-top:0;padding:0">
+                    <div class="cta-grid">
+                        <h2 class="cta-title">Got a product that needs<br>a clearer next quarter?</h2>
+                        <div class="cta-actions">
+                            <a href="#" class="cta cta-primary" onclick="return false">Email Wesley</a>
+                            <a href="#" class="cta cta-secondary" onclick="return false">Read the resume &rarr;&#xFE0E;</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
