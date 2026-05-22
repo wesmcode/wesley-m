@@ -13,20 +13,71 @@ html, body {
     color: var(--fg);
 }
 
-.page {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 40px 80px;
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* TOP BAR ---------------------------------------------------- */
-.top-bar {
-    padding: 40px 0 0;
+.page {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
-.top-bar .link {
+
+.page > main {
+    flex: 1;
+}
+
+/* TOP BAR — sticky persistent nav ---------------------------- */
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(19, 19, 19, 0.92);
+    backdrop-filter: saturate(150%) blur(10px);
+    -webkit-backdrop-filter: saturate(150%) blur(10px);
+    border-bottom: var(--rule-soft);
+}
+.top-bar-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px 32px;
+    flex-wrap: wrap;
+}
+.top-bar-brand {
     font-size: 14px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+.top-bar-brand:hover {
+    color: var(--fg-hover);
+}
+.top-bar-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+.top-bar-links .link {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     cursor: pointer;
+}
+.top-bar-links [aria-current="page"] {
+    color: var(--fg-hover);
+    pointer-events: none;
 }
 
 /* SECTION HEADS --------------------------------------------- */
@@ -157,6 +208,16 @@ html, body {
     object-fit: cover;
     object-position: center center;
 }
+.hero-figure__img--hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 320ms ease;
+}
+.hero-figure:hover .hero-figure__img--hover,
+.hero-figure:focus-within .hero-figure__img--hover {
+    opacity: 1;
+}
 
 /* STATS ----------------------------------------------------- */
 .stats {
@@ -173,23 +234,24 @@ html, body {
 .stat {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 18px;
     padding-top: 4px;
 }
 
 .stat-value {
-    font-size: clamp(64px, 7vw, 104px);
+    font-size: clamp(72px, 8vw, 120px);
     line-height: 1;
     font-weight: 400;
     letter-spacing: -0.03em;
 }
 
 .stat-label {
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 1.55;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--fg-hover);
-    max-width: 28ch;
+    max-width: none;
 }
 
 /* OFFERINGS ------------------------------------------------- */
@@ -285,13 +347,17 @@ html, body {
 
 .expect-card {
     display: grid;
-    grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
-    gap: 48px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: 56px;
     align-items: baseline;
     padding: 28px 24px;
     border-bottom: var(--rule-medium);
     background: transparent;
     transition: background 0.15s ease, color 0.15s ease;
+}
+
+.expect-card h3 {
+    overflow-wrap: break-word;
 }
 
 .expect-card:last-child {
@@ -638,7 +704,8 @@ html, body {
 
 /* FOOTER ---------------------------------------------------- */
 #site-footer {
-    padding-top: 32px;
+    margin-top: 56px;
+    padding-bottom: 32px;
 }
 #site-footer .footer-row {
     border-top: var(--rule-medium);
@@ -646,6 +713,7 @@ html, body {
 }
 #site-footer .footer-meta {
     color: var(--fg-hover);
+    margin-top: 12px;
 }
 
 /* REDUCED MOTION ------------------------------------------- */
@@ -658,7 +726,8 @@ html, body {
     .big-cta-card,
     .faq-item,
     .faq-icon::before,
-    .faq-icon::after {
+    .faq-icon::after,
+    .hero-figure__img--hover {
         transition: none;
     }
     .offer:hover,
@@ -707,11 +776,20 @@ html, body {
 /* MOBILE ---------------------------------------------------- */
 @media only screen and (max-width: 768px) {
     .page {
-        padding: 0 24px 56px;
+        padding: 0 24px;
     }
 
-    .top-bar {
-        padding-top: 28px;
+    .top-bar-inner {
+        padding: 12px 20px;
+        gap: 10px 16px;
+    }
+
+    .top-bar-links {
+        gap: 8px 16px;
+    }
+
+    .top-bar-links .link {
+        font-size: 12px;
     }
 
     .hero {

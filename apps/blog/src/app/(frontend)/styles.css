@@ -162,7 +162,7 @@ a:hover { color: var(--fg-hover); }
     letter-spacing: 0.1em;
 }
 .footer-nav .link:hover {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.62);
     text-decoration: underline;
 }
 .footer-nav .link:focus-visible {
@@ -175,7 +175,7 @@ a:hover { color: var(--fg-hover); }
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.62);
 }
 
 /* Article body (prose) — used inside the post detail page */
@@ -379,9 +379,8 @@ a:hover { color: var(--fg-hover); }
 
 /* ===================================================================
    Case studies — index + detail
-   Inspired by the Jason Faber reference: full-bleed dark hero, stat
-   overlays on the hero figure, sticky side-rail facts, CTA block.
-   Brand kept: Garamond serif, navy #2B3856, cream #F4F2EC.
+   Full-bleed dark hero, stat overlays on the hero figure, sticky
+   side-rail facts, CTA block. Garamond/navy/cream tokens.
    =================================================================== */
 
 /* Dark hero band — full-bleed, sits outside .page wrapper */
