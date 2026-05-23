@@ -825,10 +825,12 @@ body {
     }
 
     .hero-figure {
+        width: 100%;
         max-width: 260px;
-        max-height: none;
+        height: auto;
         aspect-ratio: 4 / 5;
-        justify-self: flex-start;
+        justify-self: center;
+        margin-left: 0;
     }
 
     .hero-lede {
