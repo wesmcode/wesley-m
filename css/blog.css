@@ -386,7 +386,7 @@ a:focus-visible .kicker {
 
 .card-b-figure {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: 180px;
     overflow: hidden;
     background: var(--placeholder-bg);
     margin-bottom: 16px;
@@ -596,6 +596,7 @@ a:focus-visible .kicker {
         border-bottom: var(--rule-soft);
     }
     .card-b:last-child { border-bottom: none; }
+    .card-b-figure { height: 220px; }
     .reading-grid { grid-template-columns: 1fr; }
     .reading-link {
         border-right: none;
