@@ -158,10 +158,10 @@ body {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 0.9fr 1.1fr;
     grid-template-areas:
-        "text figure"
-        "lede figure";
+        "figure text"
+        "figure lede";
     gap: 48px 64px;
     align-items: end;
 }
@@ -184,6 +184,8 @@ body {
     letter-spacing: -0.03em;
     text-transform: uppercase;
     margin: 0 0 8px;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .hero-tags {
@@ -213,14 +215,14 @@ body {
     margin: 0;
     position: relative;
     overflow: hidden;
-    aspect-ratio: 4 / 5;
     background: var(--bg);
     border: var(--rule-medium);
     isolation: isolate;
-    align-self: stretch;
-    max-height: 480px;
-    justify-self: end;
-    width: 100%;
+    align-self: start;
+    justify-self: start;
+    width: 399px;
+    height: 580px;
+    max-width: 100%;
 }
 .hero-figure > img {
     display: block;
