@@ -2,7 +2,7 @@
     --bg: #FFFFFF;
     --bg-tint: #F4F2EC;
     --fg: #2B3856;
-    --fg-hover: #7A8299;
+    --fg-hover: #636D85;
     --fg-quiet: rgba(43, 56, 86, 0.75);
     --fg-mute: rgba(43, 56, 86, 0.12);
     --fg-soft: rgba(43, 56, 86, 0.08);
@@ -16,6 +16,12 @@
     max-width: 1180px;
     margin: 0 auto;
     padding: 0 32px;
+}
+
+/* Disabled/placeholder links */
+a[aria-disabled="true"] {
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* Top bar */

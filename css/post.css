@@ -259,7 +259,7 @@ html, body {
     color: inherit;
     text-decoration: none;
     cursor: default;
-    transition: padding-left 0.15s ease;
+    transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 .read-next-item:last-of-type { border-bottom: var(--rule); }
 .read-next-item:hover,
@@ -267,7 +267,7 @@ html, body {
     outline: none;
     background: var(--fg);
     color: var(--bg);
-    padding-left: 24px;
+    transform: translateX(24px);
 }
 .read-next-item:hover .read-next-meta,
 .read-next-item:focus-visible .read-next-meta {

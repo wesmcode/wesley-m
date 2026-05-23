@@ -110,7 +110,6 @@ body {
     gap: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding: 4px 16px 20px 4px;
@@ -134,7 +133,7 @@ body {
 }
 
 .about-card:hover,
-.about-cards:not(:hover) .about-card[data-active="true"] {
+.about-cards:not(:hover) .about-card.is-active {
     background: #FFFFFF;
     color: var(--bg);
     box-shadow: 8px 8px 0 #FFFFFF;
@@ -142,12 +141,12 @@ body {
 }
 
 .about-card:hover p,
-.about-cards:not(:hover) .about-card[data-active="true"] p {
+.about-cards:not(:hover) .about-card.is-active p {
     color: var(--bg);
 }
 
 .about-card:hover svg rect,
-.about-cards:not(:hover) .about-card[data-active="true"] svg rect {
+.about-cards:not(:hover) .about-card.is-active svg rect {
     fill: var(--bg);
 }
 
@@ -332,9 +331,7 @@ body {
 .cap-cta-link:hover,
 .cap-cta-link:focus-visible {
     background: var(--bg);
-    color: #FFFFFF;
-}
-.cap-cta-link:focus-visible {
+    color: var(--fg);
     outline: 2px solid var(--bg);
     outline-offset: 4px;
 }
@@ -438,6 +435,10 @@ body {
         max-width: 100%;
     }
 
+    .about-cards-wrapper {
+        margin: 0 -24px;
+    }
+
     .about-statement {
         font-size: 26px;
         margin-bottom: 40px;
@@ -527,6 +528,14 @@ body {
         line-height: 28px;
         width: 100%;
         display: flex;
+        min-height: 44px;
+        align-items: center;
+    }
+
+    .row {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
     }
 
     .button-label {

@@ -90,14 +90,14 @@ html {
     font-size: 15px;
     line-height: 1.25;
     letter-spacing: -0.005em;
-    transition: background 0.15s ease, color 0.15s ease, padding 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
 .hero-index-item:hover,
 .hero-index-item:focus-visible {
     background: var(--fg);
     color: var(--bg);
-    padding-left: 12px;
+    transform: translateX(6px);
     outline: none;
 }
 
@@ -195,6 +195,10 @@ html {
 
 /* MOBILE ---------------------------------------------------- */
 @media only screen and (max-width: 768px) {
+    :focus-visible {
+        scroll-margin-top: 72px;
+    }
+
     .hero-index-grid {
         gap: 24px;
     }
@@ -248,12 +252,32 @@ html {
     }
 }
 
+/* UPCOMING case study links — disabled state */
+.hero-index-item[aria-disabled="true"] {
+    color: var(--fg-hover);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.hero-index-item[aria-disabled="true"]:hover,
+.hero-index-item[aria-disabled="true"]:focus-visible {
+    background: transparent;
+    color: var(--fg-hover);
+    padding-left: 6px;
+    outline: none;
+}
+.hero-index-item[aria-disabled="true"] .hero-index-num {
+    color: var(--fg-hover);
+}
+.hero-index-item[aria-disabled="true"] .hero-index-arrow {
+    display: none;
+}
+
 /* TOUCH — match services.css hover suppression -------------- */
 @media (hover: none) {
     .hero-index-item:hover {
         background: transparent;
         color: var(--fg);
-        padding-left: 6px;
+        transform: none;
     }
     .hero-index-item:hover .hero-index-num { color: var(--fg-hover); }
     .hero-index-item:hover .hero-index-arrow { opacity: 0; }

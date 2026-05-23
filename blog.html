@@ -11,8 +11,15 @@
     <meta property="og:description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wesley-m.com/blog.html">
+    <meta property="og:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
+    <meta property="og:image:alt" content="Portrait of Wesley Melo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Direction Challenge: Wesley Melo">
+    <meta name="twitter:description" content="Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.">
+    <meta name="twitter:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
     <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
-    <link rel="icon" href="data:,">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://picsum.photos" crossorigin>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/blog.css">
     <script type="application/ld+json">
@@ -45,7 +52,7 @@
         <div class="masthead-inner">
             <div class="masthead-left">
                 <p class="site-subtitle">Notes on product, AI, and the people building both.</p>
-                <h1>Direction Challenge</h1>
+                <h1 id="site-heading">Direction Challenge</h1>
             </div>
             <aside class="masthead-ad" role="complementary" aria-label="Sponsored content">
                 <div class="ad-slot-label">Advertisement</div>
@@ -56,7 +63,7 @@
 
     <div class="page">
 
-        <main id="main-content">
+        <main id="main-content" aria-labelledby="site-heading">
 
             <section aria-label="Top stories">
                 <div class="zone-head">
@@ -69,7 +76,7 @@
                 <div class="hero-grid">
                     <a href="blog/the-90s-kid-guide-to-actually-learning-tech.html" class="splash">
                         <div class="splash-figure">
-                            <img src="https://picsum.photos/seed/wesm-90s-1/1200/675" alt="Forest canopy looking up at tall trees" loading="lazy">
+                            <img src="https://picsum.photos/seed/wesm-90s-1/1200/675" alt="Forest canopy looking up at tall trees" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
                         </div>
                         <span class="kicker">Essay</span>
                         <h3 class="splash-title">The 90s Kid Guide to Actually Learning Tech</h3>
@@ -133,11 +140,11 @@
                             <h2>Opinion</h2>
                             <span class="zone-sub">Columns &amp; commentary</span>
                             <span class="zone-spacer"></span>
-                            <a href="#" class="zone-link">More &rarr;&#xFE0E;</a>
+                            <a href="#" class="zone-link" aria-disabled="true" onclick="return false;">More &rarr;&#xFE0E;</a>
                         </div>
 
                         <div class="opinion-grid">
-                            <a href="#" class="opinion-item">
+                            <a href="#" class="opinion-item" aria-disabled="true" onclick="return false;">
                                 <div class="opinion-author">
                                     <span class="opinion-avatar" aria-hidden="true">WM</span>
                                     <span class="opinion-author-name">Wesley Melo</span>
@@ -145,7 +152,7 @@
                                 <h3 class="opinion-title">The roadmap nobody reads is the one that keeps you safe.</h3>
                                 <div class="opinion-meta">April 28, 2026</div>
                             </a>
-                            <a href="#" class="opinion-item">
+                            <a href="#" class="opinion-item" aria-disabled="true" onclick="return false;">
                                 <div class="opinion-author">
                                     <span class="opinion-avatar" aria-hidden="true">WM</span>
                                     <span class="opinion-author-name">Wesley Melo</span>
@@ -153,7 +160,7 @@
                                 <h3 class="opinion-title">If your demo only works on the demo machine, you don&rsquo;t have a product.</h3>
                                 <div class="opinion-meta">April 12, 2026</div>
                             </a>
-                            <a href="#" class="opinion-item">
+                            <a href="#" class="opinion-item" aria-disabled="true" onclick="return false;">
                                 <div class="opinion-author">
                                     <span class="opinion-avatar" aria-hidden="true">WM</span>
                                     <span class="opinion-author-name">Wesley Melo</span>
@@ -169,7 +176,7 @@
                             <h2>More posts</h2>
                             <span class="zone-sub">Recent writing</span>
                             <span class="zone-spacer"></span>
-                            <a href="#" class="zone-link">Archive &rarr;&#xFE0E;</a>
+                            <a href="#" class="zone-link" aria-disabled="true" onclick="return false;">Archive &rarr;&#xFE0E;</a>
                         </div>
 
                         <div class="card-row">
@@ -218,7 +225,7 @@
                             <span class="zone-sub">From the open web</span>
                         </div>
                         <div class="reading-grid">
-                            <a href="#" class="reading-link" target="_blank" rel="noopener noreferrer">
+                            <a href="#" class="reading-link" aria-disabled="true" onclick="return false;">
                                 <div class="reading-link-thumb">
                                     <img src="https://picsum.photos/seed/read-army/200/150" alt="" loading="lazy">
                                 </div>
@@ -227,7 +234,7 @@
                                     <div class="reading-link-title">The US Army Is Building Its Own Chatbot for Combat</div>
                                 </div>
                             </a>
-                            <a href="#" class="reading-link" target="_blank" rel="noopener noreferrer">
+                            <a href="#" class="reading-link" aria-disabled="true" onclick="return false;">
                                 <div class="reading-link-thumb">
                                     <img src="https://picsum.photos/seed/read-barlow/200/150" alt="" loading="lazy">
                                 </div>
@@ -236,7 +243,7 @@
                                     <div class="reading-link-title">John Perry Barlow, JFK Jr., and a Night of Grief I Can&rsquo;t Forget</div>
                                 </div>
                             </a>
-                            <a href="#" class="reading-link" target="_blank" rel="noopener noreferrer">
+                            <a href="#" class="reading-link" aria-disabled="true" onclick="return false;">
                                 <div class="reading-link-thumb">
                                     <img src="https://picsum.photos/seed/read-cursor/200/150" alt="" loading="lazy">
                                 </div>
@@ -245,7 +252,7 @@
                                     <div class="reading-link-title">Cursor Launches a New AI Agent Experience to Take On Claude Code and Codex</div>
                                 </div>
                             </a>
-                            <a href="#" class="reading-link" target="_blank" rel="noopener noreferrer">
+                            <a href="#" class="reading-link" aria-disabled="true" onclick="return false;">
                                 <div class="reading-link-thumb">
                                     <img src="https://picsum.photos/seed/read-aimodels/200/150" alt="" loading="lazy">
                                 </div>

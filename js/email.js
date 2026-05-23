@@ -5,6 +5,7 @@ var emailLinks = document.querySelectorAll('.js-email');
 emailLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
         e.preventDefault();
+        link.href = 'mailto:' + addr;
         var label = link.querySelector('.button-label');
         if (label) {
             label.textContent = addr;

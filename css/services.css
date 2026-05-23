@@ -1,11 +1,15 @@
 :root {
     --bg: #131313;
     --fg: #FFFFFF;
-    --fg-hover: rgba(255, 255, 255, 0.5);
+    --fg-hover: rgba(255, 255, 255, 0.62);
     --fg-quiet: rgba(255, 255, 255, 0.72);
     --rule-soft: 1px solid rgba(255, 255, 255, 0.18);
     --rule-medium: 2px solid #FFFFFF;
     --rule-heavy: 3px solid #FFFFFF;
+    /* Derived alpha tokens for background overlays */
+    --bg-a55: rgba(19, 19, 19, 0.55);
+    --bg-a65: rgba(19, 19, 19, 0.65);
+    --bg-a82: rgba(19, 19, 19, 0.82);
 }
 
 html, body {
@@ -14,7 +18,7 @@ html, body {
 }
 
 html {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
     scroll-padding-top: 64px;
 }
@@ -28,8 +32,12 @@ body {
 .snap-section {
     min-height: 100vh;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
     position: relative;
+}
+
+/* Only the hero holds the user at the top; all other sections are passable. */
+.hero.snap-section {
+    scroll-snap-stop: always;
 }
 
 .page {
@@ -275,7 +283,7 @@ body {
 }
 
 .offer:hover .offer-num {
-    color: rgba(19, 19, 19, 0.55);
+    color: var(--bg-a55);
 }
 
 .offer h3 {
@@ -297,7 +305,7 @@ body {
 }
 
 .offer:hover .offer-meta {
-    color: rgba(19, 19, 19, 0.55);
+    color: var(--bg-a55);
 }
 
 .offer p:not(.offer-meta) {
@@ -309,7 +317,7 @@ body {
 }
 
 .offer:hover p:not(.offer-meta) {
-    color: rgba(19, 19, 19, 0.82);
+    color: var(--bg-a82);
 }
 
 /* EXPECT — full-row invert, process-row pattern ------------- */
@@ -363,7 +371,7 @@ body {
 }
 
 .expect-card:hover p {
-    color: rgba(19, 19, 19, 0.65);
+    color: var(--bg-a65);
 }
 
 /* BUYERS ---------------------------------------------------- */
@@ -422,7 +430,7 @@ body {
 }
 
 .buyer-card:hover p {
-    color: rgba(19, 19, 19, 0.82);
+    color: var(--bg-a82);
 }
 
 /* CTA CARD (longer-term) ------------------------------------ */
@@ -457,7 +465,7 @@ body {
 }
 
 .cta-card:hover .cta-card-eyebrow {
-    color: rgba(19, 19, 19, 0.55);
+    color: var(--bg-a55);
 }
 
 .cta-card-title {
@@ -480,7 +488,7 @@ body {
 }
 
 .cta-card:hover .cta-card-lede {
-    color: rgba(19, 19, 19, 0.82);
+    color: var(--bg-a82);
 }
 
 .cta-card .cta-button {
@@ -681,6 +689,23 @@ body {
     outline-color: var(--bg);
 }
 
+/* FOOTER ---------------------------------------------------- */
+#site-footer {
+    border-top: var(--rule-soft);
+    padding: 40px 0 32px;
+}
+
+#site-footer .footer-row {
+    border-top: none;
+}
+
+/* TOUCH — hide hover image on touch-only devices */
+@media (hover: none) {
+    .hero-figure__img--hover {
+        display: none;
+    }
+}
+
 /* REDUCED MOTION ------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -768,6 +793,11 @@ body {
 
     .top-bar-links .link {
         font-size: 12px;
+        padding-block: 10px;
+    }
+
+    :focus-visible {
+        scroll-margin-top: 72px;
     }
 
     .hero {

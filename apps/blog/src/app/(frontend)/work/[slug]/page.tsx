@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getPayload } from 'payload'
+import { getPayload, type Where } from 'payload'
 import config from '@payload-config'
 
 import { RichText } from '@/components/RichText'
@@ -16,9 +16,11 @@ const CARD_TONES = ['', 'case-card-figure--alt']
 
 const fetchCase = async (slug: string, includeDrafts = false) => {
   const payload = await getPayload({ config })
-  const where = includeDrafts
-    ? { slug: { equals: slug } }
-    : { and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }] }
+  const where: Where = {
+    and: includeDrafts
+      ? [{ slug: { equals: slug } }]
+      : [{ slug: { equals: slug } }, { status: { equals: 'published' } }],
+  }
   const { docs } = await payload.find({
     collection: 'case-studies',
     where,
@@ -30,14 +32,14 @@ const fetchCase = async (slug: string, includeDrafts = false) => {
 
 const fetchSiblings = async (excludeSlug: string, includeDrafts = false) => {
   const payload = await getPayload({ config })
-  const where = includeDrafts
-    ? { slug: { not_equals: excludeSlug } }
-    : {
-        and: [
+  const where: Where = {
+    and: includeDrafts
+      ? [{ slug: { not_equals: excludeSlug } }]
+      : [
           { slug: { not_equals: excludeSlug } },
           { status: { equals: 'published' } },
         ],
-      }
+  }
   const { docs } = await payload.find({
     collection: 'case-studies',
     where,

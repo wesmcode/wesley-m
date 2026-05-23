@@ -20,11 +20,6 @@
         current = index;
         cards.forEach(function (card, i) {
             card.classList.toggle('is-active', i === index);
-            if (i === index) {
-                card.setAttribute('data-active', 'true');
-            } else {
-                card.removeAttribute('data-active');
-            }
         });
         if (liveRegion) {
             liveRegion.textContent = 'Card ' + (index + 1) + ' of ' + cards.length + ': ' + cardTitle(index);

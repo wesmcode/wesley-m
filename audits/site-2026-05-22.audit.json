@@ -1,236 +1,317 @@
 {
-  "scannedAt": "2026-05-22T18:29:23Z",
+  "scannedAt": "2026-05-22T00:00:00Z",
   "pages": [
-    { "path": "index.html",     "scores": { "a11y": 68, "perf": 85, "consistency": 90 } },
-    { "path": "blog.html",      "scores": { "a11y": 63, "perf": 80, "consistency": 88 } },
-    { "path": "resume.html",    "scores": { "a11y": 55, "perf": 90, "consistency": 80 } },
-    { "path": "services.html",  "scores": { "a11y": 70, "perf": 85, "consistency": 82 } },
-    { "path": "styleguide.html","scores": { "a11y": 58, "perf": 90, "consistency": 75 } }
+    { "path": "index.html", "scores": { "a11y": 78, "perf": 72, "consistency": 76 } },
+    { "path": "work.html", "scores": { "a11y": 55, "perf": 74, "consistency": 78 } },
+    { "path": "services.html", "scores": { "a11y": 80, "perf": 44, "consistency": 82 } },
+    { "path": "resume.html", "scores": { "a11y": 84, "perf": 76, "consistency": 70 } },
+    { "path": "blog.html", "scores": { "a11y": 70, "perf": 58, "consistency": 72 } },
+    { "path": "styleguide.html", "scores": { "a11y": 82, "perf": 60, "consistency": 55 } }
   ],
   "issues": [
     {
-      "page": "resume.html",
-      "selector": "body",
+      "page": "work.html",
+      "selector": ".hero-index-item (all 8)",
       "kind": "a11y",
       "severity": "P0",
-      "note": "No skip link. resume.html has no <a href='#main-content' class='skip-link'> before the page content. The download button and header are reached before any main content.",
-      "suggest": "Add <a href='#main-content' class='skip-link'>Skip to content</a> immediately after <body> (matching the pattern on every other page), and add id='main-content' to the <main> element."
+      "note": "All 8 case study links (lines 73-128) point to work/ subdirectory that does not exist. Every link delivers a 404.",
+      "suggest": "Create work/ directory with case study HTML pages, or replace hrefs with anchor fragments until individual pages ship."
     },
     {
-      "page": "resume.html",
-      "selector": "a[href='wesley_melo_resume_es_remote.pdf']",
-      "kind": "a11y",
-      "severity": "P0",
-      "note": "The 'Download .PDF' link points to a file (wesley_melo_resume_es_remote.pdf) that does not exist at the repo root. Git status confirms both PDF files were deleted. The link is completely broken.",
-      "suggest": "Either restore the PDF to the repo root, update the href to the correct path, or remove the button until the file is available. A broken download link is a hard stop for any user who came specifically for the PDF."
-    },
-    {
-      "page": "index.html,blog.html,services.html",
-      "selector": "a[href='about.html'], a[href='about.html#engage']",
-      "kind": "a11y",
-      "severity": "P0",
-      "note": "about.html was deleted (confirmed by git status) but is still linked from: index.html lines 70 and 315 (nav + footer), blog.html line 308 (footer), services.html lines 272 and 375 (CTA button + footer). Each is a navigational dead-end.",
-      "suggest": "Remove or redirect the About links until the page is restored. At minimum update the nav/footer to remove the link so keyboard and SR users do not hit a 404 on a primary nav item."
-    },
-    {
-      "page": "styleguide.html",
-      "selector": "link[href='css/about.css']",
-      "kind": "a11y",
-      "severity": "P0",
-      "note": "styleguide.html (line 11) references css/about.css which no longer exists (deleted with about.html). All component styles that were defined in about.css — value cards, track cards, result cards, CTA strip, background timeline — will render without their intended CSS. Focus styles, color tokens, and layout shipped in that file are all missing.",
-      "suggest": "Extract the component styles still needed by styleguide.html into a dedicated css/components.css (or into the named per-component files), then update the link element."
-    },
-    {
-      "page": "blog.html",
-      "selector": ".byline, .opinion-meta, .most-read-meta, .card-b-meta, .side-meta",
+      "page": "work.html",
+      "selector": "body (no footer element)",
       "kind": "a11y",
       "severity": "P1",
-      "note": "Multiple metadata text elements use --fg-hover (rgba(43,56,86,0.5) blended on white), which resolves to approximately rgb(149,156,171). Computed contrast ratio is 2.78:1 against white (#FFFFFF). WCAG 2.2 AA requires 4.5:1 for text below 18pt/14pt-bold. Affected: byline (12px line 72), opinion-meta (11px line 140), most-read-meta (11px line 264), card-b-meta (11px line 177), side-meta (11px line 91).",
-      "suggest": "Raise --fg-hover on the light/blog context to at least rgba(43,56,86,0.7) to achieve ~4.75:1. Alternatively use a fixed value like #767C8E. The quiet treatment is a design intent worth preserving — the fix is tightening the alpha, not removing the visual hierarchy."
-    },
-    {
-      "page": "blog.html",
-      "selector": ".ad-slot-label, .reading-link-source",
-      "kind": "a11y",
-      "severity": "P1",
-      "note": "ad-slot-label (10px, line 48) and reading-link-source (10px, line 220) also use --fg-hover on white at 2.78:1. At 10px these are the smallest text on the site and the contrast is worst.",
-      "suggest": "Same token fix as above. For the ad slot label, also consider whether the placeholder is informational — if it is, it must meet contrast; if it is purely decorative scaffolding, marking the container aria-hidden='true' on the placeholder text would exempt it, but the 'Advertisement' label should still pass."
-    },
-    {
-      "page": "index.html",
-      "selector": "#process .process-meta",
-      "kind": "a11y",
-      "severity": "P1",
-      "note": "Process section meta text (22px, not bold) uses --fg-hover (rgba(255,255,255,0.5)) on #2B3856 background. Blended ratio is 4.19:1. WCAG AA requires 4.5:1 for normal text; 22px is 16.5pt, below the 18pt (24px) threshold for large text, so it still needs 4.5:1. Line references: css/home.css:232–241.",
-      "suggest": "Raise the process-meta color to rgba(255,255,255,0.6) or higher on the dark background. A value of 0.62+ pushes the ratio to ~5.0:1."
+      "note": "work.html is the only public page with no site footer and no secondary navigation. Navigation dead end on direct arrival.",
+      "suggest": "Add standard <footer id=\"site-footer\"> with .footer-row + .footer-nav matching services.html pattern."
     },
     {
       "page": "services.html",
-      "selector": ".stat-label, .section-label, .offer-group-label, .offer-meta",
-      "kind": "a11y",
+      "selector": ".hero-figure__img--default + .hero-figure__img--hover",
+      "kind": "perf",
       "severity": "P1",
-      "note": "On the dark (#2B3856) background, --fg-hover (rgba(255,255,255,0.5)) is used for stat-label (13px), section-label (13px), offer-group-label (13px), and offer-meta (12px). Blended ratio is 4.19:1 — below the 4.5:1 required for these small sizes. css/services.css lines 36–42, 202–206.",
-      "suggest": "The same alpha fix applies: raise to ~rgba(255,255,255,0.62). Alternatively define a separate token --fg-meta for these labels in the dark context."
+      "note": "LCP image wesley-services.jpg is 1.4MB at 3747x4683px; hover image is 1.5MB. Rendered at ~384x480 CSS px. 4-5x resolution overshoot. 2.9MB total image payload. Also contains EXIF metadata (Canon EOS R6m2, datetime).",
+      "suggest": "Resize to 900x1125px, export as WebP quality 80, target <120KB each. Add srcset. Strip EXIF."
     },
     {
       "page": "index.html",
-      "selector": "#services .cap-col li",
-      "kind": "a11y",
+      "selector": "head (no og:image)",
+      "kind": "seo",
       "severity": "P1",
-      "note": "Capability list items (14px) use rgba(43,56,86,0.65) on white (#FFFFFF within the white #services section). Blended ratio is 4.12:1 — below the 4.5:1 AA threshold. css/home.css line 305–309.",
-      "suggest": "Raise to rgba(43,56,86,0.72) or equivalent fixed hex (#616A84). These are substantive content items (skill lists), not decorative — contrast matters here."
-    },
-    {
-      "page": "index.html,services.html,blog.html",
-      "selector": ".footer-meta",
-      "kind": "a11y",
-      "severity": "P1",
-      "note": "Footer copyright line uses --fg-hover at 12px on the dark footer background (#2B3856), giving 4.19:1. Below AA threshold for 12px text. css/home.css line 357, css/services.css line 609.",
-      "suggest": "Raise to rgba(255,255,255,0.65) to clear 4.5:1, or use a static #8890A4. This is informational text (copyright year), not purely decorative."
-    },
-    {
-      "page": "blog.html",
-      "selector": "a.splash[aria-label='Featured post']",
-      "kind": "a11y",
-      "severity": "P1",
-      "note": "The splash (hero post) link at line 64 carries aria-label='Featured post'. An aria-label on an anchor completely overrides the link's computed accessible name — screen reader users will hear 'Featured post' and never hear the article title 'The 90s Kid Guide to Actually Learning Tech'. This makes the SR experience significantly worse than the visual one.",
-      "suggest": "Remove aria-label from the <a>. The h3.splash-title inside the link already provides an excellent accessible name. If you want to signal the 'Featured' status, add a visually-hidden <span class='sr-only'>Featured: </span> before the h3 instead."
+      "note": "Missing <meta property=\"og:image\"> on homepage. Social shares render blank preview cards.",
+      "suggest": "Add <meta property=\"og:image\" content=\"https://wesley-m.com/images/wesley-portrait.jpg\"> and og:image:alt to index.html head."
     },
     {
       "page": "resume.html",
-      "selector": "main",
-      "kind": "a11y",
+      "selector": "head (no meta author)",
+      "kind": "consistency",
       "severity": "P1",
-      "note": "The resume page's <main> element has no id, so the (missing) skip link would have nowhere to point even if it were added. Additionally, the page has no landmark regions beyond <main>: the <header> and download button are outside of any landmarks (they are inside <main> implicitly via div.page but the document structure leaves header-level navigation floating outside meaningful landmarks).",
-      "suggest": "Add id='main-content' to <main>. Consider wrapping the name/contact block in <header> with role='banner', and use the same skip link pattern as the other pages."
-    },
-    {
-      "page": "index.html",
-      "selector": "#about-cards[role='list'][tabindex='0']",
-      "kind": "a11y",
-      "severity": "P1",
-      "note": "The about-cards carousel uses role='list' + tabindex='0' + arrow key JS navigation. This creates a conflict: a list role does not imply keyboard navigation to users or AT. Screen readers will announce 'What I bring, list, 7 items' and then — on tab — land on the container, with no indication that arrow keys are active. There is no aria-roledescription, no aria-label for instructions, and no live region announcing which card is active after JS advances.",
-      "suggest": "Either (a) adopt the W3C carousel pattern: role='region' aria-roledescription='carousel' aria-label='What I bring' on the container, with each card having aria-roledescription='slide' and an aria-label like 'AI in production, 1 of 7'; or (b) use role='tablist' with the active card as an aria-selected tab. At minimum, add an sr-only instruction inside the container: 'Use left and right arrow keys to navigate.' Update setActive() in carousel.js to call aria-live or aria-selected so AT users hear transitions."
-    },
-    {
-      "page": "blog.html,services.html",
-      "selector": "nav.top-bar[aria-label='Breadcrumb']",
-      "kind": "a11y",
-      "severity": "P2",
-      "note": "Both blog.html (line 38) and services.html (line 52) label the back-link nav 'Breadcrumb', but the ARIA Breadcrumb pattern (WAI-ARIA 1.2) requires an ordered list (<ol>) with <li> items and aria-current='page' on the current page's item. The current implementation is a single plain anchor inside a <nav>. Screen readers that announce the nav's role will say 'Breadcrumb navigation' and then present a bare link, which is misleading — this is functionally just a back link.",
-      "suggest": "Either implement a proper breadcrumb structure with <ol><li><a>Home</a></li><li aria-current='page'>Blog</li></ol>, or rename the aria-label to something accurate like 'Back navigation' or just 'Site navigation' which better matches the single-link reality."
-    },
-    {
-      "page": "index.html",
-      "selector": ".row[user-select:none], .timeline-row[user-select:none]",
-      "kind": "a11y",
-      "severity": "P2",
-      "note": "css/home.css lines 35 and 55 set user-select: none on .row and .timeline-row containers that contain the h1, navigation links, and timeline entries. user-select:none prevents keyboard users and AT from selecting text, but more importantly it signals layout intent bleeding into content — h1 text inside .row also becomes non-selectable. Copyable text (your name, dates) should not be blocked.",
-      "suggest": "Remove user-select: none from .row and .timeline-row. If the intent was to prevent accidental text selection on double-click interactions, scope it only to purely decorative elements rather than the content containers. The .years spans and typographic arrows specifically could keep it."
-    },
-    {
-      "page": "index.html,blog.html,services.html,resume.html,styleguide.html",
-      "selector": "<title> elements",
-      "kind": "a11y",
-      "severity": "P2",
-      "note": "All page titles contain literal em-dash characters (U+2014): 'Wesley Melo — Product Manager', 'Direction Challenge — Wesley Melo', etc. The CLAUDE.md project rule explicitly prohibits em-dashes in any user-facing text including titles. Screen readers may vocalise U+2014 as 'dash', 'em dash', or pause silently depending on the AT and its settings, producing inconsistent audio output.",
-      "suggest": "Replace '—' with ' | ' or ':' in all <title>, og:title, meta description, and JSON-LD name fields: 'Wesley Melo | Product Manager', 'Direction Challenge | Wesley Melo', etc. Also fix resume.html lines 336, 344, 361 where literal en-dashes (U+2013) appear in job date ranges — replace with ' to ' for consistency."
-    },
-    {
-      "page": "index.html",
-      "selector": "a[href='resume.html'][target='_blank'], footer a[href='resume.html'][target='_blank']",
-      "kind": "a11y",
-      "severity": "P2",
-      "note": "The Resume link on index.html (lines 94 and 319) and services.html (line 378) opens in a new tab (target='_blank') without any indication to the user. There is no rel='noopener noreferrer' on the services footer Resume link (line 378), and none of these links warn AT users or sighted users that a new tab is opening. Opening a new context without warning disorients keyboard and SR users.",
-      "suggest": "Add rel='noopener noreferrer' to all target='_blank' links consistently (it is missing on services.html:378 and blog.html footer). Add a visually-hidden '(opens in new tab)' <span class='sr-only'> or an aria-label suffix on the Resume links, e.g. aria-label='Resume (opens in new tab)'."
+      "note": "resume.html is the only public page missing <meta name=\"author\" content=\"Wesley Melo\">.",
+      "suggest": "Add <meta name=\"author\" content=\"Wesley Melo\"> after the meta description tag."
     },
     {
       "page": "blog.html",
-      "selector": ".opinion-item:focus-visible, .most-read-item:focus-visible, .zone-link:focus-visible",
+      "selector": "--fg-hover: #7A8299 (used on byline, zone-link, side-meta, opinion-meta, most-read-meta, reading-link-source)",
       "kind": "a11y",
-      "severity": "P2",
-      "note": "Three interactive element types use outline: var(--rule) which resolves to 1px solid #2B3856. WCAG 2.2 SC 2.4.11 (Focus Appearance, AA) requires the focus indicator to have a minimum area equal to the perimeter of the unfocused component multiplied by 2px. A 1px outline fails this. Affected: opinion-item (css/blog.css:311), most-read-item (css/blog.css:429), zone-link (css/blog.css:112).",
-      "suggest": "Change these to use --rule-medium (2px solid #2B3856) at minimum, matching the already-correct card-b, splash, side-item, and reading-link focus styles on the same page. Consistency also helps with visual scanning."
+      "severity": "P1",
+      "note": "Contrast ratio 3.83:1 on white background. WCAG AA requires 4.5:1 for normal text <18px. Fails for all metadata text and the interactive zone-link element.",
+      "suggest": "Darken --fg-hover to #636D85 or darker to reach 4.5:1 on white. Defined in css/blog.css line 5."
+    },
+    {
+      "page": "blog.html",
+      "selector": ".splash-figure img (line 72)",
+      "kind": "perf",
+      "severity": "P1",
+      "note": "Hero splash image has loading=\"lazy\" but is above-fold LCP candidate. Also sourced from external picsum.photos CDN. No fetchpriority=\"high\".",
+      "suggest": "Change to loading=\"eager\" fetchpriority=\"high\". Host images locally."
     },
     {
       "page": "index.html",
-      "selector": "a[href='about.html'], a[href='blog.html'], a[href='/work'], a[href='#services'] (nav items)",
+      "selector": "#about-cards",
       "kind": "a11y",
       "severity": "P2",
-      "note": "The main nav links on index.html each contain two spans: .button-label and .mobile-only. On mobile, .mobile-only renders '[→]' or '[↗]' as visible text. These bracketed arrow characters are read by screen readers — '[right arrow]' or '[↗]'. The accessible name of the nav link becomes 'About [→]' which is redundant and adds noise. The arrows are orientation cues for sighted mobile users, not semantic content.",
-      "suggest": "Add aria-hidden='true' to the .mobile-only span on each nav item. The .button-label already carries the full link purpose. Example: <span class='mobile-only' aria-hidden='true'>[→]</span>"
+      "note": "Carousel container (tabindex=0, role=list) receives keyboard focus but has no :focus-visible style in home.css. Violates WCAG 2.4.11 Focus Appearance.",
+      "suggest": "Add .about-cards:focus-visible { outline: 3px solid var(--fg); outline-offset: 4px; } to css/home.css."
     },
     {
       "page": "index.html",
-      "selector": "footer[id='site-footer'].snap-section",
+      "selector": ".skip-link (base.css lines 31-40)",
       "kind": "a11y",
       "severity": "P2",
-      "note": "The site footer on index.html is implemented as a .snap-section with scroll-snap-align: start. This means keyboard focus landing on any footer link triggers a mandatory scroll snap that can disorient users — particularly problematic for those using keyboard or switch access. The snap stop is on an element that should feel like a natural scroll terminus, not a trap.",
-      "suggest": "Remove scroll-snap-align from #site-footer or change it to scroll-snap-stop: normal (not always). Alternatively, reduce min-height from 50vh on the footer to something smaller — the snap effect is most disorienting when the footer section is large enough to steal the viewport."
+      "note": "Skip link has position:absolute but no z-index. Sticky top-bar has z-index:50 on other pages, could paint over the skip link when it becomes visible on focus.",
+      "suggest": "Add z-index: 100 to .skip-link in css/base.css."
+    },
+    {
+      "page": "index.html",
+      "selector": ".about-card, .process-list, .process-row (home.css lines 126,138,140,190-191,208,217,251,335,392)",
+      "kind": "consistency",
+      "severity": "P2",
+      "note": "home.css defines --border and --border-heavy tokens but uses raw #FFFFFF in 9+ declarations instead of tokens. Theme changes won't propagate.",
+      "suggest": "Replace #FFFFFF literals with var(--fg) in .about-card border, .process-list borders, .about-card:hover background/box-shadow, and SVG fill."
+    },
+    {
+      "page": "index.html",
+      "selector": ".cap-cta-link:focus-visible (home.css lines 333 and 337)",
+      "kind": "anti-pattern",
+      "severity": "P2",
+      "note": "Duplicate :focus-visible declaration. Two back-to-back .cap-cta-link:focus-visible blocks. Second overrides first.",
+      "suggest": "Merge into a single block. Remove the duplicate rule on line 337."
+    },
+    {
+      "page": "index.html",
+      "selector": ".process-row-head, .process-arrow, .cap-intro (home.css lines 204-211, 245-247, 488-490)",
+      "kind": "anti-pattern",
+      "severity": "P2",
+      "note": "Three CSS classes defined in home.css have no matching HTML in index.html. Dead code.",
+      "suggest": "Delete .process-row-head, .process-row:hover .process-arrow, and .cap-intro blocks from css/home.css."
+    },
+    {
+      "page": "work.html",
+      "selector": "html (work.css line 6 overriding services.css line 17)",
+      "kind": "consistency",
+      "severity": "P2",
+      "note": "work.html loads two CSS files with competing :root token blocks and scroll-snap overrides. Relationship is undocumented in work.css.",
+      "suggest": "Add explicit comment to work.css documenting inherited tokens from services.css. Low risk, zero-cost documentation."
+    },
+    {
+      "page": "work.html",
+      "selector": ".hero-title (line 62)",
+      "kind": "perf",
+      "severity": "P2",
+      "note": "<h1> uses <br> to force line break. At tablet widths the break becomes incorrect for available width, risking CLS on reflow.",
+      "suggest": "Remove <br>, let CSS clamp() and line-height handle wrapping."
+    },
+    {
+      "page": "blog.html",
+      "selector": "head (no og:image)",
+      "kind": "seo",
+      "severity": "P2",
+      "note": "blog.html missing og:image. Social shares have no preview image.",
+      "suggest": "Add <meta property=\"og:image\" content=\"https://wesley-m.com/images/wesley-portrait.jpg\"> to blog.html head."
     },
     {
       "page": "services.html",
-      "selector": ".section-label text content ('Engagements —', 'Seven shapes —', etc.)",
-      "kind": "a11y",
+      "selector": "head (no link rel=preload for LCP image)",
+      "kind": "perf",
       "severity": "P2",
-      "note": "Multiple section labels on services.html contain literal em-dash characters (U+2014) inline: lines 61 (hero-lede), 75 (hero text in 'pick the shape, get a written proposal in a week — '), 163 ('advisory shape — no six-person team'), 292 ('Enterprise buyers — happy to deliver'), 312 ('I keep one deep engagement at a time — ask'), 332 ('standoff with the design team — '), 342 (ThoughtWorks dates). This is a CLAUDE.md rule violation and also affects TTS output.",
-      "suggest": "Replace each em-dash with a period, comma, or colon as appropriate. 'advisory shape — no six-person team' becomes 'advisory shape. No six-person team.' The section-label trailing dash is a decorative visual convention; that one is lower priority since it is in a label element, but should still change on next edit."
+      "note": "No <link rel=preload> for LCP hero image. fetchpriority=high on <img> is good but doesn't start fetch until parser reaches the img in body.",
+      "suggest": "Add <link rel=\"preload\" as=\"image\" href=\"images/wesley-services.jpg\" fetchpriority=\"high\"> to services.html <head>."
     },
     {
-      "page": "index.html",
-      "selector": "#hero header",
+      "page": "services.html",
+      "selector": ".snap-section (services.css line 31)",
       "kind": "a11y",
       "severity": "P2",
-      "note": "The hero section on index.html (line 41) uses a <header> element inside a <section>. While technically valid, no <h2>+ heading follows in this document. The page's heading structure jumps from <h1> (Wesley Melo, line 42) directly to multiple <h3>s (about cards, process rows, capability columns). There is no <h2> anywhere on the entire page. This breaks the heading hierarchy that AT users rely on to navigate by heading.",
-      "suggest": "Add descriptive <h2> headings to the About (#about), Process (#process), and Services (#services) sections. Examples: 'What I bring', 'How I work', 'Capabilities'. These can be visually hidden (.sr-only) if the design requires no visible heading text in those sections."
+      "note": "scroll-snap-stop: always on all 7 sections may trap keyboard users, particularly around the FAQ section with interactive <details>. WCAG 2.1.2 risk.",
+      "suggest": "Change to scroll-snap-stop: normal on services.html sections, or limit always to the hero section only."
+    },
+    {
+      "page": "services.html",
+      "selector": ".top-bar-links .link (services.css mobile breakpoint, line 769)",
+      "kind": "a11y",
+      "severity": "P2",
+      "note": "Top-bar navigation links on mobile have no padding-block. Effective tap height ~14px at 12px font. WCAG 2.5.8 requires minimum 24px target.",
+      "suggest": "Add padding-block: 10px to .top-bar-links .link inside the max-width: 768px media query in services.css."
     },
     {
       "page": "resume.html",
-      "selector": "a#resume-email[href='#']",
-      "kind": "a11y",
+      "selector": "<style> block (lines 28-279)",
+      "kind": "perf",
       "severity": "P2",
-      "note": "The email link in resume.html (line 278) starts as <a href='#'>email</a> with the accessible name 'email' (lowercase). The inline script at lines 432-436 progressively enhances it to a mailto: with the real address. With JS disabled the link goes nowhere and is labelled ambiguously. Unlike the main site's email.js pattern which uses the .js-email class (and is documented), this is an inline script with no fallback.",
-      "suggest": "Add a meaningful aria-label in the initial state or add the address server-side as an encoded value. Consider using the same email.js pattern (class='js-email') for consistency across pages. At minimum add aria-label='Contact via email' to the initial state."
+      "note": "250-line stylesheet is inlined. Cannot be cached by CDN or browser across page loads.",
+      "suggest": "Extract to css/resume.css and load via <link rel=stylesheet>."
     },
     {
-      "page": "index.html",
-      "selector": "#about-cards carousel (carousel.js)",
-      "kind": "a11y",
+      "page": "resume.html",
+      "selector": "inline <script> (lines 444-450)",
+      "kind": "anti-pattern",
       "severity": "P2",
-      "note": "carousel.js (lines 54-57) starts an auto-advancing timer (every 5 seconds) that only stops for prefers-reduced-motion. This is animation that moves content. WCAG 2.2 SC 2.2.2 (Pause, Stop, Hide) requires that auto-updating content moving for more than 5 seconds be pauseable by the user. The carousel does pause on mouseenter/focusin (lines 64-67) but there is no persistent pause button or mechanism visible to users who cannot use a mouse and have not tabbed into the component.",
-      "suggest": "Add a visible pause/play button that toggles the auto-advance. The button can be small and positioned at the top-right of the carousel wrapper. Alternatively, only auto-advance while a pointer device hovers and stop when no pointer is detected. SC 2.2.2 is a Level A criterion."
-    },
-    {
-      "page": "index.html",
-      "selector": "section[aria-label='Work history'] .timeline-row",
-      "kind": "a11y",
-      "severity": "P3",
-      "note": "The timeline section (lines 47-64) renders company names as links but the years column (e.g. '2025 →... ····') contains decorative typographic characters that will be read by screen readers. The text '2025 →︎ ···· ' would be announced as '2025 right arrow variation selector 15 middle dot middle dot middle dot middle dot' on some AT configurations.",
-      "suggest": "Wrap the decorative years column in <span aria-hidden='true'> or provide a visible-but-AT-friendly alternative. If the years need to be communicated to AT, a <span class='sr-only'>current</span> appended to the link text would be cleaner: 'Code and Theory (current)'."
-    },
-    {
-      "page": "index.html,services.html,blog.html",
-      "selector": ".link[href='#'][class*='js-email'] (before JS runs)",
-      "kind": "a11y",
-      "severity": "P3",
-      "note": "Email links are initialised with href='#' and rely entirely on JS for their actual destination. If JS is blocked or slow to parse, clicking the link scrolls to the top of the page rather than doing nothing or offering a fallback. The accessible name is 'Email' which is good. This is a progressive enhancement gap rather than a hard failure, but worth noting.",
-      "suggest": "Consider using a data attribute to hold the encoded address and decode it on DOMContentLoaded rather than on click, so the href is set to the mailto: as soon as possible. This ensures keyboard users tabbing to the link immediately see a valid href in the status bar."
-    },
-    {
-      "page": "styleguide.html",
-      "selector": "section.sg-section (demo components)",
-      "kind": "a11y",
-      "severity": "P3",
-      "note": "styleguide.html has a duplicate h1 inside the demo Hero component at line 135 ('Hello, I'm Wesley Melo') alongside the page-level h1 at line 28 ('Component library'). Multiple h1s are technically valid in HTML5 but confuse AT navigation and most accessibility tree validators.",
-      "suggest": "Wrap demo headings in a presentation role container or change them to use aria-hidden='true' since they are interactive demos, not real page content. The h1 inside .sg-frame is display-only."
+      "note": "resume.html implements its own email obfuscation script, duplicating the logic in js/email.js. Parallel implementation: email address changes require two file updates.",
+      "suggest": "Convert to .js-email class pattern and load js/email.js. Remove inline script."
     },
     {
       "page": "blog.html",
-      "selector": ".side-stack > a.side-item (secondary stories)",
+      "selector": ".opinion-item, .reading-link, .zone-link (lines 136,140,148,156,172,221-250)",
+      "kind": "a11y",
+      "severity": "P2",
+      "note": "9 links use href=\"#\" as placeholder. They are keyboard-reachable, announced by screen readers as active destinations. Reading links also have target=\"_blank\" which opens blank tabs on click.",
+      "suggest": "Use aria-disabled or remove <a> tags for unlinked items. Remove target=\"_blank\" from reading links until real URLs are added."
+    },
+    {
+      "page": "blog.html",
+      "selector": ".top-bar (lines 38-42)",
+      "kind": "consistency",
+      "severity": "P2",
+      "note": "Blog page top-bar contains only a Back link, inconsistent with services and work pages which show full 6-link nav.",
+      "suggest": "Replace minimal nav with standard .top-bar-inner / .top-bar-links component. Add aria-current=page to Blog link."
+    },
+    {
+      "page": "blog.html",
+      "selector": ".splash-figure img alt attribute (line 72)",
+      "kind": "a11y",
+      "severity": "P2",
+      "note": "Alt text describes placeholder stock photo visual content (forest canopy) rather than conveying meaning in article context.",
+      "suggest": "Update alt text to be contextually meaningful for the article, or use alt=\"\" if image is purely decorative."
+    },
+    {
+      "page": "styleguide.html",
+      "selector": "component sections 04-10 (loads only base.css + styleguide.css)",
+      "kind": "anti-pattern",
+      "severity": "P2",
+      "note": "styleguide.css comment says 'about.css provides the actual component styles' but about.css does not exist. Component demo sections render unstyled.",
+      "suggest": "Create css/about.css with canonical component styles and load in styleguide.html, or document that sections 04-10 are stubs."
+    },
+    {
+      "page": "styleguide.html",
+      "selector": "hero <img> (line 142)",
+      "kind": "perf",
+      "severity": "P2",
+      "note": "380KB 2565x2565px portrait image loaded without loading=lazy or width/height attributes on an internal-only page.",
+      "suggest": "Add loading=\"lazy\" and real alt text. Or use a smaller thumbnail."
+    },
+    {
+      "page": "styleguide.html",
+      "selector": "lines 63, 64, 109, 117, 221, 243, 286",
+      "kind": "anti-pattern",
+      "severity": "P2",
+      "note": "7 instances of &mdash; and &ndash; in styleguide copy. Violates project no-dash copy rule (CLAUDE.md, memory).",
+      "suggest": "Replace with commas, colons, or hyphens per context. E.g. '2023 &mdash; 2025' -> '2023 to 2025'. Remove on next edit per grandfathering rule."
+    },
+    {
+      "page": "blog.html (css/blog.css lines 513-539)",
+      "selector": "#site-footer color declarations",
+      "kind": "consistency",
+      "severity": "P2",
+      "note": "Blog footer uses 12 hardcoded hex values (#2B3856, #FFFFFF) instead of the CSS variables defined in the same file's :root block.",
+      "suggest": "Replace literals: background: #2B3856 -> var(--fg), color: #FFFFFF -> var(--bg), border: 2px solid #FFFFFF -> var(--rule-medium)."
+    },
+    {
+      "page": "all pages",
+      "selector": "/images/wesley-services.jpg, /images/wesley-services-hover.jpg, /images/wesley-portrait.jpg",
+      "kind": "perf",
+      "severity": "P2",
+      "note": "Three production JPEG files contain full EXIF blocks (camera: Canon EOS R6m2, datetime: 2025-02-01, software versions).",
+      "suggest": "Strip EXIF during image optimization pass: exiftool -all= images/*.jpg or equivalent."
+    },
+    {
+      "page": "index.html",
+      "selector": "h1 (line 42)",
+      "kind": "anti-pattern",
+      "severity": "P3",
+      "note": "<h1><span>Wesley</span> <span>Melo</span></h1> — spans are cosmetic with no CSS targeting. Unnecessary DOM nodes.",
+      "suggest": "Simplify to <h1>Wesley Melo</h1>."
+    },
+    {
+      "page": "index.html, blog.html",
+      "selector": "footer[aria-label]",
       "kind": "a11y",
       "severity": "P3",
-      "note": "The side-stack thumbnail images (lines 91, 103, 115) have alt='' which correctly marks them as decorative since the article title is in the same link. This is correct. However: the containing anchor has no explicit aria-label, so the accessible name is computed from all child text: kicker + h3 title + dek + meta. The kicker 'Analysis' or 'Opinion' prepended to the title produces accessible names like 'Analysis The Digital Doppelgangers Rises We are generating our replacements at scale. March 18 · 7 min'. This is verbose but not broken. Worth noting for the specialist.",
-      "suggest": "Consider wrapping .kicker inside an aria-hidden='true' span and ensuring the h3 title dominates the accessible name. Alternatively, use a visually-hidden span before the title that includes the kicker in sentence form: 'Analysis article: The Digital Doppelgangers Rises'."
+      "note": "aria-label=\"Site footer\" on <footer> is redundant. The <footer> element already exposes a contentinfo landmark. Screen readers may announce both.",
+      "suggest": "Remove aria-label=\"Site footer\" from <footer> elements on index.html (line 309) and blog.html (line 309)."
+    },
+    {
+      "page": "all pages",
+      "selector": "head",
+      "kind": "consistency",
+      "severity": "P3",
+      "note": "No page sets <meta name=\"theme-color\">. Browser chrome does not adapt to site's navy color.",
+      "suggest": "Add <meta name=\"theme-color\" content=\"#2B3856\"> to all public page heads."
+    },
+    {
+      "page": "work.html",
+      "selector": "h1 vs og:description vs ld+json description",
+      "kind": "seo",
+      "severity": "P3",
+      "note": "Visual h1 ('Eight cases. Twelve years.'), meta description ('Eight case studies across twelve years'), and OG description ('Eight engagements across twelve years') are inconsistent.",
+      "suggest": "Align OG and meta description wording to match h1 copy."
+    },
+    {
+      "page": "work.html",
+      "selector": ".hero-index-item:hover .hero-index-arrow (work.css lines 103-107, 217-222)",
+      "kind": "a11y",
+      "severity": "P3",
+      "note": "Arrow uses opacity transition. prefers-reduced-motion block removes transition but arrow still hidden at rest. Users with reduced motion have to hover to see the arrow.",
+      "suggest": "In reduced motion block, set .hero-index-item:hover .hero-index-arrow { opacity: 1; transform: translateX(0); } so arrow is always visible."
+    },
+    {
+      "page": "all pages",
+      "selector": "link[rel=icon]",
+      "kind": "consistency",
+      "severity": "P3",
+      "note": "All pages use <link rel=\"icon\" href=\"data:,\"> — suppresses favicon 404 but shows no icon in browser tabs or bookmarks.",
+      "suggest": "Create favicon.svg or favicon.ico and update the link tag."
+    },
+    {
+      "page": "services.html",
+      "selector": ".cta-card:hover .cta-button:focus-visible (services.css)",
+      "kind": "a11y",
+      "severity": "P3",
+      "note": "When .cta-card is hovered, .cta-button focus ring uses var(--fg) outline which becomes white-on-white on the inverted card background.",
+      "suggest": "Add .cta-card:hover .cta-button:focus-visible { outline-color: var(--bg); } to services.css."
+    },
+    {
+      "page": "resume.html, all pages (base.css line 24)",
+      "selector": "font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif",
+      "kind": "consistency",
+      "severity": "P3",
+      "note": "EB Garamond is in the font stack but not loaded from a font CDN. On Linux/ChromeOS falls back to Times New Roman.",
+      "suggest": "Add Google Fonts link for EB Garamond or accept the system fallback explicitly in the font stack comment."
+    },
+    {
+      "page": "blog.html",
+      "selector": ".splash-figure img, .card-b-figure img, .reading-link-thumb img (lines 72-250)",
+      "kind": "perf",
+      "severity": "P3",
+      "note": "All 12 images sourced from picsum.photos external CDN. No fallback if picsum is down. Broken image icons appear on failure.",
+      "suggest": "Host images locally when real article images are available. Add onerror handler in the interim."
+    },
+    {
+      "page": "styleguide.html",
+      "selector": "(publicly reachable at /styleguide.html)",
+      "kind": "seo",
+      "severity": "P3",
+      "note": "Styleguide has noindex but is not blocked in robots.txt. If robots directives are ignored, styleguide content could be indexed.",
+      "suggest": "Add Disallow: /styleguide.html to robots.txt, or confirm noindex is sufficient."
     }
   ]
 }
