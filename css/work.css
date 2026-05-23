@@ -22,9 +22,8 @@ html {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-        "text  index"
-        "lede  index";
-    gap: 64px 64px;
+        "text  index";
+    gap: 64px;
     align-items: start;
 }
 
@@ -42,13 +41,6 @@ html {
 
 .hero-index-grid .hero-tags {
     margin-top: 4px;
-}
-
-.hero-index-grid .hero-lede {
-    grid-area: lede;
-    max-width: 52ch;
-    align-self: start;
-    margin-top: 16px;
 }
 
 .hero-index {
@@ -136,8 +128,6 @@ html {
     align-items: baseline;
     flex-wrap: wrap;
     gap: 12px 56px;
-    border-top: var(--rule-soft);
-    border-bottom: var(--rule-soft);
     padding: 22px 0;
 }
 
@@ -179,17 +169,12 @@ html {
         grid-template-columns: 1fr;
         grid-template-areas:
             "text"
-            "lede"
             "index";
         gap: 32px;
     }
 
     .hero-index-grid .hero-title {
         font-size: clamp(56px, 10vw, 104px);
-    }
-
-    .hero-index-grid .hero-lede {
-        margin-top: 0;
     }
 }
 

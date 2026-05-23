@@ -93,10 +93,11 @@ body {
     font-size: 40px;
     line-height: 1.15;
     letter-spacing: -0.01em;
-    max-width: 720px;
-    margin: 0 auto 56px;
+    max-width: 760px;
+    margin: 0 0 56px -12px;
+    padding-left: 0;
     font-weight: 400;
-    text-align: center;
+    text-align: left;
 }
 
 .about-cards-wrapper {
@@ -328,7 +329,10 @@ body {
 }
 
 .cap-cta-link:visited { color: var(--bg); }
-.cap-cta-link:hover,
+.cap-cta-link:hover {
+    background: var(--bg);
+    color: var(--fg);
+}
 .cap-cta-link:focus-visible {
     background: var(--bg);
     color: var(--fg);

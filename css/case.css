@@ -9,8 +9,6 @@
     --ink: #1B2238;
     --ink-quiet: rgba(27, 34, 56, 0.72);
     --ink-rule: rgba(27, 34, 56, 0.16);
-    --accent: #B57842;
-    --accent-soft: rgba(232, 201, 166, 0.55);
 }
 
 /* Hide global page-snap on this page. Long reads, no carousel. */
@@ -31,32 +29,12 @@ html {
     background: var(--bg);
     color: var(--fg);
     padding: clamp(48px, 7vw, 96px) 0 clamp(56px, 8vw, 112px);
-    border-bottom: var(--rule-heavy);
 }
 
 .case-hero-inner {
     max-width: 1180px;
     margin: 0 auto;
     padding: 0 clamp(20px, 3.6vw, 40px);
-}
-
-.case-hero-back {
-    margin-bottom: clamp(32px, 5vw, 56px);
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.case-hero-back a {
-    color: var(--fg-quiet);
-    text-decoration: none;
-}
-.case-hero-back a:hover { color: var(--fg); }
-.case-hero-back a:focus-visible {
-    color: var(--bg);
-    background: var(--fg);
-    outline: none;
-    padding: 2px 6px;
 }
 
 .case-hero-eyebrow {
@@ -104,23 +82,26 @@ html {
     color: var(--fg-hover);
 }
 
-/* Outcome strip — three big numbers under the title. */
+/* Outcome strip. Three big numbers under the title. */
 .case-outcomes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    border-top: var(--rule-soft);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid #FFFFFF;
 }
 .case-outcome {
-    padding: 24px 24px 24px 0;
-    border-right: var(--rule-soft);
+    min-width: 0;
+    padding: 24px 24px;
+    border-right: 1px solid #FFFFFF;
 }
+.case-outcome:first-child { padding-left: 0; }
 .case-outcome:last-child { border-right: 0; padding-right: 0; }
 .case-outcome-value {
     font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-    font-size: clamp(36px, 4.8vw, 56px);
-    line-height: 1;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--fg);
+    overflow-wrap: break-word;
 }
 .case-outcome-label {
     margin-top: 12px;
@@ -135,9 +116,16 @@ html {
    ARTICLE BAND — cream, sticky rail + prose body
    ============================================================ */
 .case-article {
-    background: var(--bg-alt);
+    background: linear-gradient(
+        to right,
+        var(--bg) 0,
+        var(--bg) max(288px, calc(50vw - 298px)),
+        var(--bg-alt) max(288px, calc(50vw - 298px)),
+        var(--bg-alt) 100%
+    );
     color: var(--ink);
     padding: clamp(56px, 8vw, 96px) 0 clamp(56px, 8vw, 96px);
+    overflow-x: clip;
 }
 
 .case-article-inner {
@@ -154,19 +142,33 @@ html {
     top: 32px;
     align-self: start;
     display: grid;
-    gap: 24px;
+    gap: 28px;
+    background: var(--bg);
+    color: #FFFFFF;
+    padding: 32px 28px;
+    z-index: 1;
+}
+.case-rail::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    width: 100vw;
+    background: var(--bg);
+    z-index: -1;
 }
 .case-rail-block dt {
-    font-size: 11px;
-    letter-spacing: 0.16em;
+    font-size: 12px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ink-quiet);
-    margin-bottom: 6px;
+    color: rgba(255, 255, 255, 0.62);
+    margin-bottom: 10px;
 }
 .case-rail-block dd {
-    font-size: 15px;
-    line-height: 1.45;
-    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.4;
+    color: #FFFFFF;
 }
 
 /* Body prose */
@@ -188,14 +190,33 @@ html {
 }
 
 .case-body h2 {
-    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-    font-size: clamp(26px, 3vw, 34px);
-    line-height: 1.15;
-    letter-spacing: -0.015em;
-    font-weight: 400;
-    color: var(--ink);
-    margin: clamp(40px, 5vw, 56px) 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    background: var(--bg);
+    color: #FFFFFF;
+    padding: 16px 24px;
+    font-family: inherit;
+    font-size: clamp(16px, 1.55vw, 19px);
+    line-height: 1.2;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: clamp(40px, 5vw, 56px) 0 24px;
+    box-sizing: border-box;
 }
+
+.case-body h2::before {
+    content: "";
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: #FFFFFF;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+}
+
 .case-body h2:first-child { margin-top: 0; }
 
 .case-body h3 {
@@ -257,8 +278,8 @@ html {
 /* Before / After comparison table */
 .case-table-wrap {
     margin: 32px 0;
-    border-top: 1px solid var(--ink-rule);
-    border-bottom: 1px solid var(--ink-rule);
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
     overflow-x: auto;
 }
 .case-table {
@@ -270,24 +291,21 @@ html {
 .case-table th,
 .case-table td {
     text-align: left;
-    padding: 14px 16px 14px 0;
+    padding: 16px 16px 16px 0;
     vertical-align: top;
-    border-bottom: 1px solid var(--ink-rule);
 }
-.case-table tr:last-child th,
-.case-table tr:last-child td { border-bottom: 0; }
 .case-table th {
     font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ink-quiet);
-    font-weight: 400;
+    color: var(--ink);
+    font-weight: 700;
     width: 28%;
 }
 .case-table thead th {
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 12px;
+    padding-bottom: 14px;
 }
+.case-table td { color: var(--ink); }
 .case-table td:nth-child(2) { color: var(--ink-quiet); }
 
 /* Results — emphasized bullet list */
@@ -298,13 +316,9 @@ html {
 }
 .case-results-list li {
     position: relative;
-    padding: 14px 0 14px 0;
-    border-top: 1px solid var(--ink-rule);
+    padding: 10px 0 10px 0;
     font-size: 17px;
     line-height: 1.5;
-}
-.case-results-list li:last-child {
-    border-bottom: 1px solid var(--ink-rule);
 }
 .case-results-list strong {
     font-weight: 700;
@@ -361,22 +375,30 @@ html {
 }
 .case-related-card {
     display: block;
-    padding: 28px 0;
-    border-top: var(--rule-soft);
+    padding: 28px 24px;
+    border: 4px solid #FFFFFF;
     color: var(--fg);
+    background: var(--bg);
     text-decoration: none;
-    transition: transform 160ms ease, border-color 160ms ease;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 .case-related-card:hover,
 .case-related-card:focus-visible {
-    transform: translateY(-2px);
-    border-top-color: var(--fg);
+    background: #FFFFFF;
+    color: var(--bg);
+    box-shadow: 8px 8px 0 #FFFFFF;
+    transform: translate(-2px, -2px);
     outline: none;
 }
 .case-related-card-num {
     font-size: 12px;
     letter-spacing: 0.18em;
     color: var(--fg-quiet);
+    transition: color 0.15s ease;
+}
+.case-related-card:hover .case-related-card-num,
+.case-related-card:focus-visible .case-related-card-num {
+    color: rgba(19, 19, 19, 0.6);
 }
 .case-related-card-title {
     margin-top: 12px;
@@ -390,11 +412,11 @@ html {
     margin-top: 16px;
     font-size: 14px;
     color: var(--fg-quiet);
-    transition: color 160ms ease, transform 160ms ease;
+    transition: color 0.15s ease, transform 0.15s ease;
 }
 .case-related-card:hover .case-related-card-arrow,
 .case-related-card:focus-visible .case-related-card-arrow {
-    color: var(--fg);
+    color: var(--bg);
     transform: translateX(4px);
 }
 
@@ -402,9 +424,9 @@ html {
    CTA STRIP — navy, full-bleed
    ============================================================ */
 .case-cta {
-    background: var(--bg);
-    color: var(--fg);
-    border-top: var(--rule-soft);
+    background: var(--bg-alt);
+    color: var(--ink);
+    border-top: 1px solid var(--ink-rule);
     padding: clamp(48px, 7vw, 88px) 0 clamp(48px, 7vw, 88px);
 }
 .case-cta-inner {
@@ -422,39 +444,49 @@ html {
     line-height: 1.15;
     letter-spacing: -0.015em;
     font-weight: 400;
+    color: var(--ink);
     max-width: 22ch;
 }
 .case-cta-title .accent {
-    background: linear-gradient(transparent 72%, var(--accent-soft) 72%);
-    padding: 0 2px;
+    background: linear-gradient(transparent 84%, rgba(27, 34, 56, 0.22) 84%);
+    padding: 0 4px;
 }
 .case-cta-actions {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
     gap: 12px;
-    justify-content: flex-start;
 }
 .case-cta-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 14px 22px;
-    background: var(--fg);
-    color: var(--bg);
-    border: 1px solid var(--fg);
+    justify-content: space-between;
+    gap: 12px;
+    background: transparent;
+    color: var(--ink);
     text-decoration: none;
-    font-size: 14px;
-    letter-spacing: 0.06em;
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    transition: background 160ms ease, color 160ms ease;
+    padding: 14px 24px;
+    border: 2px solid var(--ink);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
 }
-.case-cta-btn:hover { background: transparent; color: var(--fg); }
-.case-cta-btn:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+.case-cta-btn:visited { color: var(--ink); }
+.case-cta-btn:hover,
+.case-cta-btn:focus-visible {
+    background: var(--ink);
+    color: #FFFFFF;
+    outline: none;
+}
 .case-cta-btn--ghost {
     background: transparent;
-    color: var(--fg);
+    color: var(--ink);
+    border-color: var(--ink);
 }
-.case-cta-btn--ghost:hover { background: var(--fg); color: var(--bg); }
 
 /* ============================================================
    FOOTER (overrides default — case page footer sits on navy)
@@ -484,6 +516,7 @@ html {
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 20px 32px;
     }
+    .case-rail::before { display: none; }
 }
 
 /* ============================================================
@@ -494,14 +527,16 @@ html {
         font-size: clamp(36px, 9vw, 56px);
     }
     .case-outcome {
-        padding: 18px 16px 18px 0;
+        padding: 18px 16px;
     }
+    .case-outcome:first-child { padding-left: 0; }
+    .case-outcome:last-child { padding-right: 0; }
     .case-related-grid {
         grid-template-columns: 1fr;
         gap: 0;
     }
     .case-related-card {
-        padding: 22px 0;
+        padding: 22px 6px;
     }
     .case-cta-inner {
         grid-template-columns: 1fr;
