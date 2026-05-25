@@ -1,7 +1,11 @@
 :root {
     --bg: #2B3856;
     --fg: #FFFFFF;
-    --fg-hover: rgba(255, 255, 255, 0.62);
+    /* Lifted from 0.62 to 0.82 so body-size secondary text passes WCAG AA
+       on the navy ground (the lighter surface needs a higher alpha than the
+       black services palette to hit the same 4.5:1 threshold). */
+    --fg-hover: rgba(255, 255, 255, 0.82);
+    --fg-quiet: rgba(255, 255, 255, 0.86);
     --border: 2px solid #FFFFFF;
     --border-heavy: 3px solid #FFFFFF;
 }
@@ -117,6 +121,13 @@ body {
 
 .about-cards::-webkit-scrollbar {
     display: none;
+}
+
+/* Carousel container is keyboard-focusable (tabindex=0) for arrow-key nav.
+   Make focus visible to sighted keyboard users. */
+.about-cards:focus-visible {
+    outline: 3px solid var(--fg);
+    outline-offset: 2px;
 }
 
 .about-card {
@@ -440,6 +451,13 @@ body {
 
     .about-cards-wrapper {
         margin: 0 -24px;
+    }
+
+    /* The wrapper's negative margin bleeds the carousel past the .outer
+       padding. Clip horizontal overflow at the section boundary so the
+       page never grows a horizontal scrollbar on narrow viewports. */
+    .outer {
+        overflow-x: clip;
     }
 
     .about-statement {

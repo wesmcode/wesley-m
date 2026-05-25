@@ -556,6 +556,9 @@ html {
    TABLET
    ============================================================ */
 @media only screen and (max-width: 1024px) {
+    .case-article {
+        background: var(--bg-alt);
+    }
     .case-article-inner {
         grid-template-columns: 1fr;
         gap: 40px;

@@ -10,13 +10,13 @@
   <meta property="og:description" content="Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and cross-functional team leadership.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://wesley-m.com/resume.html">
-  <meta property="og:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
+  <meta property="og:image" content="https://wesley-m.com/images/wesley-services.jpg">
   <meta property="og:image:alt" content="Portrait of Wesley Melo">
   <meta name="author" content="Wesley Melo">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Resume: Wesley Melo">
   <meta name="twitter:description" content="Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and cross-functional team leadership.">
-  <meta name="twitter:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
+  <meta name="twitter:image" content="https://wesley-m.com/images/wesley-services.jpg">
   <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <script type="application/ld+json">
@@ -93,10 +93,39 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       display: inline-block;
+      min-height: 44px;
+      align-items: center;
     }
 
     .download-btn:hover {
       background: var(--accent-hover);
+    }
+
+    .download-btn:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* Back-to-site link for visitors who land directly on /resume.html.
+       Sits above the header in normal flow so it never overlaps the H1. */
+    .site-link {
+      color: var(--accent);
+      font-family: var(--font-family);
+      font-size: 10pt;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 12px 0;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .site-link:hover { text-decoration: underline; }
+    .site-link:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
     }
 
     /* Header */
@@ -278,9 +307,22 @@
 
       .download-btn {
         position: static;
-        display: block;
+        display: flex;
+        justify-content: center;
         text-align: center;
         margin-bottom: 12px;
+      }
+
+      .site-link {
+        justify-content: center;
+        margin-bottom: 6px;
+      }
+
+      /* Justify rivers are unreadable on narrow widths. Left-align mobile. */
+      .summary li,
+      .job li,
+      .skills-group {
+        text-align: left;
       }
     }
   </style>
@@ -289,6 +331,8 @@
   <a href="#main-content" class="skip-link">Skip to resume</a>
   <main id="main-content">
   <div class="page">
+
+    <a href="/" class="site-link">&larr; wesley-m.com</a>
 
     <a href="resume/wesley_melo_resume_es_remote.pdf" download type="application/pdf" class="download-btn">Download PDF (ES)</a>
 
@@ -326,7 +370,7 @@
           <li>Turned an internal audit tool into a B2B SaaS AI platform with 8 agents (Crawler Analysis, UX Heuristics, Brand Perception, and 5 others), securing 4 enterprise clients across financial services and manufacturing in 90 days and building a $120K+ pilot pipeline, with one buyer requested pricing unprompted during a live C-suite demo.</li>
           <li>Made the call to migrate from V0 prototypes to Payload CMS mid-sales-cycle. This move enabled live dashboard updates without redeployment, which saved a client relationship when needed last-minute data corrections before a board presentation.</li>
           <li>Resolved a weeks-long ML-vs-UX deadlock on AI agent quality: the ML team wanted 90%+ confidence thresholds, the design team wanted more results at lower confidence. Defined a transparency-first approach with visible confidence scores that enterprise clients confirmed met standards.</li>
-          <li>Turned ambiguous directive from client (65M+ monthly views, 16 properties) into an 86-feature product inventory with KPI traceability, acceptance criteria, and sprint assignments. Architected the phased consolidation of 5 subsites into the flagship platform with weekly SEO monitoring and rollback capability to protect a 65/100 domain authority.</li>
+          <li>Led the Define Phase of a 65M-monthly-view news network's modernisation across 16 properties. Tied every roadmap initiative to an audience or growth KPI, instrumented a 25+ KPI measurement framework from a zero baseline, and architected the phased consolidation of 5 subsites into the flagship with weekly SEO monitoring and rollback to protect a 65/100 domain authority.</li>
         </ul>
       </div>
 

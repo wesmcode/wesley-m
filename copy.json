@@ -10,10 +10,10 @@
   "pages": {
     "index": {
       "head": {
-        "title": "Wesley Melo — Product Manager",
-        "description": "Wesley Melo is a Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and digital strategy.",
-        "og_title": "Wesley Melo — Product Manager",
-        "og_description": "Senior Product Manager with 6+ years of experience in agile development, SaaS platforms, AI/ML products, and digital strategy."
+        "title": "Wesley Melo :: Product Manager",
+        "description": "Wesley Melo is a Senior Product Manager with 10+ years of experience in agile development, SaaS platforms, AI/ML products, and digital strategy.",
+        "og_title": "Wesley Melo :: Product Manager",
+        "og_description": "Senior Product Manager with 10+ years of experience in agile development, SaaS platforms, AI/ML products, and digital strategy."
       },
       "sections": {
         "hero": {
@@ -37,12 +37,12 @@
           "statement": "A decade of shipping product. Agencies, platforms, and now AI — the work changes, the discipline doesn't.",
           "cards": [
             { "title": "Ship discipline", "body": "Deadlines beat drafts. I ship weekly, measure honestly, cut what doesn't earn its keep." },
-            { "title": "AI fluency", "body": "LLMs, agents, RAG, evaluation. Built and shipped in production — not read about on weekends." },
+            { "title": "AI fluency", "body": "LLMs, agents, RAG, evaluation. Built and shipped in production, not read about on weekends." },
             { "title": "Platform scale", "body": "Multi-site migrations, CMS consolidation, SEO preserved at scale. Quiet handovers." },
             { "title": "Team leverage", "body": "Remote-first scrum and kanban. Mentorship that sticks. Teams that keep shipping after I leave." },
-            { "title": "Evidence over opinion", "body": "Hypotheses, instrumentation, weekly read-outs. Decisions earn their place with data, not volume." },
+            { "title": "Evidence over opinion", "body": "Hypotheses, instrumentation, weekly read-outs. Decisions earn their place with data" },
             { "title": "Discovery muscle", "body": "Customer interviews, JTBD, problem framing. The right question saves a quarter of wasted build." },
-            { "title": "Written by default", "body": "Specs, decisions, trade-offs — all in writing. Remote-first teams run on the record, not the meeting." }
+            { "title": "Written by default", "body": "Specs, decisions, trade-offs — all in writing. Remote-first teams run on the record" }
           ]
         },
         "process": [

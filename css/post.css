@@ -16,8 +16,10 @@ ul { list-style: none; }
 :root {
     --bg: #2B3856;
     --fg: #FFFFFF;
-    --fg-hover: rgba(255, 255, 255, 0.5);
-    --fg-quiet: rgba(255, 255, 255, 0.78);
+    /* Lifted from 0.5 (~2.4:1) to 0.82 so secondary text passes WCAG AA
+       on the navy ground. */
+    --fg-hover: rgba(255, 255, 255, 0.82);
+    --fg-quiet: rgba(255, 255, 255, 0.86);
     --border: 2px solid #FFFFFF;
     --border-heavy: 3px solid #FFFFFF;
     --rule: 1px solid #FFFFFF;
@@ -68,7 +70,7 @@ html, body {
 .page {
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding-inline: max(40px, env(safe-area-inset-left)) max(40px, env(safe-area-inset-right));
 }
 
 .top-bar { padding: 24px 0 0; }
@@ -262,12 +264,19 @@ html, body {
     transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
 .read-next-item:last-of-type { border-bottom: var(--rule); }
+/* Color/background swap fires on any input. The translate is gated to
+   hover-capable devices so it doesn't snap on tap. */
 .read-next-item:hover,
 .read-next-item:focus-visible {
     outline: none;
     background: var(--fg);
     color: var(--bg);
-    transform: translateX(24px);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .read-next-item:hover,
+    .read-next-item:focus-visible {
+        transform: translateX(24px);
+    }
 }
 .read-next-item:hover .read-next-meta,
 .read-next-item:focus-visible .read-next-meta {
@@ -310,7 +319,14 @@ html, body {
 .site-footer span { color: var(--fg-hover); }
 
 @media only screen and (max-width: 768px) {
-    .page { padding: 0 24px; }
+    .page { padding-inline: max(24px, env(safe-area-inset-left)) max(24px, env(safe-area-inset-right)); }
+    .top-bar .link {
+        font-size: 14px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding-block: 10px;
+    }
     .site-header h1 { font-size: 32px; }
     .article-column { max-width: 100%; }
     .post-header { padding: 48px 0 32px; }
@@ -321,6 +337,10 @@ html, body {
     .post-body h2 { margin: 40px 0 12px; font-size: 18px; }
     .post-byline { flex-direction: column; gap: 4px; }
     .post-byline .sep { display: none; }
+    /* padding-left bump only on hover-capable devices so it doesn't snap
+       on tap. Mirrors the translateX gating above. */
+}
+@media only screen and (max-width: 768px) and (hover: hover) {
     .read-next-item:hover,
     .read-next-item:focus-visible { padding-left: 12px; }
     .site-footer { flex-direction: column; gap: 8px; text-align: center; }
