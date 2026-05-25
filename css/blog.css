@@ -24,14 +24,10 @@ a[aria-disabled="true"] {
     pointer-events: none;
 }
 
-/* Top bar */
-.top-bar {
-    display: flex;
-    align-items: center;
-    padding: 28px 0 0;
-    gap: 16px;
+/* Top spacer — replaces removed nav */
+.top-spacer {
+    height: 28px;
 }
-.top-bar .link { font-size: 13px; letter-spacing: 0.06em; cursor: pointer; }
 
 /* Masthead — split: title left, ad slot right (variant C v2 header) */
 .site-header {

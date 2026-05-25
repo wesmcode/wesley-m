@@ -503,6 +503,113 @@ body {
     padding: 18px 32px;
 }
 
+/* PRICING --------------------------------------------------- */
+.pricing {
+    padding: 64px 0 72px;
+    border-bottom: var(--rule-heavy);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 40px 36px;
+    border: var(--rule-medium);
+    background: transparent;
+    color: var(--fg);
+}
+
+.pricing-card-featured {
+    background: var(--fg);
+    color: var(--bg);
+    border-color: var(--fg);
+}
+
+.pricing-card h3 {
+    font-size: 28px;
+    line-height: 1.1;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.pricing-desc {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--fg-quiet);
+    margin: 0;
+    max-width: 40ch;
+}
+
+.pricing-card-featured .pricing-desc {
+    color: var(--bg-a65);
+}
+
+.pricing-amount {
+    margin-top: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.pricing-value {
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-size: clamp(48px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+}
+
+.pricing-unit {
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-quiet);
+}
+
+.pricing-card-featured .pricing-unit {
+    color: var(--bg-a55);
+}
+
+.pricing-note {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0;
+}
+
+.pricing-card-featured .pricing-note {
+    color: var(--bg-a55);
+}
+
+.pricing-card .cta-button {
+    margin-top: 12px;
+    align-self: flex-start;
+}
+
+.pricing-card-featured .cta-button {
+    background: transparent;
+    color: var(--bg);
+    border-color: var(--bg);
+}
+.pricing-card-featured .cta-button:visited { color: var(--bg); }
+.pricing-card-featured .cta-button:hover {
+    background: var(--bg);
+    color: var(--fg);
+}
+.pricing-card-featured .cta-button:focus-visible {
+    outline-color: var(--bg);
+}
+
 /* FAQ ------------------------------------------------------- */
 .faq {
     padding: 64px 0 72px;
@@ -831,6 +938,19 @@ body {
 
     .buyer-card-wide {
         grid-column: auto;
+    }
+
+    .pricing {
+        padding: 40px 0 48px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pricing-card {
+        padding: 32px 24px;
     }
 
     .buyer-card:hover {
