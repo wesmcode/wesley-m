@@ -15,6 +15,13 @@
     --rule-heavy: 3px solid #2B3856;
 }
 
+html {
+    scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+
 /* ============================================================
    READING BAR — sticky, appears on scroll past header
    ============================================================ */
@@ -24,12 +31,10 @@
     left: 0;
     right: 0;
     z-index: 900;
-    background: rgba(43, 56, 86, 0.97);
+    background: var(--fg);
     color: #FFFFFF;
     transform: translateY(-100%);
     transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 }
 .reading-bar.visible {
     transform: translateY(0);
@@ -38,20 +43,20 @@
     max-width: 1180px;
     margin: 0 auto;
     padding: 0 clamp(20px, 3.6vw, 40px);
-    height: var(--top-bar-h, 52px);
+    height: 36px;
     display: flex;
     align-items: center;
     gap: 16px;
 }
 .reading-bar-back {
-    color: rgba(255, 255, 255, 0.7);
     display: flex;
     align-items: center;
     text-decoration: none;
     flex-shrink: 0;
-    transition: color 200ms;
+    font-size: 18px;
+    color: #FFFFFF;
 }
-.reading-bar-back:hover { color: #FFFFFF; }
+.reading-bar-back:hover { opacity: 0.7; }
 .reading-bar-title {
     font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
     font-size: 15px;
@@ -62,22 +67,18 @@
     text-overflow: ellipsis;
     flex: 1;
     min-width: 0;
+    color: #FFFFFF;
 }
 .reading-bar-progress {
-    width: 120px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     height: 3px;
-    background: rgba(255, 255, 255, 0.18);
-    border-radius: 2px;
-    flex-shrink: 0;
-    overflow: hidden;
-}
-.reading-bar-fill {
-    height: 100%;
-    width: 0%;
+    width: var(--read-progress, 0%);
     background: #FFFFFF;
-    border-radius: 2px;
-    transition: width 100ms linear;
+    transition: width 80ms linear;
 }
+.reading-bar-fill { display: none; }
 
 /* ============================================================
    ARTICLE HEADER — navy, full-bleed
@@ -778,29 +779,23 @@
     color: rgba(255, 255, 255, 0.4);
     transition: color 0.2s ease;
 }
-.chevron-pair {
-    display: inline-flex;
-    gap: 0;
-}
-.chevron-pair span {
-    display: inline-block;
-    transition: transform 0.28s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.28s ease;
-}
-.chevron-pair span:first-child {
-    opacity: 0.5;
-}
 .post-recirc-card:hover .post-recirc-card-arrow,
 .post-recirc-card:focus-visible .post-recirc-card-arrow {
     color: var(--fg);
+    transform: translateX(6px);
 }
-.post-recirc-card:hover .chevron-pair span:first-child,
-.post-recirc-card:focus-visible .chevron-pair span:first-child {
-    transform: translateX(4px);
-    opacity: 1;
+
+/* Recirc ad */
+.post-recirc-ad {
+    margin-top: 36px;
+    text-align: center;
 }
-.post-recirc-card:hover .chevron-pair span:last-child,
-.post-recirc-card:focus-visible .chevron-pair span:last-child {
-    transform: translateX(8px);
+.post-recirc-ad .ad-slot-label {
+    color: rgba(255, 255, 255, 0.55);
+}
+.post-recirc-ad .ad-placeholder {
+    max-width: 728px;
+    margin: 0 auto;
 }
 
 /* ============================================================

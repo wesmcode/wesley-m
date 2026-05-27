@@ -86,6 +86,22 @@ a[aria-disabled="true"] {
     text-transform: uppercase;
 }
 
+/* Inline blog ads */
+.blog-inline-ad {
+    text-align: center;
+    margin: 28px 0;
+}
+.blog-inline-ad .ad-slot-label {
+    color: var(--fg-hover);
+}
+.blog-inline-ad .ad-placeholder {
+    max-width: 728px;
+    margin: 0 auto;
+    background: var(--fg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.6);
+}
+
 /* Progress bar — bottom edge of masthead */
 .masthead-progress {
     height: 3px;
@@ -486,20 +502,20 @@ a:focus-visible .kicker {
     font-size: 10px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(43, 56, 86, 0.45);
+    color: var(--fg-hover);
     margin-bottom: 8px;
 }
-.sidebar-ad-unit .ad-placeholder {
-    min-height: 110px;
-    background: var(--fg);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.sidebar-ad-unit.ad-slot--light .ad-placeholder {
+    min-height: 250px;
+    background: var(--bg-tint);
+    border: 1px solid rgba(43, 56, 86, 0.18);
     display: grid;
     place-items: center;
     padding: 24px 12px;
     font-size: 12px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--fg-hover);
 }
 
 /* Reading list */

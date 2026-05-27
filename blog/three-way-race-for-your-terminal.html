@@ -51,7 +51,7 @@
     <div class="reading-bar" aria-hidden="true">
         <div class="reading-bar-inner">
             <a href="../blog.html" class="reading-bar-back" aria-label="Back to blog">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+                &laquo;
             </a>
             <span class="reading-bar-title"></span>
             <div class="reading-bar-progress"><div class="reading-bar-fill"></div></div>
@@ -288,21 +288,26 @@
                     <div class="post-recirc-card-kicker">Field Notes</div>
                     <div class="post-recirc-card-title">My Phone Approves Code Now</div>
                     <div class="post-recirc-card-meta">April 24 &middot; 3 min read</div>
-                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&raquo;</div>
                 </a>
                 <a href="the-vibe-coder-confessional.html" class="post-recirc-card">
                     <div class="post-recirc-card-kicker">Essay</div>
                     <div class="post-recirc-card-title">The Vibe Coder Confessional</div>
                     <div class="post-recirc-card-meta">May 12 &middot; 5 min read</div>
-                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&raquo;</div>
                 </a>
                 <a href="r-programming-banned-the-robots.html" class="post-recirc-card">
                     <div class="post-recirc-card-kicker">Dispatch</div>
                     <div class="post-recirc-card-title">r/Programming Banned the Robots</div>
                     <div class="post-recirc-card-meta">May 5 &middot; 4 min read</div>
-                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&raquo;</div>
                 </a>
             </div>
+
+            <aside class="post-recirc-ad" role="complementary" aria-label="Advertisement" data-ad-slot="recirc">
+                <div class="ad-slot-label">Advertisement</div>
+                <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard slot</div>
+            </aside>
         </div>
     </section>
 
@@ -356,10 +361,10 @@
                     var headerBottom = header.getBoundingClientRect().bottom;
                     bar.classList.toggle('visible', headerBottom < 0);
 
-                    if (prose && fill) {
+                    if (prose && bar) {
                         var rect = prose.getBoundingClientRect();
                         var progress = Math.min(1, Math.max(0, -rect.top / (rect.height - window.innerHeight)));
-                        fill.style.width = (progress * 100) + '%';
+                        bar.style.setProperty('--read-progress', (progress * 100) + '%');
                     }
                     ticking = false;
                 });
