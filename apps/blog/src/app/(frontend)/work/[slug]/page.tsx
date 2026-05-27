@@ -212,9 +212,9 @@ export default async function CaseStudyPage({ params, searchParams }: RouteParam
               evidence second, opinion last.
             </p>
             <div className="case-cta-actions">
-              <a href="/services.html" className="case-cta-btn">
+              <Link href="/services" className="case-cta-btn">
                 See services →
-              </a>
+              </Link>
               <Link href="/work" className="case-cta-btn case-cta-btn--ghost">
                 More case studies
               </Link>

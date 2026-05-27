@@ -122,10 +122,10 @@ export default async function WorkIndex({ searchParams }: PageProps) {
               evidence second, opinion last.
             </p>
             <div className="case-cta-actions">
-              <Link href="/about" className="case-cta-btn">
+              <Link href="/services#book" className="case-cta-btn">
                 Get in touch →
               </Link>
-              <Link href="/about#engage" className="case-cta-btn case-cta-btn--ghost">
+              <Link href="/services" className="case-cta-btn case-cta-btn--ghost">
                 Engagement tracks
               </Link>
             </div>
