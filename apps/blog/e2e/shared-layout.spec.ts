@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Blog index page', () => {
   test('renders shared TopBar with navigation', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/blog')
 
     const nav = page.locator('nav.top-bar')
     await expect(nav).toBeVisible()
@@ -17,7 +17,7 @@ test.describe('Blog index page', () => {
   })
 
   test('renders shared Footer with navigation', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/blog')
 
     const footer = page.locator('#site-footer')
     await expect(footer).toBeVisible()
@@ -30,19 +30,19 @@ test.describe('Blog index page', () => {
   })
 
   test('renders skip link targeting #main-content', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/blog')
     const skipLink = page.locator('.skip-link')
     await expect(skipLink).toHaveAttribute('href', '#main-content')
   })
 
   test('blog link has aria-current="page"', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/blog')
     const blogLink = page.locator('.top-bar-links .link', { hasText: 'Blog' })
     await expect(blogLink).toHaveAttribute('aria-current', 'page')
   })
 
   test('LinkedIn opens in new tab', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/blog')
     const linkedIn = page.locator('.top-bar-links .link', { hasText: 'LinkedIn' })
     await expect(linkedIn).toHaveAttribute('target', '_blank')
     await expect(linkedIn).toHaveAttribute('rel', /noopener/)
@@ -78,7 +78,7 @@ test.describe('Performance: no unnecessary client JS', () => {
       }
     })
 
-    await page.goto('/')
+    await page.goto('/blog')
     await page.waitForLoadState('networkidle')
 
     const totalJsSize = await page.evaluate(() => {
@@ -97,19 +97,19 @@ test.describe('Performance: no unnecessary client JS', () => {
 
 test.describe('Accessibility: shared component structure', () => {
   test('page has exactly one main landmark', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/blog')
     const mains = page.locator('main')
     await expect(mains).toHaveCount(1)
   })
 
   test('page has exactly one footer landmark', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/blog')
     const footers = page.locator('footer')
     await expect(footers).toHaveCount(1)
   })
 
   test('nav landmarks have distinct labels', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/blog')
     const navs = page.locator('nav')
     const count = await navs.count()
     const labels: string[] = []
