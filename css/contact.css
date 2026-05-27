@@ -1,0 +1,358 @@
+/* ============================================================
+   CONTACT PAGE + CONTACT FORM COMPONENT
+
+   Page-level layout for contact.html.
+   Form component styles shared with services.html.
+   Tokens mirror services.css; harmless re-declaration when
+   both sheets load together.
+   ============================================================ */
+
+:root {
+    --bg: #131313;
+    --fg: #FFFFFF;
+    --fg-hover: rgba(255, 255, 255, 0.78);
+    --fg-quiet: rgba(255, 255, 255, 0.82);
+    --rule-soft: 1px solid rgba(255, 255, 255, 0.18);
+    --rule-medium: 2px solid #FFFFFF;
+    --rule-heavy: 3px solid #FFFFFF;
+}
+
+html, body {
+    background: var(--bg);
+    color: var(--fg);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: max(40px, env(safe-area-inset-left)) max(40px, env(safe-area-inset-right));
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.page > main { flex: 1; }
+
+/* ---- Section heads (matches services pattern) ---- */
+.section-label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0 0 16px;
+}
+
+.section-head {
+    margin-bottom: 48px;
+    max-width: 760px;
+}
+
+.section-title {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.02;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-sub {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--fg-quiet);
+    margin: 20px 0 0;
+    max-width: 56ch;
+}
+
+.section-sub a {
+    color: var(--fg);
+}
+
+/* ---- CTA button (matches services pattern) ---- */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: var(--fg);
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border: var(--rule-medium);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+}
+
+.cta-button:hover {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+.cta-button:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 4px;
+}
+
+/* ============================================================
+   CONTACT PAGE LAYOUT — two-column: copy left, form right
+   ============================================================ */
+
+.contact-hero {
+    padding: 72px 0 80px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-text .section-label {
+    margin-bottom: 0;
+}
+
+.contact-text .section-title {
+    font-size: clamp(56px, 9vw, 132px);
+    line-height: 0.92;
+    margin: 4px 0;
+}
+
+.contact-lede {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--fg-quiet);
+    max-width: 36ch;
+    margin: 0;
+}
+
+.contact-lede a {
+    color: var(--fg);
+}
+
+.contact-fallback--side {
+    margin-top: 16px;
+    padding-top: 20px;
+    border-top: var(--rule-soft);
+}
+
+/* ============================================================
+   CONTACT FORM COMPONENT
+   ============================================================ */
+
+.contact-grid .contact-form {
+    max-width: none;
+    border-top: var(--rule-medium);
+    padding-top: 20px;
+}
+
+.contact-form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar variant (services page book-grid) */
+.contact-form--sidebar {
+    max-width: none;
+    border: var(--rule-medium);
+    padding: 36px 28px;
+}
+
+.contact-form-heading {
+    font-size: 22px;
+    line-height: 1.15;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 24px;
+}
+
+/* ---- Fields ---- */
+.contact-field {
+    padding: 18px 0 14px;
+    border-bottom: var(--rule-soft);
+    transition: border-color 0.15s ease;
+}
+
+.contact-field:focus-within {
+    border-bottom-color: var(--fg);
+}
+
+.contact-label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin-bottom: 6px;
+    cursor: text;
+}
+
+.contact-input,
+.contact-select,
+.contact-textarea {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: var(--fg);
+    font-family: inherit;
+    font-size: 17px;
+    line-height: 1.5;
+    padding: 4px 0;
+    outline: none;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.contact-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0 center;
+    background-size: 12px;
+    padding-right: 24px;
+    cursor: pointer;
+}
+
+.contact-select option {
+    background: #1a1a1a;
+    color: var(--fg);
+}
+
+.contact-textarea {
+    resize: vertical;
+    min-height: 96px;
+}
+
+/* ---- Submit + fallback ---- */
+.contact-submit {
+    margin-top: 32px;
+    align-self: flex-start;
+}
+
+.contact-fallback {
+    margin-top: 20px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--fg-hover);
+}
+
+.contact-fallback a {
+    color: var(--fg);
+}
+
+/* ---- Thank-you state ---- */
+.contact-thanks {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    padding: 48px 0;
+    min-height: 280px;
+    justify-content: center;
+}
+
+.contact-thanks-title {
+    font-size: clamp(48px, 7vw, 80px);
+    line-height: 1;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    margin: 0;
+}
+
+.contact-thanks-text {
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--fg-quiet);
+    max-width: 44ch;
+    margin: 0;
+}
+
+.contact-thanks-text a {
+    color: var(--fg);
+}
+
+/* Sidebar thank-you fits the card */
+.contact-form--sidebar .contact-thanks {
+    padding: 24px 0;
+    min-height: 200px;
+}
+
+.contact-form--sidebar .contact-thanks-title {
+    font-size: clamp(32px, 4vw, 48px);
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .contact-field,
+    .cta-button {
+        transition: none;
+    }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media only screen and (max-width: 768px) {
+    .page {
+        padding-inline: max(24px, env(safe-area-inset-left)) max(24px, env(safe-area-inset-right));
+    }
+
+    .contact-hero {
+        padding: 40px 0 56px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .contact-text .section-title {
+        font-size: clamp(48px, 13vw, 80px);
+        line-height: 0.94;
+    }
+
+    .section-head {
+        margin-bottom: 32px;
+    }
+
+    .contact-submit {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .contact-form--sidebar {
+        padding: 28px 20px;
+    }
+
+    .contact-form--sidebar .contact-submit {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

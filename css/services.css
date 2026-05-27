@@ -709,13 +709,23 @@ body {
     max-width: 44ch;
 }
 
+/* Book grid — calendar + contact form side by side */
+.book-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
 /* Booking embed */
 .booking-embed {
-    margin-top: 40px;
-    max-width: 1180px;
-    margin-inline: auto;
     border: 2px solid rgba(19, 19, 19, 0.12);
     background: #FFFFFF;
+}
+.book-grid .booking-embed {
+    margin: 0;
+    max-width: none;
 }
 .booking-embed iframe {
     display: block;
@@ -988,5 +998,10 @@ body {
 
     .big-cta-card:hover {
         box-shadow: 6px 6px 0 var(--fg);
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 }
