@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { getPayload, type Where } from 'payload'
 import config from '@payload-config'
 
+import { Footer } from '@/components/shared'
 import { RichText } from '@/components/RichText'
 import { mediaAlt, mediaUrl } from '@/lib/media'
 
@@ -254,27 +255,7 @@ export default async function CaseStudyPage({ params, searchParams }: RouteParam
       </section>
       </main>
 
-      <footer id="site-footer" aria-label="Site footer">
-        <div className="footer-inner">
-          <div className="footer-row">
-            <Link href="/" className="footer-brand">
-              Wesley Melo
-            </Link>
-            <nav className="footer-nav" aria-label="Footer navigation">
-              <Link href="/" className="link">
-                Home
-              </Link>
-              <Link href="/work" className="link">
-                Case studies
-              </Link>
-              <Link href="/blog" className="link">
-                Blog
-              </Link>
-            </nav>
-          </div>
-          <div className="footer-meta">© 2026 Wesley Melo</div>
-        </div>
-      </footer>
+      <Footer currentPath="/work" wrapperClass="footer-inner" />
     </>
   )
 }

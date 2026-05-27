@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
+import { SkipLink } from '@/components/shared'
+import '@/styles/globals.css'
 import './styles.css'
 
 export const metadata: Metadata = {
@@ -22,9 +24,7 @@ export default function FrontendLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <a href="#main-content" className="skip-link">
-          Skip to content
-        </a>
+        <SkipLink />
         {children}
       </body>
     </html>

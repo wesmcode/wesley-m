@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
+import { TopBar, Footer } from '@/components/shared'
 import { RichText } from '@/components/RichText'
 import { formatDate, readingTimeLabel } from '@/lib/format'
 import { mediaAlt, mediaCredit, mediaUrl } from '@/lib/media'
@@ -56,53 +56,51 @@ export default async function BlogPostPage({ params }: RouteParams) {
       : 'Wesley Melo'
 
   return (
-    <div className="page">
-      <nav className="top-bar" aria-label="Breadcrumb">
-        <Link href="/" className="link">
-          ← Blog
-        </Link>
-      </nav>
-
-      <article>
-        <header className="post-header">
-          {(() => {
-            const section =
-              post.primarySection && typeof post.primarySection === 'object'
-                ? (post.primarySection as { name?: string }).name
-                : null
-            const kicker = post.kicker || section
-            return kicker ? <div className="post-kicker">{kicker}</div> : null
-          })()}
-          <h1 className="post-title">{post.title}</h1>
-          {post.dek ? <p className="post-dek">{post.dek}</p> : null}
-          <div className="post-meta">
-            <span>{author}</span>
-            <span className="sep">·</span>
-            <span>{formatDate(post.publishDate)}</span>
-            <span className="sep">·</span>
-            <span>{readingTimeLabel(post.readingTime)}</span>
-          </div>
-        </header>
-
-        {post.featuredImage && typeof post.featuredImage === 'object' ? (
-          <div className="post-hero">
-            <div className="post-hero-figure">
-              <img
-                src={mediaUrl(post.featuredImage, 'hero')}
-                alt={mediaAlt(post.featuredImage)}
-                loading="eager"
-              />
+    <>
+      <TopBar currentPath="/blog" />
+      <div className="page">
+        <article>
+          <header className="post-header">
+            {(() => {
+              const section =
+                post.primarySection && typeof post.primarySection === 'object'
+                  ? (post.primarySection as { name?: string }).name
+                  : null
+              const kicker = post.kicker || section
+              return kicker ? <div className="post-kicker">{kicker}</div> : null
+            })()}
+            <h1 className="post-title">{post.title}</h1>
+            {post.dek ? <p className="post-dek">{post.dek}</p> : null}
+            <div className="post-meta">
+              <span>{author}</span>
+              <span className="sep">·</span>
+              <span>{formatDate(post.publishDate)}</span>
+              <span className="sep">·</span>
+              <span>{readingTimeLabel(post.readingTime)}</span>
             </div>
-            {mediaCredit(post.featuredImage) ? (
-              <div className="post-hero-credit">{mediaCredit(post.featuredImage)}</div>
-            ) : null}
-          </div>
-        ) : null}
+          </header>
 
-        <div className="prose" id="main-content">
-          <RichText data={post.body as never} />
-        </div>
-      </article>
-    </div>
+          {post.featuredImage && typeof post.featuredImage === 'object' ? (
+            <div className="post-hero">
+              <div className="post-hero-figure">
+                <img
+                  src={mediaUrl(post.featuredImage, 'hero')}
+                  alt={mediaAlt(post.featuredImage)}
+                  loading="eager"
+                />
+              </div>
+              {mediaCredit(post.featuredImage) ? (
+                <div className="post-hero-credit">{mediaCredit(post.featuredImage)}</div>
+              ) : null}
+            </div>
+          ) : null}
+
+          <div className="prose" id="main-content">
+            <RichText data={post.body as never} />
+          </div>
+        </article>
+      </div>
+      <Footer currentPath="/blog" wrapperClass="footer-inner" />
+    </>
   )
 }
