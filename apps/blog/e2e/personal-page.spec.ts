@@ -23,6 +23,7 @@ test.describe('Personal page (linktree)', () => {
     await expect(nav.locator('.nav-item', { hasText: 'Blog' })).toBeVisible()
     await expect(nav.locator('.nav-item', { hasText: 'Services' })).toBeVisible()
     await expect(nav.locator('.nav-item', { hasText: 'LinkedIn' })).toBeVisible()
+    await expect(nav.locator('.nav-item', { hasText: 'Resume' })).toBeVisible()
   })
 
   test('does not render sticky TopBar (linktree layout)', async ({ page }) => {
@@ -30,38 +31,12 @@ test.describe('Personal page (linktree)', () => {
     await expect(page.locator('nav.top-bar')).toHaveCount(0)
   })
 
-  test('renders about section with carousel', async ({ page }) => {
+  test('does not render duplicated content sections', async ({ page }) => {
     await page.goto('/')
-    const carousel = page.locator('#about-cards')
-    await expect(carousel).toBeVisible()
-    await expect(carousel).toHaveAttribute('role', 'region')
-    await expect(carousel).toHaveAttribute('aria-roledescription', 'carousel')
-    await expect(page.locator('.about-card')).toHaveCount(5)
-  })
-
-  test('renders process section', async ({ page }) => {
-    await page.goto('/')
-    await expect(page.locator('#process')).toBeVisible()
-    await expect(page.locator('.process-row')).toHaveCount(4)
-    await expect(page.locator('.process-row h3', { hasText: 'Discover.' })).toBeVisible()
-    await expect(page.locator('.process-row h3', { hasText: 'Scale.' })).toBeVisible()
-  })
-
-  test('renders capabilities section', async ({ page }) => {
-    await page.goto('/')
-    await expect(page.locator('#services')).toBeVisible()
-    await expect(page.locator('.cap-col')).toHaveCount(3)
-    await expect(page.locator('.cap-col h3', { hasText: 'Strategy' })).toBeVisible()
-    await expect(page.locator('.cap-col h3', { hasText: 'Execution' })).toBeVisible()
-    await expect(page.locator('.cap-col h3', { hasText: 'Operations' })).toBeVisible()
-  })
-
-  test('renders shared footer', async ({ page }) => {
-    await page.goto('/')
-    const footer = page.locator('#site-footer')
-    await expect(footer).toBeVisible()
-    await expect(footer.locator('.footer-brand')).toHaveAttribute('href', '/')
-    await expect(footer.locator('.footer-nav')).toBeVisible()
+    await expect(page.locator('#about')).toHaveCount(0)
+    await expect(page.locator('#process')).toHaveCount(0)
+    await expect(page.locator('#services')).toHaveCount(0)
+    await expect(page.locator('#site-footer')).toHaveCount(0)
   })
 
   test('renders skip link', async ({ page }) => {
@@ -75,12 +50,26 @@ test.describe('Personal page (linktree)', () => {
     const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor)
     expect(bg).toBe('rgb(43, 56, 86)')
   })
+
+  test('is a single-screen linktree (hero section only)', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('#hero')).toBeVisible()
+    const sections = page.locator('.snap-section')
+    await expect(sections).toHaveCount(1)
+  })
 })
 
 test.describe('Personal page: performance', () => {
-  test('page is statically generated (no server-side data fetch)', async ({ page }) => {
+  test('page is statically generated', async ({ page }) => {
     await page.goto('/')
     const title = await page.title()
     expect(title).toContain('Wesley Melo')
+  })
+
+  test('ships zero client JS (no carousel, no interactive components)', async ({ page }) => {
+    await page.goto('/')
+    await page.waitForLoadState('networkidle')
+    const hasCarousel = await page.locator('#about-cards').count()
+    expect(hasCarousel).toBe(0)
   })
 })
