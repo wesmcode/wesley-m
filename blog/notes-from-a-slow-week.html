@@ -3,370 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes from a Slow Week — Wesley Melo</title>
+    <title>Notes from a Slow Week | Wesley Melo</title>
     <meta name="description" content="On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.">
     <meta name="author" content="Wesley Melo">
     <link rel="canonical" href="https://wesley-m.com/blog/notes-from-a-slow-week.html">
-    <meta property="og:title" content="Notes from a Slow Week — Wesley Melo">
+    <meta property="og:title" content="Notes from a Slow Week">
     <meta property="og:description" content="On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://wesley-m.com/blog/notes-from-a-slow-week.html">
+    <meta property="og:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
+    <meta property="og:image:alt" content="Portrait of Wesley Melo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Notes from a Slow Week">
+    <meta name="twitter:description" content="On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.">
+    <meta name="twitter:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
     <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/post.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "Notes from a Slow Week",
+        "description": "On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.",
         "author": {
             "@type": "Person",
             "name": "Wesley Melo",
             "url": "https://wesley-m.com"
         },
         "datePublished": "2026-02-05",
-        "url": "https://wesley-m.com/blog/notes-from-a-slow-week.html"
+        "dateModified": "2026-02-05",
+        "publisher": {
+            "@type": "Person",
+            "name": "Wesley Melo"
+        },
+        "url": "https://wesley-m.com/blog/notes-from-a-slow-week.html",
+        "mainEntityOfPage": "https://wesley-m.com/blog/notes-from-a-slow-week.html"
     }
     </script>
-    <style>
-
-    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer,
-    figure, figcaption, article, time, blockquote, img {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
-    }
-    header, main, nav, section, footer, figure, article { display: block; }
-    ul { list-style: none; }
-    *, *::before, *::after { box-sizing: border-box; }
-
-    :root {
-        --bg: #2B3856;
-        --fg: #FFFFFF;
-        --fg-hover: rgba(255, 255, 255, 0.5);
-        --fg-quiet: rgba(255, 255, 255, 0.78);
-        --border: 2px solid #FFFFFF;
-        --border-heavy: 3px solid #FFFFFF;
-        --rule: 1px solid #FFFFFF;
-    }
-
-    html, body {
-        min-height: 100vh;
-        font-size: 16px;
-        line-height: 24px;
-        font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-        background: var(--bg);
-        color: var(--fg);
-        -webkit-font-smoothing: antialiased;
-    }
-
-    .skip-link {
-        position: absolute;
-        left: -9999px;
-        top: 0;
-        padding: 8px 16px;
-        background: var(--fg);
-        color: var(--bg);
-        text-decoration: none;
-    }
-    .skip-link:focus { left: 0; }
-
-    .link {
-        font-weight: 400;
-        color: var(--fg);
-        text-decoration: none;
-        text-transform: uppercase;
-        background: none;
-        border: none;
-        border-radius: 0;
-        padding: 0;
-        margin: 0;
-        font-family: inherit;
-        font-size: inherit;
-        line-height: inherit;
-        cursor: default;
-    }
-    .link:hover { color: var(--fg-hover); text-decoration: underline; }
-    .link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
-    .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
-    .link:active { background: var(--fg); color: var(--bg); }
-
-    .page { max-width: 960px; margin: 0 auto; padding: 0 40px; }
-
-    .top-bar { padding: 24px 0 0; }
-    .top-bar .link { font-size: 14px; letter-spacing: 0.05em; }
-    .site-header {
-        border-bottom: var(--border-heavy);
-        padding: 24px 0 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-    }
-    .site-header h1 {
-        font-size: 48px;
-        line-height: 1;
-        text-transform: uppercase;
-        letter-spacing: -0.02em;
-        font-weight: 400;
-    }
-    .site-header .page-label {
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--fg-hover);
-    }
-
-    .article-column { max-width: 680px; margin: 0 auto; }
-    .post-header { padding: 72px 0 48px; }
-
-    .post-kicker {
-        font-size: 12px;
-        font-variant: small-caps;
-        letter-spacing: 0.22em;
-        color: var(--fg-hover);
-        margin-bottom: 24px;
-        padding-bottom: 16px;
-        border-bottom: var(--rule);
-    }
-
-    .post-title {
-        font-size: 48px;
-        line-height: 1.02;
-        font-weight: 400;
-        letter-spacing: -0.02em;
-        text-transform: uppercase;
-        margin-bottom: 32px;
-    }
-
-    .post-byline {
-        font-size: 13px;
-        font-variant: small-caps;
-        letter-spacing: 0.12em;
-        color: var(--fg-hover);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        padding-top: 16px;
-        border-top: var(--rule);
-    }
-    .post-byline .sep { opacity: 0.45; }
-
-    .post-body { padding: 8px 0 56px; }
-    .post-body p { font-size: 16px; line-height: 24px; margin-bottom: 24px; }
-
-    .post-lede { font-size: 18px; line-height: 1.45; margin-bottom: 32px; }
-    .post-lede::first-letter {
-        float: left;
-        font-size: 52px;
-        line-height: 0.85;
-        padding-right: 8px;
-        padding-top: 6px;
-        font-weight: 400;
-        text-transform: uppercase;
-    }
-
-    .post-body h2 {
-        font-size: 20px;
-        font-variant: small-caps;
-        letter-spacing: 0.2em;
-        text-transform: none;
-        font-weight: 400;
-        color: var(--fg-quiet);
-        margin: 48px 0 16px;
-    }
-
-    .post-body blockquote {
-        margin: 40px 0;
-        padding: 24px 0 8px;
-        border-top: var(--rule);
-        font-style: italic;
-        font-size: 24px;
-        line-height: 1.3;
-        letter-spacing: -0.005em;
-    }
-
-    .post-body figure { margin: 48px 0 32px; }
-    .post-body figcaption {
-        font-size: 13px;
-        font-style: italic;
-        color: var(--fg-hover);
-        padding-top: 12px;
-        line-height: 1.4;
-    }
-    .post-body figcaption .credit {
-        font-variant: small-caps;
-        font-style: normal;
-        letter-spacing: 0.08em;
-        margin-left: 8px;
-    }
-    .post-body figure + p { margin-top: 8px; }
-
-    .post-figure {
-        position: relative;
-        width: 100%;
-        background: var(--fg);
-        overflow: hidden;
-    }
-    .post-figure.aspect-wide { aspect-ratio: 16 / 9; }
-    .post-figure.aspect-tall { aspect-ratio: 4 / 3; }
-    .post-figure::before { content: ""; position: absolute; inset: 0; }
-    .post-figure img {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1;
-    }
-
-    .read-next {
-        margin-top: 48px;
-        padding: 48px 0 0;
-        border-top: var(--border);
-    }
-    .read-next-label {
-        font-size: 12px;
-        font-variant: small-caps;
-        letter-spacing: 0.22em;
-        color: var(--fg-hover);
-        margin-bottom: 24px;
-    }
-    .read-next-item {
-        display: block;
-        padding: 24px 0 28px;
-        border-top: var(--rule);
-        color: inherit;
-        text-decoration: none;
-        cursor: default;
-        transition: padding-left 0.15s ease;
-    }
-    .read-next-item:last-child { border-bottom: var(--rule); }
-    .read-next-item:hover,
-    .read-next-item:focus-visible {
-        outline: none;
-        background: var(--fg);
-        color: var(--bg);
-        padding-left: 24px;
-    }
-    .read-next-item:hover .read-next-meta,
-    .read-next-item:focus-visible .read-next-meta {
-        color: rgba(43, 56, 86, 0.65);
-    }
-    .read-next-meta {
-        font-size: 12px;
-        font-variant: small-caps;
-        letter-spacing: 0.12em;
-        color: var(--fg-hover);
-        margin-bottom: 8px;
-        display: flex;
-        gap: 12px;
-    }
-    .read-next-meta .sep { opacity: 0.45; }
-    .read-next-title {
-        font-size: 20px;
-        line-height: 1.15;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-        font-weight: 400;
-    }
-    .read-next-all { margin-top: 32px; font-size: 14px; letter-spacing: 0.05em; }
-
-    .site-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 32px 0 24px;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border-top: var(--border);
-        margin-top: 56px;
-    }
-    .site-footer span { color: var(--fg-hover); }
-
-    @media only screen and (max-width: 768px) {
-        .page { padding: 0 24px; }
-        .site-header h1 { font-size: 32px; }
-        .article-column { max-width: 100%; }
-        .post-header { padding: 48px 0 32px; }
-        .post-title { font-size: 30px; }
-        .post-lede { font-size: 17px; }
-        .post-lede::first-letter { font-size: 48px; padding-right: 6px; }
-        .post-body blockquote { font-size: 20px; }
-        .post-body h2 { margin: 40px 0 12px; font-size: 18px; }
-        .post-byline { flex-direction: column; gap: 4px; }
-        .post-byline .sep { display: none; }
-        .read-next-item:hover,
-        .read-next-item:focus-visible { padding-left: 12px; }
-        .site-footer { flex-direction: column; gap: 8px; text-align: center; }
-        .link:hover { text-decoration: none; }
-    }
-
-    </style>
 </head>
 <body>
 
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <div class="page">
+    <!-- Sticky reading bar -->
+    <div class="reading-bar" aria-hidden="true">
+        <div class="reading-bar-inner">
+            <a href="../blog.html" class="reading-bar-back" aria-label="Back to blog">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+            <span class="reading-bar-title"></span>
+            <div class="reading-bar-progress"><div class="reading-bar-fill"></div></div>
+        </div>
+    </div>
 
-        <nav class="top-bar" aria-label="Breadcrumb">
-            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
-        </nav>
+    <article id="main-content">
 
-        <header class="site-header">
-            <h1>Wesley Melo</h1>
-            <span class="page-label">Blog / Post</span>
+        <!-- Article Header -->
+        <header class="post-header">
+            <div class="post-header-inner">
+                <div class="post-kicker">Field Notes</div>
+                <h1 class="post-title">Notes from a Slow Week</h1>
+                <p class="post-dek">On friction, boredom, and the quiet engineering of patience. A short field report from a week of deliberately doing less.</p>
+
+                <div class="post-meta">
+                    <span class="post-avatar" aria-hidden="true">WM</span>
+                    <div class="post-meta-text">
+                        <span class="post-author-name"><a href="../about.html">Wesley Melo</a></span>
+                        <div class="post-date-line">
+                            <time datetime="2026-02-05">February 5, 2026</time>
+                            <span class="sep" aria-hidden="true">&middot;</span>
+                            <span>3 min read</span>
+                        </div>
+                    </div>
+                    <div class="post-utility" aria-label="Article actions">
+                        <button class="post-utility-btn" aria-label="Share this article" title="Share">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 6L8 1L3 6" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v9" stroke="currentColor" stroke-width="1.5"/><path d="M3 10v4h10v-4" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                        <button class="post-utility-btn" aria-label="Save for later" title="Save">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 2h10v13L8 11.5 3 15V2z" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                        <button class="post-utility-btn" aria-label="Listen to article" title="Listen">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polygon points="3,5 3,11 6,11 10,14 10,2 6,5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 5.5c1 1 1 4 0 5" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </header>
 
-        <main id="main-content">
+        <!-- Leaderboard Ad (desktop only) -->
+        <aside class="post-leaderboard" role="complementary" aria-label="Advertisement">
+            <div class="post-leaderboard-inner" data-ad-slot="leaderboard-atf">
+                <div class="ad-slot-label">Advertisement</div>
+                <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard</div>
+            </div>
+        </aside>
 
-            <div class="article-column">
+        <!-- Article Body + Sidebar -->
+        <div class="post-body-wrap">
+            <div class="post-body-inner">
 
-                <header class="post-header">
-                    <div class="post-kicker">Field notes N.004 &middot; Notes on Pace</div>
-                    <h1 class="post-title">Notes from a Slow Week</h1>
-                    <div class="post-byline">
-                        <span>By Wesley Melo</span>
-                        <span class="sep">&middot;</span>
-                        <time datetime="2026-02-05">February 5, 2026</time>
-                        <span class="sep">&middot;</span>
-                        <span>3 min read</span>
-                    </div>
-                </header>
+                <!-- Prose Column -->
+                <div class="post-prose">
 
-                <article class="post-body">
-
-                    <p class="post-lede">Last week I did an experiment that, in retrospect, sounds like the opening line of a TED talk I would never give: I closed every productivity tool on my laptop and tried to work like it was 2014. No agents. No autocomplete on the autocomplete. No little side panel suggesting I &ldquo;summarize&rdquo; the email I just wrote. Just me, a text editor, and the gathering suspicion that I have been a productivity tool for the productivity tools.</p>
+                    <p class="lede">Last week I did an experiment that, in retrospect, sounds like the opening line of a TED talk I would never give: I closed every productivity tool on my laptop and tried to work like it was 2014. No agents. No autocomplete on the autocomplete. No little side panel suggesting I &ldquo;summarize&rdquo; the email I just wrote. Just me, a text editor, and the gathering suspicion that I have been a productivity tool for the productivity tools.</p>
 
                     <p>It went both better and worse than I expected, which is the only honest review of any experiment.</p>
 
-                    <h2>I. The spreadsheet felt my absence (it did not)</h2>
+                    <h2>The spreadsheet felt my absence (it did not)</h2>
 
-                    <p>The numbers on the AI-at-work side of things have started to wobble in a way that I find clarifying. There&rsquo;s a story going around right now about Amazon employees gaming their internal &ldquo;AI usage&rdquo; metrics &mdash; basically inventing little tasks to feed the assistant so the dashboard goes green. There&rsquo;s a separate, broader thesis &mdash; call it AI psychosis at the org level &mdash; that says many companies have collectively convinced themselves the tools are working much better than they actually are, because the alternative is to admit they spent the year on a vibe.</p>
+                    <p>The numbers on the AI-at-work side of things have started to wobble in a way that I find clarifying. There&rsquo;s a story going around right now about Amazon employees gaming their internal &ldquo;AI usage&rdquo; metrics, basically inventing little tasks to feed the assistant so the dashboard goes green. There&rsquo;s a separate, broader thesis (call it AI psychosis at the org level) that says many companies have collectively convinced themselves the tools are working much better than they actually are, because the alternative is to admit they spent the year on a vibe.</p>
 
-                    <p>I am not anti-tool. (I write this on a laptop that costs more than my first car, with a model running in the background that I will absolutely use to spell-check this piece. Please don&rsquo;t @ me.) But the gap between &ldquo;the tool is great&rdquo; and &ldquo;I am great <em>using</em> the tool&rdquo; has gotten very wide, and a slow week was the only way I could see the edge of it.</p>
+                    <!-- In-content ad slot 1 -->
+                    <aside class="post-ad-inline ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="in-content-1">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
+
+                    <p>I am not anti-tool. (I write this on a laptop that costs more than my first car, with a model running in the background that I will absolutely use to spell-check this piece. Please do not @ me.) But the gap between &ldquo;the tool is great&rdquo; and &ldquo;I am great <em>using</em> the tool&rdquo; has gotten very wide, and a slow week was the only way I could see the edge of it.</p>
 
                     <figure>
-                        <div class="post-figure aspect-wide" role="img" aria-label="An empty desk with a single notebook and a closed laptop">
-                            <img src="https://picsum.photos/seed/wesm-slow-desk/1200/675" alt="An empty desk with a single notebook and a closed laptop" loading="lazy">
-                        </div>
-                        <figcaption>Day three. The cursor stopped blinking suggestions at me. I cried a little. <span class="credit">Photo &mdash; Placeholder</span></figcaption>
+                        <img src="https://picsum.photos/seed/wesm-slow-desk/1200/675" alt="An empty desk with a single notebook and a closed laptop" loading="lazy" width="1200" height="675">
+                        <figcaption>
+                            Day three. The cursor stopped blinking suggestions at me. I cried a little.
+                            <span class="fig-credit">Placeholder</span>
+                        </figcaption>
                     </figure>
 
-                    <h2>II. Productivity theater has an intermission</h2>
+                    <h2>Productivity theater has an intermission</h2>
 
-                    <p>The first two days were unhinged. I kept reaching for the shortcut, the autocomplete, the &ldquo;rewrite this in a friendlier tone&rdquo; button. I have type-six-em-dashes-per-sentence Disease and my brain wanted help editing it down. I had to physically sit on my hands at one point. (Reader, this is humiliating to admit. Reader, I&rsquo;m not lying.)</p>
+                    <p>The first two days were unhinged. I kept reaching for the shortcut, the autocomplete, the &ldquo;rewrite this in a friendlier tone&rdquo; button. I have type-six-hyphens-per-sentence Disease and my brain wanted help editing it down. I had to physically sit on my hands at one point. (Reader, this is humiliating to admit. Reader, I&rsquo;m not lying.)</p>
 
                     <p>By day three the thing I&rsquo;d been hiding from showed up. The thing was: a lot of my &ldquo;output&rdquo; over the last year had been the residue of having a co-pilot, not the residue of having thought about anything. The Slack messages that pinged out polished. The doc that arrived 40% drafted by Tuesday morning. The pull request comment that was diplomatic in a way I&rsquo;m not, in person, ever. None of it was bad. Almost none of it was <em>mine</em>.</p>
 
                     <p>Then by day five something quieter happened. I started writing slower, but the sentences started landing harder. The doc had fewer headers but the headers meant something. I sent a message to a teammate that was twelve words long and got back &ldquo;thank you, that&rsquo;s exactly what I needed,&rdquo; which is the rarest reply in software.</p>
 
-                    <blockquote>The output got worse on paper and better in the room. That is a metric we do not have a dashboard for.</blockquote>
+                    <!-- In-content ad slot 2 -->
+                    <aside class="post-ad-inline ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="in-content-2">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
 
-                    <h2>III. Throwing some ice at the fever</h2>
+                    <!-- Pull quote -->
+                    <aside class="post-pull" aria-label="Pull quote">
+                        <p>The output got worse on paper and better in the room. That is a metric we do not have a dashboard for.</p>
+                    </aside>
+
+                    <h2>Throwing some ice at the fever</h2>
 
                     <p>A few numbers, since we&rsquo;re here:</p>
 
@@ -374,65 +158,223 @@
 
                     <p>&ldquo;If you&rsquo;re not 10x-ing with agents, you&rsquo;re obsolete by Q3.&rdquo;</p>
 
-                    <p style="text-align:right; color: var(--fg-hover); font-size: 14px; letter-spacing: 0.05em; margin-top: -16px;">&mdash; A Tech Guru on X</p>
+                    <p style="text-align:right; color: var(--fg-hover); font-size: 14px; letter-spacing: 0.05em; margin-top: -16px;">A Tech Guru on X</p>
 
                     <p>Sure. Q3 will be here in a minute. I&rsquo;ll be the obsolete person writing a sentence on a Tuesday and meaning it.</p>
 
                     <figure>
-                        <div class="post-figure aspect-tall" role="img" aria-label="A handwritten notebook open mid-sentence">
-                            <img src="https://picsum.photos/seed/wesm-slow-notebook/1200/900" alt="A handwritten notebook open mid-sentence" loading="lazy">
-                        </div>
-                        <figcaption>Bad handwriting, good ideas. We will not be optimizing this. <span class="credit">Photo &mdash; Placeholder</span></figcaption>
+                        <img src="https://picsum.photos/seed/wesm-slow-notebook/1200/900" alt="A handwritten notebook open mid-sentence" loading="lazy" width="1200" height="900">
+                        <figcaption>
+                            Bad handwriting, good ideas. We will not be optimizing this.
+                            <span class="fig-credit">Placeholder</span>
+                        </figcaption>
                     </figure>
 
-                    <h2>IV. So&hellip; is slow a flex?</h2>
+                    <h2>So, is slow a flex?</h2>
 
-                    <p>I&rsquo;m not going to tell you to delete your tools. (I&rsquo;m not going to tell you to keep them either &mdash; that&rsquo;s a sponsorship I have not been offered.) What I will say is that a slow week worked on me like a tuning fork. It reminded me what the &ldquo;before&rdquo; state of a sentence feels like, before three rounds of suggestion polish it into being maximally readable and minimally surprising.</p>
+                    <p>I&rsquo;m not going to tell you to delete your tools. (I&rsquo;m not going to tell you to keep them either; that&rsquo;s a sponsorship I have not been offered.) What I will say is that a slow week worked on me like a tuning fork. It reminded me what the &ldquo;before&rdquo; state of a sentence feels like, before three rounds of suggestion polish it into being maximally readable and minimally surprising.</p>
 
-                    <p>The next economy is going to reward the people who can still notice the difference. Not because slowness is virtuous &mdash; it&rsquo;s not, it&rsquo;s mostly inconvenient &mdash; but because the ability to feel the difference between &ldquo;the tool wrote this&rdquo; and &ldquo;I meant this&rdquo; is going to be the new literacy. You can&rsquo;t learn it without the receipts that a slow week gives you.</p>
+                    <p>The next economy is going to reward the people who can still notice the difference. Not because slowness is virtuous (it is not, it is mostly inconvenient) but because the ability to feel the difference between &ldquo;the tool wrote this&rdquo; and &ldquo;I meant this&rdquo; is going to be the new literacy. You can not learn it without the receipts that a slow week gives you.</p>
 
-                    <p>Some things even AI can&rsquo;t help with. The list includes: realizing your last six Slack messages didn&rsquo;t sound like you, deciding the meeting actually should be a walk, telling your teammate the thing you&rsquo;ve been afraid to say. We are going to need more practice at all of those, soon, very fast.</p>
+                    <p>Some things even AI can not help with. The list includes: realizing your last six Slack messages did not sound like you, deciding the meeting actually should be a walk, telling your teammate the thing you&rsquo;ve been afraid to say. We are going to need more practice at all of those, soon, very fast.</p>
 
                     <p>Now if you&rsquo;ll excuse me, I have to go close the seventeen tabs I opened during this draft. By hand. Like an animal.</p>
+                    <!-- End-of-article ad (left column) -->
+                    <aside class="post-prose-end-ad ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="end-of-article">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
 
-                </article>
 
-                <section class="read-next" aria-label="Read next">
-                    <div class="read-next-label">Read next</div>
+                </div>
 
-                    <a href="how-i-learned-to-stop-worrying-and-love-being-human.html" class="read-next-item">
-                        <div class="read-next-meta">
-                            <span>Essay</span>
-                            <span class="sep">&middot;</span>
-                            <span>February 28, 2026</span>
-                        </div>
-                        <h3 class="read-next-title">How I Learned to Stop Worrying and Love Being Human</h3>
-                    </a>
+                <!-- Sidebar -->
+                <aside class="post-sidebar" aria-label="Sidebar">
 
-                    <a href="the-digital-doppelgangers-rises.html" class="read-next-item">
-                        <div class="read-next-meta">
-                            <span>Essay</span>
-                            <span class="sep">&middot;</span>
-                            <span>March 18, 2026</span>
-                        </div>
-                        <h3 class="read-next-title">The Digital Doppelg&auml;ngers Rises</h3>
-                    </a>
-
-                    <div class="read-next-all">
-                        <a href="../blog.html" class="link">&larr;&#xFE0E; All posts</a>
+                    <!-- Sidebar Top Ad -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sidebar-top">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
                     </div>
-                </section>
+
+                    <!-- Most Read -->
+                    <div>
+                        <h2 class="sidebar-section-label">Most Read</h2>
+                        <div class="most-read">
+                            <a href="the-90s-kid-guide-to-actually-learning-tech.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">1</span>
+                                <div>
+                                    <div class="most-read-title">The 90s Kid Guide to Actually Learning Tech</div>
+                                    <div class="most-read-meta">6 min read</div>
+                                </div>
+                            </a>
+                            <a href="the-digital-doppelgangers-rises.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">2</span>
+                                <div>
+                                    <div class="most-read-title">The Digital Doppelgangers Rises</div>
+                                    <div class="most-read-meta">7 min read</div>
+                                </div>
+                            </a>
+                            <a href="the-vibe-coder-confessional.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">3</span>
+                                <div>
+                                    <div class="most-read-title">The Vibe Coder Confessional</div>
+                                    <div class="most-read-meta">5 min read</div>
+                                </div>
+                            </a>
+                            <a href="how-i-learned-to-stop-worrying-and-love-being-human.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">4</span>
+                                <div>
+                                    <div class="most-read-title">How I Learned to Stop Worrying and Love Being Human</div>
+                                    <div class="most-read-meta">5 min read</div>
+                                </div>
+                            </a>
+                            <a href="r-programming-banned-the-robots.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">5</span>
+                                <div>
+                                    <div class="most-read-title">r/Programming Banned the Robots</div>
+                                    <div class="most-read-meta">6 min read</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="sidebar-newsletter">
+                        <h2 class="sidebar-newsletter-title">Direction Challenge</h2>
+                        <p class="sidebar-newsletter-dek">Notes on product, AI, and the people building both. Delivered when there is something worth saying.</p>
+                        <form class="sidebar-newsletter-form" aria-label="Newsletter signup">
+                            <label for="sidebar-email" class="sr-only">Email address</label>
+                            <input type="email" id="sidebar-email" class="sidebar-newsletter-input" placeholder="you@company.com" required autocomplete="email">
+                            <button type="submit" class="sidebar-newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+
+
+                    <!-- Sidebar Ad (below newsletter) -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sidebar-post-newsletter">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </div>
+                    <!-- Sidebar Ad -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sticky-sidebar">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </div>
+
+                </aside>
 
             </div>
+        </div>
 
-        </main>
+    </article>
 
-        <footer class="site-footer">
-            <span>&copy; 2026 Wesley Melo</span>
-            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
-        </footer>
+    <!-- Author Bio -->
+    <section class="post-author-bio" aria-label="About the author">
+        <div class="post-author-bio-inner">
+            <span class="bio-avatar" aria-hidden="true">WM</span>
+            <div class="bio-text">
+                <div class="bio-name"><a href="../about.html">Wesley Melo</a></div>
+                <p class="bio-description">Director of technology and product leader building AI products for enterprise clients. Writes about the intersection of engineering leadership, product strategy, and the tools that shape how teams ship software.</p>
+                <div class="bio-links">
+                    <a href="../blog.html">More posts</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <!-- Recirculation -->
+    <section class="post-recirc" aria-label="Related posts">
+        <div class="post-recirc-inner">
+            <div class="post-recirc-eyebrow">Keep reading</div>
+            <h2 class="post-recirc-title">Where the work shipped next</h2>
+
+            <div class="post-recirc-grid">
+                <a href="how-i-learned-to-stop-worrying-and-love-being-human.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Essay</div>
+                    <div class="post-recirc-card-title">How I Learned to Stop Worrying and Love Being Human</div>
+                    <div class="post-recirc-card-meta">February 28 &middot; 5 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+                <a href="the-digital-doppelgangers-rises.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Essay</div>
+                    <div class="post-recirc-card-title">The Digital Doppelgangers Rises</div>
+                    <div class="post-recirc-card-meta">March 18 &middot; 7 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+                <a href="the-bug-bounty-that-quit.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Analysis</div>
+                    <div class="post-recirc-card-title">The Bug Bounty That Quit</div>
+                    <div class="post-recirc-card-meta">March 4 &middot; 4 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+            <div class="footer-row">
+                <div class="brand-wrap"><a href="../index.html" class="footer-brand"><span class="brand-full">Wesley Melo</span><span class="brand-short" aria-hidden="true">W<span class="brand-diamond"></span>M</span></a></div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="../blog.html" class="link">Blog</a>
+                    <a href="../work.html" class="link">Case studies</a>
+                    <a href="../services.html" class="link">Services</a>
+                    <a href="../playground.html" class="link">Playground</a>
+                    <a id="footer-email-link" href="#" class="link js-email">Email</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+                </nav>
+            </div>
+            <div class="footer-meta">&copy; 2026 Wesley Melo</div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Anchor Ad -->
+    <aside class="mobile-anchor-ad" role="complementary" aria-label="Advertisement" data-ad-slot="mobile-anchor">
+        <button class="mobile-anchor-dismiss" aria-label="Close advertisement">&times;</button>
+        <div class="ad-placeholder" aria-hidden="true">320 &times; 50</div>
+    </aside>
+
+    <script src="../js/email.js"></script>
+    <script>
+    (function() {
+        var dismiss = document.querySelector('.mobile-anchor-dismiss');
+        if (dismiss) {
+            dismiss.addEventListener('click', function() {
+                this.parentElement.style.display = 'none';
+            });
+        }
+
+        var bar = document.querySelector('.reading-bar');
+        var fill = document.querySelector('.reading-bar-fill');
+        var titleEl = document.querySelector('.reading-bar-title');
+        var header = document.querySelector('.post-header');
+        var prose = document.querySelector('.post-prose');
+        var h1 = document.querySelector('.post-title');
+
+        if (bar && h1) titleEl.textContent = h1.textContent;
+
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var headerBottom = header.getBoundingClientRect().bottom;
+                    bar.classList.toggle('visible', headerBottom < 0);
+
+                    if (prose && fill) {
+                        var rect = prose.getBoundingClientRect();
+                        var progress = Math.min(1, Math.max(0, -rect.top / (rect.height - window.innerHeight)));
+                        fill.style.width = (progress * 100) + '%';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    })();
+    </script>
 
 </body>
 </html>

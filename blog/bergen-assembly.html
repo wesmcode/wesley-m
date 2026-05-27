@@ -3,392 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorem Ipsum Dolor Sit Amet — Wesley Melo</title>
+    <title>Lorem Ipsum Dolor Sit Amet | Wesley Melo</title>
     <meta name="description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
     <meta name="author" content="Wesley Melo">
     <link rel="canonical" href="https://wesley-m.com/blog/bergen-assembly.html">
-    <meta property="og:title" content="Lorem Ipsum Dolor Sit Amet — Wesley Melo">
+    <meta property="og:title" content="Lorem Ipsum Dolor Sit Amet">
     <meta property="og:description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://wesley-m.com/blog/bergen-assembly.html">
+    <meta property="og:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
+    <meta property="og:image:alt" content="Portrait of Wesley Melo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lorem Ipsum Dolor Sit Amet">
+    <meta name="twitter:description" content="A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+    <meta name="twitter:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/post.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "Lorem Ipsum Dolor Sit Amet",
+        "description": "A blog post by Wesley Melo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "author": {
             "@type": "Person",
             "name": "Wesley Melo",
             "url": "https://wesley-m.com"
         },
         "datePublished": "2026-04-09",
-        "url": "https://wesley-m.com/blog/bergen-assembly.html"
+        "dateModified": "2026-04-09",
+        "publisher": {
+            "@type": "Person",
+            "name": "Wesley Melo"
+        },
+        "url": "https://wesley-m.com/blog/bergen-assembly.html",
+        "mainEntityOfPage": "https://wesley-m.com/blog/bergen-assembly.html"
     }
     </script>
-    <style>
-
-    /* Reset */
-    html, body, div, span, h1, h2, h3, p, a, ul, li, section, header, nav, main, footer, figure, figcaption, article, time {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
-    }
-    header, main, nav, section, footer, figure, article { display: block; }
-    ul { list-style: none; }
-    *, *::before, *::after { box-sizing: border-box; }
-
-    :root {
-        --bg: #2B3856;
-        --fg: #FFFFFF;
-        --fg-hover: rgba(255, 255, 255, 0.5);
-        --border: 2px solid #FFFFFF;
-        --border-heavy: 3px solid #FFFFFF;
-    }
-
-    html, body {
-        min-height: 100vh;
-        font-size: 16px;
-        line-height: 24px;
-        font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-        background: var(--bg);
-        color: var(--fg);
-        -webkit-font-smoothing: antialiased;
-    }
-
-    /* Skip link */
-    .skip-link {
-        position: absolute;
-        left: -9999px;
-        top: 0;
-        padding: 8px 16px;
-        background: var(--fg);
-        color: var(--bg);
-        text-decoration: none;
-    }
-    .skip-link:focus {
-        left: 0;
-    }
-
-    /* The single link signature, shared with the rest of the site. */
-    .link {
-        font-weight: 400;
-        color: var(--fg);
-        text-decoration: none;
-        text-transform: uppercase;
-        background: none;
-        border: none;
-        border-radius: 0;
-        padding: 0;
-        margin: 0;
-        font-family: inherit;
-        font-size: inherit;
-        line-height: inherit;
-        cursor: default;
-    }
-    .link:hover {
-        color: var(--fg-hover);
-        text-decoration: underline;
-    }
-    .link:focus-visible {
-        color: var(--bg);
-        background: var(--fg);
-        outline: none;
-    }
-    .link:focus:not(:focus-visible) {
-        color: var(--fg);
-        background: none;
-        outline: none;
-    }
-    .link:active {
-        background: var(--fg);
-        color: var(--bg);
-    }
-
-    /* Page container */
-    .page {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0 40px;
-    }
-
-    .top-bar {
-        padding: 24px 0 0;
-    }
-    .top-bar .link {
-        font-size: 14px;
-        letter-spacing: 0.05em;
-    }
-
-    /* Site header (matches blog listing and services) */
-    .site-header {
-        border-bottom: var(--border-heavy);
-        padding: 24px 0 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-    }
-    .site-header h1 {
-        font-size: 48px;
-        line-height: 1;
-        text-transform: uppercase;
-        letter-spacing: -0.02em;
-        font-weight: 400;
-    }
-    .site-header .page-label {
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--fg-hover);
-    }
-
-    /* Section label row — right-aligned, brand wayfinding gesture. */
-    .section-label-row {
-        display: flex;
-        justify-content: flex-end;
-        padding: 24px 0 0;
-    }
-    .section-label {
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--fg-hover);
-    }
-
-    /* Article — single centered column, no sidebar. */
-    .post {
-        padding: 24px 0 56px;
-        border-bottom: var(--border);
-    }
-
-    .post-meta {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--fg-hover);
-        padding-bottom: 16px;
-        border-bottom: var(--border);
-        margin-bottom: 32px;
-    }
-
-    .post-title {
-        font-size: 48px;
-        line-height: 1;
-        font-weight: 400;
-        letter-spacing: -0.02em;
-        text-transform: uppercase;
-        margin-bottom: 40px;
-        max-width: 18ch;
-    }
-
-    .post-lede {
-        font-size: 18px;
-        line-height: 1.5;
-        margin-bottom: 32px;
-        max-width: 60ch;
-    }
-
-    .post-body p {
-        font-size: 16px;
-        line-height: 24px;
-        margin-bottom: 24px;
-        max-width: 60ch;
-    }
-
-    .post-body figure {
-        margin: 40px 0 16px;
-    }
-    .post-body figure + p {
-        margin-top: 8px;
-    }
-    .post-body figcaption {
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--fg-hover);
-        padding-top: 12px;
-        max-width: 60ch;
-    }
-
-    /* Sharp-shape image placeholders */
-    .post-figure {
-        position: relative;
-        width: 100%;
-        background: var(--fg);
-        overflow: hidden;
-    }
-    .post-figure.aspect-wide  { aspect-ratio: 16 / 9; }
-    .post-figure.aspect-tall  { aspect-ratio: 4 / 3; }
-
-    .post-figure::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-    }
-    .shape-hero::before {
-        background:
-            linear-gradient(112deg,
-                var(--fg) 0%,
-                var(--fg) 34%,
-                var(--bg) 34%,
-                var(--bg) 58%,
-                var(--fg) 58%,
-                var(--fg) 78%,
-                var(--bg) 78%,
-                var(--bg) 100%);
-    }
-    .shape-mid::before {
-        background:
-            linear-gradient(200deg,
-                var(--bg) 0%,
-                var(--bg) 30%,
-                var(--fg) 30%,
-                var(--fg) 70%,
-                var(--bg) 70%,
-                var(--bg) 100%);
-    }
-
-    /* Read-next strip — one line, link uses .link. */
-    .read-next {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding: 24px 0;
-        border-bottom: var(--border);
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-    }
-    .read-next-label {
-        color: var(--fg-hover);
-    }
-
-    /* Footer */
-    .site-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 24px 0;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-    .site-footer span {
-        color: var(--fg-hover);
-    }
-
-    /* Mobile */
-    @media only screen and (max-width: 768px) {
-
-        .page {
-            padding: 0 24px;
-        }
-        .site-header h1 {
-            font-size: 32px;
-        }
-        .post-title {
-            font-size: 32px;
-            margin-bottom: 32px;
-        }
-        .post-lede {
-            font-size: 17px;
-        }
-        .post-meta {
-            flex-direction: column;
-            gap: 4px;
-        }
-        .read-next {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-        }
-        .site-footer {
-            flex-direction: column;
-            gap: 8px;
-            text-align: center;
-        }
-        .link:hover {
-            text-decoration: none;
-        }
-    }
-
-    </style>
 </head>
 <body>
 
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <div class="page">
+    <!-- Sticky reading bar -->
+    <div class="reading-bar" aria-hidden="true">
+        <div class="reading-bar-inner">
+            <a href="../blog.html" class="reading-bar-back" aria-label="Back to blog">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+            <span class="reading-bar-title"></span>
+            <div class="reading-bar-progress"><div class="reading-bar-fill"></div></div>
+        </div>
+    </div>
 
-        <nav class="top-bar" aria-label="Breadcrumb">
-            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
-        </nav>
+    <article id="main-content">
 
-        <header class="site-header">
-            <h1>Wesley Melo</h1>
-            <span class="page-label">Blog / Post</span>
+        <!-- Article Header -->
+        <header class="post-header">
+            <div class="post-header-inner">
+                <div class="post-kicker">Post</div>
+                <h1 class="post-title">Lorem Ipsum Dolor Sit Amet</h1>
+                <p class="post-dek">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                <div class="post-meta">
+                    <span class="post-avatar" aria-hidden="true">WM</span>
+                    <div class="post-meta-text">
+                        <span class="post-author-name"><a href="../about.html">Wesley Melo</a></span>
+                        <div class="post-date-line">
+                            <time datetime="2026-04-09">April 9, 2026</time>
+                            <span class="sep" aria-hidden="true">&middot;</span>
+                            <span>6 min read</span>
+                        </div>
+                    </div>
+                    <div class="post-utility" aria-label="Article actions">
+                        <button class="post-utility-btn" aria-label="Share this article" title="Share">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 6L8 1L3 6" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v9" stroke="currentColor" stroke-width="1.5"/><path d="M3 10v4h10v-4" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                        <button class="post-utility-btn" aria-label="Save for later" title="Save">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 2h10v13L8 11.5 3 15V2z" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                        <button class="post-utility-btn" aria-label="Listen to article" title="Listen">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polygon points="3,5 3,11 6,11 10,14 10,2 6,5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 5.5c1 1 1 4 0 5" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </header>
 
-        <main id="main-content">
-
-            <div class="section-label-row">
-                <span class="section-label">Post</span>
+        <!-- Leaderboard Ad (desktop only) -->
+        <aside class="post-leaderboard" role="complementary" aria-label="Advertisement">
+            <div class="post-leaderboard-inner" data-ad-slot="leaderboard-atf">
+                <div class="ad-slot-label">Advertisement</div>
+                <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard</div>
             </div>
+        </aside>
 
-            <article class="post">
-                <div class="post-meta">
-                    <time datetime="2026-04-09">April 9, 2026</time>
-                    <span>6 min read</span>
-                </div>
+        <!-- Article Body + Sidebar -->
+        <div class="post-body-wrap">
+            <div class="post-body-inner">
 
-                <h1 class="post-title">Lorem Ipsum Dolor Sit Amet</h1>
+                <!-- Prose Column -->
+                <div class="post-prose">
 
-                <p class="post-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+                    <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
 
-                <div class="post-body">
                     <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
                     <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
 
                     <figure>
-                        <div class="post-figure aspect-wide shape-hero" role="img" aria-label="Placeholder artwork"></div>
-                        <figcaption>Lorem ipsum &middot; placeholder caption</figcaption>
+                        <img src="https://picsum.photos/seed/bergen/1200/675" alt="Placeholder artwork" loading="lazy" width="1200" height="675">
+                        <figcaption>
+                            Lorem ipsum, placeholder caption.
+                            <span class="fig-credit">Wesley Melo</span>
+                        </figcaption>
                     </figure>
+
+                    <!-- In-content ad slot 1 -->
+                    <aside class="post-ad-inline ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="in-content-1">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
 
                     <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
 
                     <p>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
 
                     <figure>
-                        <div class="post-figure aspect-tall shape-mid" role="img" aria-label="Placeholder artwork"></div>
-                        <figcaption>Neque porro quisquam &middot; placeholder caption</figcaption>
+                        <img src="https://picsum.photos/seed/bergen2/1200/900" alt="Placeholder artwork" loading="lazy" width="1200" height="900">
+                        <figcaption>
+                            Neque porro quisquam, placeholder caption.
+                            <span class="fig-credit">Wesley Melo</span>
+                        </figcaption>
                     </figure>
 
                     <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
 
                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                    <!-- End-of-article ad (left column) -->
+                    <aside class="post-prose-end-ad ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="end-of-article">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
+
+
                 </div>
-            </article>
 
-            <section class="read-next" aria-label="Read next">
-                <span class="read-next-label">Next</span>
-                <a href="../blog.html" class="link">All posts &rarr;&#xFE0E;</a>
-            </section>
+                <!-- Sidebar -->
+                <aside class="post-sidebar" aria-label="Sidebar">
 
-        </main>
+                    <!-- Sidebar Top Ad -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sidebar-top">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </div>
 
-        <footer class="site-footer">
-            <span>&copy; 2026 Wesley Melo</span>
-            <a href="/" class="link">&larr;&#xFE0E; Back to home</a>
-        </footer>
+                    <!-- Most Read -->
+                    <div>
+                        <h2 class="sidebar-section-label">Most Read</h2>
+                        <div class="most-read">
+                            <a href="the-90s-kid-guide-to-actually-learning-tech.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">1</span>
+                                <div>
+                                    <div class="most-read-title">The 90s Kid Guide to Actually Learning Tech</div>
+                                    <div class="most-read-meta">6 min read</div>
+                                </div>
+                            </a>
+                            <a href="the-digital-doppelgangers-rises.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">2</span>
+                                <div>
+                                    <div class="most-read-title">The Digital Doppelgangers Rises</div>
+                                    <div class="most-read-meta">7 min read</div>
+                                </div>
+                            </a>
+                            <a href="the-vibe-coder-confessional.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">3</span>
+                                <div>
+                                    <div class="most-read-title">The Vibe Coder Confessional</div>
+                                    <div class="most-read-meta">5 min read</div>
+                                </div>
+                            </a>
+                            <a href="how-i-learned-to-stop-worrying-and-love-being-human.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">4</span>
+                                <div>
+                                    <div class="most-read-title">How I Learned to Stop Worrying and Love Being Human</div>
+                                    <div class="most-read-meta">5 min read</div>
+                                </div>
+                            </a>
+                            <a href="r-programming-banned-the-robots.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">5</span>
+                                <div>
+                                    <div class="most-read-title">r/Programming Banned the Robots</div>
+                                    <div class="most-read-meta">6 min read</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
-    </div>
+                    <!-- Newsletter -->
+                    <div class="sidebar-newsletter">
+                        <h2 class="sidebar-newsletter-title">Direction Challenge</h2>
+                        <p class="sidebar-newsletter-dek">Notes on product, AI, and the people building both. Delivered when there is something worth saying.</p>
+                        <form class="sidebar-newsletter-form" aria-label="Newsletter signup">
+                            <label for="sidebar-email" class="sr-only">Email address</label>
+                            <input type="email" id="sidebar-email" class="sidebar-newsletter-input" placeholder="you@company.com" required autocomplete="email">
+                            <button type="submit" class="sidebar-newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+
+
+                    <!-- Sidebar Ad (below newsletter) -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sidebar-post-newsletter">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </div>
+                    <!-- Sidebar Ad -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sticky-sidebar">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+
+    </article>
+
+    <!-- Author Bio -->
+    <section class="post-author-bio" aria-label="About the author">
+        <div class="post-author-bio-inner">
+            <span class="bio-avatar" aria-hidden="true">WM</span>
+            <div class="bio-text">
+                <div class="bio-name"><a href="../about.html">Wesley Melo</a></div>
+                <p class="bio-description">Director of technology and product leader building AI products for enterprise clients. Writes about the intersection of engineering leadership, product strategy, and the tools that shape how teams ship software.</p>
+                <div class="bio-links">
+                    <a href="../blog.html">More posts</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recirculation -->
+    <section class="post-recirc" aria-label="Related posts">
+        <div class="post-recirc-inner">
+            <div class="post-recirc-eyebrow">Keep reading</div>
+            <h2 class="post-recirc-title">Where the work shipped next</h2>
+
+            <div class="post-recirc-grid">
+                <a href="the-vibe-coder-confessional.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Essay</div>
+                    <div class="post-recirc-card-title">The Vibe Coder Confessional</div>
+                    <div class="post-recirc-card-meta">May 12 &middot; 5 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+                <a href="notes-from-a-daybreak-demo.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Field Notes</div>
+                    <div class="post-recirc-card-title">Notes from a Daybreak Demo</div>
+                    <div class="post-recirc-card-meta">February 20 &middot; 3 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+            <div class="footer-row">
+                <div class="brand-wrap"><a href="../index.html" class="footer-brand"><span class="brand-full">Wesley Melo</span><span class="brand-short" aria-hidden="true">W<span class="brand-diamond"></span>M</span></a></div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="../blog.html" class="link">Blog</a>
+                    <a href="../work.html" class="link">Case studies</a>
+                    <a href="../services.html" class="link">Services</a>
+                    <a href="../playground.html" class="link">Playground</a>
+                    <a id="footer-email-link" href="#" class="link js-email">Email</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+                </nav>
+            </div>
+            <div class="footer-meta">&copy; 2026 Wesley Melo</div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Anchor Ad -->
+    <aside class="mobile-anchor-ad" role="complementary" aria-label="Advertisement" data-ad-slot="mobile-anchor">
+        <button class="mobile-anchor-dismiss" aria-label="Close advertisement">&times;</button>
+        <div class="ad-placeholder" aria-hidden="true">320 &times; 50</div>
+    </aside>
+
+    <script src="../js/email.js"></script>
+    <script>
+    (function() {
+        var dismiss = document.querySelector('.mobile-anchor-dismiss');
+        if (dismiss) {
+            dismiss.addEventListener('click', function() {
+                this.parentElement.style.display = 'none';
+            });
+        }
+
+        var bar = document.querySelector('.reading-bar');
+        var fill = document.querySelector('.reading-bar-fill');
+        var titleEl = document.querySelector('.reading-bar-title');
+        var header = document.querySelector('.post-header');
+        var prose = document.querySelector('.post-prose');
+        var h1 = document.querySelector('.post-title');
+
+        if (bar && h1) titleEl.textContent = h1.textContent;
+
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var headerBottom = header.getBoundingClientRect().bottom;
+                    bar.classList.toggle('visible', headerBottom < 0);
+
+                    if (prose && fill) {
+                        var rect = prose.getBoundingClientRect();
+                        var progress = Math.min(1, Math.max(0, -rect.top / (rect.height - window.innerHeight)));
+                        fill.style.width = (progress * 100) + '%';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    })();
+    </script>
 
 </body>
 </html>

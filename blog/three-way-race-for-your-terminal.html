@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Three-Way Race for Your Terminal — Wesley Melo</title>
+    <title>The Three-Way Race for Your Terminal | Wesley Melo</title>
     <meta name="description" content="Claude Code, Codex CLI, and Grok Build are all asking to live in your shell. A field report from a month of switching.">
     <meta name="author" content="Wesley Melo">
     <link rel="canonical" href="https://wesley-m.com/blog/three-way-race-for-your-terminal.html">
-    <meta property="og:title" content="The Three-Way Race for Your Terminal — Wesley Melo">
+    <meta property="og:title" content="The Three-Way Race for Your Terminal">
     <meta property="og:description" content="Claude Code, Codex CLI, and Grok Build are all asking to live in your shell. A field report from a month of switching.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://wesley-m.com/blog/three-way-race-for-your-terminal.html">
+    <meta property="og:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
+    <meta property="og:image:alt" content="Portrait of Wesley Melo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Three-Way Race for Your Terminal">
+    <meta name="twitter:description" content="Claude Code, Codex CLI, and Grok Build are all asking to live in your shell. A field report from a month of switching.">
+    <meta name="twitter:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
     <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/post.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "The Three-Way Race for Your Terminal",
-        "author": { "@type": "Person", "name": "Wesley Melo", "url": "https://wesley-m.com" },
+        "description": "Claude Code, Codex CLI, and Grok Build are all asking to live in your shell. A field report from a month of switching.",
+        "author": {
+            "@type": "Person",
+            "name": "Wesley Melo",
+            "url": "https://wesley-m.com"
+        },
         "datePublished": "2026-04-09",
-        "url": "https://wesley-m.com/blog/three-way-race-for-your-terminal.html"
+        "dateModified": "2026-04-09",
+        "publisher": {
+            "@type": "Person",
+            "name": "Wesley Melo"
+        },
+        "url": "https://wesley-m.com/blog/three-way-race-for-your-terminal.html",
+        "mainEntityOfPage": "https://wesley-m.com/blog/three-way-race-for-your-terminal.html"
     }
     </script>
 </head>
@@ -29,113 +47,327 @@
 
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <div class="page">
+    <!-- Sticky reading bar -->
+    <div class="reading-bar" aria-hidden="true">
+        <div class="reading-bar-inner">
+            <a href="../blog.html" class="reading-bar-back" aria-label="Back to blog">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+            <span class="reading-bar-title"></span>
+            <div class="reading-bar-progress"><div class="reading-bar-fill"></div></div>
+        </div>
+    </div>
 
-        <nav class="top-bar" aria-label="Breadcrumb">
-            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
-        </nav>
+    <article id="main-content">
 
-        <header class="site-header">
-            <h1>Wesley Melo</h1>
-            <span class="page-label">Blog / Post</span>
+        <!-- Article Header -->
+        <header class="post-header">
+            <div class="post-header-inner">
+                <div class="post-kicker">Essay</div>
+                <h1 class="post-title">The Three-Way Race for Your Terminal</h1>
+                <p class="post-dek">Claude Code, Codex CLI, and Grok Build are all asking to live in your shell. Same tickets, same constraints, same long-suffering Postgres test database.</p>
+
+                <div class="post-meta">
+                    <span class="post-avatar" aria-hidden="true">WM</span>
+                    <div class="post-meta-text">
+                        <span class="post-author-name"><a href="../about.html">Wesley Melo</a></span>
+                        <div class="post-date-line">
+                            <time datetime="2026-04-09">April 9, 2026</time>
+                            <span class="sep" aria-hidden="true">&middot;</span>
+                            <span>7 min read</span>
+                        </div>
+                    </div>
+                    <div class="post-utility" aria-label="Article actions">
+                        <button class="post-utility-btn" aria-label="Share this article" title="Share">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 6L8 1L3 6" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v9" stroke="currentColor" stroke-width="1.5"/><path d="M3 10v4h10v-4" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                        <button class="post-utility-btn" aria-label="Save for later" title="Save">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 2h10v13L8 11.5 3 15V2z" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                        <button class="post-utility-btn" aria-label="Listen to article" title="Listen">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polygon points="3,5 3,11 6,11 10,14 10,2 6,5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 5.5c1 1 1 4 0 5" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </header>
 
-        <main id="main-content">
+        <!-- Leaderboard Ad (desktop only) -->
+        <aside class="post-leaderboard" role="complementary" aria-label="Advertisement">
+            <div class="post-leaderboard-inner" data-ad-slot="leaderboard-atf">
+                <div class="ad-slot-label">Advertisement</div>
+                <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard</div>
+            </div>
+        </aside>
 
-            <div class="article-column">
+        <!-- Article Body + Sidebar -->
+        <div class="post-body-wrap">
+            <div class="post-body-inner">
 
-                <header class="post-header">
-                    <div class="post-kicker">Essay N.004 &middot; Tools</div>
-                    <h1 class="post-title">The Three-Way Race for Your Terminal</h1>
-                    <div class="post-byline">
-                        <span>By Wesley Melo</span>
-                        <span class="sep">&middot;</span>
-                        <time datetime="2026-04-09">April 9, 2026</time>
-                        <span class="sep">&middot;</span>
-                        <span>7 min read</span>
-                    </div>
-                </header>
+                <!-- Prose Column -->
+                <div class="post-prose">
 
-                <article class="post-body">
-
-                    <p class="post-lede">For the last thirty days I have been rotating between Claude Code, Codex CLI, and xAI&rsquo;s newly-announced Grok Build on the same codebase. Same tickets. Same constraints. Same long-suffering Postgres test database. This is the field report nobody asked me for, and which I am writing anyway.</p>
+                    <p class="lede">For the last thirty days I have been rotating between Claude Code, Codex CLI, and xAI's newly-announced Grok Build on the same codebase. Same tickets. Same constraints. Same long-suffering Postgres test database. This is the field report nobody asked me for, and which I am writing anyway.</p>
 
                     <p>A short disclaimer up top: I am not a benchmark. I am one developer doing real work, and my impressions are shaped by my taste and my history with each company. Take what you like.</p>
 
                     <h2>I. Claude Code</h2>
 
-                    <p>The one I keep coming back to. The plan-first habit suits the way my brain works &mdash; I want a model that pauses before it sprints. Claude Code asks more questions than the others, sometimes annoyingly so, and the questions are usually the right ones.</p>
+                    <p>The one I keep coming back to. The plan-first habit suits the way my brain works. I want a model that pauses before it sprints. Claude Code asks more questions than the others, sometimes annoyingly so, and the questions are usually the right ones.</p>
 
                     <p>Where it shines: long refactors across many files, anything with a real test suite, anything where the cost of a wrong edit is high.</p>
+
+                    <!-- In-content ad slot 1 -->
+                    <aside class="post-ad-inline ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="in-content-1">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
 
                     <p>Where it stumbles: short, vibe-y tasks. I sometimes want a tool that will just <em>do the thing.</em> Claude Code wants to discuss it first. That can feel like booking a meeting to ask a question.</p>
 
                     <h2>II. Codex CLI</h2>
 
-                    <p>OpenAI&rsquo;s entry feels like the second draft of a product they already shipped, in a good way. It is fast. It is opinionated. It is willing to run a command without explaining why, which I respect.</p>
+                    <p>OpenAI's entry feels like the second draft of a product they already shipped, in a good way. It is fast. It is opinionated. It is willing to run a command without explaining why, which I respect.</p>
 
-                    <p>The May 14 mobile supervision update changed the calculus a bit &mdash; if you want the agent to keep moving while you&rsquo;re away from the desk, Codex now has the best story for that. I covered the experience separately, but the short version: handy for the right person, terrifying for the wrong one.</p>
+                    <p>The May 14 mobile supervision update changed the calculus a bit. If you want the agent to keep moving while you are away from the desk, Codex now has the best story for that. I covered the experience separately, but the short version: handy for the right person, terrifying for the wrong one.</p>
 
-                    <p>Where it shines: speed runs, anything CI-adjacent, anything where the loop is &ldquo;try, fail, try again.&rdquo;</p>
+                    <p>Where it shines: speed runs, anything CI-adjacent, anything where the loop is "try, fail, try again."</p>
 
-                    <p>Where it stumbles: judgment calls. When the task is ambiguous, Codex picks an interpretation, commits to it, and you find out later. Sometimes you wanted that. Sometimes you didn&rsquo;t.</p>
+                    <p>Where it stumbles: judgment calls. When the task is ambiguous, Codex picks an interpretation, commits to it, and you find out later. Sometimes you wanted that. Sometimes you did not.</p>
 
                     <h2>III. Grok Build</h2>
 
-                    <p>The new one. Earnest, scrappy, slightly raw. The DevOps.com piece introducing it called it a &ldquo;coding agent for engineers who think marketing is a lie,&rdquo; which is exactly the tone the product carries.</p>
+                    <p>The new one. Earnest, scrappy, slightly raw. The DevOps.com piece introducing it called it a "coding agent for engineers who think marketing is a lie," which is exactly the tone the product carries.</p>
 
-                    <p>It is fast in a way that suggests less safety net than the other two. It will, on occasion, do something that makes me reach for the undo with feeling. I have also seen it solve problems the other two danced around, in part because it doesn&rsquo;t pause to think about whether it should.</p>
+                    <!-- In-content ad slot 2 -->
+                    <aside class="post-ad-inline ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="in-content-2">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
+
+                    <p>It is fast in a way that suggests less safety net than the other two. It will, on occasion, do something that makes me reach for the undo with feeling. I have also seen it solve problems the other two danced around, in part because it does not pause to think about whether it should.</p>
 
                     <p>Where it shines: greenfield work, experimentation, anything where the cost of being wrong is small.</p>
 
-                    <p>Where it stumbles: production. I would not give this thing prod credentials in its current form, but I&rsquo;d say the same of a junior engineer on day one. It will mature.</p>
+                    <p>Where it stumbles: production. I would not give this thing prod credentials in its current form, but I would say the same of a junior engineer on day one. It will mature.</p>
 
-                    <blockquote>Three tools in your terminal. Three different theories of what an engineer is for. You pick the one whose theory you can live with.</blockquote>
+                    <blockquote>
+                        <p>Three tools in your terminal. Three different theories of what an engineer is for. You pick the one whose theory you can live with.</p>
+                    </blockquote>
 
                     <h2>IV. The pattern under the differences</h2>
 
-                    <p>The interesting thing isn&rsquo;t which tool wins. The interesting thing is that each company has a slightly different theory of <em>what the engineer is for</em>, and the tool reflects it.</p>
+                    <p>The interesting thing is not which tool wins. The interesting thing is that each company has a slightly different theory of <em>what the engineer is for</em>, and the tool reflects it.</p>
 
                     <ul>
-                        <li>Anthropic&rsquo;s theory: the engineer is a reviewer and a chooser. The model is a tireless drafting partner that wants your sign-off.</li>
-                        <li>OpenAI&rsquo;s theory: the engineer is an operator. The model is a fleet of agents you point at problems and check on later.</li>
-                        <li>xAI&rsquo;s theory: the engineer is a hacker. The model is a wrench you swing without permission.</li>
+                        <li>Anthropic's theory: the engineer is a reviewer and a chooser. The model is a tireless drafting partner that wants your sign-off.</li>
+                        <li>OpenAI's theory: the engineer is an operator. The model is a fleet of agents you point at problems and check on later.</li>
+                        <li>xAI's theory: the engineer is a hacker. The model is a wrench you swing without permission.</li>
                     </ul>
 
-                    <p>None of these is wrong. They&rsquo;re different stances on the same future, and the team you work on will lean naturally toward one of them whether or not you discuss it out loud.</p>
+                    <p>None of these is wrong. They are different stances on the same future, and the team you work on will lean naturally toward one of them whether or not you discuss it out loud.</p>
 
-                    <h2>V. What I&rsquo;ll keep on my machine</h2>
+                    <h2>V. What I will keep on my machine</h2>
 
-                    <p>Claude Code for the work I care about. Codex CLI for the work I want done while I&rsquo;m getting coffee. Grok Build for the experiments I&rsquo;d be embarrassed for anyone to see.</p>
+                    <p>Claude Code for the work I care about. Codex CLI for the work I want done while I am getting coffee. Grok Build for the experiments I would be embarrassed for anyone to see.</p>
 
-                    <p>Three tools is one too many. I will drop one of them by August. Don&rsquo;t ask me which.</p>
+                    <p>Three tools is one too many. I will drop one of them by August. Do not ask me which.</p>
+                    <!-- End-of-article ad (left column) -->
+                    <aside class="post-prose-end-ad ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="end-of-article">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
 
-                </article>
 
-                <section class="read-next" aria-label="Read next">
-                    <a href="my-phone-approves-code-now.html" class="read-next-item">
-                        <div class="read-next-meta"><span>Field Notes</span><span class="sep">&middot;</span><span>April 24, 2026</span></div>
-                        <h3 class="read-next-title">My Phone Approves Code Now</h3>
-                    </a>
-                    <a href="you-are-paying-for-the-subsidy.html" class="read-next-item">
-                        <div class="read-next-meta"><span>Opinion</span><span class="sep">&middot;</span><span>April 18, 2026</span></div>
-                        <h3 class="read-next-title">You Are Not Paying for AI. You Are Paying for the Subsidy.</h3>
-                    </a>
-                    <div class="read-next-all">
-                        <a href="../blog.html" class="link">&larr;&#xFE0E; All posts</a>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="post-sidebar" aria-label="Sidebar">
+
+                    <!-- Sidebar Top Ad -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sidebar-top">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
                     </div>
-                </section>
+
+                    <!-- Most Read -->
+                    <div>
+                        <h2 class="sidebar-section-label">Most Read</h2>
+                        <div class="most-read">
+                            <a href="the-90s-kid-guide-to-actually-learning-tech.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">1</span>
+                                <div>
+                                    <div class="most-read-title">The 90s Kid Guide to Actually Learning Tech</div>
+                                    <div class="most-read-meta">6 min read</div>
+                                </div>
+                            </a>
+                            <a href="the-digital-doppelgangers-rises.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">2</span>
+                                <div>
+                                    <div class="most-read-title">The Digital Doppelgangers Rises</div>
+                                    <div class="most-read-meta">7 min read</div>
+                                </div>
+                            </a>
+                            <a href="the-vibe-coder-confessional.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">3</span>
+                                <div>
+                                    <div class="most-read-title">The Vibe Coder Confessional</div>
+                                    <div class="most-read-meta">5 min read</div>
+                                </div>
+                            </a>
+                            <a href="how-i-learned-to-stop-worrying-and-love-being-human.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">4</span>
+                                <div>
+                                    <div class="most-read-title">How I Learned to Stop Worrying and Love Being Human</div>
+                                    <div class="most-read-meta">5 min read</div>
+                                </div>
+                            </a>
+                            <a href="r-programming-banned-the-robots.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">5</span>
+                                <div>
+                                    <div class="most-read-title">r/Programming Banned the Robots</div>
+                                    <div class="most-read-meta">6 min read</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="sidebar-newsletter">
+                        <h2 class="sidebar-newsletter-title">Direction Challenge</h2>
+                        <p class="sidebar-newsletter-dek">Notes on product, AI, and the people building both. Delivered when there is something worth saying.</p>
+                        <form class="sidebar-newsletter-form" aria-label="Newsletter signup">
+                            <label for="sidebar-email" class="sr-only">Email address</label>
+                            <input type="email" id="sidebar-email" class="sidebar-newsletter-input" placeholder="you@company.com" required autocomplete="email">
+                            <button type="submit" class="sidebar-newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+
+
+                    <!-- Sidebar Ad (below newsletter) -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sidebar-post-newsletter">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </div>
+                    <!-- Sidebar Ad -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sticky-sidebar">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </div>
+
+                </aside>
 
             </div>
+        </div>
 
-        </main>
+    </article>
 
-        <footer class="site-footer">
-            <span>&copy; 2026 Wesley Melo</span>
-            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
-        </footer>
+    <!-- Author Bio -->
+    <section class="post-author-bio" aria-label="About the author">
+        <div class="post-author-bio-inner">
+            <span class="bio-avatar" aria-hidden="true">WM</span>
+            <div class="bio-text">
+                <div class="bio-name"><a href="../about.html">Wesley Melo</a></div>
+                <p class="bio-description">Director of technology and product leader building AI products for enterprise clients. Writes about the intersection of engineering leadership, product strategy, and the tools that shape how teams ship software.</p>
+                <div class="bio-links">
+                    <a href="../blog.html">More posts</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <!-- Recirculation -->
+    <section class="post-recirc" aria-label="Related posts">
+        <div class="post-recirc-inner">
+            <div class="post-recirc-eyebrow">Keep reading</div>
+            <h2 class="post-recirc-title">Where the work shipped next</h2>
+
+            <div class="post-recirc-grid">
+                <a href="my-phone-approves-code-now.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Field Notes</div>
+                    <div class="post-recirc-card-title">My Phone Approves Code Now</div>
+                    <div class="post-recirc-card-meta">April 24 &middot; 3 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+                <a href="the-vibe-coder-confessional.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Essay</div>
+                    <div class="post-recirc-card-title">The Vibe Coder Confessional</div>
+                    <div class="post-recirc-card-meta">May 12 &middot; 5 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+                <a href="r-programming-banned-the-robots.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Dispatch</div>
+                    <div class="post-recirc-card-title">r/Programming Banned the Robots</div>
+                    <div class="post-recirc-card-meta">May 5 &middot; 4 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+            <div class="footer-row">
+                <div class="brand-wrap"><a href="../index.html" class="footer-brand"><span class="brand-full">Wesley Melo</span><span class="brand-short" aria-hidden="true">W<span class="brand-diamond"></span>M</span></a></div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="../blog.html" class="link">Blog</a>
+                    <a href="../work.html" class="link">Case studies</a>
+                    <a href="../services.html" class="link">Services</a>
+                    <a href="../playground.html" class="link">Playground</a>
+                    <a id="footer-email-link" href="#" class="link js-email">Email</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+                </nav>
+            </div>
+            <div class="footer-meta">&copy; 2026 Wesley Melo</div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Anchor Ad -->
+    <aside class="mobile-anchor-ad" role="complementary" aria-label="Advertisement" data-ad-slot="mobile-anchor">
+        <button class="mobile-anchor-dismiss" aria-label="Close advertisement">&times;</button>
+        <div class="ad-placeholder" aria-hidden="true">320 &times; 50</div>
+    </aside>
+
+    <script src="../js/email.js"></script>
+    <script>
+    (function() {
+        var dismiss = document.querySelector('.mobile-anchor-dismiss');
+        if (dismiss) {
+            dismiss.addEventListener('click', function() {
+                this.parentElement.style.display = 'none';
+            });
+        }
+
+        var bar = document.querySelector('.reading-bar');
+        var fill = document.querySelector('.reading-bar-fill');
+        var titleEl = document.querySelector('.reading-bar-title');
+        var header = document.querySelector('.post-header');
+        var prose = document.querySelector('.post-prose');
+        var h1 = document.querySelector('.post-title');
+
+        if (bar && h1) titleEl.textContent = h1.textContent;
+
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var headerBottom = header.getBoundingClientRect().bottom;
+                    bar.classList.toggle('visible', headerBottom < 0);
+
+                    if (prose && fill) {
+                        var rect = prose.getBoundingClientRect();
+                        var progress = Math.min(1, Math.max(0, -rect.top / (rect.height - window.innerHeight)));
+                        fill.style.width = (progress * 100) + '%';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    })();
+    </script>
 
 </body>
 </html>

@@ -86,6 +86,19 @@ a[aria-disabled="true"] {
     text-transform: uppercase;
 }
 
+/* Progress bar — bottom edge of masthead */
+.masthead-progress {
+    height: 3px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+}
+.masthead-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #FFFFFF;
+    transition: width 80ms linear;
+}
+
 /* Zone heads */
 .zone-head {
     display: flex;
@@ -415,7 +428,10 @@ a:focus-visible .kicker {
 }
 
 /* Sidebar — Most Read */
-.sidebar { padding-top: 0; }
+.sidebar {
+    padding-top: 0;
+    align-self: start;
+}
 .sidebar .zone-head { margin-top: 0; }
 .most-read {
     border-top: var(--rule-soft);
@@ -454,6 +470,36 @@ a:focus-visible .kicker {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--fg-hover);
+}
+
+/* Sidebar ads — stacked below Most Read */
+.sidebar-ads {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+}
+.sidebar-ad-unit {
+    text-align: center;
+}
+.sidebar-ad-unit .ad-slot-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(43, 56, 86, 0.45);
+    margin-bottom: 8px;
+}
+.sidebar-ad-unit .ad-placeholder {
+    min-height: 110px;
+    background: var(--fg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: grid;
+    place-items: center;
+    padding: 24px 12px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* Reading list */
@@ -555,6 +601,7 @@ a:focus-visible .kicker {
     .hero-divider { display: none; }
     .splash-title { font-size: 40px; }
     .body-grid { grid-template-columns: 1fr; }
+    .sidebar-ads { display: none; }
     .opinion-grid { grid-template-columns: 1fr; gap: 0; }
     .opinion-item {
         border-right: none;

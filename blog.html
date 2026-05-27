@@ -51,6 +51,7 @@
                 <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard slot</div>
             </aside>
         </div>
+        <div class="masthead-progress"><div class="masthead-progress-fill"></div></div>
     </header>
 
     <div class="page">
@@ -298,6 +299,32 @@
                             </div>
                         </a>
                     </div>
+                    <div class="sidebar-ads" aria-label="Advertisements">
+                        <div class="sidebar-ad-unit" data-ad-slot="sidebar-1">
+                            <div class="ad-slot-label">Advertisement</div>
+                            <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard slot</div>
+                        </div>
+                        <div class="sidebar-ad-unit" data-ad-slot="sidebar-2">
+                            <div class="ad-slot-label">Advertisement</div>
+                            <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard slot</div>
+                        </div>
+                        <div class="sidebar-ad-unit" data-ad-slot="sidebar-3">
+                            <div class="ad-slot-label">Advertisement</div>
+                            <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard slot</div>
+                        </div>
+                        <div class="sidebar-ad-unit" data-ad-slot="sidebar-4">
+                            <div class="ad-slot-label">Advertisement</div>
+                            <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard slot</div>
+                        </div>
+                        <div class="sidebar-ad-unit" data-ad-slot="sidebar-5">
+                            <div class="ad-slot-label">Advertisement</div>
+                            <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard slot</div>
+                        </div>
+                        <div class="sidebar-ad-unit" data-ad-slot="sidebar-6">
+                            <div class="ad-slot-label">Advertisement</div>
+                            <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard slot</div>
+                        </div>
+                    </div>
                 </aside>
             </div>
 
@@ -323,6 +350,24 @@
     </footer>
 
     <script src="js/email.js"></script>
+    <script>
+    (function() {
+        var fill = document.querySelector('.masthead-progress-fill');
+        if (!fill) return;
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var scrollTop = window.scrollY;
+                    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    fill.style.width = (Math.min(1, scrollTop / docHeight) * 100) + '%';
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    })();
+    </script>
 
 </body>
 </html>

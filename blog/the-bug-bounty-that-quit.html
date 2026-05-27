@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bug Bounty That Quit — Wesley Melo</title>
-    <meta name="description" content="A company retired its bug bounty program this month. The reason is the new shape of the work, and it&rsquo;s worth a look.">
+    <title>The Bug Bounty That Quit | Wesley Melo</title>
+    <meta name="description" content="A company retired its bug bounty program this month. The reason is the new shape of the work, and it is worth a look.">
     <meta name="author" content="Wesley Melo">
     <link rel="canonical" href="https://wesley-m.com/blog/the-bug-bounty-that-quit.html">
-    <meta property="og:title" content="The Bug Bounty That Quit — Wesley Melo">
-    <meta property="og:description" content="A company retired its bug bounty program this month. The reason is the new shape of the work, and it&rsquo;s worth a look.">
+    <meta property="og:title" content="The Bug Bounty That Quit">
+    <meta property="og:description" content="A company retired its bug bounty program this month. The reason is the new shape of the work, and it is worth a look.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://wesley-m.com/blog/the-bug-bounty-that-quit.html">
+    <meta property="og:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
+    <meta property="og:image:alt" content="Portrait of Wesley Melo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Bug Bounty That Quit">
+    <meta name="twitter:description" content="A company retired its bug bounty program this month. The reason is the new shape of the work, and it is worth a look.">
+    <meta name="twitter:image" content="https://wesley-m.com/images/wesley-portrait.jpg">
     <meta name="robots" content="noai, noimageai, noarchive, nosnippet">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/post.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": "The Bug Bounty That Quit",
-        "author": { "@type": "Person", "name": "Wesley Melo", "url": "https://wesley-m.com" },
+        "description": "A company retired its bug bounty program this month. The reason is the new shape of the work, and it is worth a look.",
+        "author": {
+            "@type": "Person",
+            "name": "Wesley Melo",
+            "url": "https://wesley-m.com"
+        },
         "datePublished": "2026-03-04",
-        "url": "https://wesley-m.com/blog/the-bug-bounty-that-quit.html"
+        "dateModified": "2026-03-04",
+        "publisher": {
+            "@type": "Person",
+            "name": "Wesley Melo"
+        },
+        "url": "https://wesley-m.com/blog/the-bug-bounty-that-quit.html",
+        "mainEntityOfPage": "https://wesley-m.com/blog/the-bug-bounty-that-quit.html"
     }
     </script>
 </head>
@@ -29,96 +47,305 @@
 
     <a href="#main-content" class="skip-link">Skip to content</a>
 
-    <div class="page">
+    <!-- Sticky reading bar -->
+    <div class="reading-bar" aria-hidden="true">
+        <div class="reading-bar-inner">
+            <a href="../blog.html" class="reading-bar-back" aria-label="Back to blog">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5"/></svg>
+            </a>
+            <span class="reading-bar-title"></span>
+            <div class="reading-bar-progress"><div class="reading-bar-fill"></div></div>
+        </div>
+    </div>
 
-        <nav class="top-bar" aria-label="Breadcrumb">
-            <a href="../blog.html" class="link">&larr;&#xFE0E; Blog</a>
-        </nav>
+    <article id="main-content">
 
-        <header class="site-header">
-            <h1>Wesley Melo</h1>
-            <span class="page-label">Blog / Post</span>
+        <!-- Article Header -->
+        <header class="post-header">
+            <div class="post-header-inner">
+                <div class="post-kicker">Analysis</div>
+                <h1 class="post-title">The Bug Bounty That Quit</h1>
+                <p class="post-dek">A company retired its bug bounty program this month. The reason is the new shape of the work, and it is worth a look.</p>
+
+                <div class="post-meta">
+                    <span class="post-avatar" aria-hidden="true">WM</span>
+                    <div class="post-meta-text">
+                        <span class="post-author-name"><a href="../about.html">Wesley Melo</a></span>
+                        <div class="post-date-line">
+                            <time datetime="2026-03-04">March 4, 2026</time>
+                            <span class="sep" aria-hidden="true">&middot;</span>
+                            <span>4 min read</span>
+                        </div>
+                    </div>
+                    <div class="post-utility" aria-label="Article actions">
+                        <button class="post-utility-btn" aria-label="Share this article" title="Share">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 6L8 1L3 6" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v9" stroke="currentColor" stroke-width="1.5"/><path d="M3 10v4h10v-4" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                        <button class="post-utility-btn" aria-label="Save for later" title="Save">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 2h10v13L8 11.5 3 15V2z" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                        <button class="post-utility-btn" aria-label="Listen to article" title="Listen">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polygon points="3,5 3,11 6,11 10,14 10,2 6,5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 5.5c1 1 1 4 0 5" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </header>
 
-        <main id="main-content">
+        <!-- Leaderboard Ad (desktop only) -->
+        <aside class="post-leaderboard" role="complementary" aria-label="Advertisement">
+            <div class="post-leaderboard-inner" data-ad-slot="leaderboard-atf">
+                <div class="ad-slot-label">Advertisement</div>
+                <div class="ad-placeholder" aria-hidden="true">728 &times; 90 &nbsp;&middot;&nbsp; Leaderboard</div>
+            </div>
+        </aside>
 
-            <div class="article-column">
+        <!-- Article Body + Sidebar -->
+        <div class="post-body-wrap">
+            <div class="post-body-inner">
 
-                <header class="post-header">
-                    <div class="post-kicker">Notes on Product &middot; Security</div>
-                    <h1 class="post-title">The Bug Bounty That Quit</h1>
-                    <div class="post-byline">
-                        <span>By Wesley Melo</span>
-                        <span class="sep">&middot;</span>
-                        <time datetime="2026-03-04">March 4, 2026</time>
-                        <span class="sep">&middot;</span>
-                        <span>4 min read</span>
-                    </div>
-                </header>
+                <!-- Prose Column -->
+                <div class="post-prose">
 
-                <article class="post-body">
-
-                    <p class="post-lede">A widely-watched bug bounty program ran a quiet update post this month under the headline <em>We are retiring our bug bounty program.</em> Hacker News spent a day on it, half the commenters celebrating and half mourning. Both halves were correct.</p>
+                    <p class="lede">A widely-watched bug bounty program ran a quiet update post this month under the headline <em>We are retiring our bug bounty program.</em> Hacker News spent a day on it, half the commenters celebrating and half mourning. Both halves were correct.</p>
 
                     <p>The pitch when bounties showed up in the 2010s was clean. Pay the friendly hackers. Outsource the long tail of vulnerability discovery to a global community. Get a discount on a kind of work that no internal team could ever do at the same coverage.</p>
 
-                    <p>It worked. For a decade and change, it worked. The reasons it&rsquo;s stopping working are worth writing down.</p>
+                    <p>It worked. For a decade and change, it worked. The reasons it is stopping working are worth writing down.</p>
 
-                    <h2>I. The signal is buried</h2>
+                    <h2>The signal is buried</h2>
 
                     <p>The first reason is volume. AI-assisted fuzzing has lowered the cost of <em>generating</em> a vulnerability report to almost zero. The same tools have not lowered the cost of <em>triaging</em> one. So inboxes that used to see ten thoughtful reports a week now see two hundred plausible-looking ones, of which maybe three are real.</p>
 
+                    <!-- In-content ad slot 1 -->
+                    <aside class="post-ad-inline ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="in-content-1">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
+
                     <p>The bounty team becomes a content-moderation team. The economics flip. The hackers who did the real work get crowded out by the ones running scripts.</p>
 
-                    <h2>II. The shape of the bug changed</h2>
+                    <h2>The shape of the bug changed</h2>
 
-                    <p>The second reason is harder to talk about. The most interesting modern vulnerabilities are not in the code anymore. They are in the agent. Prompt injection, tool-use abuse, model jailbreaks, supply-chain poisoning of training data. A traditional bounty program has no shape for these. Nobody knows what to pay for a working data-exfiltration prompt against a chatbot, because nobody knows yet whether that&rsquo;s a bug, a feature, or both.</p>
+                    <p>The second reason is harder to talk about. The most interesting modern vulnerabilities are not in the code anymore. They are in the agent. Prompt injection, tool-use abuse, model jailbreaks, supply-chain poisoning of training data. A traditional bounty program has no shape for these. Nobody knows what to pay for a working data-exfiltration prompt against a chatbot, because nobody knows yet whether that is a bug, a feature, or both.</p>
 
-                    <blockquote>The most interesting modern vulnerabilities are not in the code anymore. They are in the agent.</blockquote>
+                    <!-- Pull quote -->
+                    <aside class="post-pull" aria-label="Pull quote">
+                        <p>The most interesting modern vulnerabilities are not in the code anymore. They are in the agent.</p>
+                    </aside>
 
-                    <h2>III. The legal layer caught up</h2>
+                    <h2>The legal layer caught up</h2>
 
                     <p>The third reason is regulatory. Several jurisdictions now require formal vulnerability-disclosure processes that are <em>not</em> bounty programs in the old sense. The thing the bounty used to do informally now has to happen with paperwork. Companies are quietly noticing that running the formal process and the informal one in parallel is twice the work for one set of bugs.</p>
 
-                    <h2>IV. What replaces it</h2>
+                    <h2>What replaces it</h2>
 
                     <p>Two things, I think:</p>
 
                     <ul>
-                        <li>Smaller, invitation-only researcher programs. Curated talent. Higher payouts per report. Fewer reports overall. The teams I&rsquo;ve talked to about this all sound a bit sheepish &mdash; it feels like a regression to the old enterprise-pentest model &mdash; but the math is the math.</li>
+                        <li>Smaller, invitation-only researcher programs. Curated talent. Higher payouts per report. Fewer reports overall. The teams I have talked to about this all sound a bit sheepish (it feels like a regression to the old enterprise-pentest model) but the math is the math.</li>
                         <li>Internal AI security agents. OpenAI&rsquo;s Daybreak is the loudest example, with similar tools coming out of Anthropic and Google. These tools sit inside the codebase and patch CVEs continuously. They will not replace humans, but they will absorb the broad middle of the bounty inbox.</li>
                     </ul>
 
-                    <p>The losers here are the part-time bounty hunters &mdash; smart, curious people who supplemented their income with thoughtful reports. That economy is shrinking. The winners are the platforms, who get to spend less on triage, and the very top tier of researchers, who get paid more for fewer engagements.</p>
+                    <p>The losers here are the part-time bounty hunters: smart, curious people who supplemented their income with thoughtful reports. That economy is shrinking. The winners are the platforms, who get to spend less on triage, and the very top tier of researchers, who get paid more for fewer engagements.</p>
 
-                    <p>It&rsquo;s the same story as every other gig market in the AI era. The middle is hollowing out. The top is fine. The bottom is being replaced by software that doesn&rsquo;t sleep.</p>
+                    <p>It is the same story as every other gig market in the AI era. The middle is hollowing out. The top is fine. The bottom is being replaced by software that does not sleep.</p>
+                    <!-- End-of-article ad (left column) -->
+                    <aside class="post-prose-end-ad ad-slot--light" role="complementary" aria-label="Advertisement" data-ad-slot="end-of-article">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </aside>
 
-                </article>
 
-                <section class="read-next" aria-label="Read next">
-                    <a href="notes-from-a-daybreak-demo.html" class="read-next-item">
-                        <div class="read-next-meta"><span>Field Notes</span><span class="sep">&middot;</span><span>February 20, 2026</span></div>
-                        <h3 class="read-next-title">Notes from a Daybreak Demo</h3>
-                    </a>
-                    <a href="three-way-race-for-your-terminal.html" class="read-next-item">
-                        <div class="read-next-meta"><span>Essay</span><span class="sep">&middot;</span><span>April 9, 2026</span></div>
-                        <h3 class="read-next-title">The Three-Way Race for Your Terminal</h3>
-                    </a>
-                    <div class="read-next-all">
-                        <a href="../blog.html" class="link">&larr;&#xFE0E; All posts</a>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="post-sidebar" aria-label="Sidebar">
+
+                    <!-- Sidebar Top Ad -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sidebar-top">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
                     </div>
-                </section>
+
+                    <!-- Most Read -->
+                    <div>
+                        <h2 class="sidebar-section-label">Most Read</h2>
+                        <div class="most-read">
+                            <a href="the-90s-kid-guide-to-actually-learning-tech.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">1</span>
+                                <div>
+                                    <div class="most-read-title">The 90s Kid Guide to Actually Learning Tech</div>
+                                    <div class="most-read-meta">6 min read</div>
+                                </div>
+                            </a>
+                            <a href="the-digital-doppelgangers-rises.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">2</span>
+                                <div>
+                                    <div class="most-read-title">The Digital Doppelgangers Rises</div>
+                                    <div class="most-read-meta">7 min read</div>
+                                </div>
+                            </a>
+                            <a href="the-vibe-coder-confessional.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">3</span>
+                                <div>
+                                    <div class="most-read-title">The Vibe Coder Confessional</div>
+                                    <div class="most-read-meta">5 min read</div>
+                                </div>
+                            </a>
+                            <a href="how-i-learned-to-stop-worrying-and-love-being-human.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">4</span>
+                                <div>
+                                    <div class="most-read-title">How I Learned to Stop Worrying and Love Being Human</div>
+                                    <div class="most-read-meta">5 min read</div>
+                                </div>
+                            </a>
+                            <a href="r-programming-banned-the-robots.html" class="most-read-item">
+                                <span class="most-read-number" aria-hidden="true">5</span>
+                                <div>
+                                    <div class="most-read-title">r/Programming Banned the Robots</div>
+                                    <div class="most-read-meta">6 min read</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="sidebar-newsletter">
+                        <h2 class="sidebar-newsletter-title">Direction Challenge</h2>
+                        <p class="sidebar-newsletter-dek">Notes on product, AI, and the people building both. Delivered when there is something worth saying.</p>
+                        <form class="sidebar-newsletter-form" aria-label="Newsletter signup">
+                            <label for="sidebar-email" class="sr-only">Email address</label>
+                            <input type="email" id="sidebar-email" class="sidebar-newsletter-input" placeholder="you@company.com" required autocomplete="email">
+                            <button type="submit" class="sidebar-newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+
+
+                    <!-- Sidebar Ad (below newsletter) -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sidebar-post-newsletter">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </div>
+                    <!-- Sidebar Ad -->
+                    <div class="sidebar-ad ad-slot--light" data-ad-slot="sticky-sidebar">
+                        <div class="ad-slot-label">Advertisement</div>
+                        <div class="ad-placeholder" aria-hidden="true">300 &times; 250</div>
+                    </div>
+
+                </aside>
 
             </div>
+        </div>
 
-        </main>
+    </article>
 
-        <footer class="site-footer">
-            <span>&copy; 2026 Wesley Melo</span>
-            <a href="../index.html" class="link">&larr;&#xFE0E; Back to home</a>
-        </footer>
+    <!-- Author Bio -->
+    <section class="post-author-bio" aria-label="About the author">
+        <div class="post-author-bio-inner">
+            <span class="bio-avatar" aria-hidden="true">WM</span>
+            <div class="bio-text">
+                <div class="bio-name"><a href="../about.html">Wesley Melo</a></div>
+                <p class="bio-description">Director of technology and product leader building AI products for enterprise clients. Writes about the intersection of engineering leadership, product strategy, and the tools that shape how teams ship software.</p>
+                <div class="bio-links">
+                    <a href="../blog.html">More posts</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <!-- Recirculation -->
+    <section class="post-recirc" aria-label="Related posts">
+        <div class="post-recirc-inner">
+            <div class="post-recirc-eyebrow">Keep reading</div>
+            <h2 class="post-recirc-title">Where the work shipped next</h2>
+
+            <div class="post-recirc-grid">
+                <a href="notes-from-a-slow-week.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Field Notes</div>
+                    <div class="post-recirc-card-title">Notes from a Slow Week</div>
+                    <div class="post-recirc-card-meta">February 5 &middot; 3 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+                <a href="the-digital-doppelgangers-rises.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Essay</div>
+                    <div class="post-recirc-card-title">The Digital Doppelgangers Rises</div>
+                    <div class="post-recirc-card-meta">March 18 &middot; 7 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+                <a href="the-90s-kid-guide-to-actually-learning-tech.html" class="post-recirc-card">
+                    <div class="post-recirc-card-kicker">Essay</div>
+                    <div class="post-recirc-card-title">The 90s Kid Guide to Actually Learning Tech</div>
+                    <div class="post-recirc-card-meta">April 2 &middot; 6 min read</div>
+                    <div class="post-recirc-card-arrow" aria-hidden="true">&rarr;&#xFE0E;</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="site-footer" aria-label="Site footer">
+        <div class="footer-inner">
+            <div class="footer-row">
+                <div class="brand-wrap"><a href="../index.html" class="footer-brand"><span class="brand-full">Wesley Melo</span><span class="brand-short" aria-hidden="true">W<span class="brand-diamond"></span>M</span></a></div>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="../blog.html" class="link">Blog</a>
+                    <a href="../work.html" class="link">Case studies</a>
+                    <a href="../services.html" class="link">Services</a>
+                    <a href="../playground.html" class="link">Playground</a>
+                    <a id="footer-email-link" href="#" class="link js-email">Email</a>
+                    <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer" class="link">LinkedIn</a>
+                </nav>
+            </div>
+            <div class="footer-meta">&copy; 2026 Wesley Melo</div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Anchor Ad -->
+    <aside class="mobile-anchor-ad" role="complementary" aria-label="Advertisement" data-ad-slot="mobile-anchor">
+        <button class="mobile-anchor-dismiss" aria-label="Close advertisement">&times;</button>
+        <div class="ad-placeholder" aria-hidden="true">320 &times; 50</div>
+    </aside>
+
+    <script src="../js/email.js"></script>
+    <script>
+    (function() {
+        var dismiss = document.querySelector('.mobile-anchor-dismiss');
+        if (dismiss) {
+            dismiss.addEventListener('click', function() {
+                this.parentElement.style.display = 'none';
+            });
+        }
+
+        var bar = document.querySelector('.reading-bar');
+        var fill = document.querySelector('.reading-bar-fill');
+        var titleEl = document.querySelector('.reading-bar-title');
+        var header = document.querySelector('.post-header');
+        var prose = document.querySelector('.post-prose');
+        var h1 = document.querySelector('.post-title');
+
+        if (bar && h1) titleEl.textContent = h1.textContent;
+
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    var headerBottom = header.getBoundingClientRect().bottom;
+                    bar.classList.toggle('visible', headerBottom < 0);
+
+                    if (prose && fill) {
+                        var rect = prose.getBoundingClientRect();
+                        var progress = Math.min(1, Math.max(0, -rect.top / (rect.height - window.innerHeight)));
+                        fill.style.width = (progress * 100) + '%';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    })();
+    </script>
 
 </body>
 </html>
