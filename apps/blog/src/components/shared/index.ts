@@ -1,5 +1,6 @@
 export { BrandWrap } from './BrandWrap'
 export { CarouselContainer } from './Carousel'
+export { ContactForm } from './ContactForm'
 export { Footer } from './Footer'
 export { SectionHead } from './SectionHead'
 export { SiteLink } from './SiteLink'
