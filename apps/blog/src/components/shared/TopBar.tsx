@@ -1,20 +1,6 @@
 import { BrandWrap } from './BrandWrap'
 import { SiteLink } from './SiteLink'
-
-interface NavItem {
-  href: string
-  label: string
-  srSuffix?: string
-}
-
-const NAV_ITEMS: NavItem[] = [
-  { href: '/blog', label: 'Blog' },
-  { href: '/work', label: 'Case studies' },
-  { href: '/services', label: 'Services' },
-  { href: '/playground', label: 'Playground' },
-  { href: '/contact', label: 'Contact' },
-  { href: 'https://linkedin.com/in/wesmelo', label: 'LinkedIn' },
-]
+import { SITE_NAV } from '@/lib/navigation'
 
 interface TopBarProps {
   currentPath?: string
@@ -26,7 +12,7 @@ export function TopBar({ currentPath }: TopBarProps) {
       <div className="top-bar-inner">
         <BrandWrap variant="top-bar" />
         <div className="top-bar-links">
-          {NAV_ITEMS.map((item) => {
+          {SITE_NAV.map((item) => {
             const isCurrent = currentPath === item.href
             return (
               <SiteLink

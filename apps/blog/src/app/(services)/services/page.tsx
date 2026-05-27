@@ -1,4 +1,4 @@
-import { ContactForm } from '@/components/shared'
+import { ContactForm, SectionHead } from '@/components/shared'
 
 const OFFERINGS_FOUNDERS = [
   { num: '01', title: 'Product audit', meta: '3 to 4 weeks · fixed price · from $5k', body: 'You are shipping but adoption is flat. Nobody owns the north-star metric. Three weeks: I walk the funnel, interview 20 churned customers, sit through sprint planning, and hand you a Flash Report. Top 3 systemic blockers, one symbolic quick win, 90-day fix list. The deliverable goes straight to engineering, not into a slide deck.' },
@@ -78,11 +78,11 @@ export default function ServicesPage() {
       </section>
 
       <section className="offerings snap-section" aria-label="Engagement shapes">
-        <div className="section-head">
-          <p className="section-label">Seven shapes</p>
-          <h2 className="section-title">Pick the problem,<br />pick the shape</h2>
-          <p className="section-sub">Three for founder-led teams who need senior product cover now. Three for established companies facing AI, platform, or migration decisions. One for either side.</p>
-        </div>
+        <SectionHead
+          label="Seven shapes"
+          title={<>Pick the problem,<br />pick the shape</>}
+          subtitle="Three for founder-led teams who need senior product cover now. Three for established companies facing AI, platform, or migration decisions. One for either side."
+        />
         <h3 className="offer-group-label">For founder-led teams</h3>
         <OfferGrid items={OFFERINGS_FOUNDERS} />
         <h3 className="offer-group-label">For established companies</h3>
@@ -92,10 +92,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="expect snap-section" aria-label="How I work">
-        <div className="section-head">
-          <p className="section-label">Operating rhythm</p>
-          <h2 className="section-title">How I work</h2>
-        </div>
+        <SectionHead label="Operating rhythm" title="How I work" />
         <div className="expect-grid">
           {HOW_I_WORK.map((c) => (
             <article className="expect-card" key={c.title}>
@@ -107,10 +104,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="buyers snap-section" aria-label="Who I work with">
-        <div className="section-head">
-          <p className="section-label">Who I work with</p>
-          <h2 className="section-title">Five kinds of buyer</h2>
-        </div>
+        <SectionHead label="Who I work with" title="Five kinds of buyer" />
         <div className="buyers-grid">
           {BUYERS.map((b) => (
             <article className="buyer-card" key={b.title}>
@@ -140,10 +134,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="pricing snap-section" aria-label="Pricing">
-        <div className="section-head">
-          <p className="section-label">Pricing</p>
-          <h2 className="section-title">Two ways to engage</h2>
-        </div>
+        <SectionHead label="Pricing" title="Two ways to engage" />
         <div className="pricing-grid">
           <article className="pricing-card pricing-card-featured">
             <h3>Embedded</h3>
@@ -175,10 +166,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="faq snap-section" id="faq" aria-label="Frequently asked questions">
-        <div className="section-head">
-          <p className="section-label">FAQ</p>
-          <h2 className="section-title">Your questions, answered</h2>
-        </div>
+        <SectionHead label="FAQ" title="Your questions, answered" />
         <div className="faq-list">
           {FAQ.map((f) => (
             <details className="faq-item" key={f.q}>

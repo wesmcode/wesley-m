@@ -7,6 +7,7 @@ import { SectionHead } from '@/components/shared/SectionHead'
 import { SiteLink } from '@/components/shared/SiteLink'
 import { TopBar } from '@/components/shared/TopBar'
 import { Footer } from '@/components/shared/Footer'
+import { SITE_NAV } from '@/lib/navigation'
 
 // next/link renders as plain <a> in test env
 vi.mock('next/link', () => ({
@@ -74,6 +75,38 @@ describe('SiteLink', () => {
   it('applies default .link class', () => {
     render(<SiteLink href="/test">Test</SiteLink>)
     expect(screen.getByText('Test')).toHaveClass('link')
+  })
+
+  it('renders hash links as plain anchors without Next.js Link', () => {
+    render(<SiteLink href="#book">Book</SiteLink>)
+    const link = screen.getByText('Book')
+    expect(link).toHaveAttribute('href', '#book')
+    expect(link).not.toHaveAttribute('target')
+    expect(link).not.toHaveAttribute('rel')
+  })
+})
+
+describe('SITE_NAV', () => {
+  it('contains all required navigation items', () => {
+    const labels = SITE_NAV.map((n) => n.label)
+    expect(labels).toContain('Blog')
+    expect(labels).toContain('Case studies')
+    expect(labels).toContain('Services')
+    expect(labels).toContain('LinkedIn')
+  })
+
+  it('has no duplicate hrefs', () => {
+    const hrefs = SITE_NAV.map((n) => n.href)
+    expect(new Set(hrefs).size).toBe(hrefs.length)
+  })
+
+  it('is used by TopBar and Footer (single source of truth)', () => {
+    const { container: topBarContainer } = render(<TopBar />)
+    const { container: footerContainer } = render(<Footer />)
+    const topBarLinks = topBarContainer.querySelectorAll('.top-bar-links .link')
+    const footerLinks = footerContainer.querySelectorAll('.footer-nav .link')
+    expect(topBarLinks.length).toBe(SITE_NAV.length)
+    expect(footerLinks.length).toBe(SITE_NAV.length)
   })
 })
 

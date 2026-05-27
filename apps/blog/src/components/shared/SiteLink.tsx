@@ -11,6 +11,7 @@ interface SiteLinkProps {
 
 export function SiteLink({ href, className = 'link', children, ariaCurrent, tabIndex }: SiteLinkProps) {
   const isExternal = href.startsWith('http') || href.startsWith('//')
+  const isHash = href.startsWith('#')
 
   if (isExternal) {
     return (
@@ -22,6 +23,14 @@ export function SiteLink({ href, className = 'link', children, ariaCurrent, tabI
         aria-current={ariaCurrent}
         tabIndex={tabIndex}
       >
+        {children}
+      </a>
+    )
+  }
+
+  if (isHash) {
+    return (
+      <a href={href} className={className} aria-current={ariaCurrent} tabIndex={tabIndex}>
         {children}
       </a>
     )

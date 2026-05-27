@@ -1,20 +1,6 @@
 import { BrandWrap } from './BrandWrap'
 import { SiteLink } from './SiteLink'
-
-interface FooterNavItem {
-  href: string
-  label: string
-  srSuffix?: string
-}
-
-const FOOTER_NAV: FooterNavItem[] = [
-  { href: '/blog', label: 'Blog' },
-  { href: '/work', label: 'Case studies' },
-  { href: '/services', label: 'Services' },
-  { href: '/playground', label: 'Playground' },
-  { href: '/contact', label: 'Contact' },
-  { href: 'https://linkedin.com/in/wesmelo', label: 'LinkedIn' },
-]
+import { SITE_NAV } from '@/lib/navigation'
 
 interface FooterProps {
   currentPath?: string
@@ -24,11 +10,11 @@ interface FooterProps {
 export function Footer({ currentPath, wrapperClass }: FooterProps) {
   return (
     <footer id="site-footer" aria-label="Site footer">
-      <div className={wrapperClass}>
+      <div className={wrapperClass || undefined}>
         <div className="footer-row">
           <BrandWrap variant="footer" />
           <nav className="footer-nav" aria-label="Footer navigation">
-            {FOOTER_NAV.map((item) => {
+            {SITE_NAV.map((item) => {
               const isCurrent = currentPath === item.href
               return (
                 <SiteLink

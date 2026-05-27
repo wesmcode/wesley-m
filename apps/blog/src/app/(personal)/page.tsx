@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Footer, CarouselContainer } from '@/components/shared'
+import { SITE_NAV } from '@/lib/navigation'
 
 const TIMELINE = [
   { company: 'Code and Theory', href: 'https://www.codeandtheory.com', years: '2025', present: true },
@@ -41,14 +42,10 @@ const CAPABILITIES = {
   },
 }
 
-const NAV_ITEMS = [
-  { href: '/blog', label: 'Blog' },
-  { href: '/work', label: 'Case studies' },
-  { href: '/services', label: 'Services' },
-  { href: '/playground', label: 'Playground' },
+const HERO_NAV: Array<{ href: string; label: string; newTab?: boolean }> = [
+  ...SITE_NAV.filter((n) => n.href !== '/contact'),
   { href: '/resume', label: 'Resume', newTab: true },
-  { href: '/contact', label: 'Contact' },
-  { href: 'https://linkedin.com/in/wesmelo', label: 'LinkedIn' },
+  ...SITE_NAV.filter((n) => n.href === '/contact'),
 ]
 
 export default function PersonalPage() {
@@ -81,7 +78,7 @@ export default function PersonalPage() {
           <div className="row-empty" />
 
           <nav aria-label="Contact and links">
-            {NAV_ITEMS.map((item) => (
+            {HERO_NAV.map((item) => (
               <div className="row" key={item.href}>
                 {item.href.startsWith('http') ? (
                   <a href={item.href} target="_blank" rel="noopener noreferrer" className="link nav-item">
