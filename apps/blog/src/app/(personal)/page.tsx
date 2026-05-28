@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { SITE_NAV } from '@/lib/navigation'
 
 const TIMELINE = [
   { company: 'Code and Theory', href: 'https://www.codeandtheory.com', years: '2025', present: true },
@@ -8,10 +7,20 @@ const TIMELINE = [
   { company: 'Accenture', href: 'https://www.accenture.com/', years: '2014', end: '2019' },
 ]
 
-const HERO_NAV: Array<{ href: string; label: string; newTab?: boolean }> = [
-  ...SITE_NAV.filter((n) => n.href !== '/contact'),
-  { href: '/resume', label: 'Resume', newTab: true },
-  ...SITE_NAV.filter((n) => n.href === '/contact'),
+const NAV_GROUPS: Array<Array<{ href: string; label: string; newTab?: boolean; external?: boolean }>> = [
+  [
+    { href: '/blog', label: 'Blog' },
+    { href: '/work', label: 'Case studies' },
+    { href: '/services', label: 'Services' },
+    { href: '/playground', label: 'Playground' },
+  ],
+  [
+    { href: 'https://linkedin.com/in/wesmelo', label: 'LinkedIn', external: true },
+  ],
+  [
+    { href: '/resume', label: 'Resume', newTab: true },
+    { href: '/contact', label: 'Contact' },
+  ],
 ]
 
 export default function PersonalPage() {
@@ -44,20 +53,25 @@ export default function PersonalPage() {
           <div className="row-empty" />
 
           <nav aria-label="Contact and links">
-            {HERO_NAV.map((item) => (
-              <div className="row" key={item.href}>
-                {item.href.startsWith('http') ? (
-                  <a href={item.href} target="_blank" rel="noopener noreferrer" className="link nav-item">
-                    <span className="button-label">{item.label}</span>
-                    <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
-                  </a>
-                ) : (
-                  <Link href={item.href} className="link nav-item" {...(item.newTab ? { target: '_blank', rel: 'noopener' } : {})}>
-                    <span className="button-label">{item.label}</span>
-                    {item.newTab ? <span className="sr-only"> (opens in new tab)</span> : null}
-                    <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
-                  </Link>
-                )}
+            {NAV_GROUPS.map((group, gi) => (
+              <div key={gi}>
+                {gi > 0 && <div className="row-empty" />}
+                {group.map((item) => (
+                  <div className="row" key={item.href}>
+                    {item.external ? (
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="link nav-item">
+                        <span className="button-label">{item.label}</span>
+                        <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
+                      </a>
+                    ) : (
+                      <Link href={item.href} className="link nav-item" {...(item.newTab ? { target: '_blank', rel: 'noopener' } : {})}>
+                        <span className="button-label">{item.label}</span>
+                        {item.newTab ? <span className="sr-only"> (opens in new tab)</span> : null}
+                        <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
+                      </Link>
+                    )}
+                  </div>
+                ))}
               </div>
             ))}
           </nav>

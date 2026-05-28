@@ -74,7 +74,7 @@ export default function ServicesLayout({ children }: { children: ReactNode }) {
         <div className="page">
           <main id="main-content">{children}</main>
         </div>
-        <Footer currentPath="/services" wrapperClass="page" items={SERVICES_NAV} />
+        <Footer variant="minimal" wrapperClass="page" />
       </body>
     </html>
   )
