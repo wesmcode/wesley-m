@@ -228,7 +228,7 @@ html, body {
    ============================================================ */
 #site-footer {
     border-top: var(--rule-soft);
-    padding: 40px 0 32px;
+    padding: 0 0 10px;
 }
 .footer-row {
     display: flex;

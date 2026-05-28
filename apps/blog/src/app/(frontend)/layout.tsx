@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description:
     'Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
+  icons: { icon: '/favicon.svg' },
   robots: 'noai, noimageai, noarchive, nosnippet',
   alternates: { canonical: '/blog' },
   openGraph: {

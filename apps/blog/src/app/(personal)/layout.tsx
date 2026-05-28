@@ -27,6 +27,7 @@ export const metadata: Metadata = {
       'I find expensive product, AI, and platform bottlenecks before teams waste a quarter building the wrong thing.',
     images: ['https://wesley-m.com/images/wesley-services.jpg'],
   },
+  icons: { icon: '/favicon.svg' },
   other: {
     robots: 'noai, noimageai, noarchive, nosnippet',
   },

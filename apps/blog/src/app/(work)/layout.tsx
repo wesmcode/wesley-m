@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   description:
     'Seven cases. Each one: find the business bottleneck hiding behind the product problem, turn it into a system, ship it. AI productization, platform retention, CMS modernization, growth systems.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
+  icons: { icon: '/favicon.svg' },
   robots: 'noai, noimageai, noarchive, nosnippet',
   alternates: { canonical: '/work' },
   openGraph: {

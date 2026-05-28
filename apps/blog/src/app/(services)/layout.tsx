@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   description:
     'Product, AI, and platform bottlenecks cost quarters. Wesley Melo finds the expensive problem, shapes the plan, and stays embedded until the work ships. Fixed-price audits, 90-day resets, platform assessments.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
+  icons: { icon: '/favicon.svg' },
   robots: { index: true, follow: true },
   alternates: { canonical: '/services' },
   openGraph: {
