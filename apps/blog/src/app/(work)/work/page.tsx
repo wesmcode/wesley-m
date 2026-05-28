@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Footer } from '@/components/shared'
 
 const CASES = [
   { num: '01', href: '/work/enterprise-ai-platform-launch', text: 'Code and Theory · A 2-week manual audit became an AI product clients asked to buy' },
@@ -12,7 +13,8 @@ const CASES = [
 
 export default function WorkPage() {
   return (
-    <>
+    <div className="page">
+      <main id="main-content">
       <section className="hero" aria-label="Case studies">
         <div className="hero-grid hero-index-grid">
           <div className="hero-text">
@@ -51,6 +53,8 @@ export default function WorkPage() {
           </ul>
         </div>
       </section>
-    </>
+      </main>
+      <Footer variant="minimal" wrapperClass="page" />
+    </div>
   )
 }

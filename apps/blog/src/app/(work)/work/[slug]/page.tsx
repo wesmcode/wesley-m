@@ -31,6 +31,7 @@ export default async function CaseStudyPage({ params }: RouteParams) {
 
   return (
     <>
+      <main id="main-content">
       <section className="case-hero" aria-label="Case study header">
         <div className="case-hero-inner">
           <p className="case-hero-eyebrow" dangerouslySetInnerHTML={{ __html: cs.eyebrow }} />
@@ -106,6 +107,7 @@ export default async function CaseStudyPage({ params }: RouteParams) {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer variant="minimal" wrapperClass="page" />
     </>

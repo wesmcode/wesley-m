@@ -6,6 +6,7 @@ import { WORK_NAV } from '@/lib/navigation'
 import '@/styles/globals.css'
 import '../(services)/services.css'
 import './work.css'
+import './case.css'
 
 export const metadata: Metadata = {
   title: 'Case studies: Wesley Melo',
@@ -23,10 +24,7 @@ export default function WorkLayout({ children }: { children: ReactNode }) {
       <body>
         <SkipLink />
         <ActiveTopBar items={WORK_NAV} />
-        <div className="page">
-          <main id="main-content">{children}</main>
-        </div>
-        <Footer variant="minimal" wrapperClass="page" />
+        {children}
       </body>
     </html>
   )
