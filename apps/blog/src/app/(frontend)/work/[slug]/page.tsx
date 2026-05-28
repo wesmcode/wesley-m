@@ -255,7 +255,7 @@ export default async function CaseStudyPage({ params, searchParams }: RouteParam
       </section>
       </main>
 
-      <Footer currentPath="/work" wrapperClass="footer-inner" />
+      <Footer variant="minimal" wrapperClass="footer-inner" />
     </>
   )
 }

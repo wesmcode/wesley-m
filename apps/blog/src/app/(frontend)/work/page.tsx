@@ -164,7 +164,7 @@ export default async function WorkIndex({ searchParams }: PageProps) {
         </div>
       </section>
 
-      <Footer currentPath="/work" wrapperClass="footer-inner" />
+      <Footer variant="minimal" wrapperClass="footer-inner" />
     </>
   )
 }

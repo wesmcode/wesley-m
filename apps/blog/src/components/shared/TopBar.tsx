@@ -1,18 +1,21 @@
 import { BrandWrap } from './BrandWrap'
 import { SiteLink } from './SiteLink'
-import { SITE_NAV } from '@/lib/navigation'
+import { SITE_NAV, type NavItem } from '@/lib/navigation'
 
 interface TopBarProps {
   currentPath?: string
+  items?: NavItem[]
 }
 
-export function TopBar({ currentPath }: TopBarProps) {
+export function TopBar({ currentPath, items }: TopBarProps) {
+  const nav = items ?? SITE_NAV
+
   return (
     <nav className="top-bar" aria-label="Primary">
       <div className="top-bar-inner">
         <BrandWrap variant="top-bar" />
         <div className="top-bar-links">
-          {SITE_NAV.map((item) => {
+          {nav.map((item) => {
             const isCurrent = currentPath === item.href
             return (
               <SiteLink

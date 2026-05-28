@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
-import { TopBar, Footer } from '@/components/shared'
+import { Footer } from '@/components/shared'
 import { RichText } from '@/components/RichText'
 import { formatDate, readingTimeLabel } from '@/lib/format'
 import { mediaAlt, mediaCredit, mediaUrl } from '@/lib/media'
@@ -57,7 +57,6 @@ export default async function BlogPostPage({ params }: RouteParams) {
 
   return (
     <>
-      <TopBar currentPath="/blog" />
       <div className="page">
         <article>
           <header className="post-header">
@@ -100,7 +99,7 @@ export default async function BlogPostPage({ params }: RouteParams) {
           </div>
         </article>
       </div>
-      <Footer currentPath="/blog" wrapperClass="footer-inner" />
+      <Footer variant="minimal" wrapperClass="footer-inner" />
     </>
   )
 }

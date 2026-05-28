@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
-import { TopBar, Footer } from '@/components/shared'
+import { Footer } from '@/components/shared'
 import { formatDate, readingTimeLabel } from '@/lib/format'
 import { mediaUrl } from '@/lib/media'
 
@@ -29,7 +29,6 @@ export default async function BlogIndex() {
 
   return (
     <>
-      <TopBar currentPath="/blog" />
       <div className="page">
         <header className="site-header">
           <h1>Direction Challenge</h1>
@@ -96,7 +95,7 @@ export default async function BlogIndex() {
           ) : null}
         </main>
       </div>
-      <Footer currentPath="/blog" wrapperClass="footer-inner" />
+      <Footer variant="minimal" wrapperClass="footer-inner" />
     </>
   )
 }

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
 import { SkipLink, TopBar, Footer } from '@/components/shared'
+import { SERVICES_NAV } from '@/lib/navigation'
 import '@/styles/globals.css'
 import './services.css'
 import './contact.css'
@@ -69,11 +70,11 @@ export default function ServicesLayout({ children }: { children: ReactNode }) {
       </head>
       <body>
         <SkipLink />
-        <TopBar currentPath="/services" />
+        <TopBar currentPath="/services" items={SERVICES_NAV} />
         <div className="page">
           <main id="main-content">{children}</main>
         </div>
-        <Footer currentPath="/services" wrapperClass="page" />
+        <Footer currentPath="/services" wrapperClass="page" items={SERVICES_NAV} />
       </body>
     </html>
   )
