@@ -38,16 +38,10 @@ export default function PersonalPage() {
 
           <nav aria-label="Contact and links">
             <div className="row">
-              <Link href="/blog" className="link nav-item">
-                <span className="button-label">Blog</span>
-                <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
-              </Link>
-            </div>
-            <div className="row">
-              <Link href="/work" className="link nav-item">
+              <a href="/work.html" className="link nav-item">
                 <span className="button-label">Case studies</span>
                 <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
-              </Link>
+              </a>
             </div>
             <div className="row">
               <Link href="/services" className="link nav-item">

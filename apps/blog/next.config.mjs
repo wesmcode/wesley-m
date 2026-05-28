@@ -9,7 +9,6 @@ const nextConfig = {
       { source: '/services.html', destination: '/services', permanent: true },
       { source: '/blog.html', destination: '/blog', permanent: true },
       { source: '/blog-b.html', destination: '/blog', permanent: true },
-      { source: '/work.html', destination: '/work', permanent: true },
       { source: '/contact.html', destination: '/contact', permanent: true },
       { source: '/resume.html', destination: '/resume', permanent: true },
       { source: '/playground.html', destination: '/playground', permanent: true },
