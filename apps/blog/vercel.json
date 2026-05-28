@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/", "has": [{ "type": "host", "value": "services.wesley-m.com" }], "destination": "/services" },
+    { "source": "/", "has": [{ "type": "host", "value": "contact.wesley-m.com" }], "destination": "/contact" },
+    { "source": "/", "has": [{ "type": "host", "value": "resume.wesley-m.com" }], "destination": "/resume" },
+    { "source": "/", "has": [{ "type": "host", "value": "work.wesley-m.com" }], "destination": "/work" },
+    { "source": "/:path*", "has": [{ "type": "host", "value": "work.wesley-m.com" }], "destination": "/work/:path*" },
+    { "source": "/", "has": [{ "type": "host", "value": "blog.wesley-m.com" }], "destination": "/blog" },
+    { "source": "/:path*", "has": [{ "type": "host", "value": "blog.wesley-m.com" }], "destination": "/blog/:path*" }
+  ]
+}
