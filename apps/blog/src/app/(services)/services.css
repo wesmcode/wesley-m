@@ -94,24 +94,6 @@ body {
     max-width: 56ch;
 }
 
-.offer-group-label {
-    font-size: clamp(32px, 4.5vw, 56px);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: var(--fg);
-    margin: 64px 0 28px;
-    font-weight: 400;
-    padding-top: 32px;
-    border-top: var(--rule-heavy);
-}
-
-.offer-group-label:first-of-type {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: 0;
-}
-
 /* HERO ------------------------------------------------------ */
 .hero {
     padding: 72px 0 64px;
@@ -204,394 +186,7 @@ body {
     opacity: 1;
 }
 
-/* OFFERINGS ------------------------------------------------- */
-.offerings {
-    padding: 64px 0 72px;
-    border-bottom: var(--rule-heavy);
-}
-
-.offer-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.offer-grid-single {
-    grid-template-columns: 1fr;
-}
-
-.offer {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 28px 24px 32px;
-    border: var(--rule-medium);
-    background: var(--bg);
-    color: var(--fg);
-    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-}
-
-.offer:hover {
-    background: var(--fg);
-    color: var(--bg);
-    box-shadow: 8px 8px 0 var(--fg);
-    transform: translate(-2px, -2px);
-}
-
-.offer-num {
-    font-size: 14px;
-    letter-spacing: 0.18em;
-    line-height: 1;
-    color: var(--fg-hover);
-    transition: color 0.15s ease;
-}
-
-.offer:hover .offer-num {
-    color: var(--bg-a55);
-}
-
-.offer h4 {
-    font-size: 24px;
-    line-height: 1.1;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.offer-meta {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    margin: 0;
-    transition: color 0.15s ease;
-}
-
-.offer:hover .offer-meta {
-    color: var(--bg-a55);
-}
-
-.offer p:not(.offer-meta) {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--fg-quiet);
-    margin: 0;
-    transition: color 0.15s ease;
-}
-
-.offer:hover p:not(.offer-meta) {
-    color: var(--bg-a82);
-}
-
-/* OFFER EXPAND — one-line summary opens to full detail ------ */
-.offer-summary {
-    font-weight: 400;
-}
-
-.offer-expand {
-    margin-top: 2px;
-}
-
-.offer-expand-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    cursor: pointer;
-    list-style: none;
-    padding: 4px 0;
-    transition: color 0.15s ease;
-}
-
-.offer-expand-toggle::-webkit-details-marker {
-    display: none;
-}
-
-.offer-expand-toggle::after {
-    content: "+";
-    font-size: 16px;
-    line-height: 1;
-}
-
-.offer-expand[open] .offer-expand-toggle::after {
-    content: "\2212";
-}
-
-.offer-expand-toggle:hover {
-    color: var(--fg);
-    text-decoration: underline;
-}
-
-.offer-expand-toggle:focus-visible {
-    outline: 2px solid var(--fg);
-    outline-offset: 4px;
-}
-
-.offer-expand-body {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--fg-quiet);
-    margin: 10px 0 0;
-    transition: color 0.15s ease;
-}
-
-.offer:hover .offer-expand-toggle {
-    color: var(--bg-a55);
-}
-
-.offer:hover .offer-expand-body {
-    color: var(--bg-a82);
-}
-
-.offer:hover .offer-expand-toggle:focus-visible {
-    outline-color: var(--bg);
-}
-
-/* VARIANT FLAG — temporary review scaffolding -------------- */
-.variant-flag {
-    display: inline-block;
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #ffd24a;
-    border: 1px dashed rgba(255, 210, 74, 0.5);
-    padding: 6px 12px;
-    margin: 0 0 24px;
-}
-
-/* ROUTER — pain-first, routes down to offering zones -------- */
-.router {
-    padding: 64px 0 72px;
-    border-bottom: var(--rule-heavy);
-}
-
-.router-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.router-card {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 28px 24px 24px;
-    border: var(--rule-medium);
-    background: var(--bg);
-    color: var(--fg);
-    text-decoration: none;
-    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-}
-
-.router-card:visited { color: var(--fg); }
-
-.router-card:hover {
-    background: var(--fg);
-    color: var(--bg);
-    box-shadow: 8px 8px 0 var(--fg);
-    transform: translate(-2px, -2px);
-}
-
-.router-card:focus-visible {
-    outline: 2px solid var(--fg);
-    outline-offset: 4px;
-}
-
-.router-card-label {
-    font-size: 13px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    margin: 0;
-    transition: color 0.15s ease;
-}
-
-.router-card:hover .router-card-label { color: var(--bg-a55); }
-
-.router-card-line {
-    font-size: 19px;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    margin: 0;
-}
-
-.router-quotes {
-    list-style: none;
-    margin: 4px 0 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-}
-
-.router-quotes li {
-    display: flex;
-    gap: 10px;
-    font-size: 15px;
-    line-height: 1.45;
-    color: var(--fg-quiet);
-    font-style: italic;
-    transition: color 0.15s ease;
-}
-
-.router-card:hover .router-quotes li { color: var(--bg-a82); }
-
-.router-quote-mark {
-    flex-shrink: 0;
-    font-style: normal;
-    color: var(--fg-hover);
-    transition: color 0.15s ease;
-}
-
-.router-card:hover .router-quote-mark { color: var(--bg-a55); }
-
-.router-card-cta {
-    margin-top: 8px;
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* PROCESS — shared section frame --------------------------- */
-.process {
-    padding: 64px 0 72px;
-    border-bottom: var(--rule-heavy);
-}
-
-/* PROCESS A — numbered vertical journey -------------------- */
-.process-steps {
-    border-top: var(--rule-medium);
-}
-
-.process-step {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 36px;
-    align-items: baseline;
-    padding: 28px 4px;
-    border-bottom: var(--rule-medium);
-}
-
-.process-step-num {
-    font-size: clamp(28px, 3vw, 40px);
-    line-height: 1;
-    letter-spacing: 0.04em;
-    color: var(--fg-hover);
-}
-
-.process-step-body h4 {
-    font-size: clamp(24px, 3vw, 32px);
-    line-height: 1.08;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    font-weight: 400;
-    margin: 0 0 10px;
-}
-
-.process-step-body p {
-    font-size: 17px;
-    line-height: 1.55;
-    color: var(--fg-quiet);
-    margin: 0;
-    max-width: 60ch;
-}
-
-/* PROCESS B — three big-number cards ----------------------- */
-.process-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.process-bigcard {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 32px 28px 36px;
-    border: var(--rule-medium);
-    background: var(--bg);
-    color: var(--fg);
-    transition: background 0.15s ease, color 0.15s ease;
-}
-
-.process-bigcard:hover { background: var(--fg); color: var(--bg); }
-
-.process-bignum {
-    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-    font-size: clamp(56px, 6vw, 88px);
-    line-height: 0.9;
-    letter-spacing: -0.03em;
-}
-
-.process-bigcard h4 {
-    font-size: 26px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    font-weight: 400;
-    margin: 0;
-}
-
-.process-bigcard p {
-    font-size: 16px;
-    line-height: 1.55;
-    color: var(--fg-quiet);
-    margin: 0;
-    transition: color 0.15s ease;
-}
-
-.process-bigcard:hover p { color: var(--bg-a82); }
-
-/* PROCESS C — thin step strip above principle cards -------- */
-.process-strip {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px 18px;
-    padding: 0 0 28px;
-    margin-bottom: 12px;
-    border-bottom: var(--rule-soft);
-    font-size: 15px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.process-strip-step { color: var(--fg); }
-.process-strip-sep { color: var(--fg-hover); }
-
-/* HERO LANES — path links inside hero (variant D) ---------- */
-.hero-lanes {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 8px;
-    border-top: var(--rule-soft);
-}
-.hero-lane {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--fg);
-    text-decoration: none;
-    padding: 12px 0;
-    border-bottom: var(--rule-soft);
-    transition: color 0.15s ease, padding-left 0.15s ease;
-}
-.hero-lane:visited { color: var(--fg); }
-.hero-lane:hover { color: var(--fg-hover); padding-left: 8px; }
-
-/* POV STATEMENT — editorial opener (variant D) ------------- */
+/* POV STATEMENT — grounded "who I work with" opener --------- */
 .pov {
     padding: 72px 0;
     border-bottom: var(--rule-heavy);
@@ -614,107 +209,50 @@ body {
     margin: 0;
     max-width: 38ch;
 }
-
-/* QUALIFIER — "this is for you if" symptom grid ------------ */
-.qual {
-    padding: 64px 0 72px;
-    border-bottom: var(--rule-heavy);
-}
-.qual-grid {
+.pov-proof {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 32px 0 0;
+    border-top: var(--rule-soft);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
 }
-.qual-card {
+.pov-proof li {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 24px 24px 26px;
-    border: var(--rule-medium);
-    background: var(--bg);
-    color: var(--fg);
-    transition: background 0.15s ease, color 0.15s ease;
 }
-.qual-card:hover { background: var(--fg); color: var(--bg); }
-.qual-symptom {
-    display: flex;
-    gap: 12px;
-    font-size: 20px;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    margin: 0;
+.pov-proof-num {
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-size: clamp(30px, 3.2vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.02em;
 }
-.qual-mark {
-    flex-shrink: 0;
-    color: var(--fg-hover);
-    transition: color 0.15s ease;
-}
-.qual-card:hover .qual-mark { color: var(--bg-a55); }
-.qual-fix {
+.pov-proof-line {
     font-size: 15px;
-    line-height: 1.55;
-    color: var(--fg-quiet);
-    margin: 0 0 0 24px;
-    transition: color 0.15s ease;
-}
-.qual-card:hover .qual-fix { color: var(--bg-a82); }
-
-/* PATH SELECT — three big lanes (variant D) ---------------- */
-.pathsel {
-    padding: 64px 0 72px;
-    border-bottom: var(--rule-heavy);
-}
-.pathsel-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-.pathsel-card {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 32px 28px 28px;
-    border: var(--rule-medium);
-    background: var(--bg);
-    color: var(--fg);
-    text-decoration: none;
-    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-}
-.pathsel-card:visited { color: var(--fg); }
-.pathsel-card:hover {
-    background: var(--fg);
-    color: var(--bg);
-    box-shadow: 8px 8px 0 var(--fg);
-    transform: translate(-2px, -2px);
-}
-.pathsel-card:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
-.pathsel-card h3 {
-    font-size: clamp(24px, 2.6vw, 32px);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    font-weight: 400;
-    margin: 0;
-}
-.pathsel-card p {
-    font-size: 16px;
     line-height: 1.5;
     color: var(--fg-quiet);
-    margin: 0;
-    flex: 1;
-    transition: color 0.15s ease;
 }
-.pathsel-card:hover p { color: var(--bg-a82); }
-.pathsel-cta {
+.pov-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
     font-size: 13px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: var(--rule-soft);
+    padding-bottom: 4px;
+    transition: color 0.15s ease, border-color 0.15s ease;
 }
+.pov-link:visited { color: var(--fg); }
+.pov-link:hover { color: var(--fg-hover); border-color: var(--fg-hover); }
+.pov-link:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
 
-/* SEATS — where do you sit + this is for you if (variant E) */
+/* SEATS — where do you sit + this is for you if ------------- */
 .seats {
     padding: 64px 0 72px;
     border-bottom: var(--rule-heavy);
@@ -790,45 +328,6 @@ body {
     padding: 64px 0 72px;
     border-bottom: var(--rule-heavy);
 }
-.otable-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    margin: 0;
-}
-.otable-foot {
-    margin-top: auto;
-    padding-top: 20px;
-    border-top: var(--rule-medium);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-.otable-commit {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    margin: 0;
-}
-.otable-starts {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-}
-.otable-starts-label {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--fg-quiet);
-}
-.otable-starts-value {
-    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-    font-size: clamp(32px, 3.6vw, 44px);
-    line-height: 1;
-    letter-spacing: -0.03em;
-}
 .otable {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -862,6 +361,13 @@ body {
     font-size: 15px;
     line-height: 1.5;
     color: var(--fg-quiet);
+    margin: 0;
+}
+.otable-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
     margin: 0;
 }
 .otable-list {
@@ -903,235 +409,37 @@ body {
     color: var(--fg-quiet);
     margin: 0;
 }
-.otable-cta {
-    align-self: flex-start;
-    margin-top: 4px;
-}
-
-/* VARIANT SWITCHER — floating preview pill ----------------- */
-.var-switch {
-    position: fixed;
-    left: 50%;
-    bottom: 20px;
-    transform: translateX(-50%);
-    z-index: 90;
+.otable-foot {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: var(--rule-medium);
     display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 10px;
-    background: rgba(19, 19, 19, 0.92);
-    border: 2px solid var(--fg);
-    backdrop-filter: saturate(150%) blur(10px);
-    -webkit-backdrop-filter: saturate(150%) blur(10px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    gap: 14px;
 }
-.var-switch-label {
-    font-size: 11px;
-    letter-spacing: 0.16em;
+.otable-commit {
+    font-size: 12px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--fg-hover);
-    padding: 0 8px 0 4px;
-}
-.var-switch-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    background: transparent;
-    border: 1px solid transparent;
-    color: var(--fg);
-    font-family: inherit;
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-}
-.var-switch-btn:hover { border-color: var(--fg-hover); }
-.var-switch-btn.is-active { background: var(--fg); color: var(--bg); }
-.var-switch-btn:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
-.var-switch-key {
-    font-size: 14px;
-    letter-spacing: 0.06em;
-}
-.var-switch-name {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-/* NEW-BLOCK RESPONSIVE ------------------------------------- */
-@media only screen and (max-width: 1024px) {
-    .otable { gap: 16px; }
-}
-@media only screen and (max-width: 768px) {
-    .qual,
-    .pov,
-    .pathsel,
-    .seats,
-    .otable-section {
-        padding: 40px 0 48px;
-    }
-    .qual-grid { grid-template-columns: 1fr; gap: 16px; }
-    .qual-symptom { font-size: 18px; }
-    .qual-fix { font-size: 16px; }
-    .pathsel-grid { grid-template-columns: 1fr; gap: 16px; }
-    .seats-grid { grid-template-columns: 1fr; gap: 16px; }
-    .seats-list li { font-size: 16px; }
-    .otable { grid-template-columns: 1fr; }
-    .otable-name { font-size: 17px; }
-    .otable-sum { font-size: 15px; }
-    .var-switch { bottom: 12px; padding: 6px 8px; gap: 4px; }
-    .var-switch-label { display: none; }
-    .var-switch-name { display: none; }
-    .var-switch-btn { padding: 8px 12px; }
-}
-@media (hover: none) {
-    .qual-card:hover { background: var(--bg); color: var(--fg); }
-    .qual-card:hover .qual-fix { color: var(--fg-quiet); }
-    .qual-card:hover .qual-mark { color: var(--fg-hover); }
-    .pathsel-card:hover {
-        background: var(--bg);
-        color: var(--fg);
-        box-shadow: none;
-        transform: none;
-    }
-    .pathsel-card:hover p { color: var(--fg-quiet); }
-    .seats-card:hover {
-        background: var(--bg);
-        color: var(--fg);
-        box-shadow: none;
-        transform: none;
-    }
-    .seats-card:hover .seats-label,
-    .seats-card:hover .seats-mark { color: var(--fg-hover); }
-}
-@media only screen and (max-width: 1024px) {
-    .seats-grid { grid-template-columns: 1fr; }
-}
-@media (prefers-reduced-motion: reduce) {
-    .qual-card,
-    .pathsel-card,
-    .seats-card,
-    .hero-lane,
-    .var-switch-btn {
-        transition: none;
-    }
-    .pathsel-card:hover,
-    .seats-card:hover {
-        transform: none;
-        box-shadow: none;
-    }
-}
-
-/* EXPECT — full-row invert, process-row pattern ------------- */
-.expect {
-    padding: 64px 0 72px;
-    border-bottom: var(--rule-heavy);
-}
-
-.expect-grid {
-    /* borders removed per design direction */
-}
-
-.expect-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
-    gap: 56px;
-    align-items: start;
-    padding: 28px 24px;
-    border-bottom: var(--rule-medium);
-    background: transparent;
-    transition: background 0.15s ease, color 0.15s ease;
-}
-
-.expect-card:last-child {
-    border-bottom: 0;
-}
-
-.expect-card:hover {
-    background: var(--fg);
-    color: var(--bg);
-}
-
-.expect-card h3 {
-    font-size: clamp(40px, 5vw, 64px);
-    line-height: 0.98;
-    text-transform: uppercase;
-    letter-spacing: -0.025em;
-    font-weight: 400;
     margin: 0;
-    overflow-wrap: break-word;
 }
-
-.expect-card p {
-    font-size: 18px;
-    line-height: 1.5;
-    color: var(--fg-quiet);
-    margin: 0;
-    max-width: 56ch;
-    transition: color 0.15s ease;
-}
-
-.expect-card:hover p {
-    color: var(--bg-a65);
-}
-
-/* BUYERS ---------------------------------------------------- */
-.buyers {
-    padding: 40px 0 48px;
-    border-bottom: var(--rule-heavy);
-}
-
-.buyers .section-head {
-    margin-bottom: 28px;
-}
-
-.buyers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-}
-
-.buyer-card {
-    padding: 22px 24px 24px;
-    border: var(--rule-medium);
-    background: var(--bg);
-    color: var(--fg);
+.otable-starts {
     display: flex;
-    flex-direction: column;
+    align-items: baseline;
     gap: 10px;
-    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
-
-.buyer-card:hover {
-    background: var(--fg);
-    color: var(--bg);
-    box-shadow: 6px 6px 0 var(--fg);
-    transform: translate(-2px, -2px);
-}
-
-.buyer-card-wide {
-    grid-column: 1 / -1;
-}
-
-.buyer-card h3 {
-    font-size: 20px;
-    line-height: 1.25;
-    letter-spacing: -0.005em;
-    font-weight: 400;
+.otable-starts-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin: 0;
-}
-
-.buyer-card p {
-    font-size: 15px;
-    line-height: 1.6;
     color: var(--fg-quiet);
-    margin: 0;
-    transition: color 0.15s ease;
 }
-
-.buyer-card:hover p {
-    color: var(--bg-a82);
+.otable-starts-value {
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-size: clamp(32px, 3.6vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.03em;
 }
 
 /* CTA CARD (longer-term) ------------------------------------ */
@@ -1237,117 +545,56 @@ body {
     outline-offset: 4px;
 }
 
-.cta-button-lg {
-    font-size: 17px;
-    padding: 18px 32px;
-}
-
-/* PRICING --------------------------------------------------- */
-.pricing {
+/* PROCESS — three big-number cards (scope, ship, hand off) -- */
+.process {
     padding: 64px 0 72px;
     border-bottom: var(--rule-heavy);
 }
 
-.pricing-grid {
+.process-cards {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    align-items: start;
 }
 
-.pricing-card {
+.process-bigcard {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 40px 36px;
+    gap: 14px;
+    padding: 32px 28px 36px;
     border: var(--rule-medium);
-    background: transparent;
+    background: var(--bg);
     color: var(--fg);
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
-.pricing-card-featured {
-    background: var(--fg);
-    color: var(--bg);
-    border-color: var(--fg);
+.process-bigcard:hover { background: var(--fg); color: var(--bg); }
+
+.process-bignum {
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-size: clamp(56px, 6vw, 88px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
 }
 
-.pricing-card h3 {
-    font-size: 28px;
+.process-bigcard h4 {
+    font-size: 26px;
     line-height: 1.1;
-    font-weight: 700;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
+    font-weight: 400;
     margin: 0;
 }
 
-.pricing-desc {
+.process-bigcard p {
     font-size: 16px;
     line-height: 1.55;
     color: var(--fg-quiet);
     margin: 0;
-    max-width: 40ch;
+    transition: color 0.15s ease;
 }
 
-.pricing-card-featured .pricing-desc {
-    color: var(--bg-a65);
-}
-
-.pricing-amount {
-    margin-top: 12px;
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-}
-
-.pricing-value {
-    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-    font-size: clamp(48px, 5vw, 64px);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    font-weight: 400;
-}
-
-.pricing-unit {
-    font-size: 16px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--fg-quiet);
-}
-
-.pricing-card-featured .pricing-unit {
-    color: var(--bg-a55);
-}
-
-.pricing-note {
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    margin: 0;
-}
-
-.pricing-card-featured .pricing-note {
-    color: var(--bg-a55);
-}
-
-.pricing-card .cta-button {
-    margin-top: 12px;
-    align-self: flex-start;
-}
-
-.pricing-card-featured .cta-button {
-    background: transparent;
-    color: var(--bg);
-    border-color: var(--bg);
-}
-.pricing-card-featured .cta-button:visited { color: var(--bg); }
-.pricing-card-featured .cta-button:hover {
-    background: var(--bg);
-    color: var(--fg);
-}
-.pricing-card-featured .cta-button:focus-visible {
-    outline-color: var(--bg);
-}
+.process-bigcard:hover p { color: var(--bg-a82); }
 
 /* FAQ ------------------------------------------------------- */
 .faq {
@@ -1550,25 +797,19 @@ body {
         scroll-snap-type: none;
         scroll-behavior: auto;
     }
-    .offer,
-    .buyer-card,
-    .expect-card,
     .cta-card,
     .cta-button,
     .big-cta-card,
     .faq-item,
     .faq-icon::before,
     .faq-icon::after,
-    .offer-expand-toggle,
-    .offer-expand-body,
-    .router-card,
     .process-bigcard,
+    .seats-card,
+    .pov-link,
     .hero-figure__img--hover {
         transition: none;
     }
-    .offer:hover,
-    .buyer-card:hover,
-    .router-card:hover,
+    .seats-card:hover,
     .big-cta-card:hover {
         transform: none;
         box-shadow: none;
@@ -1577,27 +818,16 @@ body {
 
 /* TOUCH ----------------------------------------------------- */
 @media (hover: none) {
-    .offer:hover,
-    .buyer-card:hover,
-    .router-card:hover {
+    .seats-card:hover {
         background: var(--bg);
         color: var(--fg);
         box-shadow: none;
         transform: none;
     }
+    .seats-card:hover .seats-label,
+    .seats-card:hover .seats-mark { color: var(--fg-hover); }
     .process-bigcard:hover { background: var(--bg); color: var(--fg); }
     .process-bigcard:hover p { color: var(--fg-quiet); }
-    .offer:hover .offer-num,
-    .offer:hover .offer-meta,
-    .offer:hover .offer-expand-toggle { color: var(--fg-hover); }
-    .router-card:hover .router-card-label,
-    .router-card:hover .router-quote-mark { color: var(--fg-hover); }
-    .router-card:hover .router-quotes li { color: var(--fg-quiet); }
-    .offer:hover p:not(.offer-meta),
-    .offer:hover .offer-expand-body,
-    .buyer-card:hover p { color: var(--fg-quiet); }
-    .expect-card:hover { background: transparent; color: var(--fg); }
-    .expect-card:hover p { color: var(--fg-quiet); }
     .cta-card:hover { background: transparent; color: var(--fg); }
     .cta-card:hover .cta-card-eyebrow { color: var(--fg-hover); }
     .cta-card:hover .cta-card-lede { color: var(--fg-quiet); }
@@ -1606,22 +836,14 @@ body {
 
 /* TABLET ---------------------------------------------------- */
 @media only screen and (max-width: 1024px) {
-    .offer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .router-grid {
+    .seats-grid {
         grid-template-columns: 1fr;
     }
-    .process-cards {
-        grid-template-columns: repeat(3, 1fr);
+    .otable {
         gap: 16px;
     }
-    .expect-card {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-    .expect-card h3 {
-        font-size: clamp(36px, 7vw, 56px);
+    .process-cards {
+        gap: 16px;
     }
 }
 
@@ -1676,129 +898,57 @@ body {
         font-size: 18px;
     }
 
-    .offer-summary,
-    .offer p:not(.offer-meta),
-    .offer-expand-body {
-        font-size: 16px;
-    }
-
-    .offer-meta {
-        font-size: 13px;
-    }
-
-    .offer-expand-toggle {
-        font-size: 14px;
-    }
-
-    .buyer-card p {
-        font-size: 16px;
-    }
-
-    .buyer-card h3 {
-        font-size: 21px;
-    }
-
-    .cta-card-lede {
-        font-size: 16px;
-    }
-
     .section-head {
         margin-bottom: 32px;
     }
 
-    .offerings,
-    .expect,
-    .router,
+    .pov,
+    .seats,
     .process,
     .faq,
-    .buyers,
+    .otable-section,
     .cta-card-section {
         padding: 40px 0 48px;
     }
 
-    .router-grid {
+    .pov-proof {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .pov-proof-line {
+        font-size: 16px;
+    }
+
+    .seats-grid {
+        grid-template-columns: 1fr;
         gap: 16px;
     }
-
-    .router-card-line {
-        font-size: 18px;
+    .seats-list li {
+        font-size: 16px;
     }
 
-    .router-quotes li {
-        font-size: 16px;
+    .otable {
+        grid-template-columns: 1fr;
+    }
+    .otable-name {
+        font-size: 17px;
+    }
+    .otable-sum {
+        font-size: 15px;
     }
 
     .process-cards {
         grid-template-columns: 1fr;
     }
 
-    .process-step {
-        grid-template-columns: 1fr;
-        gap: 6px;
-        padding: 22px 0;
-    }
-
-    .process-step-num {
-        font-size: 22px;
-    }
-
-    .process-step-body p {
-        font-size: 16px;
-    }
-
-    .offer-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .offer-group-label {
-        margin: 44px 0 18px;
-        font-size: clamp(26px, 8vw, 38px);
-        padding-top: 24px;
-    }
-
-    .offer {
-        padding: 22px 20px 26px;
-    }
-
-    .offer:hover {
-        box-shadow: 4px 4px 0 var(--fg);
-    }
-
-    .expect-card {
-        padding: 24px 16px;
-    }
-
-    .buyers-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .buyer-card-wide {
-        grid-column: auto;
-    }
-
-    .pricing {
-        padding: 40px 0 48px;
-    }
-
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .pricing-card {
-        padding: 32px 24px;
-    }
-
-    .buyer-card:hover {
-        box-shadow: 4px 4px 0 var(--fg);
-    }
-
     .cta-card {
         grid-template-columns: 1fr;
         gap: 24px;
         padding: 32px 24px;
+    }
+
+    .cta-card-lede {
+        font-size: 16px;
     }
 
     .cta-button {
@@ -1825,7 +975,6 @@ body {
 
     .big-cta-card {
         padding: 40px 28px;
-        border-width: 3px;
     }
 
     .big-cta-card:hover {
