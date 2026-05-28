@@ -1,19 +1,21 @@
 import Link from 'next/link'
+import { EmailReveal } from '@/components/shared/EmailReveal'
 import './resume.css'
 
 export default function ResumePage() {
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to resume</a>
+      <EmailReveal />
       <main id="main-content">
         <div className="page">
           <Link href="/" className="site-link">{'← wesley-m.com'}</Link>
-          <a href="/resume/wesley_melo_resume_remote.pdf" download type="application/pdf" className="download-btn">Download PDF</a>
+          <a href="/resume/wesley_melo_resume_remote.pdf" download type="application/pdf" className="download-btn">Download PDF (ES)</a>
 
           <header>
             <h1>WESLEY MELO</h1>
             <div className="contact">
-              Spain (Remote) | <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">linkedin.com/in/wesmelo</a> | <a href="mailto:contato@wesley-m.com">contato@wesley-m.com</a>
+              Spain (Remote) | <a href="https://linkedin.com/in/wesmelo" target="_blank" rel="noopener noreferrer">linkedin.com/in/wesmelo</a> | <a href="#" className="js-email-reveal" id="resume-email">email</a>
             </div>
           </header>
 
