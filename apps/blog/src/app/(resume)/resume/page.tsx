@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { EmailReveal } from '@/components/shared/EmailReveal'
+import { urls } from '@/lib/urls'
 import './resume.css'
 
 export default function ResumePage() {
@@ -9,7 +9,7 @@ export default function ResumePage() {
       <EmailReveal />
       <main id="main-content">
         <div className="page">
-          <Link href="/" className="site-link">{'← wesley-m.com'}</Link>
+          <a href={urls.home} className="site-link">{'← wesley-m.com'}</a>
           <a href="/resume/wesley_melo_resume_remote.pdf" download type="application/pdf" className="cta-button download-btn">
             <span>Download PDF (ES)</span>
             <span aria-hidden="true">{'→︎'}</span>
