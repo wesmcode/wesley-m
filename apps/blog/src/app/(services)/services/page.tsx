@@ -181,13 +181,13 @@ export default function ServicesPage() {
       </section>
 
       <section className="big-cta snap-section" id="book" aria-label="Book a call or send a message">
-        <div className="big-cta-card">
-          <p className="big-cta-eyebrow">Ready when you are</p>
-          <h2 className="big-cta-title">Book a call or<br />send a message</h2>
-          <p className="big-cta-sub">30 minutes to discuss the problem, timing, and fit. Or drop a message. I reply within 24 hours.</p>
-        </div>
+        <CalEmbed />
         <div className="book-grid">
-          <CalEmbed />
+          <div className="big-cta-card">
+            <p className="big-cta-eyebrow">Ready when you are</p>
+            <h2 className="big-cta-title">Book a call or<br />send a message</h2>
+            <p className="big-cta-sub">30 minutes to discuss the problem, timing, and fit. Or drop a message. I reply within 24 hours.</p>
+          </div>
           <ContactForm variant="sidebar" heading="Send a message" />
         </div>
       </section>
