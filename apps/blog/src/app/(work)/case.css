@@ -1,4 +1,4 @@
-/* CASE STUDY DETAIL — extends css/base.css + css/services.css */
+/* CASE STUDY DETAIL — relies on globals.css + work.css tokens (same route group) */
 /* Navy hero band, cream article band with sticky rail, navy outro + CTA. */
 
 /* Page tokens — navy palette like work.html, but the article band */

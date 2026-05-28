@@ -4,7 +4,6 @@ import type { ReactNode } from 'react'
 import { SkipLink, ActiveTopBar, Footer } from '@/components/shared'
 import { WORK_NAV } from '@/lib/navigation'
 import '@/styles/globals.css'
-import '../(services)/services.css'
 import './work.css'
 import './case.css'
 

@@ -1,9 +1,17 @@
-/* WORK HUB — extends css/services.css */
-/* services.css supplies: tokens, top-bar, section-*, hero-*, etc. */
+/* WORK HUB — self-contained. globals.css supplies reset, top-bar, brand and
+   footer; this file owns the (work) route group's tokens, page shell and hero
+   primitives so it never inherits another template's styles. The token set is
+   loaded before case.css in the (work) layout, so case studies share it. */
 
-/* Page background matches the index navy (--brand-tone). */
+/* Navy palette, shared by the work hub and the case-study pages. */
 :root {
     --bg: #2B3856;
+    --fg: #FFFFFF;
+    --fg-hover: rgba(255, 255, 255, 0.78);
+    --fg-quiet: rgba(255, 255, 255, 0.82);
+    --rule-soft: 1px solid rgba(255, 255, 255, 0.18);
+    --rule-medium: 2px solid #FFFFFF;
+    --rule-heavy: 3px solid #FFFFFF;
 }
 
 .top-bar {
@@ -15,6 +23,71 @@ html {
     scroll-snap-type: none;
     scroll-behavior: auto;
     scroll-padding-top: 0;
+}
+
+/* PAGE SHELL ------------------------------------------------ */
+.page {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: max(40px, env(safe-area-inset-left)) max(40px, env(safe-area-inset-right));
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.page > main {
+    flex: 1;
+}
+
+.section-label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0 0 16px;
+}
+
+/* HERO BASE — shared text primitives (layout lives in .hero-index-grid) */
+.hero {
+    padding: 72px 0 64px;
+    border-bottom: var(--rule-heavy);
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hero-title {
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.hero-tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-quiet);
+}
+
+.hero-lede {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--fg-quiet);
+    max-width: 44ch;
+    margin: 0;
 }
 
 /* HERO — text + quick index (no portrait) ------------------- */
@@ -195,6 +268,14 @@ html {
     .hero-index-grid .hero-title {
         font-size: clamp(48px, 13vw, 80px);
         line-height: 0.94;
+    }
+
+    .section-label {
+        font-size: 14px;
+    }
+
+    .hero-lede {
+        font-size: 19px;
     }
 
     .companies {
