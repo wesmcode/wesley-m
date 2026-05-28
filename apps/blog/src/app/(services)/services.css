@@ -95,14 +95,15 @@ body {
 }
 
 .offer-group-label {
-    font-size: 13px;
-    letter-spacing: 0.14em;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
-    color: var(--fg-hover);
-    margin: 56px 0 20px;
+    color: var(--fg);
+    margin: 64px 0 28px;
     font-weight: 400;
-    padding-top: 20px;
-    border-top: var(--rule-soft);
+    padding-top: 32px;
+    border-top: var(--rule-heavy);
 }
 
 .offer-group-label:first-of-type {
@@ -249,7 +250,7 @@ body {
     color: var(--bg-a55);
 }
 
-.offer h3 {
+.offer h4 {
     font-size: 24px;
     line-height: 1.1;
     font-weight: 400;
@@ -281,6 +282,73 @@ body {
 
 .offer:hover p:not(.offer-meta) {
     color: var(--bg-a82);
+}
+
+/* OFFER EXPAND — one-line summary opens to full detail ------ */
+.offer-summary {
+    font-weight: 400;
+}
+
+.offer-expand {
+    margin-top: 2px;
+}
+
+.offer-expand-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    cursor: pointer;
+    list-style: none;
+    padding: 4px 0;
+    transition: color 0.15s ease;
+}
+
+.offer-expand-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.offer-expand-toggle::after {
+    content: "+";
+    font-size: 16px;
+    line-height: 1;
+}
+
+.offer-expand[open] .offer-expand-toggle::after {
+    content: "\2212";
+}
+
+.offer-expand-toggle:hover {
+    color: var(--fg);
+    text-decoration: underline;
+}
+
+.offer-expand-toggle:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 4px;
+}
+
+.offer-expand-body {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--fg-quiet);
+    margin: 10px 0 0;
+    transition: color 0.15s ease;
+}
+
+.offer:hover .offer-expand-toggle {
+    color: var(--bg-a55);
+}
+
+.offer:hover .offer-expand-body {
+    color: var(--bg-a82);
+}
+
+.offer:hover .offer-expand-toggle:focus-visible {
+    outline-color: var(--bg);
 }
 
 /* EXPECT — full-row invert, process-row pattern ------------- */
@@ -820,6 +888,8 @@ body {
     .faq-item,
     .faq-icon::before,
     .faq-icon::after,
+    .offer-expand-toggle,
+    .offer-expand-body,
     .hero-figure__img--hover {
         transition: none;
     }
@@ -841,8 +911,10 @@ body {
         transform: none;
     }
     .offer:hover .offer-num,
-    .offer:hover .offer-meta { color: var(--fg-hover); }
+    .offer:hover .offer-meta,
+    .offer:hover .offer-expand-toggle { color: var(--fg-hover); }
     .offer:hover p:not(.offer-meta),
+    .offer:hover .offer-expand-body,
     .buyer-card:hover p { color: var(--fg-quiet); }
     .expect-card:hover { background: transparent; color: var(--fg); }
     .expect-card:hover p { color: var(--fg-quiet); }
@@ -905,7 +977,42 @@ body {
     }
 
     .hero-lede {
-        font-size: 17px;
+        font-size: 19px;
+    }
+
+    /* Larger reading sizes on small screens */
+    .section-label {
+        font-size: 14px;
+    }
+
+    .section-sub {
+        font-size: 18px;
+    }
+
+    .offer-summary,
+    .offer p:not(.offer-meta),
+    .offer-expand-body {
+        font-size: 16px;
+    }
+
+    .offer-meta {
+        font-size: 13px;
+    }
+
+    .offer-expand-toggle {
+        font-size: 14px;
+    }
+
+    .buyer-card p {
+        font-size: 16px;
+    }
+
+    .buyer-card h3 {
+        font-size: 21px;
+    }
+
+    .cta-card-lede {
+        font-size: 16px;
     }
 
     .section-head {
@@ -926,9 +1033,9 @@ body {
     }
 
     .offer-group-label {
-        margin: 40px 0 14px;
-        font-size: 12px;
-        padding-top: 16px;
+        margin: 44px 0 18px;
+        font-size: clamp(26px, 8vw, 38px);
+        padding-top: 24px;
     }
 
     .offer {
@@ -981,8 +1088,12 @@ body {
     }
 
     .faq-item > summary {
-        font-size: 17px;
+        font-size: 18px;
         padding: 20px 16px;
+    }
+
+    .faq-answer p {
+        font-size: 17px;
     }
 
     .faq-answer {

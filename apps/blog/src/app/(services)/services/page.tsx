@@ -1,23 +1,23 @@
 import { CalEmbed, ContactForm, SectionHead } from '@/components/shared'
 
 const OFFERINGS_FOUNDERS = [
-  { num: '01', title: 'Product audit', meta: '3 to 4 weeks · fixed price · from $5k', body: 'You are shipping but adoption is flat. Nobody owns the north-star metric. Three weeks: I walk the funnel, interview 20 churned customers, sit through sprint planning, and hand you a Flash Report. Top 3 systemic blockers, one symbolic quick win, 90-day fix list. The deliverable goes straight to engineering, not into a slide deck.' },
-  { num: '02', title: 'Discovery sprint', meta: '4 to 6 weeks · fixed price · from $7k', body: 'You have a roadmap but no conviction behind it. Customer interviews and synthesis. Jobs-to-be-done framing. An opportunity-solution tree. One north-star bet written in a sentence. You leave knowing what to build and which features the data already says to retire.' },
-  { num: '03', title: 'OKR & roadmap reset', meta: '4 to 6 weeks · fixed price · from $7k', body: 'Your team is busy but the quarter keeps ending with the wrong things shipped. Quarterly planning workshop, north-star metric, OKRs that survive the first sprint. Output: a roadmap doc your engineering lead does not argue with and a stakeholder deck that does not need a rerun.' },
+  { num: '01', title: 'Product audit', meta: '3 to 4 weeks · fixed price · from $5k', summary: 'Find the top 3 systemic blockers killing adoption, plus a 90-day fix list that goes straight to engineering.', detail: 'Walk the funnel, interview 20 churned customers, sit through sprint planning. Deliverable: a Flash Report with top 3 systemic blockers, one symbolic quick win, and a 90-day fix list. Goes straight to engineering, not into a slide deck.' },
+  { num: '02', title: 'Discovery sprint', meta: '4 to 6 weeks · fixed price · from $7k', summary: 'Customer research that tells you what to build next and what to retire.', detail: 'Customer interviews and synthesis. Jobs-to-be-done framing. An opportunity-solution tree. One north-star bet written in a sentence. You leave knowing what to build and which features the data already says to retire.' },
+  { num: '03', title: 'OKR & roadmap reset', meta: '4 to 6 weeks · fixed price · from $7k', summary: 'Quarterly planning that produces OKRs and a roadmap your engineering lead agrees with.', detail: 'Quarterly planning workshop, north-star metric, OKRs that survive the first sprint. Output: a roadmap doc your engineering lead does not argue with and a stakeholder deck that does not need a rerun.' },
 ]
 
 const OFFERINGS_ENTERPRISE = [
-  { num: '04', title: 'Platform modernization assessment', meta: '4 to 8 weeks · fixed price · from $10k', body: 'Your CMS or platform is slowing growth but migration risk is real. A working diagnostic, not a slide deck: application portfolio inventory, retirement-vs-migrate calls, SEO and domain authority risk map, a phased plan where each phase has standalone business value.' },
-  { num: '05', title: 'AI readiness & pilot roadmap', meta: '4 to 8 weeks · fixed price · from $10k', body: 'You have AI licenses and a strategy deck but nothing in production yet. Use-case audit against your existing investments (Copilot, Einstein, ServiceNow AI, or a custom build). Build/buy/apply framework. Governance gaps mapped against the questions enterprise procurement is asking. Pilot-to-production roadmap for the highest-value, lowest-risk use cases. Informed by shipping 8 production agents inside a multi-agent SaaS platform, not by another strategy deck.' },
-  { num: '06', title: 'Multi-CMS / headless migration', meta: 'Scoped per system · from $10k', body: 'Your content lives across too many systems and the SEO risk of consolidation is keeping you stuck. CMS consolidation and multi-site migration with traffic protected through every phase. Five subsites into a 65M+ monthly views flagship is the recent reference. CMS-agnostic across Payload, Contentful, Drupal, and enterprise headless DXP. Rollback capability at every step.' },
+  { num: '04', title: 'Platform modernization assessment', meta: '4 to 8 weeks · fixed price · from $10k', summary: 'A working diagnostic with retire-or-migrate decisions and a phased plan, not a slide deck.', detail: 'Application portfolio inventory, retirement-vs-migrate calls, SEO and domain authority risk map, and a phased plan where each phase has standalone business value. A working diagnostic, not a slide deck.' },
+  { num: '05', title: 'AI readiness & pilot roadmap', meta: '4 to 8 weeks · fixed price · from $10k', summary: 'Use-case audit and pilot-to-production roadmap for your highest-value, lowest-risk AI cases.', detail: 'Use-case audit against your existing investments (Copilot, Einstein, ServiceNow AI, or a custom build). Build/buy/apply framework. Governance gaps mapped against the questions enterprise procurement is asking. Informed by shipping 8 production agents inside a multi-agent SaaS platform, not by another strategy deck.' },
+  { num: '06', title: 'Multi-CMS / headless migration', meta: 'Scoped per system · from $10k', summary: 'Consolidate content systems with traffic and domain authority protected through every phase.', detail: 'CMS consolidation and multi-site migration with traffic protected through every phase. Five subsites into a 65M+ monthly views flagship is the recent reference. CMS-agnostic across Payload, Contentful, Drupal, and enterprise headless DXP. Rollback capability at every step.' },
 ]
 
 const OFFERINGS_EITHER = [
-  { num: '07', title: 'Hourly advisory', meta: 'Pay as you go · weekly office hours', body: 'You need a senior product perspective on a specific decision, not a project. 60-minute office hours each week. Hiring loops, roadmap calls, "should we ship this AI feature" decisions, "should we sign this modernization SOW" decisions. Cancel any week.' },
+  { num: '07', title: 'Hourly advisory', meta: 'Pay as you go · weekly office hours', summary: 'Weekly 60-minute office hours for a specific decision, not a project. Cancel any week.', detail: 'A senior product perspective on the calls that matter: hiring loops, roadmap decisions, "should we ship this AI feature", "should we sign this modernization SOW". 60 minutes each week, cancel any week.' },
 ]
 
 const HOW_I_WORK = [
-  { title: 'Embedded, not advisory', body: 'I join your Slack, attend standups, and write specs from day one. Friday written read-outs. Decisions land in the doc, not the thread. Close enough to execution that the work actually ships.' },
+  { title: 'Embedded, not advisory', body: 'Close enough to execution to write specs and ship decisions. Not close enough to add noise to your daily tools. Friday written read-outs, every decision in a doc.' },
   { title: 'Outcomes, not hours', body: 'Accountable for outcomes, not time billed. Every bet ships against a metric and a deadline. Hit the metric, the feature stays. Miss it, the feature gets dropped without argument.' },
   { title: 'Clean exit', body: 'Docs, dashboards, decisions, and runbooks live in your tools. When the engagement closes, the team owns the cadence. The goal is to make the role permanent or unnecessary, not to create dependency.' },
 ]
@@ -47,9 +47,13 @@ function OfferGrid({ items, single }: { items: typeof OFFERINGS_FOUNDERS; single
       {items.map((o) => (
         <article className="offer" key={o.num}>
           <div className="offer-num" aria-hidden="true">{o.num}</div>
-          <h3>{o.title}</h3>
+          <h4>{o.title}</h4>
           <p className="offer-meta">{o.meta}</p>
-          <p>{o.body}</p>
+          <p className="offer-summary">{o.summary}</p>
+          <details className="offer-expand">
+            <summary className="offer-expand-toggle">What you get</summary>
+            <p className="offer-expand-body">{o.detail}</p>
+          </details>
         </article>
       ))}
     </div>
@@ -81,7 +85,6 @@ export default function ServicesPage() {
         <SectionHead
           label="Seven shapes"
           title={<>Pick the problem,<br />pick the shape</>}
-          subtitle="Three for founder-led teams who need senior product cover now. Three for established companies facing AI, platform, or migration decisions. One for either side."
         />
         <h3 className="offer-group-label">For founder-led teams</h3>
         <OfferGrid items={OFFERINGS_FOUNDERS} />
@@ -124,44 +127,12 @@ export default function ServicesPage() {
           <div className="cta-card-text">
             <p className="cta-card-eyebrow">Beyond a single project?</p>
             <h2 className="cta-card-title">From project to embedded</h2>
-            <p className="cta-card-lede">Founder-led teams: 2 to 3 days a week, 3-month minimum, monthly renewals. Established companies: phased advisory retainer after the assessment. Both start from a 30-minute scoping conversation.</p>
+            <p className="cta-card-lede">Founder-led teams: 2 to 3 days a week, from $4k/month, 3-month minimum. Established companies: a phased advisory retainer after the assessment. Both start from a 30-minute scoping call.</p>
           </div>
           <a href="#book" className="cta-button">
             <span>Book a scoping call</span>
             <span aria-hidden="true">{'→︎'}</span>
           </a>
-        </div>
-      </section>
-
-      <section className="pricing snap-section" aria-label="Pricing">
-        <SectionHead label="Pricing" title="Two ways to engage" />
-        <div className="pricing-grid">
-          <article className="pricing-card pricing-card-featured">
-            <h3>Embedded</h3>
-            <p className="pricing-desc">Ongoing product, AI, and platform execution. I join the team, run the cadence, and ship alongside your engineers.</p>
-            <div className="pricing-amount">
-              <span className="pricing-value">$4k</span>
-              <span className="pricing-unit">/month</span>
-            </div>
-            <p className="pricing-note">3-month minimum, monthly renewals</p>
-            <a href="#book" className="cta-button">
-              <span>Book a scoping call</span>
-              <span aria-hidden="true">{'→︎'}</span>
-            </a>
-          </article>
-          <article className="pricing-card">
-            <h3>Fixed scope</h3>
-            <p className="pricing-desc">Audits, discovery sprints, roadmap resets, platform assessments, AI readiness, and migrations. Defined deliverable, defined price.</p>
-            <div className="pricing-amount">
-              <span className="pricing-value">$5k</span>
-              <span className="pricing-unit">minimum</span>
-            </div>
-            <p className="pricing-note">Scoped per engagement</p>
-            <a href="#book" className="cta-button">
-              <span>Book a scoping call</span>
-              <span aria-hidden="true">{'→︎'}</span>
-            </a>
-          </article>
         </div>
       </section>
 

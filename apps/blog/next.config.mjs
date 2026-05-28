@@ -19,7 +19,31 @@ const nextConfig = {
     }
   },
   async redirects() {
+    // Canonicalise: on the apex/www domain, section paths bounce to their
+    // subdomain so the subdomain is the single source of truth. The `has`
+    // host guard prevents redirect loops on the subdomains themselves.
+    const apexHosts = [
+      { type: 'host', value: 'wesley-m.com' },
+      { type: 'host', value: 'www.wesley-m.com' },
+    ]
+    const sectionRedirects = process.env.NEXT_PUBLIC_USE_SUBDOMAINS === 'true'
+      ? [
+          { source: '/services', has: [apexHosts[0]], destination: 'https://services.wesley-m.com', permanent: false },
+          { source: '/services', has: [apexHosts[1]], destination: 'https://services.wesley-m.com', permanent: false },
+          { source: '/contact', has: [apexHosts[0]], destination: 'https://contact.wesley-m.com', permanent: false },
+          { source: '/contact', has: [apexHosts[1]], destination: 'https://contact.wesley-m.com', permanent: false },
+          { source: '/resume', has: [apexHosts[0]], destination: 'https://resume.wesley-m.com', permanent: false },
+          { source: '/resume', has: [apexHosts[1]], destination: 'https://resume.wesley-m.com', permanent: false },
+          { source: '/work', has: [apexHosts[0]], destination: 'https://work.wesley-m.com', permanent: false },
+          { source: '/work', has: [apexHosts[1]], destination: 'https://work.wesley-m.com', permanent: false },
+          { source: '/work/:slug', has: [apexHosts[0]], destination: 'https://work.wesley-m.com/:slug', permanent: false },
+          { source: '/work/:slug', has: [apexHosts[1]], destination: 'https://work.wesley-m.com/:slug', permanent: false },
+          { source: '/blog', has: [apexHosts[0]], destination: 'https://blog.wesley-m.com', permanent: false },
+          { source: '/blog', has: [apexHosts[1]], destination: 'https://blog.wesley-m.com', permanent: false },
+        ]
+      : []
     return [
+      ...sectionRedirects,
       { source: '/index.html', destination: '/', permanent: true },
       { source: '/services.html', destination: '/services', permanent: true },
       { source: '/blog.html', destination: '/blog', permanent: true },

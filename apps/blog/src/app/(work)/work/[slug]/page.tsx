@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 
 import { Footer } from '@/components/shared'
+import { urls } from '@/lib/urls'
 import { CASES } from '../case-data'
 
 interface RouteParams {
@@ -76,13 +76,16 @@ export default async function CaseStudyPage({ params }: RouteParams) {
             <p className="case-related-eyebrow">More cases</p>
             <h2 className="case-related-title">Where the work shipped next</h2>
             <div className="case-related-grid">
-              {cs.related.map((r) => (
-                <Link key={r.href} href={r.href} className="case-related-card">
-                  <p className="case-related-card-num" dangerouslySetInnerHTML={{ __html: r.num }} />
-                  <h3 className="case-related-card-title" dangerouslySetInnerHTML={{ __html: r.title }} />
-                  <p className="case-related-card-arrow">{'Read the case →'}</p>
-                </Link>
-              ))}
+              {cs.related.map((r) => {
+                const relSlug = r.href.replace('/work/', '')
+                return (
+                  <a key={r.href} href={urls.workCase(relSlug)} className="case-related-card">
+                    <p className="case-related-card-num" dangerouslySetInnerHTML={{ __html: r.num }} />
+                    <h3 className="case-related-card-title" dangerouslySetInnerHTML={{ __html: r.title }} />
+                    <p className="case-related-card-arrow">{'Read the case →'}</p>
+                  </a>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -92,18 +95,18 @@ export default async function CaseStudyPage({ params }: RouteParams) {
         <div className="case-cta-inner">
           <h2 className="case-cta-title">Got a product that needs a <span className="accent">clearer next quarter?</span></h2>
           <div className="case-cta-actions">
-            <Link href="/contact" className="case-cta-btn">
+            <a href={urls.contact} className="case-cta-btn">
               <span>Get in touch</span>
               <span aria-hidden="true">{'→︎'}</span>
-            </Link>
-            <Link href="/services" className="case-cta-btn case-cta-btn--ghost">
+            </a>
+            <a href={urls.services} className="case-cta-btn case-cta-btn--ghost">
               <span>See services</span>
               <span aria-hidden="true">{'→︎'}</span>
-            </Link>
-            <Link href="/work" className="case-cta-btn case-cta-btn--ghost">
+            </a>
+            <a href={urls.work} className="case-cta-btn case-cta-btn--ghost">
               <span>More case studies</span>
               <span aria-hidden="true">{'→︎'}</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>

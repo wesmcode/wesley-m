@@ -4,10 +4,11 @@ import { SITE_NAV, type NavItem } from '@/lib/navigation'
 
 interface TopBarProps {
   currentPath?: string
+  currentUrl?: string
   items?: NavItem[]
 }
 
-export function TopBar({ currentPath, items }: TopBarProps) {
+export function TopBar({ currentPath, currentUrl, items }: TopBarProps) {
   const nav = items ?? SITE_NAV
 
   return (
@@ -16,7 +17,12 @@ export function TopBar({ currentPath, items }: TopBarProps) {
         <BrandWrap variant="top-bar" />
         <div className="top-bar-links">
           {nav.map((item) => {
-            const isCurrent = currentPath === item.href
+            // Match either a plain path (path-mode) or the absolute subdomain
+            // URL (subdomain-mode). Ignore hash-only items.
+            const isCurrent = item.href.startsWith('#')
+              ? false
+              : currentPath === item.href ||
+                (!!currentUrl && (currentUrl === item.href || currentUrl === `${item.href}/`))
             return (
               <SiteLink
                 key={item.href}

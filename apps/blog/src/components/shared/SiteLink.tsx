@@ -10,7 +10,10 @@ interface SiteLinkProps {
 }
 
 export function SiteLink({ href, className = 'link', children, ariaCurrent, tabIndex }: SiteLinkProps) {
-  const isExternal = href.startsWith('http') || href.startsWith('//')
+  const isAbsolute = href.startsWith('http') || href.startsWith('//')
+  // wesley-m.com subdomains are same-site: plain <a>, no new tab.
+  const isSameSite = isAbsolute && href.includes('wesley-m.com')
+  const isExternal = isAbsolute && !isSameSite
   const isHash = href.startsWith('#')
 
   if (isExternal) {
@@ -28,7 +31,7 @@ export function SiteLink({ href, className = 'link', children, ariaCurrent, tabI
     )
   }
 
-  if (isHash) {
+  if (isHash || isSameSite) {
     return (
       <a href={href} className={className} aria-current={ariaCurrent} tabIndex={tabIndex}>
         {children}

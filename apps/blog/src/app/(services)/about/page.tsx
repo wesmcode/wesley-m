@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { CarouselContainer } from '@/components/shared'
+import { urls } from '@/lib/urls'
 
 const ABOUT_CARDS = [
   { title: 'AI from demo to production', body: '8 production AI agents shipped in 90 days. 4 enterprise pilots signed. One buyer requested pricing unprompted during a live C-suite demo. Not a proof of concept. A product.' },
@@ -91,9 +91,9 @@ export default function AboutPage() {
             ))}
           </div>
           <div className="cap-cta">
-            <Link href="/work" className="cap-cta-link">
+            <a href={urls.work} className="cap-cta-link">
               {'See project-based engagements →︎'}
-            </Link>
+            </a>
           </div>
         </div>
       </section>

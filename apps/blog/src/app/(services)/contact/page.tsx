@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { ContactForm } from '@/components/shared'
+import { urls } from '@/lib/urls'
 
 export const metadata: Metadata = {
   title: 'Contact: Wesley Melo',
@@ -16,9 +16,9 @@ export default function ContactPage() {
           <p className="section-label">Contact</p>
           <h1 className="section-title">Get in<br />touch</h1>
           <p className="contact-lede">Tell me about the problem. Product, AI, platform, growth. I reply within 24 hours.</p>
-          <p className="contact-lede">Prefer to talk? <Link href="/services#book" className="link">Book a 30-minute call</Link>.</p>
+          <p className="contact-lede">Prefer to talk? <a href={`${urls.services}#book`} className="link">Book a 30-minute call</a>.</p>
           <p className="contact-fallback contact-fallback--side">Or email directly: <a href="#" className="link js-email-reveal">loading...</a></p>
-          <p className="contact-fallback">Common questions? <Link href="/services#faq" className="link">Read the FAQ</Link>.</p>
+          <p className="contact-fallback">Common questions? <a href={`${urls.services}#faq`} className="link">Read the FAQ</a>.</p>
         </div>
         <ContactForm />
       </div>
