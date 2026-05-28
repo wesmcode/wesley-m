@@ -1,6 +1,0 @@
-import type { ReactNode } from 'react'
-import './playground.css'
-
-export default function PlaygroundLayout({ children }: { children: ReactNode }) {
-  return <>{children}</>
-}

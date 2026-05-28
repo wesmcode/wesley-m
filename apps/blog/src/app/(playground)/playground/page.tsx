@@ -1,11 +1,3 @@
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Playground: Wesley Melo',
-  description: 'Small apps, experiments, and tools built for fun. A personal sandbox for ideas that don\'t need a business case.',
-  alternates: { canonical: '/playground' },
-}
-
 export default function PlaygroundPage() {
   return (
     <>
