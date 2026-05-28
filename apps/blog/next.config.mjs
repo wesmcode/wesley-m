@@ -4,13 +4,17 @@ import { withPayload } from '@payloadcms/next/withPayload'
 const nextConfig = {
   reactStrictMode: true,
   async rewrites() {
+    // Exclude Next.js internals and static assets from subdomain rewrites so
+    // /_next/* and /api/* resolve at the domain root instead of being prefixed
+    // with the subdomain's path (which would 404 every CSS/JS chunk).
+    const passthrough = '/:path((?!_next/|api/|favicon|images/|css/|js/|resume/).*)'
     return {
       beforeFiles: [
-        { source: '/:path*', has: [{ type: 'host', value: 'services.wesley-m.com' }], destination: '/services/:path*' },
-        { source: '/:path*', has: [{ type: 'host', value: 'contact.wesley-m.com' }], destination: '/contact/:path*' },
-        { source: '/:path*', has: [{ type: 'host', value: 'resume.wesley-m.com' }], destination: '/resume/:path*' },
-        { source: '/:path*', has: [{ type: 'host', value: 'work.wesley-m.com' }], destination: '/work/:path*' },
-        { source: '/:path*', has: [{ type: 'host', value: 'blog.wesley-m.com' }], destination: '/blog/:path*' },
+        { source: passthrough, has: [{ type: 'host', value: 'services.wesley-m.com' }], destination: '/services/:path' },
+        { source: passthrough, has: [{ type: 'host', value: 'contact.wesley-m.com' }], destination: '/contact/:path' },
+        { source: passthrough, has: [{ type: 'host', value: 'resume.wesley-m.com' }], destination: '/resume/:path' },
+        { source: passthrough, has: [{ type: 'host', value: 'work.wesley-m.com' }], destination: '/work/:path' },
+        { source: passthrough, has: [{ type: 'host', value: 'blog.wesley-m.com' }], destination: '/blog/:path' },
       ],
     }
   },
