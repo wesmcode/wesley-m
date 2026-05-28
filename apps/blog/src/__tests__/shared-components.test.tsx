@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import { SkipLink } from '@/components/shared/SkipLink'
@@ -84,14 +84,29 @@ describe('SiteLink', () => {
     expect(link).not.toHaveAttribute('target')
     expect(link).not.toHaveAttribute('rel')
   })
+
+  it('treats wesley-m.com subdomain URLs as same-site (no new tab)', () => {
+    render(<SiteLink href="https://work.wesley-m.com">Work</SiteLink>)
+    const link = screen.getByText('Work')
+    expect(link).toHaveAttribute('href', 'https://work.wesley-m.com')
+    expect(link).not.toHaveAttribute('target')
+    expect(link).not.toHaveAttribute('rel')
+  })
+
+  it('opens true external domains in a new tab', () => {
+    render(<SiteLink href="https://github.com/x">GH</SiteLink>)
+    const link = screen.getByText('GH')
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+  })
 })
 
 describe('SITE_NAV', () => {
   it('contains all required navigation items', () => {
     const labels = SITE_NAV.map((n) => n.label)
-    expect(labels).toContain('Blog')
     expect(labels).toContain('Case studies')
     expect(labels).toContain('Services')
+    expect(labels).toContain('Contact')
     expect(labels).toContain('LinkedIn')
   })
 
@@ -139,7 +154,6 @@ describe('TopBar', () => {
 
   it('renders all nav items', () => {
     render(<TopBar />)
-    expect(screen.getByText('Blog')).toBeTruthy()
     expect(screen.getByText('Case studies')).toBeTruthy()
     expect(screen.getByText('Services')).toBeTruthy()
     expect(screen.getByText('Playground')).toBeTruthy()
@@ -148,16 +162,18 @@ describe('TopBar', () => {
   })
 
   it('marks current page with aria-current', () => {
-    render(<TopBar currentPath="/blog" />)
-    const blogLink = screen.getByText('Blog')
-    expect(blogLink).toHaveAttribute('aria-current', 'page')
-    expect(blogLink).toHaveAttribute('tabindex', '-1')
+    const servicesHref = SITE_NAV.find((n) => n.label === 'Services')!.href
+    render(<TopBar currentPath={servicesHref} />)
+    const servicesLink = screen.getByText('Services')
+    expect(servicesLink).toHaveAttribute('aria-current', 'page')
+    expect(servicesLink).toHaveAttribute('tabindex', '-1')
   })
 
   it('does not mark non-current pages', () => {
-    render(<TopBar currentPath="/blog" />)
-    const servicesLink = screen.getByText('Services')
-    expect(servicesLink).not.toHaveAttribute('aria-current')
+    const servicesHref = SITE_NAV.find((n) => n.label === 'Services')!.href
+    render(<TopBar currentPath={servicesHref} />)
+    const contactLink = screen.getByText('Contact')
+    expect(contactLink).not.toHaveAttribute('aria-current')
   })
 
   it('renders LinkedIn as external link', () => {
@@ -184,13 +200,14 @@ describe('Footer', () => {
   it('renders all nav items', () => {
     render(<Footer />)
     expect(screen.getByRole('navigation', { name: 'Footer navigation' })).toBeTruthy()
-    expect(screen.getByText('Blog')).toBeTruthy()
+    expect(screen.getByText('Case studies')).toBeTruthy()
     expect(screen.getByText('Services')).toBeTruthy()
     expect(screen.getByText('LinkedIn')).toBeTruthy()
   })
 
   it('marks current page in footer nav', () => {
-    render(<Footer currentPath="/services" />)
+    const servicesHref = SITE_NAV.find((n) => n.label === 'Services')!.href
+    render(<Footer currentPath={servicesHref} />)
     const servicesLink = screen.getByText('Services')
     expect(servicesLink).toHaveAttribute('aria-current', 'page')
   })

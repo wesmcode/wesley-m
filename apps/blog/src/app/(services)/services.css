@@ -567,6 +567,461 @@ body {
 .process-strip-step { color: var(--fg); }
 .process-strip-sep { color: var(--fg-hover); }
 
+/* HERO LANES — path links inside hero (variant D) ---------- */
+.hero-lanes {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 8px;
+    border-top: var(--rule-soft);
+}
+.hero-lane {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg);
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: var(--rule-soft);
+    transition: color 0.15s ease, padding-left 0.15s ease;
+}
+.hero-lane:visited { color: var(--fg); }
+.hero-lane:hover { color: var(--fg-hover); padding-left: 8px; }
+
+/* POV STATEMENT — editorial opener (variant D) ------------- */
+.pov {
+    padding: 72px 0;
+    border-bottom: var(--rule-heavy);
+}
+.pov.snap-section {
+    min-height: auto;
+    scroll-snap-align: none;
+}
+.pov-label {
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0 0 24px;
+}
+.pov-text {
+    font-size: clamp(22px, 2.8vw, 34px);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    margin: 0;
+    max-width: 38ch;
+}
+
+/* QUALIFIER — "this is for you if" symptom grid ------------ */
+.qual {
+    padding: 64px 0 72px;
+    border-bottom: var(--rule-heavy);
+}
+.qual-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+.qual-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px 24px 26px;
+    border: var(--rule-medium);
+    background: var(--bg);
+    color: var(--fg);
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.qual-card:hover { background: var(--fg); color: var(--bg); }
+.qual-symptom {
+    display: flex;
+    gap: 12px;
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+.qual-mark {
+    flex-shrink: 0;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+.qual-card:hover .qual-mark { color: var(--bg-a55); }
+.qual-fix {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--fg-quiet);
+    margin: 0 0 0 24px;
+    transition: color 0.15s ease;
+}
+.qual-card:hover .qual-fix { color: var(--bg-a82); }
+
+/* PATH SELECT — three big lanes (variant D) ---------------- */
+.pathsel {
+    padding: 64px 0 72px;
+    border-bottom: var(--rule-heavy);
+}
+.pathsel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.pathsel-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 32px 28px 28px;
+    border: var(--rule-medium);
+    background: var(--bg);
+    color: var(--fg);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.pathsel-card:visited { color: var(--fg); }
+.pathsel-card:hover {
+    background: var(--fg);
+    color: var(--bg);
+    box-shadow: 8px 8px 0 var(--fg);
+    transform: translate(-2px, -2px);
+}
+.pathsel-card:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
+.pathsel-card h3 {
+    font-size: clamp(24px, 2.6vw, 32px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+}
+.pathsel-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--fg-quiet);
+    margin: 0;
+    flex: 1;
+    transition: color 0.15s ease;
+}
+.pathsel-card:hover p { color: var(--bg-a82); }
+.pathsel-cta {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* SEATS — where do you sit + this is for you if (variant E) */
+.seats {
+    padding: 64px 0 72px;
+    border-bottom: var(--rule-heavy);
+}
+.seats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.seats-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px 24px 24px;
+    border: var(--rule-medium);
+    background: var(--bg);
+    color: var(--fg);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.seats-card:visited { color: var(--fg); }
+.seats-card:hover {
+    background: var(--fg);
+    color: var(--bg);
+    box-shadow: 8px 8px 0 var(--fg);
+    transform: translate(-2px, -2px);
+}
+.seats-card:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
+.seats-label {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0;
+    transition: color 0.15s ease;
+}
+.seats-card:hover .seats-label { color: var(--bg-a55); }
+.seats-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+.seats-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 17px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    transition: color 0.15s ease;
+}
+.seats-mark {
+    flex-shrink: 0;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+.seats-card:hover .seats-mark { color: var(--bg-a55); }
+.seats-cta {
+    margin-top: 4px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* OFFERINGS TABLE — three audience columns ----------------- */
+.otable-section {
+    padding: 64px 0 72px;
+    border-bottom: var(--rule-heavy);
+}
+.otable-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0;
+}
+.otable-foot {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: var(--rule-medium);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.otable-commit {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0;
+}
+.otable-starts {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.otable-starts-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-quiet);
+}
+.otable-starts-value {
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-size: clamp(32px, 3.6vw, 44px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+.otable {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+}
+.otable-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 36px 32px;
+    border: var(--rule-medium);
+    scroll-margin-top: var(--top-bar-h);
+}
+.otable-head {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 18px;
+    border-bottom: var(--rule-medium);
+}
+.otable-label {
+    font-size: 21px;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+}
+.otable-who {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--fg-quiet);
+    margin: 0;
+}
+.otable-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    flex: 1;
+}
+.otable-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.otable-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+.otable-name {
+    font-size: 18px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+}
+.otable-price {
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-size: 20px;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.55);
+    white-space: nowrap;
+}
+.otable-sum {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--fg-quiet);
+    margin: 0;
+}
+.otable-cta {
+    align-self: flex-start;
+    margin-top: 4px;
+}
+
+/* VARIANT SWITCHER — floating preview pill ----------------- */
+.var-switch {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    background: rgba(19, 19, 19, 0.92);
+    border: 2px solid var(--fg);
+    backdrop-filter: saturate(150%) blur(10px);
+    -webkit-backdrop-filter: saturate(150%) blur(10px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+.var-switch-label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    padding: 0 8px 0 4px;
+}
+.var-switch-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--fg);
+    font-family: inherit;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.var-switch-btn:hover { border-color: var(--fg-hover); }
+.var-switch-btn.is-active { background: var(--fg); color: var(--bg); }
+.var-switch-btn:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+.var-switch-key {
+    font-size: 14px;
+    letter-spacing: 0.06em;
+}
+.var-switch-name {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* NEW-BLOCK RESPONSIVE ------------------------------------- */
+@media only screen and (max-width: 1024px) {
+    .otable { gap: 16px; }
+}
+@media only screen and (max-width: 768px) {
+    .qual,
+    .pov,
+    .pathsel,
+    .seats,
+    .otable-section {
+        padding: 40px 0 48px;
+    }
+    .qual-grid { grid-template-columns: 1fr; gap: 16px; }
+    .qual-symptom { font-size: 18px; }
+    .qual-fix { font-size: 16px; }
+    .pathsel-grid { grid-template-columns: 1fr; gap: 16px; }
+    .seats-grid { grid-template-columns: 1fr; gap: 16px; }
+    .seats-list li { font-size: 16px; }
+    .otable { grid-template-columns: 1fr; }
+    .otable-name { font-size: 17px; }
+    .otable-sum { font-size: 15px; }
+    .var-switch { bottom: 12px; padding: 6px 8px; gap: 4px; }
+    .var-switch-label { display: none; }
+    .var-switch-name { display: none; }
+    .var-switch-btn { padding: 8px 12px; }
+}
+@media (hover: none) {
+    .qual-card:hover { background: var(--bg); color: var(--fg); }
+    .qual-card:hover .qual-fix { color: var(--fg-quiet); }
+    .qual-card:hover .qual-mark { color: var(--fg-hover); }
+    .pathsel-card:hover {
+        background: var(--bg);
+        color: var(--fg);
+        box-shadow: none;
+        transform: none;
+    }
+    .pathsel-card:hover p { color: var(--fg-quiet); }
+    .seats-card:hover {
+        background: var(--bg);
+        color: var(--fg);
+        box-shadow: none;
+        transform: none;
+    }
+    .seats-card:hover .seats-label,
+    .seats-card:hover .seats-mark { color: var(--fg-hover); }
+}
+@media only screen and (max-width: 1024px) {
+    .seats-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .qual-card,
+    .pathsel-card,
+    .seats-card,
+    .hero-lane,
+    .var-switch-btn {
+        transition: none;
+    }
+    .pathsel-card:hover,
+    .seats-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
 /* EXPECT — full-row invert, process-row pattern ------------- */
 .expect {
     padding: 64px 0 72px;
@@ -986,11 +1441,11 @@ body {
 
 /* Big CTA subtitle */
 .big-cta-sub {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
     color: rgba(19, 19, 19, 0.65);
     margin: 0;
-    max-width: 44ch;
+    max-width: 48ch;
 }
 
 /* Book grid — calendar + contact form side by side */
@@ -1017,7 +1472,7 @@ body {
 
 /* BIG CTA — white block, sharp corners ---------------------- */
 .big-cta {
-    padding: 64px 0 48px;
+    padding: 48px 0 40px;
 }
 
 .big-cta.snap-section {
@@ -1028,13 +1483,13 @@ body {
 .big-cta-card {
     background: #FFFFFF;
     color: var(--bg);
-    border: 4px solid var(--fg);
-    padding: 64px 56px;
+    border: 3px solid var(--fg);
+    padding: 40px 44px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: 24px;
+    gap: 14px;
     height: 100%;
     transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
@@ -1053,13 +1508,13 @@ body {
 }
 
 .big-cta-title {
-    font-size: clamp(48px, 6.4vw, 88px);
-    line-height: 1.0;
+    font-size: clamp(34px, 4.2vw, 56px);
+    line-height: 1.04;
     font-weight: 400;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
     text-transform: uppercase;
     margin: 0;
-    max-width: 16ch;
+    max-width: 18ch;
 }
 
 .big-cta-card .cta-button {

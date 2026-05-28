@@ -16,14 +16,24 @@ test.describe('Personal page (linktree)', () => {
     await expect(page.locator('.timeline-row .company', { hasText: 'ThoughtWorks' })).toBeVisible()
   })
 
-  test('renders navigation links', async ({ page }) => {
+  test('renders grouped navigation links', async ({ page }) => {
     await page.goto('/')
     const nav = page.locator('nav[aria-label="Contact and links"]')
     await expect(nav).toBeVisible()
-    await expect(nav.locator('.nav-item', { hasText: 'Blog' })).toBeVisible()
     await expect(nav.locator('.nav-item', { hasText: 'Services' })).toBeVisible()
-    await expect(nav.locator('.nav-item', { hasText: 'LinkedIn' })).toBeVisible()
+    await expect(nav.locator('.nav-item', { hasText: 'Case studies' })).toBeVisible()
     await expect(nav.locator('.nav-item', { hasText: 'Resume' })).toBeVisible()
+    await expect(nav.locator('.nav-item', { hasText: 'LinkedIn' })).toBeVisible()
+    // Playground and Contact were intentionally removed from the linktree.
+    await expect(nav.locator('.nav-item', { hasText: 'Playground' })).toHaveCount(0)
+    await expect(nav.locator('.nav-item', { hasText: 'Contact' })).toHaveCount(0)
+  })
+
+  test('separates link groups with a blank row', async ({ page }) => {
+    await page.goto('/')
+    const nav = page.locator('nav[aria-label="Contact and links"]')
+    // One divider between the two link groups.
+    await expect(nav.locator('.row-empty')).toHaveCount(1)
   })
 
   test('does not render sticky TopBar (linktree layout)', async ({ page }) => {
