@@ -260,24 +260,24 @@ html, body {
    ============================================================ */
 @media only screen and (max-width: 768px) {
     .top-bar-inner {
-        padding-block: 10px;
+        padding-block: 6px;
         padding-inline: max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-right));
         flex-direction: column;
-        gap: 10px 16px;
+        gap: 4px 16px;
     }
     .top-bar-links {
-        gap: 0 16px;
+        gap: 0 12px;
         flex: 0 1 auto;
         justify-content: center;
         width: 100%;
     }
     .top-bar-links .link {
-        font-size: 14px;
-        min-height: 44px;
+        font-size: 13px;
+        min-height: 34px;
         display: inline-flex;
         align-items: center;
-        padding-block: 10px;
-        letter-spacing: 0.06em;
+        padding-block: 5px;
+        letter-spacing: 0.03em;
     }
     .top-bar-links .link[href*="resume"],
     .top-bar-links .link[href*="linkedin.com"] {
@@ -305,6 +305,10 @@ html, body {
     /* Top bar collapses the wordmark to the W ◆ M monogram so the bar stays
        narrow and the links don't get crowded. Footer keeps the full wordmark. */
     .top-bar .brand-wrap { min-width: 0; }
+    .top-bar .top-bar-brand {
+        min-height: 30px;
+        padding-block: 2px;
+    }
     .top-bar .brand-full { display: none; }
     .top-bar .brand-short,
     .top-bar .brand-wrap:hover .brand-short {
