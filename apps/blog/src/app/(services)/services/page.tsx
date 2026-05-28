@@ -102,7 +102,7 @@ function Hero() {
         <div className="hero-foot">
           <p className="hero-lede">Product, AI, and platform decisions get expensive fast. I help founder-led and growth-stage teams decide what to build, automate, migrate, or retire, then stay embedded until it ships.</p>
           <div className="hero-cta">
-            <a className="cta-button cta-button--solid" href="#book"><span>Book a scoping call</span><Arrow /></a>
+            <a className="cta-button" href="#book"><span>Book a scoping call</span><Arrow /></a>
             <a className="cta-button" href={urls.work}><span>See case studies</span><Arrow /></a>
           </div>
         </div>
