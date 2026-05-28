@@ -978,13 +978,31 @@ body {
         padding: 40px 0 48px;
     }
 
+    .hero-text {
+        display: contents;
+    }
+
     .hero-grid {
         grid-template-columns: 1fr;
         grid-template-areas:
+            "label"
+            "title"
             "figure"
-            "text"
+            "tags"
             "lede";
         gap: 28px;
+    }
+
+    .hero-text .section-label {
+        grid-area: label;
+    }
+
+    .hero-title {
+        grid-area: title;
+    }
+
+    .hero-tags {
+        grid-area: tags;
     }
 
     .hero-figure {
