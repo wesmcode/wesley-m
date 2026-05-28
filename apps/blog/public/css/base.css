@@ -1,0 +1,333 @@
+/* Shared tokens — page :root declarations may add or override */
+:root {
+    --placeholder-bg: #e8e8e8;
+
+    /* Sticky top bar height. Drives scroll-padding-top and scroll-margin-top
+       so focused / linked elements are never hidden under the nav.
+       Pages with no top bar (home) still inherit harmlessly. */
+    --top-bar-h: 64px;
+
+    /* Documented breakpoints. CSS custom properties can't be consumed inside
+       @media queries, so these exist as the canonical source of truth that
+       per-page sheets should match. */
+    --bp-sm: 480px;
+    --bp-md: 768px;
+    --bp-lg: 1024px;
+}
+
+/* Sticky nav focus-not-obscured (WCAG 2.4.11). Specificity 0 so any page
+   sheet can override without !important. */
+:where(h1, h2, h3, h4, h5, h6, section, article, [id]) {
+    scroll-margin-top: var(--top-bar-h);
+}
+
+/* Reset */
+html, body, div, span, h1, h2, h3, p, a, img,
+ol, ul, li, header, main, nav, section, footer, figure, article {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+header, main, nav, section, footer, figure, article { display: block; }
+ol, ul { list-style: none; }
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Skip link — visible only on keyboard focus */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 8px 16px;
+    background: var(--fg);
+    color: var(--bg);
+    text-decoration: none;
+}
+.skip-link:focus { left: 0; }
+
+/* Visually hidden — keep accessible to screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* All clickable elements */
+.link {
+    font-weight: 400;
+    color: var(--fg);
+    text-decoration: none;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    cursor: default;
+}
+.link:visited { color: var(--fg); }
+.link:hover { color: var(--fg-hover); text-decoration: underline; }
+.link:focus-visible { color: var(--bg); background: var(--fg); outline: none; }
+.link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
+.link:active { background: var(--fg); color: var(--bg); }
+
+/* Brand photo treatment — desaturate + tint to site navy.
+   Apply to a figure/div wrapping a single <img>.
+   Override strength per-use:  style="--brand-tint: 0.6;"
+   Override color per-use:     style="--brand-tone: #1f2a44;" */
+.brand-photo {
+    --brand-tint: 0.45;
+    --brand-tone: #2B3856;
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-tone);
+    isolation: isolate;
+}
+.brand-photo > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.7) contrast(1.05) brightness(1.02);
+}
+.brand-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--brand-tone);
+    mix-blend-mode: color;
+    opacity: var(--brand-tint);
+    pointer-events: none;
+}
+
+/* ============================================================
+   TOP BAR — sticky nav, shared by all inner pages
+   ============================================================ */
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(19, 19, 19, 0.92);
+    backdrop-filter: saturate(150%) blur(10px);
+    -webkit-backdrop-filter: saturate(150%) blur(10px);
+    border-bottom: var(--rule-soft);
+}
+.top-bar-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-block: 18px;
+    padding-inline: max(40px, env(safe-area-inset-left)) max(40px, env(safe-area-inset-right));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px 32px;
+    flex-wrap: wrap;
+}
+.top-bar-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+.top-bar-links .link {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.top-bar-links [aria-current="page"] {
+    color: var(--fg-hover);
+    pointer-events: none;
+}
+
+/* ============================================================
+   BRAND WRAP — fixed-width hover target for "WESLEY MELO"
+   Shared by top-bar-brand and footer-brand.
+   ============================================================ */
+.brand-wrap {
+    position: relative;
+    display: inline-block;
+    min-width: 13ch;
+    text-align: center;
+    cursor: pointer;
+}
+.top-bar-brand,
+.footer-brand {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg);
+    text-decoration: none;
+    transition: color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 10px;
+}
+.footer-brand { letter-spacing: 0.1em; }
+.footer-brand:visited { color: inherit; }
+
+/* Crossfade: "WESLEY MELO" → "W ◆ M" on .brand-wrap hover */
+.brand-full {
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+.brand-short {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+.brand-diamond {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--fg, #fff);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+}
+.brand-wrap:hover .brand-full { opacity: 0; }
+.brand-wrap:hover .brand-short { opacity: 1; }
+.brand-wrap:hover .footer-brand,
+.brand-wrap:hover .top-bar-brand {
+    text-decoration: underline;
+    color: var(--fg-hover, inherit);
+}
+.top-bar-brand:focus-visible,
+.footer-brand:focus-visible {
+    color: var(--bg);
+    background: var(--fg);
+    outline: none;
+}
+.top-bar-brand:active,
+.footer-brand:active {
+    background: var(--fg);
+    color: var(--bg);
+}
+.top-bar-brand:active .brand-diamond,
+.footer-brand:active .brand-diamond,
+.top-bar-brand:focus-visible .brand-diamond,
+.footer-brand:focus-visible .brand-diamond {
+    background: var(--bg);
+}
+
+/* ============================================================
+   FOOTER — shared across all pages
+   ============================================================ */
+#site-footer {
+    border-top: var(--rule-soft);
+    padding: 40px 0 32px;
+}
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding-top: 32px;
+}
+#site-footer .footer-row { border-top: none; }
+.footer-nav {
+    display: flex;
+    gap: 24px;
+}
+.footer-nav .link {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+.footer-meta {
+    margin-top: 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   MOBILE — top-bar + footer
+   ============================================================ */
+@media only screen and (max-width: 768px) {
+    .top-bar-inner {
+        padding-block: 8px;
+        padding-inline: max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-right));
+        gap: 0 16px;
+    }
+    .top-bar-links {
+        gap: 0 16px;
+        flex: 1;
+        justify-content: flex-end;
+    }
+    .top-bar-links .link {
+        font-size: 14px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding-block: 10px;
+        letter-spacing: 0.06em;
+    }
+    .top-bar-links .link[href*="resume.html"],
+    .top-bar-links .link[href*="linkedin.com"] {
+        display: none;
+    }
+    .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .footer-nav {
+        flex-wrap: wrap;
+        gap: 8px 24px;
+    }
+    .footer-nav .link {
+        padding-block: 10px;
+        line-height: 24px;
+    }
+    .link:hover { text-decoration: none; }
+    .brand-wrap:hover .brand-full { opacity: 1; }
+    .brand-wrap:hover .brand-short { opacity: 0; }
+    .brand-wrap:hover .footer-brand,
+    .brand-wrap:hover .top-bar-brand { text-decoration: none; }
+}
+
+/* Long titles must wrap on narrow viewports rather than overflow.
+   Specificity 0 so per-page heading rules win. */
+:where(h1, h2, h3, h4) {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Universal motion safety. Catches pages whose sheet forgot to add their own
+   prefers-reduced-motion block. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
