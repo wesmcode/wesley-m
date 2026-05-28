@@ -38,7 +38,7 @@ export default function PersonalPage() {
 
           <nav aria-label="Contact and links">
             <div className="row">
-              <a href="/work.html" className="link nav-item">
+              <a href="/work" className="link nav-item">
                 <span className="button-label">Case studies</span>
                 <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
               </a>

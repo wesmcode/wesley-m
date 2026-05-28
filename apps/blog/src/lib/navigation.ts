@@ -4,7 +4,7 @@ export interface NavItem {
 }
 
 export const SITE_NAV: NavItem[] = [
-  { href: '/work.html', label: 'Case studies' },
+  { href: '/work', label: 'Case studies' },
   { href: '/services', label: 'Services' },
   { href: '/playground', label: 'Playground' },
   { href: '/contact', label: 'Contact' },
@@ -13,7 +13,7 @@ export const SITE_NAV: NavItem[] = [
 
 export const SERVICES_NAV: NavItem[] = [
   { href: '/', label: 'About' },
-  { href: '/work.html', label: 'Case studies' },
+  { href: '/work', label: 'Case studies' },
   { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
 ]
