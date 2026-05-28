@@ -1,11 +1,13 @@
+import Link from 'next/link'
+
 const CASES = [
-  { num: '01', href: '/work/enterprise-ai-platform-launch.html', text: 'Code and Theory · A 2-week manual audit became an AI product clients asked to buy' },
-  { num: '02', href: '/work/sports-league-design-system.html', text: '[NDA Client] · US professional sports league: reducing delivery risk across 32 properties' },
-  { num: '03', href: '/work/political-media-ecosystem.html', text: '[NDA Client] · US political media network: "modernise the site" became a measurable platform roadmap' },
-  { num: '04', href: '/work/fitness-membership-platform.html', text: '[NDA Client] · Major US fitness franchise: a cancellation crisis became a retention platform' },
-  { num: '05', href: '/work/retail-ecommerce-modernisation.html', text: '[NDA Client] · Global apparel retail group: capturing the 2020 e-commerce surge' },
-  { num: '06', href: '/work/liferay-enterprise-dxp.html', text: 'Liferay · Enterprise DXP vendor: closing platform gaps that drove customer churn' },
-  { num: '07', href: '/work/thoughtworks-pm-practice.html', text: 'ThoughtWorks · Global engineering consultancy: building product capability during a market slowdown' },
+  { num: '01', href: '/work/enterprise-ai-platform-launch', text: 'Code and Theory · A 2-week manual audit became an AI product clients asked to buy' },
+  { num: '02', href: '/work/sports-league-design-system', text: '[NDA Client] · US professional sports league: reducing delivery risk across 32 properties' },
+  { num: '03', href: '/work/political-media-ecosystem', text: '[NDA Client] · US political media network: "modernise the site" became a measurable platform roadmap' },
+  { num: '04', href: '/work/fitness-membership-platform', text: '[NDA Client] · Major US fitness franchise: a cancellation crisis became a retention platform' },
+  { num: '05', href: '/work/retail-ecommerce-modernisation', text: '[NDA Client] · Global apparel retail group: capturing the 2020 e-commerce surge' },
+  { num: '06', href: '/work/liferay-enterprise-dxp', text: 'Liferay · Enterprise DXP vendor: closing platform gaps that drove customer churn' },
+  { num: '07', href: '/work/thoughtworks-pm-practice', text: 'ThoughtWorks · Global engineering consultancy: building product capability during a market slowdown' },
 ]
 
 export default function WorkPage() {
@@ -27,11 +29,11 @@ export default function WorkPage() {
             <ol className="hero-index-list">
               {CASES.map((c) => (
                 <li key={c.num}>
-                  <a href={c.href} className="hero-index-item">
+                  <Link href={c.href} className="hero-index-item">
                     <span className="hero-index-num">{c.num}</span>
                     <span>{c.text}</span>
                     <span className="hero-index-arrow" aria-hidden="true">{'→︎'}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ol>

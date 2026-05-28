@@ -17,3 +17,10 @@ export const SERVICES_NAV: NavItem[] = [
   { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
 ]
+
+export const WORK_NAV: NavItem[] = [
+  { href: '/work', label: 'Case studies' },
+  { href: '/services', label: 'Services' },
+  { href: '/contact', label: 'Contact' },
+  { href: 'https://linkedin.com/in/wesmelo', label: 'LinkedIn' },
+]
