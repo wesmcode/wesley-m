@@ -351,6 +351,222 @@ body {
     outline-color: var(--bg);
 }
 
+/* VARIANT FLAG — temporary review scaffolding -------------- */
+.variant-flag {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #ffd24a;
+    border: 1px dashed rgba(255, 210, 74, 0.5);
+    padding: 6px 12px;
+    margin: 0 0 24px;
+}
+
+/* ROUTER — pain-first, routes down to offering zones -------- */
+.router {
+    padding: 64px 0 72px;
+    border-bottom: var(--rule-heavy);
+}
+
+.router-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.router-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px 24px 24px;
+    border: var(--rule-medium);
+    background: var(--bg);
+    color: var(--fg);
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.router-card:visited { color: var(--fg); }
+
+.router-card:hover {
+    background: var(--fg);
+    color: var(--bg);
+    box-shadow: 8px 8px 0 var(--fg);
+    transform: translate(-2px, -2px);
+}
+
+.router-card:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 4px;
+}
+
+.router-card-label {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0;
+    transition: color 0.15s ease;
+}
+
+.router-card:hover .router-card-label { color: var(--bg-a55); }
+
+.router-card-line {
+    font-size: 19px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.router-quotes {
+    list-style: none;
+    margin: 4px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.router-quotes li {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--fg-quiet);
+    font-style: italic;
+    transition: color 0.15s ease;
+}
+
+.router-card:hover .router-quotes li { color: var(--bg-a82); }
+
+.router-quote-mark {
+    flex-shrink: 0;
+    font-style: normal;
+    color: var(--fg-hover);
+    transition: color 0.15s ease;
+}
+
+.router-card:hover .router-quote-mark { color: var(--bg-a55); }
+
+.router-card-cta {
+    margin-top: 8px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* PROCESS — shared section frame --------------------------- */
+.process {
+    padding: 64px 0 72px;
+    border-bottom: var(--rule-heavy);
+}
+
+/* PROCESS A — numbered vertical journey -------------------- */
+.process-steps {
+    border-top: var(--rule-medium);
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 36px;
+    align-items: baseline;
+    padding: 28px 4px;
+    border-bottom: var(--rule-medium);
+}
+
+.process-step-num {
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: var(--fg-hover);
+}
+
+.process-step-body h4 {
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0 0 10px;
+}
+
+.process-step-body p {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--fg-quiet);
+    margin: 0;
+    max-width: 60ch;
+}
+
+/* PROCESS B — three big-number cards ----------------------- */
+.process-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.process-bigcard {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 32px 28px 36px;
+    border: var(--rule-medium);
+    background: var(--bg);
+    color: var(--fg);
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.process-bigcard:hover { background: var(--fg); color: var(--bg); }
+
+.process-bignum {
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-size: clamp(56px, 6vw, 88px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+}
+
+.process-bigcard h4 {
+    font-size: 26px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+}
+
+.process-bigcard p {
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--fg-quiet);
+    margin: 0;
+    transition: color 0.15s ease;
+}
+
+.process-bigcard:hover p { color: var(--bg-a82); }
+
+/* PROCESS C — thin step strip above principle cards -------- */
+.process-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 18px;
+    padding: 0 0 28px;
+    margin-bottom: 12px;
+    border-bottom: var(--rule-soft);
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.process-strip-step { color: var(--fg); }
+.process-strip-sep { color: var(--fg-hover); }
+
 /* EXPECT — full-row invert, process-row pattern ------------- */
 .expect {
     padding: 64px 0 72px;
@@ -781,7 +997,7 @@ body {
 .book-grid {
     margin-top: 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr;
     gap: 32px;
     align-items: stretch;
 }
@@ -890,11 +1106,14 @@ body {
     .faq-icon::after,
     .offer-expand-toggle,
     .offer-expand-body,
+    .router-card,
+    .process-bigcard,
     .hero-figure__img--hover {
         transition: none;
     }
     .offer:hover,
     .buyer-card:hover,
+    .router-card:hover,
     .big-cta-card:hover {
         transform: none;
         box-shadow: none;
@@ -904,15 +1123,21 @@ body {
 /* TOUCH ----------------------------------------------------- */
 @media (hover: none) {
     .offer:hover,
-    .buyer-card:hover {
+    .buyer-card:hover,
+    .router-card:hover {
         background: var(--bg);
         color: var(--fg);
         box-shadow: none;
         transform: none;
     }
+    .process-bigcard:hover { background: var(--bg); color: var(--fg); }
+    .process-bigcard:hover p { color: var(--fg-quiet); }
     .offer:hover .offer-num,
     .offer:hover .offer-meta,
     .offer:hover .offer-expand-toggle { color: var(--fg-hover); }
+    .router-card:hover .router-card-label,
+    .router-card:hover .router-quote-mark { color: var(--fg-hover); }
+    .router-card:hover .router-quotes li { color: var(--fg-quiet); }
     .offer:hover p:not(.offer-meta),
     .offer:hover .offer-expand-body,
     .buyer-card:hover p { color: var(--fg-quiet); }
@@ -928,6 +1153,13 @@ body {
 @media only screen and (max-width: 1024px) {
     .offer-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .router-grid {
+        grid-template-columns: 1fr;
+    }
+    .process-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
     }
     .expect-card {
         grid-template-columns: 1fr;
@@ -1021,10 +1253,42 @@ body {
 
     .offerings,
     .expect,
+    .router,
+    .process,
     .faq,
     .buyers,
     .cta-card-section {
         padding: 40px 0 48px;
+    }
+
+    .router-grid {
+        gap: 16px;
+    }
+
+    .router-card-line {
+        font-size: 18px;
+    }
+
+    .router-quotes li {
+        font-size: 16px;
+    }
+
+    .process-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .process-step {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 22px 0;
+    }
+
+    .process-step-num {
+        font-size: 22px;
+    }
+
+    .process-step-body p {
+        font-size: 16px;
     }
 
     .offer-grid {
