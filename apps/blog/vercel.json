@@ -1,5 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
       "source": "/:path*",
@@ -26,5 +28,14 @@
       "has": [{ "type": "host", "value": "blog.wesley-m.com" }],
       "destination": "/blog/:path*"
     }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/services.html", "destination": "/services", "permanent": true },
+    { "source": "/blog.html", "destination": "/blog", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/resume.html", "destination": "/resume", "permanent": true },
+    { "source": "/playground.html", "destination": "/playground", "permanent": true },
+    { "source": "/about.html", "destination": "/", "permanent": true }
   ]
 }
