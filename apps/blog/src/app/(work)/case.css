@@ -476,7 +476,7 @@ html {
     background: var(--bg-alt);
     color: var(--ink);
     border-top: 1px solid var(--ink-rule);
-    padding: clamp(48px, 7vw, 88px) 0 clamp(48px, 7vw, 88px);
+    padding: clamp(24px, 3.5vw, 44px) 0 clamp(24px, 3.5vw, 44px);
 }
 .case-cta-inner {
     max-width: 1180px;
