@@ -1,3 +1,4 @@
+export { ActiveTopBar } from './ActiveTopBar'
 export { BrandWrap } from './BrandWrap'
 export { CalEmbed } from './CalEmbed'
 export { CarouselContainer } from './Carousel'

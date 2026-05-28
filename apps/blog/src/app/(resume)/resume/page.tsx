@@ -10,7 +10,10 @@ export default function ResumePage() {
       <main id="main-content">
         <div className="page">
           <Link href="/" className="site-link">{'← wesley-m.com'}</Link>
-          <a href="/resume/wesley_melo_resume_remote.pdf" download type="application/pdf" className="download-btn">Download PDF (ES)</a>
+          <a href="/resume/wesley_melo_resume_remote.pdf" download type="application/pdf" className="cta-button download-btn">
+            <span>Download PDF (ES)</span>
+            <span aria-hidden="true">{'→︎'}</span>
+          </a>
 
           <header>
             <h1>WESLEY MELO</h1>

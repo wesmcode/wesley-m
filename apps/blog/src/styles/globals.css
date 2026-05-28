@@ -146,6 +146,7 @@ html, body {
 }
 .top-bar-links [aria-current="page"] {
     color: var(--fg-hover);
+    font-weight: 700;
     pointer-events: none;
 }
 

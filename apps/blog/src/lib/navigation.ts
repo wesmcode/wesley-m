@@ -12,7 +12,7 @@ export const SITE_NAV: NavItem[] = [
 ]
 
 export const SERVICES_NAV: NavItem[] = [
-  { href: '/', label: 'About' },
+  { href: '/about', label: 'About' },
   { href: '/work', label: 'Case studies' },
   { href: '/services', label: 'Services' },
   { href: '/contact', label: 'Contact' },
