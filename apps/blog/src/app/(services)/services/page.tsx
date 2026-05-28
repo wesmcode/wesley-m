@@ -1,7 +1,17 @@
 import { CalEmbed, ContactForm, SectionHead } from '@/components/shared'
 import { urls } from '@/lib/urls'
 
-const OFFERS = [
+type Offer = {
+  tag: string
+  title: string
+  who: string
+  includes: string[]
+  timeline: string
+  price: string
+  note?: string
+}
+
+const OFFERS: Offer[] = [
   {
     tag: 'Audit',
     title: 'Product + AI Systems Audit',
@@ -25,6 +35,7 @@ const OFFERS = [
     includes: ['Roadmap and OKRs', 'Delivery cadence', 'Embedded execution 2 to 3 days a week', 'Full handover'],
     timeline: '3-month minimum',
     price: '$4k/mo',
+    note: 'From $12k total',
   },
 ]
 
@@ -43,9 +54,9 @@ const PROCESS = [
 const POV = 'I turn ambiguous, high-stakes briefs into product that ships and moves a number. The proof is in the work, not the pitch.'
 
 const POV_PROOF = [
-  { num: '8 AI agents', line: 'shipped in 90 days, with 4 enterprise pilots signed the same quarter.' },
-  { num: '65M views', line: 'a media network consolidated, traffic and domain authority held through cutover.' },
-  { num: '150% growth', line: 'revenue across three fiscal years on a 15M-member platform.' },
+  { num: '8 AI agents', tag: 'Enterprise AI SaaS', line: 'shipped in 90 days, with 4 enterprise pilots signed the same quarter.' },
+  { num: '65M views', tag: 'US political media network', line: 'a media network consolidated, traffic and domain authority held through cutover.' },
+  { num: '150% growth', tag: 'US fitness subscription', line: 'revenue across three fiscal years on a 15M-member platform.' },
 ]
 
 type FaqItem = { q: string; a: string; tiers?: { price: string; label: string }[] }
@@ -74,10 +85,10 @@ const Arrow = () => <span aria-hidden="true">{'→︎'}</span>
 
 function Hero() {
   return (
-    <section className="hero snap-section" aria-label="Engagements">
+    <section className="hero snap-section" aria-label="Available for projects">
       <div className="hero-grid">
         <div className="hero-text">
-          <p className="section-label">Engagements</p>
+          <p className="section-label">Available for projects</p>
           <h1 className="hero-title">Decide before<br />you waste a quarter</h1>
           <ul className="hero-tags" role="list">
             <li>Product manager &middot; growth &amp; AI consultant</li>
@@ -88,7 +99,13 @@ function Hero() {
           <img className="hero-figure__img hero-figure__img--default" src="/images/wesley-services.jpg" alt="Black and white portrait of Wesley Melo, arms crossed" loading="eager" fetchPriority="high" width={1200} height={1499} />
           <img className="hero-figure__img hero-figure__img--hover" src="/images/wesley-services-hover.jpg" alt="" aria-hidden="true" loading="lazy" width={1200} height={1721} />
         </figure>
-        <p className="hero-lede">Product, AI, and platform decisions get expensive fast. I help founder-led and growth-stage teams decide what to build, automate, migrate, or retire, then stay embedded until it ships.</p>
+        <div className="hero-foot">
+          <p className="hero-lede">Product, AI, and platform decisions get expensive fast. I help founder-led and growth-stage teams decide what to build, automate, migrate, or retire, then stay embedded until it ships.</p>
+          <div className="hero-cta">
+            <a className="cta-button cta-button--solid" href="#book"><span>Book a scoping call</span><Arrow /></a>
+            <a className="cta-button" href={urls.work}><span>See case studies</span><Arrow /></a>
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -103,6 +120,7 @@ function POVStatement() {
         {POV_PROOF.map((p) => (
           <li key={p.num}>
             <span className="pov-proof-num">{p.num}</span>
+            <span className="pov-proof-tag">{p.tag}</span>
             <span className="pov-proof-line">{p.line}</span>
           </li>
         ))}
@@ -157,6 +175,7 @@ function Offerings() {
                 <span className="otable-starts-label">From</span>
                 <span className="otable-starts-value">{o.price}</span>
               </div>
+              {o.note ? <p className="offer3-note">{o.note}</p> : null}
             </div>
           </article>
         ))}

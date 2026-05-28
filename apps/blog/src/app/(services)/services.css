@@ -145,13 +145,25 @@ body {
     color: var(--fg-quiet);
 }
 
-.hero-lede {
+.hero-foot {
     grid-area: lede;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.hero-lede {
     font-size: 20px;
     line-height: 1.5;
     color: var(--fg-quiet);
     max-width: 44ch;
     margin: 0;
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .hero-figure {
@@ -228,6 +240,12 @@ body {
     font-size: clamp(30px, 3.2vw, 44px);
     line-height: 1;
     letter-spacing: -0.02em;
+}
+.pov-proof-tag {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
 }
 .pov-proof-line {
     font-size: 15px;
@@ -460,6 +478,19 @@ body {
 .cta-button:focus-visible {
     outline: 2px solid var(--fg);
     outline-offset: 4px;
+}
+
+/* Solid variant — filled by default, inverts on hover */
+.cta-button--solid {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+.cta-button--solid:visited { color: var(--bg); }
+
+.cta-button--solid:hover {
+    background: transparent;
+    color: var(--fg);
 }
 
 /* PROCESS — three big-number cards (scope, ship, hand off) -- */
@@ -814,6 +845,12 @@ body {
     color: var(--fg-hover);
     margin: 0;
 }
+.offer3-note {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--fg-quiet);
+    margin: 0;
+}
 /* MENTORING STRIP — lighter, separated from the premium grid */
 .mentoring-section {
     padding: 56px 0 64px;
@@ -1016,6 +1053,10 @@ body {
 
     .hero-lede {
         font-size: 19px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
     }
 
     /* Larger reading sizes on small screens */
