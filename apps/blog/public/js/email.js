@@ -1,5 +1,5 @@
 'use strict';
-var addr = ['contato', 'wesley-m.com'].join('@');
+var addr = ['work', 'wesley-m.com'].join('@');
 var mailto = 'mailto:' + addr;
 
 function resolveLink(link) {

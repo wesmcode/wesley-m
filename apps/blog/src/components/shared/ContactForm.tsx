@@ -22,7 +22,7 @@ export function ContactForm({ variant = 'default', heading }: ContactFormProps) 
   const formRef = useRef<HTMLFormElement>(null)
 
   useEffect(() => {
-    const addr = ['contato', 'wesley-m.com'].join('@')
+    const addr = ['work', 'wesley-m.com'].join('@')
 
     const links = document.querySelectorAll<HTMLAnchorElement>('.js-email-reveal')
     links.forEach((el) => {

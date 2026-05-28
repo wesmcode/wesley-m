@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-    var addr = ['contato', 'wesley-m.com'].join('@');
+    var addr = ['work', 'wesley-m.com'].join('@');
 
     function revealEmails() {
         var links = document.querySelectorAll('.js-email-reveal');
