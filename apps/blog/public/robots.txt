@@ -2,7 +2,7 @@
 # Block AI/LLM crawlers and user-initiated fetchers.
 # Traditional search engines (Googlebot, Bingbot, etc.) remain allowed.
 
-# Anthropic (Claude) — includes WebFetch via Claude-User
+# Anthropic (Claude) - includes WebFetch via Claude-User
 User-agent: ClaudeBot
 Disallow: /
 
@@ -25,7 +25,7 @@ Disallow: /
 User-agent: OAI-SearchBot
 Disallow: /
 
-# Google AI (Gemini / Vertex) — distinct from Googlebot
+# Google AI (Gemini / Vertex) - distinct from Googlebot
 User-agent: Google-Extended
 Disallow: /
 
@@ -66,8 +66,5 @@ User-agent: Omgili
 Disallow: /
 
 # Default: allow everything else (search engines, link previews, etc.)
-# Default: allow everything else (search engines, link previews, etc.)
 User-agent: *
 Allow: /
-
-Sitemap: https://wesley-m.com/sitemap.xml
