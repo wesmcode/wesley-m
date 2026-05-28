@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { urls } from '@/lib/urls'
 
 interface BrandWrapProps {
   variant: 'top-bar' | 'footer'
@@ -9,12 +9,12 @@ export function BrandWrap({ variant }: BrandWrapProps) {
 
   return (
     <div className="brand-wrap">
-      <Link href="/" className={className}>
+      <a href={urls.home} className={className}>
         <span className="brand-full">Wesley Melo</span>
         <span className="brand-short" aria-hidden="true">
           W<span className="brand-diamond" />M
         </span>
-      </Link>
+      </a>
     </div>
   )
 }
