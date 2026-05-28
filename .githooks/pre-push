@@ -1,0 +1,45 @@
+#!/bin/sh
+# Validate that the Payload/Next app (apps/blog) builds before any push reaches Vercel.
+#
+# Why: Vercel auto-deploys main on push. A build that compiles locally in dev can still
+# fail `next build` (e.g. a generated file like the Payload admin importMap not committed),
+# and a failed deploy silently freezes production on the last good build. This gate runs the
+# real production build so a broken build can never be pushed.
+#
+# Scope: only runs when apps/blog changed in the commits being pushed. Static-site-only
+# pushes skip it and stay instant.
+#
+# Bypass (use sparingly): git push --no-verify
+
+set -e
+
+root=$(git rev-parse --show-toplevel)
+
+# Base to diff against: the remote main if we have it, else the first commit.
+if git rev-parse --verify --quiet origin/main >/dev/null 2>&1; then
+  base="origin/main"
+else
+  base=$(git rev-list --max-parents=0 HEAD | tail -1)
+fi
+
+if git diff --quiet "$base" HEAD -- apps/blog/ 2>/dev/null; then
+  echo "pre-push: no apps/blog changes; skipping blog build."
+  exit 0
+fi
+
+echo "pre-push: apps/blog changed; running production build before push..."
+log=$(mktemp -t wm-prepush-build.XXXXXX)
+if (cd "$root/apps/blog" && npm run build >"$log" 2>&1); then
+  echo "pre-push: build OK."
+  rm -f "$log"
+  exit 0
+fi
+
+echo ""
+echo "pre-push: BUILD FAILED - push aborted. Last 30 lines:"
+echo "------------------------------------------------------------"
+tail -30 "$log"
+echo "------------------------------------------------------------"
+echo "Full log: $log"
+echo "Fix the build, then push again (or 'git push --no-verify' to bypass)."
+exit 1
