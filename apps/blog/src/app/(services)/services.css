@@ -686,6 +686,47 @@ body {
     margin: 0;
 }
 
+.faq-prices {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-prices li {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    padding: 12px 0;
+    border-bottom: var(--rule-soft);
+}
+
+.faq-prices li:first-child {
+    padding-top: 0;
+}
+
+.faq-prices li:last-child {
+    border-bottom: none;
+    padding-bottom: 18px;
+}
+
+.faq-price {
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--fg);
+    min-width: 92px;
+    white-space: nowrap;
+}
+
+.faq-price-label {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-quiet);
+}
+
 /* Big CTA subtitle */
 .big-cta-sub {
     font-size: 16px;
@@ -782,6 +823,244 @@ body {
     outline-color: var(--bg);
 }
 
+/* VARIANT A — flagship-led column extras ------------------- */
+.otable-flagship {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.otable-flagship .otable-name {
+    font-size: 22px;
+}
+.otable-flagship-meta {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 2px 0 0;
+}
+.otable-also {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--fg-quiet);
+    margin: 0;
+    flex: 1;
+}
+.otable-also-label {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+}
+
+/* VARIANT B — three named offer cards ---------------------- */
+.offers3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+}
+.offer3-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 36px 32px;
+    border: var(--rule-medium);
+    scroll-margin-top: var(--top-bar-h);
+}
+.offer3-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0;
+}
+.offer3-title {
+    font-size: 24px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+}
+.offer3-who {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--fg-quiet);
+    margin: 0;
+}
+.offer3-sublabel {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 8px 0 0;
+}
+.offer3-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+.offer3-list li {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+}
+.offer3-foot {
+    margin-top: 8px;
+    padding-top: 18px;
+    border-top: var(--rule-medium);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.offer3-timeline {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0;
+}
+.offer3-card .cta-button {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+
+/* MENTORING STRIP — lighter, separated from the premium grid */
+.mentoring-section {
+    padding: 56px 0 64px;
+    border-bottom: var(--rule-heavy);
+}
+.mentoring-card {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 36px 0;
+    border-top: var(--rule-soft);
+    border-bottom: var(--rule-soft);
+}
+.mentoring-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+    margin: 0 0 10px;
+}
+.mentoring-title {
+    font-size: clamp(24px, 2.6vw, 32px);
+    line-height: 1.15;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+}
+.mentoring-lede {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--fg-quiet);
+    margin: 0;
+    max-width: 52ch;
+}
+.mentoring-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.mentoring-price {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.mentoring-price-value {
+    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+.mentoring-price-label {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--fg-quiet);
+}
+.mentoring-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 4px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: var(--rule-soft);
+    padding-bottom: 4px;
+    align-self: flex-start;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+.mentoring-link:visited { color: var(--fg); }
+.mentoring-link:hover { color: var(--fg-hover); border-color: var(--fg-hover); }
+.mentoring-link:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
+
+/* VARIANT SWITCH — temporary floating layout chooser -------- */
+.variant-switch {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: var(--rule-medium);
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55);
+}
+.variant-switch-label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-hover);
+}
+.variant-switch-pills {
+    display: flex;
+    gap: 6px;
+}
+.variant-switch-pills button {
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: var(--rule-soft);
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.variant-switch-pills button:hover {
+    border-color: var(--fg);
+}
+.variant-switch-pills button.is-active {
+    background: var(--fg);
+    color: var(--bg);
+    border-color: var(--fg);
+}
+.variant-switch-pills button:focus-visible {
+    outline: 2px solid var(--fg);
+    outline-offset: 2px;
+}
+
 /* Footer base styles live in base.css */
 
 /* TOUCH — hide hover image on touch-only devices */
@@ -806,6 +1085,8 @@ body {
     .process-bigcard,
     .seats-card,
     .pov-link,
+    .mentoring-link,
+    .variant-switch-pills button,
     .hero-figure__img--hover {
         transition: none;
     }
@@ -984,5 +1265,29 @@ body {
     .book-grid {
         grid-template-columns: 1fr;
         gap: 24px;
+    }
+
+    .offers3 {
+        grid-template-columns: 1fr;
+    }
+
+    .mentoring-section {
+        padding: 40px 0 48px;
+    }
+    .mentoring-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .variant-switch {
+        bottom: 16px;
+        gap: 10px;
+        padding: 8px 10px;
+    }
+    .variant-switch-label {
+        display: none;
+    }
+    .variant-switch-pills button {
+        padding: 8px 10px;
     }
 }

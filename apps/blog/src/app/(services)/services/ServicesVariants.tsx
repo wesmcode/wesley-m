@@ -146,14 +146,26 @@ const POV_PROOF = [
   { num: '150% growth', line: 'revenue across three fiscal years on a 15M-member platform.' },
 ]
 
-const FAQ = [
-  { q: 'How do you scope a project before we commit?', a: "A 30-minute call, then a 1-page proposal: scope, deliverable, price, timeline, and the three assumptions I’m making. If the assumptions are wrong, say so and I redo the page. No commitment until both sides sign it. Enterprise buyers: happy to deliver against an SOW with defined deliverable gates." },
-  { q: 'How do you price?', a: 'Fixed-scope audits start at $5k. AI and platform assessments start at $10k. Retainers start at $4k/month. Final pricing depends on scope, timeline, and whether I am advising, operating, or owning delivery. Every number lands in the written proposal before you commit.' },
-  { q: 'Can you start this month?', a: "Audits and advisory, usually yes. Sprints, modernization assessments, and migrations depend on the calendar. I keep one deep engagement at a time. Ask and I’ll tell you what’s open." },
-  { q: 'How do you work alongside our existing PM and engineering team?', a: "As a peer. Your PM stays the owner; I bring outside eyes and the unhurried hours they don’t have. Every deliverable gets a real handover with a read-out session so the team owns it after I’m gone." },
-  { q: "What’s your AI/LLM experience?", a: 'Senior PM on a multi-agent SaaS AI platform: 8 production agents shipped in 90 days, 4 enterprise pilots signed in the same quarter. I resolved a 90%+ confidence-threshold standoff between ML and design with a transparency-first approach the enterprise buyer could defend. I also reframed the prototyping stack mid-sales-cycle so a client could correct dashboard data live before a board presentation.' },
-  { q: "What’s your modernization experience?", a: 'Three years as a Consulting PM inside a global engineering consultancy, working alongside the engineering practice that operationalised evolutionary architecture, strangler fig, and fitness functions. Five years before that as a software engineer on platform programs in financial and professional services. Lean Inception Facilitator. Recent reference: five subsites consolidated into a 65M+ monthly views flagship with domain authority preserved through cutover.' },
-  { q: 'Do you sign NDAs?', a: 'Yes. Mutual NDA before the scoping call if you want. Standard terms, or yours.' },
+type FaqItem = { q: string; a: string; tiers?: { price: string; label: string }[] }
+
+const FAQ: FaqItem[] = [
+  { q: 'How do you scope a project before we commit?', a: 'A 30-minute call, then a one-page proposal: scope, deliverable, price, timeline, and the three assumptions I’m making. If an assumption is wrong, I redo the page. Neither side commits until both sign it.' },
+  {
+    q: 'How do you price?',
+    tiers: [
+      { price: '$5k', label: 'Fixed-scope audits' },
+      { price: '$10k', label: 'AI and platform assessments' },
+      { price: '$4k/mo', label: 'Advisory retainers' },
+    ],
+    a: 'Each figure is a starting point. Final pricing depends on scope, urgency, and whether I’m advising, operating, or owning delivery. Every number lands in the written proposal before you commit.',
+  },
+  { q: 'What happens after an audit?', a: 'You leave with the top blockers, the bets worth making, and a 90-day execution plan. If it’s worth acting on, I can stay embedded to run the reset or hand it to your team. Either way the plan is yours.' },
+  { q: 'Can you start this month?', a: 'Audits and advisory, usually yes. Deeper resets, modernization assessments, and migrations depend on the calendar. I keep one deep engagement at a time. Ask and I’ll tell you what’s open.' },
+  { q: 'How do you work alongside our existing PM and engineering team?', a: 'As a peer, not a replacement. Your team keeps ownership. I bring outside judgment and the unhurried hours to turn ambiguity into decisions, specs, and cadence. Every deliverable ends with a read-out so the team owns it after I’m gone.' },
+  { q: 'What’s your AI/LLM experience?', a: 'AI in production, not demos. I led product on a multi-agent SaaS platform, shipped live agents, and signed enterprise pilots the same quarter. My focus is the calls that make AI defensible to a buyer, not the prototype that wows a room.' },
+  { q: 'What’s your modernization experience?', a: 'Platform modernization across engineering consultancies, enterprise SaaS, and high-traffic media. The reference I point to: a multi-site media network consolidated into one flagship, with traffic and domain authority held through cutover.' },
+  { q: 'Who is this not a fit for?', a: 'If you need cheap execution, a quick chatbot build, or someone to take Jira tickets by the hour, I’m not your person. I’m best when the decision is ambiguous, the cost of getting it wrong is high, and the team needs senior product judgment close to the work.' },
+  { q: 'Do you sign NDAs?', a: 'Yes. Mutual NDA before the scoping call if you want, standard terms or yours. I can also anonymize case studies, references, and project details.' },
 ]
 
 const Arrow = () => <span aria-hidden="true">{'→︎'}</span>
@@ -384,12 +396,24 @@ function ProcessCards() {
 function FaqSection() {
   return (
     <section className="faq snap-section" id="faq" aria-label="Frequently asked questions">
-      <SectionHead label="FAQ" title="Your questions, answered" />
+      <SectionHead label="FAQ" title="What buyers usually ask before we start" />
       <div className="faq-list">
         {FAQ.map((f) => (
           <details className="faq-item" key={f.q}>
             <summary><span>{f.q}</span><span className="faq-icon" aria-hidden="true" /></summary>
-            <div className="faq-answer"><p>{f.a}</p></div>
+            <div className="faq-answer">
+              {f.tiers ? (
+                <ul className="faq-prices" role="list">
+                  {f.tiers.map((t) => (
+                    <li key={t.price}>
+                      <span className="faq-price">{t.price}</span>
+                      <span className="faq-price-label">{t.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              <p>{f.a}</p>
+            </div>
           </details>
         ))}
       </div>
