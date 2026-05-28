@@ -14,14 +14,9 @@ const LINK_GROUPS: Array<Array<{ href: string; label: string; newTab?: boolean; 
     { href: urls.services, label: 'Services' },
     { href: urls.work, label: 'Case studies' },
   ],
-  // About me
+  // Me + reach
   [
     { href: urls.resume, label: 'Resume', newTab: true },
-    { href: urls.playground, label: 'Playground' },
-  ],
-  // Reach me
-  [
-    { href: urls.contact, label: 'Contact' },
     { href: urls.linkedin, label: 'LinkedIn', external: true },
   ],
 ]
