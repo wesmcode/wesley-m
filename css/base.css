@@ -273,14 +273,16 @@ html, body {
    ============================================================ */
 @media only screen and (max-width: 768px) {
     .top-bar-inner {
-        padding-block: 8px;
+        padding-block: 10px;
         padding-inline: max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-right));
-        gap: 0 16px;
+        flex-direction: column;
+        gap: 10px 16px;
     }
     .top-bar-links {
         gap: 0 16px;
-        flex: 1;
-        justify-content: flex-end;
+        flex: 0 1 auto;
+        justify-content: center;
+        width: 100%;
     }
     .top-bar-links .link {
         font-size: 14px;
@@ -312,6 +314,17 @@ html, body {
     .brand-wrap:hover .brand-short { opacity: 0; }
     .brand-wrap:hover .footer-brand,
     .brand-wrap:hover .top-bar-brand { text-decoration: none; }
+
+    /* Top bar collapses the wordmark to the W ◆ M monogram so the bar stays
+       narrow and the links don't get crowded. Footer keeps the full wordmark. */
+    .top-bar .brand-wrap { min-width: 0; }
+    .top-bar .brand-full { display: none; }
+    .top-bar .brand-short,
+    .top-bar .brand-wrap:hover .brand-short {
+        position: static;
+        display: inline-flex;
+        opacity: 1;
+    }
 }
 
 /* Long titles must wrap on narrow viewports rather than overflow.
