@@ -242,14 +242,15 @@ body {
     font-size: 13px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--fg);
+    background: var(--fg);
+    color: var(--bg);
     text-decoration: none;
-    border-bottom: var(--rule-soft);
-    padding-bottom: 4px;
-    transition: color 0.15s ease, border-color 0.15s ease;
+    border: 2px solid var(--fg);
+    padding: 12px 18px;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-.pov-link:visited { color: var(--fg); }
-.pov-link:hover { color: var(--fg-hover); border-color: var(--fg-hover); }
+.pov-link:visited { color: var(--bg); }
+.pov-link:hover { background: transparent; color: var(--fg); border-color: var(--fg); }
 .pov-link:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
 
 /* SEATS — where do you sit + this is for you if ------------- */
@@ -313,116 +314,32 @@ body {
     transition: color 0.15s ease;
 }
 .seats-card:hover .seats-mark { color: var(--bg-a55); }
-.seats-cta {
-    margin-top: 4px;
+.seats-foot {
+    display: flex;
+    justify-content: center;
+    margin-top: 56px;
+}
+.seats-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-size: 13px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    color: var(--fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-hover);
+    padding-bottom: 4px;
+    transition: color 0.15s ease, border-color 0.15s ease;
 }
+.seats-all:visited { color: var(--fg); }
+.seats-all:hover { color: var(--fg); border-bottom-color: var(--fg); }
+.seats-all:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
 
-/* OFFERINGS TABLE — three audience columns ----------------- */
+/* OFFERINGS — section wrapper + price anchor (shared) ------ */
 .otable-section {
     padding: 64px 0 72px;
     border-bottom: var(--rule-heavy);
-}
-.otable {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    align-items: stretch;
-}
-.otable-col {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 36px 32px;
-    border: var(--rule-medium);
-    scroll-margin-top: var(--top-bar-h);
-}
-.otable-head {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-bottom: 18px;
-    border-bottom: var(--rule-medium);
-}
-.otable-label {
-    font-size: 21px;
-    line-height: 1.15;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    font-weight: 400;
-    margin: 0;
-}
-.otable-who {
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--fg-quiet);
-    margin: 0;
-}
-.otable-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    margin: 0;
-}
-.otable-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-    flex: 1;
-}
-.otable-row {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-.otable-row-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-}
-.otable-name {
-    font-size: 18px;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-}
-.otable-price {
-    font-family: 'Garamond', 'EB Garamond', 'Times New Roman', serif;
-    font-size: 20px;
-    line-height: 1;
-    color: rgba(255, 255, 255, 0.55);
-    white-space: nowrap;
-}
-.otable-sum {
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--fg-quiet);
-    margin: 0;
-}
-.otable-foot {
-    margin-top: auto;
-    padding-top: 20px;
-    border-top: var(--rule-medium);
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-.otable-commit {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    margin: 0;
 }
 .otable-starts {
     display: flex;
@@ -823,39 +740,7 @@ body {
     outline-color: var(--bg);
 }
 
-/* VARIANT A — flagship-led column extras ------------------- */
-.otable-flagship {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.otable-flagship .otable-name {
-    font-size: 22px;
-}
-.otable-flagship-meta {
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-    margin: 2px 0 0;
-}
-.otable-also {
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--fg-quiet);
-    margin: 0;
-    flex: 1;
-}
-.otable-also-label {
-    display: inline-block;
-    margin-right: 8px;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-}
-
-/* VARIANT B — three named offer cards ---------------------- */
+/* OFFER CARDS — three named engagements -------------------- */
 .offers3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -929,12 +814,6 @@ body {
     color: var(--fg-hover);
     margin: 0;
 }
-.offer3-card .cta-button {
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 4px;
-}
-
 /* MENTORING STRIP — lighter, separated from the premium grid */
 .mentoring-section {
     padding: 56px 0 64px;
@@ -1000,66 +879,17 @@ body {
     font-size: 13px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--fg);
-    text-decoration: none;
-    border-bottom: var(--rule-soft);
-    padding-bottom: 4px;
-    align-self: flex-start;
-    transition: color 0.15s ease, border-color 0.15s ease;
-}
-.mentoring-link:visited { color: var(--fg); }
-.mentoring-link:hover { color: var(--fg-hover); border-color: var(--fg-hover); }
-.mentoring-link:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
-
-/* VARIANT SWITCH — temporary floating layout chooser -------- */
-.variant-switch {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 10px 14px;
-    background: var(--bg);
-    border: var(--rule-medium);
-    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55);
-}
-.variant-switch-label {
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--fg-hover);
-}
-.variant-switch-pills {
-    display: flex;
-    gap: 6px;
-}
-.variant-switch-pills button {
-    font-family: inherit;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 8px 14px;
-    border: var(--rule-soft);
-    background: transparent;
-    color: var(--fg);
-    cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-}
-.variant-switch-pills button:hover {
-    border-color: var(--fg);
-}
-.variant-switch-pills button.is-active {
     background: var(--fg);
     color: var(--bg);
-    border-color: var(--fg);
+    text-decoration: none;
+    border: 2px solid var(--fg);
+    padding: 12px 18px;
+    align-self: flex-start;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-.variant-switch-pills button:focus-visible {
-    outline: 2px solid var(--fg);
-    outline-offset: 2px;
-}
+.mentoring-link:visited { color: var(--bg); }
+.mentoring-link:hover { background: transparent; color: var(--fg); border-color: var(--fg); }
+.mentoring-link:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
 
 /* Footer base styles live in base.css */
 
@@ -1086,7 +916,7 @@ body {
     .seats-card,
     .pov-link,
     .mentoring-link,
-    .variant-switch-pills button,
+    .seats-all,
     .hero-figure__img--hover {
         transition: none;
     }
@@ -1120,7 +950,7 @@ body {
     .seats-grid {
         grid-template-columns: 1fr;
     }
-    .otable {
+    .offers3 {
         gap: 16px;
     }
     .process-cards {
@@ -1208,16 +1038,6 @@ body {
         font-size: 16px;
     }
 
-    .otable {
-        grid-template-columns: 1fr;
-    }
-    .otable-name {
-        font-size: 17px;
-    }
-    .otable-sum {
-        font-size: 15px;
-    }
-
     .process-cards {
         grid-template-columns: 1fr;
     }
@@ -1277,17 +1097,5 @@ body {
     .mentoring-card {
         grid-template-columns: 1fr;
         gap: 24px;
-    }
-
-    .variant-switch {
-        bottom: 16px;
-        gap: 10px;
-        padding: 8px 10px;
-    }
-    .variant-switch-label {
-        display: none;
-    }
-    .variant-switch-pills button {
-        padding: 8px 10px;
     }
 }

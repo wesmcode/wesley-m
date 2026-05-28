@@ -18,10 +18,11 @@ test.describe('Services page', () => {
     await expect(page.locator('.hero-figure img').first()).toBeVisible()
   })
 
-  test('renders the offerings table with all three audience columns', async ({ page }) => {
+  test('renders the three named offer cards with pricing', async ({ page }) => {
     await page.goto('/services')
-    await expect(page.locator('.otable-col')).toHaveCount(3)
-    await expect(page.locator('.otable-name', { hasText: 'Product audit' }).first()).toBeVisible()
+    await expect(page.locator('.offer3-card')).toHaveCount(3)
+    await expect(page.locator('.offer3-title', { hasText: 'Product + AI Systems Audit' }).first()).toBeVisible()
+    await expect(page.locator('.offer3-card .otable-starts-value', { hasText: '$5k' }).first()).toBeVisible()
   })
 
   test('renders pricing, FAQ, and the booking section', async ({ page }) => {
