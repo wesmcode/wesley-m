@@ -92,7 +92,6 @@ export function ContactForm({ variant = 'default', heading }: ContactFormProps) 
           <span>Send message</span>
           <span aria-hidden="true">{'→︎'}</span>
         </button>
-        <p className="contact-fallback">Prefer email? <a href="#" className="link js-email-reveal">loading...</a></p>
       </div>
       <div className="contact-thanks" aria-live="polite">
         <h3 className="contact-thanks-title">Thank you.</h3>

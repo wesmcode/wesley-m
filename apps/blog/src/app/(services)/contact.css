@@ -148,10 +148,10 @@ body {
     color: var(--fg);
 }
 
-.contact-fallback--side {
-    margin-top: 16px;
-    padding-top: 20px;
-    border-top: var(--rule-soft);
+/* Scheduling embed below the contact grid */
+.contact-booking {
+    margin-top: 64px;
+    scroll-margin-top: 88px;
 }
 
 /* ============================================================
@@ -331,6 +331,10 @@ body {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .contact-booking {
+        margin-top: 40px;
     }
 
     .contact-text .section-title {
