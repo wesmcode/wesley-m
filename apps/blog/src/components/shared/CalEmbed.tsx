@@ -1,12 +1,20 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 export function CalEmbed() {
+  const initialized = useRef(false)
+
   useEffect(() => {
+    if (initialized.current) return
+    initialized.current = true
+
     const w = window as unknown as Record<string, unknown>
-    const init = () => {
-      const Cal = w.Cal as ((...args: unknown[]) => void) & { ns?: Record<string, (...args: unknown[]) => void> }
+
+    const setup = () => {
+      const Cal = w.Cal as ((...args: unknown[]) => void) & {
+        ns?: Record<string, ((...args: unknown[]) => void)>
+      }
       if (!Cal) return
 
       Cal('init', '30wes', { origin: 'https://app.cal.com' })
@@ -26,7 +34,7 @@ export function CalEmbed() {
     }
 
     if (w.Cal) {
-      init()
+      setup()
       return
     }
 
@@ -34,20 +42,20 @@ export function CalEmbed() {
     script.src = 'https://app.cal.com/embed/embed.js'
     script.async = true
     script.onload = () => {
-      const check = () => {
-        if (w.Cal) { init(); return }
-        setTimeout(check, 50)
-      }
-      check()
+      const poll = setInterval(() => {
+        if (w.Cal) { clearInterval(poll); setup() }
+      }, 50)
+      setTimeout(() => clearInterval(poll), 10000)
     }
     document.head.appendChild(script)
-
-    return () => { script.remove() }
   }, [])
 
   return (
     <div className="booking-embed">
-      <div style={{ width: '100%', height: '100%', overflow: 'scroll' }} id="my-cal-inline-30wes" />
+      <div
+        id="my-cal-inline-30wes"
+        style={{ width: '100%', minHeight: 600, overflow: 'scroll' }}
+      />
     </div>
   )
 }
