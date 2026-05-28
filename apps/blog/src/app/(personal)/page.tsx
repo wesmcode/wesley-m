@@ -7,12 +7,23 @@ const TIMELINE = [
   { company: 'Accenture', href: 'https://www.accenture.com/', years: '2014', end: '2019' },
 ]
 
-const LINKS = [
-  { href: urls.work, label: 'Case studies' },
-  { href: urls.services, label: 'Services' },
-  { href: urls.playground, label: 'Playground' },
-  { href: urls.resume, label: 'Resume', newTab: true },
-  { href: urls.contact, label: 'Contact' },
+// Grouped by intent; a blank row divides each group.
+const LINK_GROUPS: Array<Array<{ href: string; label: string; newTab?: boolean; external?: boolean }>> = [
+  // What I do
+  [
+    { href: urls.services, label: 'Services' },
+    { href: urls.work, label: 'Case studies' },
+  ],
+  // About me
+  [
+    { href: urls.resume, label: 'Resume', newTab: true },
+    { href: urls.playground, label: 'Playground' },
+  ],
+  // Reach me
+  [
+    { href: urls.contact, label: 'Contact' },
+    { href: urls.linkedin, label: 'LinkedIn', external: true },
+  ],
 ]
 
 export default function PersonalPage() {
@@ -45,28 +56,27 @@ export default function PersonalPage() {
           <div className="row-empty" />
 
           <nav aria-label="Contact and links">
-            {LINKS.map((item) => (
-              <div className="row" key={item.label}>
-                <a
-                  href={item.href}
-                  className="link nav-item"
-                  {...(item.newTab ? { target: '_blank', rel: 'noopener' } : {})}
-                >
-                  <span className="button-label">{item.label}</span>
-                  {item.newTab ? <span className="sr-only"> (opens in new tab)</span> : null}
-                  <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
-                </a>
+            {LINK_GROUPS.map((group, gi) => (
+              <div key={gi}>
+                {gi > 0 && <div className="row-empty" />}
+                {group.map((item) => {
+                  const opensNewTab = item.newTab || item.external
+                  return (
+                    <div className="row" key={item.label}>
+                      <a
+                        href={item.href}
+                        className="link nav-item"
+                        {...(opensNewTab ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      >
+                        <span className="button-label">{item.label}</span>
+                        {item.newTab ? <span className="sr-only"> (opens in new tab)</span> : null}
+                        <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
+                      </a>
+                    </div>
+                  )
+                })}
               </div>
             ))}
-
-            <div className="row-empty" />
-
-            <div className="row">
-              <a href={urls.linkedin} target="_blank" rel="noopener noreferrer" className="link nav-item">
-                <span className="button-label">LinkedIn</span>
-                <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
-              </a>
-            </div>
           </nav>
         </div>
       </section>
