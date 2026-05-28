@@ -1,4 +1,4 @@
-import { ContactForm, SectionHead } from '@/components/shared'
+import { CalEmbed, ContactForm, SectionHead } from '@/components/shared'
 
 const OFFERINGS_FOUNDERS = [
   { num: '01', title: 'Product audit', meta: '3 to 4 weeks · fixed price · from $5k', body: 'You are shipping but adoption is flat. Nobody owns the north-star metric. Three weeks: I walk the funnel, interview 20 churned customers, sit through sprint planning, and hand you a Flash Report. Top 3 systemic blockers, one symbolic quick win, 90-day fix list. The deliverable goes straight to engineering, not into a slide deck.' },
@@ -187,16 +187,7 @@ export default function ServicesPage() {
           <p className="big-cta-sub">30 minutes to discuss the problem, timing, and fit. Or drop a message. I reply within 24 hours.</p>
         </div>
         <div className="book-grid">
-          <div className="booking-embed">
-            <iframe
-              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1lPlKSP1kX7W9-_MhnDOrYV-egPzg7FFVxa8v8jC7wpGZ891P8vYuhqbZ7eVa-gSLnK2ykcLpG?gv=true"
-              style={{ border: 0 }}
-              width="100%"
-              height="600"
-              title="Book a scoping call with Wesley Melo"
-              loading="lazy"
-            />
-          </div>
+          <CalEmbed />
           <ContactForm variant="sidebar" heading="Send a message" />
         </div>
       </section>

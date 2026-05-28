@@ -1,4 +1,5 @@
 export { BrandWrap } from './BrandWrap'
+export { CalEmbed } from './CalEmbed'
 export { CarouselContainer } from './Carousel'
 export { ContactForm } from './ContactForm'
 export { Footer } from './Footer'
