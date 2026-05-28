@@ -6,6 +6,7 @@ import { SERVICES_NAV } from '@/lib/navigation'
 import '@/styles/globals.css'
 import '../(services)/services.css'
 import './work.css'
+import './case.css'
 
 export const metadata: Metadata = {
   title: 'Case studies: Wesley Melo',

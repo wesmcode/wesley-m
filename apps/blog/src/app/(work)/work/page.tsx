@@ -2,14 +2,13 @@ import Link from 'next/link'
 import { Footer } from '@/components/shared'
 
 const CASES = [
-  { num: '01', href: '/work/recon-ai-platform', text: 'Code and Theory · A 2-week manual audit became an AI product clients asked to buy' },
-  { num: '02', href: '/work/nfl-design-system', text: '[NDA Client] · US professional sports league: reducing delivery risk across 32 properties' },
-  { num: '03', href: '/work/realclear-media-ecosystem', text: '[NDA Client] · US political media network: "modernise the site" became a measurable platform roadmap' },
-  { num: '04', href: '/work/planet-fitness-membership', text: '[NDA Client] · Major US fitness franchise: a cancellation crisis became a retention platform' },
-  { num: '05', href: '/work/gap-ecommerce-modernisation', text: '[NDA Client] · Global apparel retail group: capturing the 2020 e-commerce surge' },
+  { num: '01', href: '/work/enterprise-ai-platform-launch', text: 'Code and Theory · A 2-week manual audit became an AI product clients asked to buy' },
+  { num: '02', href: '/work/sports-league-design-system', text: '[NDA Client] · US professional sports league: reducing delivery risk across 32 properties' },
+  { num: '03', href: '/work/political-media-ecosystem', text: '[NDA Client] · US political media network: "modernise the site" became a measurable platform roadmap' },
+  { num: '04', href: '/work/fitness-membership-platform', text: '[NDA Client] · Major US fitness franchise: a cancellation crisis became a retention platform' },
+  { num: '05', href: '/work/retail-ecommerce-modernisation', text: '[NDA Client] · Global apparel retail group: capturing the 2020 e-commerce surge' },
   { num: '06', href: '/work/liferay-enterprise-dxp', text: 'Liferay · Enterprise DXP vendor: closing platform gaps that drove customer churn' },
   { num: '07', href: '/work/thoughtworks-pm-practice', text: 'ThoughtWorks · Global engineering consultancy: building product capability during a market slowdown' },
-  { num: '08', href: '/work/accenture-telecom-chatbot', text: 'Accenture · Telefonica: the technical foundation behind every product call' },
 ]
 
 export default function WorkPage() {
