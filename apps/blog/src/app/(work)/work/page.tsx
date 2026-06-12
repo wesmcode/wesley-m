@@ -16,7 +16,7 @@ export default function WorkPage() {
     <div className="page">
       <main id="main-content">
       <section className="hero" aria-label="Case studies">
-        <div className="hero-grid hero-index-grid">
+        <div className="hero-index-grid">
           <div className="hero-text">
             <p className="section-label">Case studies</p>
             <h1 className="hero-title">The work<br />I&rsquo;ve<br />shipped</h1>
