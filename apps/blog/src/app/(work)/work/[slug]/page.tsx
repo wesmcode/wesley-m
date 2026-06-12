@@ -82,7 +82,7 @@ export default async function CaseStudyPage({ params }: RouteParams) {
                   <a key={r.href} href={urls.workCase(relSlug)} className="case-related-card">
                     <p className="case-related-card-num" dangerouslySetInnerHTML={{ __html: r.num }} />
                     <h3 className="case-related-card-title" dangerouslySetInnerHTML={{ __html: r.title }} />
-                    <p className="case-related-card-arrow">{'Read the case →'}</p>
+                    <p className="case-related-card-arrow">{'Read the case →︎'}</p>
                   </a>
                 )
               })}

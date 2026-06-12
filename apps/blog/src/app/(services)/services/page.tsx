@@ -147,7 +147,7 @@ function Seats() {
         ))}
       </div>
       <div className="seats-foot">
-        <a className="seats-all" href="#offers">See the engagements <span aria-hidden="true">↓</span></a>
+        <a className="seats-all" href="#offers">See the engagements <span aria-hidden="true">↓︎</span></a>
       </div>
     </section>
   )
