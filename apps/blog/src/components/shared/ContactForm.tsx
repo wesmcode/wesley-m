@@ -64,7 +64,7 @@ export function ContactForm({ variant = 'default', heading }: ContactFormProps) 
   const className = variant === 'sidebar' ? 'contact-form contact-form--sidebar' : 'contact-form'
 
   return (
-    <form className={className} ref={formRef} noValidate>
+    <form className={className} ref={formRef}>
       {heading ? <h3 className="contact-form-heading">{heading}</h3> : null}
       <div className="contact-form-content">
         <div className="contact-field">
