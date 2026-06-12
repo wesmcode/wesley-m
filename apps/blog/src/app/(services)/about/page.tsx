@@ -19,8 +19,8 @@ const PROCESS = [
 const CAPABILITIES: Record<string, Record<string, string[]>> = {
   Strategy: {
     'Discovery': ['Product audit', 'Customer interviews', 'Jobs-to-be-done', 'Problem framing', 'Market & competitive analysis'],
-    'Vision & Planning': ['Product strategy', 'Roadmapping', 'OKRs & north-star metrics', 'Prioritisation frameworks', 'Lean Inception facilitation'],
-    'Growth': ['Growth strategy', 'PLG & subscription economics', 'Conversion rate optimisation', 'Retention & funnel design', 'Pricing experiments'],
+    'Vision & Planning': ['Product strategy', 'Roadmapping', 'OKRs & north-star metrics', 'Prioritization frameworks', 'Lean Inception facilitation'],
+    'Growth': ['Growth strategy', 'PLG & subscription economics', 'Conversion rate optimization', 'Retention & funnel design', 'Pricing experiments'],
   },
   Execution: {
     'AI Product': ['LLM-powered product design', 'AI agent orchestration', 'RAG applications', 'Evals & observability', 'AI prototyping (Cursor, v0)'],

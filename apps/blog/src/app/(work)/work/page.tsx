@@ -4,7 +4,7 @@ import { urls } from '@/lib/urls'
 const CASES = [
   { num: '01', slug: 'enterprise-ai-platform-launch', text: 'Code and Theory · A 2-week manual audit became an AI product clients asked to buy' },
   { num: '02', slug: 'sports-league-design-system', text: '[NDA Client] · US professional sports league: reducing delivery risk across 32 properties' },
-  { num: '03', slug: 'political-media-ecosystem', text: '[NDA Client] · US political media network: "modernise the site" became a measurable platform roadmap' },
+  { num: '03', slug: 'political-media-ecosystem', text: '[NDA Client] · US political media network: "modernize the site" became a measurable platform roadmap' },
   { num: '04', slug: 'fitness-membership-platform', text: '[NDA Client] · Major US fitness franchise: a cancellation crisis became a retention platform' },
   { num: '05', slug: 'retail-ecommerce-modernisation', text: '[NDA Client] · Global apparel retail group: capturing the 2020 e-commerce surge' },
   { num: '06', slug: 'liferay-enterprise-dxp', text: 'Liferay · Enterprise DXP vendor: closing platform gaps that drove customer churn' },
