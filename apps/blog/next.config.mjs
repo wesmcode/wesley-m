@@ -53,6 +53,8 @@ const nextConfig = {
       { source: '/playground.html', destination: '/playground', permanent: true },
       { source: '/post.html', destination: '/blog', permanent: true },
       { source: '/about.html', destination: '/', permanent: true },
+      { source: '/work.html', destination: '/work', permanent: true },
+      { source: '/work/:slug.html', destination: '/work/:slug', permanent: true },
     ]
   },
   async headers() {
