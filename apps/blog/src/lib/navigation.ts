@@ -13,7 +13,7 @@ export const SITE_NAV: NavItem[] = [
   { href: urls.linkedin, label: 'LinkedIn' },
 ]
 
-// Services-group nav (services, contact, about pages). FAQ points at the
+// Services-group nav (services, contact pages). FAQ points at the
 // services page + anchor so it works from any page in the group. "Book a call"
 // goes to the contact page, which hosts the scheduling embed.
 export const SERVICES_NAV: NavItem[] = [

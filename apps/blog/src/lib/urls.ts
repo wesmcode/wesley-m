@@ -22,6 +22,5 @@ export const urls = {
   resume: sub('resume', '/resume'),
   blog: sub('blog', '/blog'),
   playground: useSubdomains ? 'https://wesley-m.com/playground' : '/playground',
-  about: useSubdomains ? 'https://wesley-m.com/about' : '/about',
   linkedin: 'https://linkedin.com/in/wesmelo',
 }
