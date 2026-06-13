@@ -473,6 +473,8 @@ html {
    CTA STRIP — navy, full-bleed
    ============================================================ */
 .case-cta {
+    --btn-accent: var(--ink);
+    --btn-contrast: #FFFFFF;
     background: var(--bg-alt);
     color: var(--ink);
     border-top: 1px solid var(--ink-rule);
@@ -506,35 +508,14 @@ html {
     align-items: stretch;
     gap: 12px;
 }
-.case-cta-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    background: transparent;
-    color: var(--ink);
-    text-decoration: none;
-    font-family: inherit;
-    font-size: 15px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 14px 24px;
-    border: 2px solid var(--ink);
-    cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
-    white-space: nowrap;
-}
-.case-cta-btn:visited { color: var(--ink); }
-.case-cta-btn:hover,
-.case-cta-btn:focus-visible {
-    background: var(--ink);
-    color: #FFFFFF;
+/* Case CTAs reuse the shared .cta-button (globals.css), recolored for the cream
+   band via --btn-accent / --btn-contrast set on .case-cta above. The only
+   difference from the shared button is the focus treatment: this strip fills on
+   focus instead of showing an outline ring. */
+.case-cta .cta-button:focus-visible {
+    background: var(--btn-accent);
+    color: var(--btn-contrast);
     outline: none;
-}
-.case-cta-btn--ghost {
-    background: transparent;
-    color: var(--ink);
-    border-color: var(--ink);
 }
 
 /* ============================================================
@@ -600,8 +581,7 @@ html {
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
     .case-related-card,
-    .case-related-card-arrow,
-    .case-cta-btn {
+    .case-related-card-arrow {
         transition: none;
     }
 }

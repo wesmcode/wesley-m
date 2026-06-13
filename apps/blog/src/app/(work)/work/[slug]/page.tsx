@@ -95,15 +95,15 @@ export default async function CaseStudyPage({ params }: RouteParams) {
         <div className="case-cta-inner">
           <h2 className="case-cta-title">Got a product that needs a <span className="accent">clearer next quarter?</span></h2>
           <div className="case-cta-actions">
-            <a href={urls.contact} className="case-cta-btn">
+            <a href={urls.contact} className="cta-button cta-button--spread">
               <span>Get in touch</span>
               <span aria-hidden="true">{'→︎'}</span>
             </a>
-            <a href={urls.services} className="case-cta-btn case-cta-btn--ghost">
+            <a href={urls.services} className="cta-button cta-button--spread">
               <span>See services</span>
               <span aria-hidden="true">{'→︎'}</span>
             </a>
-            <a href={urls.work} className="case-cta-btn case-cta-btn--ghost">
+            <a href={urls.work} className="cta-button cta-button--spread">
               <span>More case studies</span>
               <span aria-hidden="true">{'→︎'}</span>
             </a>

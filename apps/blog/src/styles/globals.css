@@ -84,6 +84,60 @@ html, body {
 .link:focus:not(:focus-visible) { color: var(--fg); background: none; outline: none; }
 .link:active { background: var(--fg); color: var(--bg); }
 
+/* CTA button — square bordered, fills on hover. Paints from --btn-accent
+   (text + border) and --btn-contrast (hover text); both default to the page
+   ground so any context can recolor by setting just those two props. */
+.cta-button {
+    --btn-accent: var(--fg);
+    --btn-contrast: var(--bg);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: var(--btn-accent);
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border: 2px solid var(--btn-accent);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+}
+
+.cta-button:visited { color: var(--btn-accent); }
+
+.cta-button:hover {
+    background: var(--btn-accent);
+    color: var(--btn-contrast);
+}
+
+.cta-button:focus-visible {
+    outline: 2px solid var(--btn-accent);
+    outline-offset: 4px;
+}
+
+/* Solid variant — filled by default, inverts on hover */
+.cta-button--solid {
+    background: var(--btn-accent);
+    color: var(--btn-contrast);
+}
+
+.cta-button--solid:visited { color: var(--btn-contrast); }
+
+.cta-button--solid:hover {
+    background: transparent;
+    color: var(--btn-accent);
+}
+
+/* Spread variant — label and trailing glyph pushed to the edges, for
+   full-width button columns (e.g. the case-study CTA strip). */
+.cta-button--spread {
+    justify-content: space-between;
+}
+
 /* Brand photo treatment */
 .brand-photo {
     --brand-tint: 0.45;

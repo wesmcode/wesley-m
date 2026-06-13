@@ -449,49 +449,9 @@ body {
     color: var(--fg);
 }
 
-/* CTA BUTTON — square bordered, fills on hover -------------- */
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: transparent;
-    color: var(--fg);
-    text-decoration: none;
-    font-family: inherit;
-    font-size: 15px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 14px 24px;
-    border: var(--rule-medium);
-    cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
-    white-space: nowrap;
-}
-
-.cta-button:visited { color: var(--fg); }
-
-.cta-button:hover {
-    background: var(--fg);
-    color: var(--bg);
-}
-
-.cta-button:focus-visible {
-    outline: 2px solid var(--fg);
-    outline-offset: 4px;
-}
-
-/* Solid variant — filled by default, inverts on hover */
-.cta-button--solid {
-    background: var(--fg);
-    color: var(--bg);
-}
-
-.cta-button--solid:visited { color: var(--bg); }
-
-.cta-button--solid:hover {
-    background: transparent;
-    color: var(--fg);
-}
+/* The base .cta-button now lives in globals.css. Below are the
+   services-only contextual overrides (.cta-card, .big-cta-card) and the
+   mobile width rule. */
 
 /* PROCESS — three big-number cards (scope, ship, hand off) -- */
 .process {
