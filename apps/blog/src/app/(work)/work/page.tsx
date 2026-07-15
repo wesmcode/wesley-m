@@ -2,13 +2,13 @@ import { Footer } from '@/components/shared'
 import { urls } from '@/lib/urls'
 
 const CASES = [
-  { num: '01', slug: 'enterprise-ai-platform-launch', text: 'Code and Theory · A 2-week manual audit became an AI product clients asked to buy' },
-  { num: '02', slug: 'sports-league-design-system', text: '[NDA Client] · US professional sports league: reducing delivery risk across 32 properties' },
-  { num: '03', slug: 'political-media-ecosystem', text: '[NDA Client] · US political media network: "modernize the site" became a measurable platform roadmap' },
-  { num: '04', slug: 'fitness-membership-platform', text: '[NDA Client] · Major US fitness franchise: a cancellation crisis became a retention platform' },
-  { num: '05', slug: 'retail-ecommerce-modernisation', text: '[NDA Client] · Global apparel retail group: capturing the 2020 e-commerce surge' },
-  { num: '06', slug: 'liferay-enterprise-dxp', text: 'Liferay · Enterprise DXP vendor: closing platform gaps that drove customer churn' },
-  { num: '07', slug: 'thoughtworks-pm-practice', text: 'ThoughtWorks · Global engineering consultancy: building product capability during a market slowdown' },
+  { num: '01', slug: 'enterprise-ai-platform-launch', text: 'Code and Theory · A 2-week manual audit, rebuilt as an AI product clients asked to buy' },
+  { num: '02', slug: 'sports-league-design-system', text: '[NDA Client] · US professional sports league: 32 club properties, zero clarification cycles' },
+  { num: '03', slug: 'political-media-ecosystem', text: '[NDA Client] · US political media network: "modernize the site" without risking 65M monthly views' },
+  { num: '04', slug: 'fitness-membership-platform', text: '[NDA Client] · Major US fitness franchise: easy cancellation, then 150% revenue growth' },
+  { num: '05', slug: 'retail-ecommerce-modernisation', text: '[NDA Client] · Global apparel retail group: checkout and capacity fixed before the 2020 window' },
+  { num: '06', slug: 'liferay-enterprise-dxp', text: 'Liferay · Enterprise DXP vendor: eight on-time releases closed the gaps behind churn' },
+  { num: '07', slug: 'thoughtworks-pm-practice', text: 'ThoughtWorks · Global engineering consultancy: a PM practice that grew 80% during headcount cuts' },
 ]
 
 export default function WorkPage() {
@@ -23,7 +23,7 @@ export default function WorkPage() {
             <ul className="hero-tags" role="list">
               <li>Product manager &middot; growth &amp; AI consultant</li>
             </ul>
-            <p className="hero-lede">Each case followed the same pattern: find the hidden business bottleneck, turn it into a product decision, build the operating model to ship it. AI platforms, CMS migrations, subscription systems, enterprise SaaS roadmaps.</p>
+            <p className="hero-lede">Seven engagements: AI platforms, CMS migrations, subscription systems, enterprise SaaS roadmaps. In every one, the real work was finding the business bottleneck nobody had framed as a product decision yet.</p>
           </div>
 
           <nav className="hero-index" aria-label="Case index">

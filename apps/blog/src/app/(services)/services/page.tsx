@@ -51,7 +51,7 @@ const PROCESS = [
   { num: '03', title: 'Hand off', body: 'Docs and runbooks live in your tools. The team owns the cadence after I am gone.' },
 ]
 
-const POV = 'I turn ambiguous, high-stakes briefs into product that ships and moves a number. The proof is in the work, not the pitch.'
+const POV = 'I turn ambiguous, high-stakes briefs into product that ships and moves a number. The proof is in the work.'
 
 const POV_PROOF = [
   { num: '8 AI agents', tag: 'Enterprise AI SaaS', line: 'shipped in 90 days, with 4 enterprise pilots signed the same quarter.' },
@@ -75,7 +75,7 @@ const FAQ: FaqItem[] = [
   { q: 'What happens after an audit?', a: 'You leave with the top blockers, the bets worth making, and a 90-day execution plan. If it’s worth acting on, I can stay embedded to run the reset or hand it to your team. Either way the plan is yours.' },
   { q: 'Can you start this month?', a: 'Audits and advisory, usually yes. Deeper resets, modernization assessments, and migrations depend on the calendar. I keep one deep engagement at a time. Ask and I’ll tell you what’s open.' },
   { q: 'How do you work alongside our existing PM and engineering team?', a: 'As a peer, not a replacement. Your team keeps ownership. I bring outside judgment and the unhurried hours to turn ambiguity into decisions, specs, and cadence. Every deliverable ends with a read-out so the team owns it after I’m gone.' },
-  { q: 'What’s your AI/LLM experience?', a: 'AI in production, not demos. I led product on a multi-agent SaaS platform, shipped live agents, and signed enterprise pilots the same quarter. My focus is the calls that make AI defensible to a buyer, not the prototype that wows a room.' },
+  { q: 'What’s your AI/LLM experience?', a: 'I led product on a multi-agent SaaS platform, shipped live agents into production, and signed enterprise pilots the same quarter. My focus is the calls that make AI defensible to a buyer, not the prototype that wows a room.' },
   { q: 'What’s your modernization experience?', a: 'Platform modernization across engineering consultancies, enterprise SaaS, and high-traffic media. The reference I point to: a multi-site media network consolidated into one flagship, with traffic and domain authority held through cutover.' },
   { q: 'Who is this not a fit for?', a: 'If you need cheap execution, a quick chatbot build, or someone to take Jira tickets by the hour, I’m not your person. I’m best when the decision is ambiguous, the cost of getting it wrong is high, and the team needs senior product judgment close to the work.' },
   { q: 'Do you sign NDAs?', a: 'Yes. Mutual NDA before the scoping call if you want, standard terms or yours. I can also anonymize case studies, references, and project details.' },

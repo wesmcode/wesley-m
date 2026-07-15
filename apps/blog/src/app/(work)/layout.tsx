@@ -10,7 +10,7 @@ import './case.css'
 export const metadata: Metadata = {
   title: 'Case studies: Wesley Melo',
   description:
-    'Seven cases. Each one: find the business bottleneck hiding behind the product problem, turn it into a system, ship it. AI productization, platform retention, CMS modernization, growth systems.',
+    'Seven case studies from Wesley Melo: AI productization, platform retention, CMS modernization, and growth systems, each built around the business bottleneck hiding behind the product problem.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
   icons: { icon: '/favicon.svg' },
   robots: 'noai, noimageai, noarchive, nosnippet',
