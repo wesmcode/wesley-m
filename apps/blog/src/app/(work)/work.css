@@ -15,7 +15,7 @@
 }
 
 .top-bar {
-    background: rgba(43, 56, 86, 0.92);
+    background: var(--bg);
 }
 
 /* Disable scroll-snap on this page — single hero, no need for it. */

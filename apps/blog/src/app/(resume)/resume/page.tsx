@@ -11,7 +11,7 @@ export default function ResumePage() {
         <div className="page">
           <a href={urls.home} className="site-link">{'← wesley-m.com'}</a>
           <a href="/resume/wesley_melo_resume_remote.pdf" download type="application/pdf" className="cta-button download-btn">
-            <span>Download PDF (ES)</span>
+            <span>Download PDF</span>
             <span aria-hidden="true">{'→︎'}</span>
           </a>
 
