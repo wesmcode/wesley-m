@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     'Seven case studies from Wesley Melo: AI productization, platform retention, CMS modernization, and growth systems, each built around the business bottleneck hiding behind the product problem.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
   icons: { icon: '/favicon.svg' },
-  robots: 'noai, noimageai, noarchive, nosnippet',
+  robots: 'noai, noimageai',
   alternates: { canonical: '/work' },
 }
 

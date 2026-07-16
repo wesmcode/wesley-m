@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Small apps, experiments, and tools built for fun. A personal sandbox for ideas that don\'t need a business case.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
   icons: { icon: '/favicon.svg' },
-  robots: 'noai, noimageai, noarchive, nosnippet',
+  robots: 'noai, noimageai',
   alternates: { canonical: '/playground' },
 }
 

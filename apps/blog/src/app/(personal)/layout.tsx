@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   icons: { icon: '/favicon.svg' },
   other: {
-    robots: 'noai, noimageai, noarchive, nosnippet',
+    robots: 'noai, noimageai',
   },
 }
 

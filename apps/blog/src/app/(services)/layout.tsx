@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images: ['https://wesley-m.com/images/wesley-services.jpg'],
   },
   other: {
-    robots: 'noai, noimageai, noarchive, nosnippet',
+    robots: 'noai, noimageai',
   },
 }
 

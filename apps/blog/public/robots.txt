@@ -1,47 +1,54 @@
 # robots.txt for https://wesley-m.com/
-# Block AI/LLM crawlers and user-initiated fetchers.
-# Traditional search engines (Googlebot, Bingbot, etc.) remain allowed.
+# Policy: selective. Search/citation crawlers and user-initiated fetchers are
+# allowed so AI answer engines can read and cite the site. Pure training
+# crawlers stay blocked. Traditional search engines remain allowed.
 
-# Anthropic (Claude) - includes WebFetch via Claude-User
+# --- Allowed: citation / search / user-initiated ---
+
+# OpenAI search index (powers ChatGPT search citations)
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI user-initiated browsing
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic search index and user-initiated fetches
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Perplexity index and user-initiated fetches
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Google Gemini grounding (also covers Vertex AI)
+User-agent: Google-Extended
+Allow: /
+
+# --- Blocked: training / bulk scraping ---
+
+# OpenAI training
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic training
 User-agent: ClaudeBot
 Disallow: /
 
 User-agent: Claude-Web
 Disallow: /
 
-User-agent: Claude-User
-Disallow: /
-
 User-agent: anthropic-ai
-Disallow: /
-
-# OpenAI
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: OAI-SearchBot
-Disallow: /
-
-# Google AI (Gemini / Vertex) - distinct from Googlebot
-User-agent: Google-Extended
 Disallow: /
 
 # Common Crawl (feeds many LLM training sets)
 User-agent: CCBot
-Disallow: /
-
-# Perplexity
-User-agent: PerplexityBot
-Disallow: /
-
-# Meta AI
-User-agent: FacebookBot
-Disallow: /
-
-User-agent: Meta-ExternalAgent
 Disallow: /
 
 # ByteDance
@@ -50,6 +57,17 @@ Disallow: /
 
 # Amazon
 User-agent: Amazonbot
+Disallow: /
+
+# Apple Intelligence training
+User-agent: Applebot-Extended
+Disallow: /
+
+# Meta AI
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
 Disallow: /
 
 # Cohere, Diffbot, Omgili

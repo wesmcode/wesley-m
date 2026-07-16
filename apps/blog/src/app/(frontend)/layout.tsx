@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     'Notes and essays from Wesley Melo on product management, AI/ML, and shipping software.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
   icons: { icon: '/favicon.svg' },
-  robots: 'noai, noimageai, noarchive, nosnippet',
+  robots: 'noai, noimageai',
   alternates: { canonical: '/blog' },
   openGraph: {
     title: 'Direction Challenge — Wesley Melo',
