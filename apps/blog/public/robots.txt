@@ -31,6 +31,31 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+# Meta AI citations
+User-agent: Meta-WebIndexer
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# Amazon Alexa / AI citations (non-training)
+User-agent: Amzn-SearchBot
+Allow: /
+
+User-agent: Amzn-User
+Allow: /
+
+# Mistral Le Chat citations (non-training)
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: MistralAI-Index
+Allow: /
+
+# DuckDuckGo DuckAssist citations (non-training)
+User-agent: DuckAssistBot
+Allow: /
+
 # --- Blocked: training / bulk scraping ---
 
 # OpenAI training
@@ -53,6 +78,13 @@ Disallow: /
 
 # ByteDance
 User-agent: Bytespider
+Disallow: /
+
+# Timpi and Huawei Pangu training scrapers
+User-agent: Timpibot
+Disallow: /
+
+User-agent: PanguBot
 Disallow: /
 
 # Amazon
