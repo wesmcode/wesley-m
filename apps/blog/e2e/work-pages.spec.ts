@@ -49,7 +49,7 @@ test.describe('Case study detail', () => {
   test('related cards and CTA resolve to real links', async ({ page }) => {
     await page.goto(`/work/${slug}`)
     await expect(page.locator('.case-related-card').first()).toBeVisible()
-    const cta = page.locator('.case-cta-btn').first()
+    const cta = page.locator('.cta-button').first()
     const href = await cta.getAttribute('href')
     expect(href).toBeTruthy()
   })

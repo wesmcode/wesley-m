@@ -28,6 +28,7 @@ export const SERVICES_NAV: NavItem[] = [
 export const WORK_NAV: NavItem[] = [
   { href: urls.work, label: 'Case studies' },
   { href: urls.services, label: 'Services' },
+  { href: urls.blog, label: 'Blog' },
   { href: urls.contact, label: 'Contact' },
   { href: urls.linkedin, label: 'LinkedIn' },
 ]

@@ -13,6 +13,7 @@ const LINK_GROUPS: Array<Array<{ href: string; label: string; newTab?: boolean; 
   [
     { href: urls.services, label: 'Services' },
     { href: urls.work, label: 'Case studies' },
+    { href: urls.blog, label: 'Blog' },
   ],
   // Me + reach
   [

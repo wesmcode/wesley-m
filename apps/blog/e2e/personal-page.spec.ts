@@ -22,6 +22,7 @@ test.describe('Personal page (linktree)', () => {
     await expect(nav).toBeVisible()
     await expect(nav.locator('.nav-item', { hasText: 'Services' })).toBeVisible()
     await expect(nav.locator('.nav-item', { hasText: 'Case studies' })).toBeVisible()
+    await expect(nav.locator('.nav-item', { hasText: 'Blog' })).toBeVisible()
     await expect(nav.locator('.nav-item', { hasText: 'Resume' })).toBeVisible()
     await expect(nav.locator('.nav-item', { hasText: 'LinkedIn' })).toBeVisible()
     // Playground and Contact were intentionally removed from the linktree.
