@@ -21,6 +21,10 @@ describe('urls (path mode)', () => {
     expect(urls.workCase('enterprise-ai-platform-launch')).toBe('/work/enterprise-ai-platform-launch')
   })
 
+  it('builds blog-post paths from a slug', () => {
+    expect(urls.blogPost('the-blog-is-back')).toBe('/blog/the-blog-is-back')
+  })
+
   it('keeps LinkedIn as an absolute external URL', () => {
     expect(urls.linkedin).toBe('https://linkedin.com/in/wesmelo')
   })

@@ -287,6 +287,14 @@ relevant agent/skill encodes them.
 
 ## Change log
 
+- 2026-07-17: **Blog split executed.** Direction Challenge extracted to `wesmcode/direction-challenge`
+  (own Vercel project, own Neon DB pending one manual step: accepting Neon marketplace terms; a
+  `blog.dump` of the old schema sits in that repo ready to restore). Finding along the way: production
+  never had DB credentials, so the live `/blog` had been silently 500ing; and the old Neon DB held only
+  1 draft post, not the 15 assumed (the legacy migration ran one trial post). The 15 legacy post HTML
+  files were rescued from git history into `direction-challenge/legacy/blog/`. wesley-m's `/blog` is now
+  the pure-React MDX PM blog (seed article live, Blog restored to SITE_NAV, `sitemap.ts` added, resume
+  excluded from sitemap). Payload removal from wesley-m still deferred.
 - 2026-06-05: Strategy created. Two blogs split: Direction Challenge = Payload ad/affiliate blog, moves to its
   **own repo ASAP**; PM blog = pure React at **`blog.wesley-m.com`**, the authority engine that fans out to LinkedIn.
 - Crawler posture flips to **block-PII-only** so the site can be cited by AI engines.

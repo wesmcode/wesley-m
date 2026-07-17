@@ -1,0 +1,220 @@
+/* BLOG — self-contained. globals.css supplies reset, top-bar, brand and
+   footer; this file owns the (blog) route group's tokens, page shell and
+   article typography. Palette matches the navy content pages (work/home). */
+
+:root {
+    --bg: #2B3856;
+    --fg: #FFFFFF;
+    --fg-hover: rgba(255, 255, 255, 0.78);
+    --fg-quiet: rgba(255, 255, 255, 0.82);
+    --rule-soft: 1px solid rgba(255, 255, 255, 0.18);
+    --rule-medium: 2px solid #FFFFFF;
+}
+
+.top-bar {
+    background: var(--bg);
+}
+
+html {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    scroll-padding-top: 0;
+}
+
+/* PAGE SHELL ------------------------------------------------ */
+.page {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding-inline: max(24px, env(safe-area-inset-left)) max(24px, env(safe-area-inset-right));
+    min-height: calc(100vh - var(--top-bar-h));
+    display: flex;
+    flex-direction: column;
+}
+
+.page > main {
+    flex: 1;
+}
+
+/* INDEX ----------------------------------------------------- */
+.blog-header {
+    padding: 56px 0 32px;
+    border-bottom: var(--rule-medium);
+}
+
+.blog-title {
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 700;
+}
+
+.blog-subtitle {
+    margin-top: 8px;
+    color: var(--fg-quiet);
+}
+
+.post-list {
+    padding: 8px 0 48px;
+}
+
+.post-row {
+    padding: 28px 0;
+    border-bottom: var(--rule-soft);
+}
+
+.post-row-date {
+    font-size: 14px;
+    color: var(--fg-quiet);
+}
+
+.post-row-title {
+    margin-top: 6px;
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: 700;
+}
+
+.post-row-link {
+    color: var(--fg);
+    text-decoration: none;
+}
+
+.post-row-link:hover,
+.post-row-link:focus-visible {
+    color: var(--fg-hover);
+    text-decoration: underline;
+}
+
+.post-row-desc {
+    margin-top: 8px;
+    color: var(--fg-quiet);
+    max-width: 60ch;
+}
+
+/* POST ------------------------------------------------------ */
+.post-header {
+    padding: 56px 0 24px;
+    border-bottom: var(--rule-medium);
+}
+
+.post-title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 700;
+}
+
+.post-meta {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--fg-quiet);
+}
+
+.post-meta .sep {
+    margin: 0 8px;
+}
+
+.prose {
+    padding: 32px 0 64px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.prose h2 {
+    margin: 40px 0 12px;
+    font-size: 26px;
+    line-height: 34px;
+    font-weight: 700;
+}
+
+.prose h3 {
+    margin: 32px 0 10px;
+    font-size: 21px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+.prose p {
+    margin: 0 0 20px;
+}
+
+.prose a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.prose a:hover,
+.prose a:focus-visible {
+    color: var(--fg-hover);
+}
+
+.prose ul,
+.prose ol {
+    margin: 0 0 20px;
+    padding-left: 24px;
+}
+
+.prose ul {
+    list-style: disc;
+}
+
+.prose ol {
+    list-style: decimal;
+}
+
+.prose li {
+    margin-bottom: 8px;
+}
+
+.prose blockquote {
+    margin: 24px 0;
+    padding-left: 20px;
+    border-left: 3px solid rgba(255, 255, 255, 0.4);
+    color: var(--fg-quiet);
+}
+
+.prose code {
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 0.85em;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.prose pre {
+    margin: 0 0 20px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.prose pre code {
+    background: none;
+    padding: 0;
+}
+
+/* FOOTER ---------------------------------------------------- */
+.page-footer {
+    padding: 24px 0;
+    border-top: var(--rule-soft);
+    color: var(--fg-quiet);
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .blog-header,
+    .post-header {
+        padding-top: 36px;
+    }
+
+    .blog-title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .post-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}

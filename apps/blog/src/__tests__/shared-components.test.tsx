@@ -106,6 +106,7 @@ describe('SITE_NAV', () => {
     const labels = SITE_NAV.map((n) => n.label)
     expect(labels).toContain('Case studies')
     expect(labels).toContain('Services')
+    expect(labels).toContain('Blog')
     expect(labels).toContain('Contact')
     expect(labels).toContain('LinkedIn')
   })

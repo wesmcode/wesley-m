@@ -1,8 +1,7 @@
 import { test, expect } from '@playwright/test'
 
-// Pages that render the shared TopBar + Footer chrome. Blog is intentionally
-// excluded here: it is a separate (Payload-backed) concern that needs a DB.
-const CHROME_PAGES = ['/services', '/contact', '/work']
+// Pages that render the shared TopBar + Footer chrome.
+const CHROME_PAGES = ['/services', '/contact', '/work', '/blog']
 
 test.describe('Shared chrome', () => {
   for (const path of CHROME_PAGES) {

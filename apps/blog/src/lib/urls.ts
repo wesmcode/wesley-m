@@ -21,6 +21,8 @@ export const urls = {
   contact: sub('contact', '/contact'),
   resume: sub('resume', '/resume'),
   blog: sub('blog', '/blog'),
+  blogPost: (slug: string) =>
+    useSubdomains ? `https://blog.wesley-m.com/${slug}` : `/blog/${slug}`,
   playground: useSubdomains ? 'https://wesley-m.com/playground' : '/playground',
   linkedin: 'https://linkedin.com/in/wesmelo',
 }

@@ -9,6 +9,7 @@ export const SITE_NAV: NavItem[] = [
   { href: urls.work, label: 'Case studies' },
   { href: urls.services, label: 'Services' },
   { href: urls.playground, label: 'Playground' },
+  { href: urls.blog, label: 'Blog' },
   { href: urls.contact, label: 'Contact' },
   { href: urls.linkedin, label: 'LinkedIn' },
 ]

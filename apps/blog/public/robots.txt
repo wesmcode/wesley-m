@@ -1,4 +1,6 @@
 # robots.txt for https://wesley-m.com/
+Sitemap: https://wesley-m.com/sitemap.xml
+
 # Policy: selective. Search/citation crawlers and user-initiated fetchers are
 # allowed so AI answer engines can read and cite the site. Pure training
 # crawlers stay blocked. Traditional search engines remain allowed.
