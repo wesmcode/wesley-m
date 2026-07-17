@@ -412,8 +412,6 @@ body {
 }
 
 /* Mobile */
-.mobile-only { display: none; }
-
 @media only screen and (max-width: 768px) {
 
     html {
@@ -425,14 +423,32 @@ body {
         line-height: 28px;
     }
 
+    /* Same centered block as desktop: the hero grid centers .inner both
+       axes; only the padding tightens for the narrow viewport. */
     .outer {
-        display: block;
         padding: 32px 24px;
-        min-height: auto;
     }
 
     .inner {
         padding: 0;
+    }
+
+    /* The name is the one element that scales up: display-size, stacked
+       one word per line, same face and color as everything else. */
+    header .row {
+        height: auto;
+    }
+
+    header h1 {
+        font-size: clamp(52px, 15vw, 72px);
+        line-height: 0.95;
+        letter-spacing: -0.01em;
+        font-weight: 400;
+        padding-bottom: 20px;
+    }
+
+    header h1 span {
+        display: block;
     }
 
     .snap-section {
@@ -544,11 +560,12 @@ body {
         font-size: 14px;
     }
 
+    /* Links keep the desktop shape (natural width, plain text); the row
+       still guarantees a 44px touch target. */
     .nav-item {
         font-size: 14px;
         line-height: 28px;
-        width: 100%;
-        display: flex;
+        display: inline-flex;
         min-height: 44px;
         align-items: center;
     }
@@ -557,15 +574,5 @@ body {
         min-height: 44px;
         display: flex;
         align-items: center;
-    }
-
-    .button-label {
-        flex-grow: 1;
-        text-align: left;
-    }
-
-    .mobile-only {
-        display: inline;
-        flex-shrink: 0;
     }
 }

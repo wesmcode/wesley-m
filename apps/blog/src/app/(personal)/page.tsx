@@ -64,9 +64,8 @@ export default function PersonalPage() {
                         className="link nav-item"
                         {...(opensNewTab ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                       >
-                        <span className="button-label">{item.label}</span>
+                        {item.label}
                         {item.newTab ? <span className="sr-only"> (opens in new tab)</span> : null}
-                        <span className="mobile-only" aria-hidden="true">[{'→︎'}]</span>
                       </a>
                     </div>
                   )

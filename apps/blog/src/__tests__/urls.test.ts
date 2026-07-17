@@ -14,7 +14,6 @@ describe('urls (path mode)', () => {
     expect(urls.contact).toBe('/contact')
     expect(urls.resume).toBe('/resume')
     expect(urls.blog).toBe('/blog')
-    expect(urls.playground).toBe('/playground')
   })
 
   it('builds case-study paths from a slug', () => {

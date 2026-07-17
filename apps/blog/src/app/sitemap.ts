@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: abs(urls.home) },
     { url: abs(urls.services) },
     { url: abs(urls.contact) },
-    { url: abs(urls.playground) },
     { url: abs(urls.work) },
     ...Object.keys(CASES).map((slug) => ({ url: abs(urls.workCase(slug)) })),
     { url: abs(urls.blog) },

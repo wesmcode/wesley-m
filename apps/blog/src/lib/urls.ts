@@ -23,6 +23,5 @@ export const urls = {
   blog: sub('blog', '/blog'),
   blogPost: (slug: string) =>
     useSubdomains ? `https://blog.wesley-m.com/${slug}` : `/blog/${slug}`,
-  playground: useSubdomains ? 'https://www.wesley-m.com/playground' : '/playground',
   linkedin: 'https://linkedin.com/in/wesmelo',
 }

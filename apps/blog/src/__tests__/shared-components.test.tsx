@@ -157,7 +157,7 @@ describe('TopBar', () => {
     render(<TopBar />)
     expect(screen.getByText('Case studies')).toBeTruthy()
     expect(screen.getByText('Services')).toBeTruthy()
-    expect(screen.getByText('Playground')).toBeTruthy()
+    expect(screen.getByText('Blog')).toBeTruthy()
     expect(screen.getByText('Contact')).toBeTruthy()
     expect(screen.getByText('LinkedIn')).toBeTruthy()
   })
