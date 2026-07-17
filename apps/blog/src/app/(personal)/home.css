@@ -431,20 +431,36 @@ body {
 
     .inner {
         padding: 0;
+        width: 100%;
     }
 
-    /* The name is the one element that scales up: display-size, stacked
-       one word per line, same face and color as everything else. */
+    /* Masthead: the eyebrow reads first, then the name fills the full
+       content width, one word per line, same face and color as the rest. */
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
     header .row {
         height: auto;
     }
 
+    header .row:first-child {
+        order: 2;
+    }
+
+    header p {
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        padding-left: 0;
+    }
+
     header h1 {
-        font-size: clamp(52px, 15vw, 72px);
-        line-height: 0.95;
-        letter-spacing: -0.01em;
+        font-size: clamp(60px, 21.5vw, 108px);
+        line-height: 0.92;
+        letter-spacing: -0.015em;
         font-weight: 400;
-        padding-bottom: 20px;
+        padding: 8px 0 24px;
     }
 
     header h1 span {
