@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 
 import { SkipLink, ActiveTopBar, Footer } from '@/components/shared'
 import { WORK_NAV } from '@/lib/navigation'
+import { urls } from '@/lib/urls'
 import '@/styles/globals.css'
 import './work.css'
 import './case.css'
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
   icons: { icon: '/favicon.svg' },
   robots: 'noai, noimageai',
-  alternates: { canonical: '/work' },
+  alternates: { canonical: urls.work },
 }
 
 export default function WorkLayout({ children }: { children: ReactNode }) {

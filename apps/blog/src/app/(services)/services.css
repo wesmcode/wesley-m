@@ -541,6 +541,15 @@ body {
     display: none;
 }
 
+/* Questions are h3 for crawler heading extraction; render exactly like the
+   plain summary text they replaced. */
+.faq-question {
+    font: inherit;
+    letter-spacing: inherit;
+    margin: 0;
+    font-weight: inherit;
+}
+
 .faq-item > summary:hover {
     color: var(--fg-hover);
 }

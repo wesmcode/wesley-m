@@ -13,14 +13,22 @@ export async function generateStaticParams() {
   return Object.keys(CASES).map((slug) => ({ slug }))
 }
 
+const stripHtml = (s: string) => s.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+
 export async function generateMetadata({ params }: RouteParams): Promise<Metadata> {
   const { slug } = await params
   const cs = CASES[slug]
   if (!cs) return { title: 'Not found' }
   return {
-    title: `${cs.title} | Wesley Melo`,
+    title: `${stripHtml(cs.title)} | Wesley Melo`,
     description: cs.metaDescription,
-    alternates: { canonical: `/work/${slug}` },
+    alternates: { canonical: urls.workCase(slug) },
+    openGraph: {
+      title: stripHtml(cs.title),
+      description: cs.metaDescription,
+      type: 'article',
+      url: urls.workCase(slug),
+    },
   }
 }
 
@@ -31,6 +39,31 @@ export default async function CaseStudyPage({ params }: RouteParams) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: stripHtml(cs.title),
+            description: cs.metaDescription,
+            url: urls.workCase(slug),
+            keywords: cs.tags.map(stripHtml),
+            author: {
+              '@type': 'Person',
+              name: 'Wesley Melo',
+              jobTitle: 'Fractional Product Manager',
+              url: urls.home,
+              sameAs: [urls.linkedin],
+            },
+            publisher: {
+              '@type': 'Person',
+              name: 'Wesley Melo',
+              url: urls.home,
+            },
+          }),
+        }}
+      />
       <main id="main-content">
       <section className="case-hero" aria-label="Case study header">
         <div className="case-hero-inner">

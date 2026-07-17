@@ -7,7 +7,7 @@ const nextConfig = {
     // Exclude Next.js internals and static assets from subdomain rewrites so
     // /_next/* and /api/* resolve at the domain root instead of being prefixed
     // with the subdomain's path (which would 404 every CSS/JS chunk).
-    const passthrough = '/:path((?!_next/|api/|favicon|images/|css/|js/|resume/).*)'
+    const passthrough = '/:path((?!_next/|api/|favicon|images/|css/|js/|resume/|robots\\.txt|sitemap\\.xml).*)'
     return {
       beforeFiles: [
         { source: passthrough, has: [{ type: 'host', value: 'services.wesley-m.com' }], destination: '/services/:path' },

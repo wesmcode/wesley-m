@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 
 import { SkipLink, ActiveTopBar, Footer } from '@/components/shared'
 import { SERVICES_NAV } from '@/lib/navigation'
+import { urls } from '@/lib/urls'
 import '@/styles/globals.css'
 import './playground.css'
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
   icons: { icon: '/favicon.svg' },
   robots: 'noai, noimageai',
-  alternates: { canonical: '/playground' },
+  alternates: { canonical: urls.playground },
 }
 
 export default function PlaygroundLayout({ children }: { children: ReactNode }) {

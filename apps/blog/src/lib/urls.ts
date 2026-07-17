@@ -13,7 +13,7 @@ const sub = (name: string, path: string) =>
   useSubdomains ? `https://${name}.wesley-m.com` : path
 
 export const urls = {
-  home: useSubdomains ? 'https://wesley-m.com' : '/',
+  home: useSubdomains ? 'https://www.wesley-m.com' : '/',
   work: sub('work', '/work'),
   workCase: (slug: string) =>
     useSubdomains ? `https://work.wesley-m.com/${slug}` : `/work/${slug}`,
@@ -23,6 +23,6 @@ export const urls = {
   blog: sub('blog', '/blog'),
   blogPost: (slug: string) =>
     useSubdomains ? `https://blog.wesley-m.com/${slug}` : `/blog/${slug}`,
-  playground: useSubdomains ? 'https://wesley-m.com/playground' : '/playground',
+  playground: useSubdomains ? 'https://www.wesley-m.com/playground' : '/playground',
   linkedin: 'https://linkedin.com/in/wesmelo',
 }

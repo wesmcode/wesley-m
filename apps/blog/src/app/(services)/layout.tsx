@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 
 import { SkipLink, ActiveTopBar, Footer } from '@/components/shared'
 import { SERVICES_NAV } from '@/lib/navigation'
+import { urls } from '@/lib/urls'
 import '@/styles/globals.css'
 import './services.css'
 import './contact.css'
@@ -14,21 +15,21 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'),
   icons: { icon: '/favicon.svg' },
   robots: { index: true, follow: true },
-  alternates: { canonical: '/services' },
+  alternates: { canonical: urls.services },
   openGraph: {
     title: 'Services: Wesley Melo',
     description:
       'Product, AI, and platform bottlenecks cost quarters. Find the expensive problem, shape the plan, stay embedded until the work ships.',
     type: 'website',
-    url: 'https://wesley-m.com/services',
-    images: [{ url: 'https://wesley-m.com/images/wesley-services.jpg', alt: 'Portrait of Wesley Melo' }],
+    url: urls.services,
+    images: [{ url: 'https://www.wesley-m.com/images/wesley-services.jpg', alt: 'Portrait of Wesley Melo' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Services: Wesley Melo',
     description:
       'Product, AI, and platform bottlenecks cost quarters. Find the expensive problem, shape the plan, stay embedded until the work ships.',
-    images: ['https://wesley-m.com/images/wesley-services.jpg'],
+    images: ['https://www.wesley-m.com/images/wesley-services.jpg'],
   },
   other: {
     robots: 'noai, noimageai',
@@ -46,14 +47,14 @@ export default function ServicesLayout({ children }: { children: ReactNode }) {
               '@context': 'https://schema.org',
               '@type': 'ProfessionalService',
               name: 'Wesley Melo, Fractional PM & Growth/AI Consultant',
-              url: 'https://wesley-m.com/services',
-              image: 'https://wesley-m.com/images/wesley-services.jpg',
+              url: urls.services,
+              image: 'https://www.wesley-m.com/images/wesley-services.jpg',
               provider: {
                 '@type': 'Person',
                 name: 'Wesley Melo',
-                url: 'https://wesley-m.com',
+                url: urls.home,
                 jobTitle: 'Fractional Product Manager',
-                sameAs: ['https://linkedin.com/in/wesmelo'],
+                sameAs: [urls.linkedin],
               },
               areaServed: 'Worldwide (remote)',
               serviceType: [

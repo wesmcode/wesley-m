@@ -5,7 +5,13 @@ import { urls } from '@/lib/urls'
 export const metadata: Metadata = {
   title: 'Contact: Wesley Melo',
   description: 'Get in touch with Wesley Melo. Tell me about your product, AI, or platform challenge. I reply within 24 hours.',
-  alternates: { canonical: '/contact' },
+  alternates: { canonical: urls.contact },
+  openGraph: {
+    title: 'Contact: Wesley Melo',
+    description: 'Tell me about your product, AI, or platform challenge. I reply within 24 hours.',
+    type: 'website',
+    url: urls.contact,
+  },
 }
 
 export default function ContactPage() {

@@ -7,7 +7,7 @@ import { urls } from '@/lib/urls'
 // urls.* return relative paths outside subdomain mode; sitemap entries must
 // be absolute. The resume stays out on purpose: it holds personal data.
 const abs = (u: string): string =>
-  u.startsWith('http') ? u : `https://wesley-m.com${u === '/' ? '' : u}`
+  u.startsWith('http') ? u : `https://www.wesley-m.com${u === '/' ? '' : u}`
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

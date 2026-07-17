@@ -248,7 +248,7 @@ function FaqSection() {
       <div className="faq-list">
         {FAQ.map((f) => (
           <details className="faq-item" key={f.q}>
-            <summary><span>{f.q}</span><span className="faq-icon" aria-hidden="true" /></summary>
+            <summary><h3 className="faq-question">{f.q}</h3><span className="faq-icon" aria-hidden="true" /></summary>
             <div className="faq-answer">
               {f.tiers ? (
                 <ul className="faq-prices" role="list">
