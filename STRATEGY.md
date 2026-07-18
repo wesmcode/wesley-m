@@ -149,6 +149,12 @@ Done when: `/hunt` returns scored prospects to the store, `/teardown` produces a
 
 Goal: turn tech news + Wesley's POV into a durable PM-blog article and 3-4 adapted LinkedIn posts, 2x/week.
 
+> 2026-07-18: the LinkedIn half shipped its v1. `linkedin/` holds the voice/audience/news context files
+> and the posts log; `/linkedin-post` drafts from news or case studies and `/cross-post <slug>` fans an
+> article out, both gated on explicit approval before anything touches LinkedIn. Cadence and funnel live
+> in `ideas/linkedin-growth-playbook.md`. Still open here: the article pipeline pointing at MDX, carousel
+> image generation, and browser-session posting (needs the one-time LinkedIn login).
+
 - **PM article pipeline (pure-React target).** Reuse the *markdown-producing* agents (`blog-planner` →
   `blog-researcher` → `blog-drafter` → `blog-critic`) but point the output at MDX files in the PM blog, not
   Payload. The Payload-specific `blog-formatter`/`blog-publisher` move with the Direction Challenge project; the
@@ -216,10 +222,13 @@ many non-LLM integrations and want a visual canvas, hosted always-on, never on t
 
 ## Cross-cutting deliverable: the LinkedIn growth playbook
 
-Before Phase 2 builds the engine, run a `deep-research` pass on B2B LinkedIn growth for solo consultants in
-2026 (cadence, hook formats, carousel vs text, comment strategy, Featured section, profile-as-landing-page,
-DM-to-call conversion) and distill a one-page playbook the content engine encodes. A research task using
-existing tools, not a build.
+**Delivered 2026-07-18.** Wesley supplied the research input (37 YouTube transcripts, `more/learn.txt`);
+the distilled study lives in `ideas/linkedin-growth-learnings.md` and the operational playbook in
+`ideas/linkedin-growth-playbook.md`. The content engine encodes the playbook via `linkedin/voice.md`,
+`linkedin/audience.md`, `linkedin/news-sources.md`, and the `/linkedin-post` + `/cross-post` commands.
+Decisions inside: posting-first (no commenting, human or AI), American English for US/EU buyers,
+30 min/day, per-post approval gate, positioning as fractional product leadership (strategy + discovery,
+never "fractional PO", per the Cagan analysis in the learnings doc).
 
 ## Critical files / where work lands
 
@@ -287,6 +296,17 @@ relevant agent/skill encodes them.
 
 ## Change log
 
+- 2026-07-18: **LinkedIn playbook delivered, content engine v1 built.** The 37-transcript study
+  (`more/learn.txt`) distilled into `ideas/linkedin-growth-learnings.md` + `ideas/linkedin-growth-playbook.md`.
+  Account diagnosed from analytics exports: 6,485 followers, dormant (34 impressions/90 days, last post
+  July 2025), SSI 43, audience 21% decision-makers but BR-heavy. Decisions: posting-first (no commenting,
+  human or AI), American English for US/EU buyers, 30 min/day, Claude manages the account with per-post
+  approval (Wesley handles recruiter messages/DMs), positioning is fractional product leadership
+  (strategy + discovery, never "fractional PO", per Cagan). No courses ever; newsletter/articles are the
+  leveraged-income candidates (`ideas/2026-07-18-leveraged-income-path.md`). New idea logged:
+  job-boards sourcing engine (`ideas/2026-07-18-job-boards-engine.md`). Built: `linkedin/` context files,
+  `/linkedin-post`, `/cross-post`. Pending: one-time LinkedIn login in the Playwright session, profile
+  overhaul application, first post.
 - 2026-07-17: **Blog split executed.** Direction Challenge extracted to `wesmcode/direction-challenge`
   (own Vercel project, own Neon DB pending one manual step: accepting Neon marketplace terms; a
   `blog.dump` of the old schema sits in that repo ready to restore). Finding along the way: production

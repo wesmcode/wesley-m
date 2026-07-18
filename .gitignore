@@ -24,6 +24,11 @@ ideation/
 docs/
 ideas/
 audits/
+more/
+linkedin/
+
+# Playwright MCP browser profile. Holds logged-in sessions. Never pushed.
+.playwright-mcp/
 
 # Internal planning docs. Never pushed.
 portfolio-cases.md
